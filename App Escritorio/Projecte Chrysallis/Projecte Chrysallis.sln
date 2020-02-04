@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29709.97
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Projecte Chrysallis", "Projecte Chrysallis.csproj", "{8AE9E85D-73F1-41F5-BF06-B2B61702D44E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8AE9E85D-73F1-41F5-BF06-B2B61702D44E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8AE9E85D-73F1-41F5-BF06-B2B61702D44E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8AE9E85D-73F1-41F5-BF06-B2B61702D44E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8AE9E85D-73F1-41F5-BF06-B2B61702D44E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5AB61FAF-23F7-4E14-80B0-BE58DDB8310F}
+	EndGlobalSection
+EndGlobal

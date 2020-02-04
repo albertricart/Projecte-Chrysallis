@@ -1,0 +1,23 @@
+D:\ABP\Projecte Chrysallis\bin\Debug\Projecte Chrysallis.exe.config
+D:\ABP\Projecte Chrysallis\bin\Debug\Projecte Chrysallis.exe
+D:\ABP\Projecte Chrysallis\bin\Debug\Projecte Chrysallis.pdb
+D:\ABP\Projecte Chrysallis\obj\Debug\Projecte Chrysallis.csprojAssemblyReference.cache
+D:\ABP\Projecte Chrysallis\obj\Debug\Projecte_Chrysallis.Properties.Resources.resources
+D:\ABP\Projecte Chrysallis\obj\Debug\Projecte Chrysallis.csproj.GenerateResource.cache
+D:\ABP\Projecte Chrysallis\obj\Debug\Projecte Chrysallis.exe
+D:\ABP\Projecte Chrysallis\obj\Debug\Projecte Chrysallis.pdb
+D:\ABP\Projecte Chrysallis\obj\Debug\Projecte_Chrysallis.FormMenu.resources
+D:\ABP\Projecte Chrysallis\obj\Debug\Projecte_Chrysallis.FormEvento.resources
+D:\ABP\Projecte Chrysallis\obj\Debug\Projecte_Chrysallis.FormCrearEvento.resources
+E:\ABP\Projecte Chrysallis\bin\Debug\Projecte Chrysallis.exe.config
+E:\ABP\Projecte Chrysallis\bin\Debug\Projecte Chrysallis.exe
+E:\ABP\Projecte Chrysallis\bin\Debug\Projecte Chrysallis.pdb
+E:\ABP\Projecte Chrysallis\obj\Debug\Projecte Chrysallis.csprojAssemblyReference.cache
+E:\ABP\Projecte Chrysallis\obj\Debug\Projecte_Chrysallis.FormCrearEvento.resources
+E:\ABP\Projecte Chrysallis\obj\Debug\Projecte_Chrysallis.FormEvento.resources
+E:\ABP\Projecte Chrysallis\obj\Debug\Projecte_Chrysallis.FormMenu.resources
+E:\ABP\Projecte Chrysallis\obj\Debug\Projecte_Chrysallis.Properties.Resources.resources
+E:\ABP\Projecte Chrysallis\obj\Debug\Projecte Chrysallis.csproj.GenerateResource.cache
+E:\ABP\Projecte Chrysallis\obj\Debug\Projecte Chrysallis.csproj.CoreCompileInputs.cache
+E:\ABP\Projecte Chrysallis\obj\Debug\Projecte Chrysallis.exe
+E:\ABP\Projecte Chrysallis\obj\Debug\Projecte Chrysallis.pdb
