@@ -110,10 +110,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.Black;
             this.BackgroundImage = global::Projecte_Chrysallis.Properties.Resources.Main;
-            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.ClientSize = new System.Drawing.Size(434, 668);
+            this.ClientSize = new System.Drawing.Size(432, 660);
             this.Controls.Add(this.pictureBoxContacto);
             this.Controls.Add(this.pictureBoxGestionarAdmins);
             this.Controls.Add(this.pictureBoxGestionarSocios);
@@ -121,7 +121,7 @@
             this.Controls.Add(this.pictureBoxMinimizar);
             this.Controls.Add(this.pictureBoxSalir);
             this.DoubleBuffered = true;
-            this.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.ForeColor = System.Drawing.Color.Transparent;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormMenu";

@@ -51,8 +51,8 @@ namespace Projecte_Chrysallis
 
         private void pictureBoxGestionarEventos_Click(object sender, EventArgs e)
         {
-            FormEvento formEvento = new FormEvento();
-            formEvento.Show();
+            FormEventos formEventos = new FormEventos();
+            formEventos.ShowDialog();
         }
     }
 }
