@@ -54,5 +54,11 @@ namespace Projecte_Chrysallis
             FormEventos formEventos = new FormEventos();
             formEventos.ShowDialog();
         }
+
+        private void pictureBoxGestionarSocios_Click(object sender, EventArgs e)
+        {
+            FormSocios formSocios = new FormSocios();
+            formSocios.ShowDialog();
+        }
     }
 }

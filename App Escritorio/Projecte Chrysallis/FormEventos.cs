@@ -43,7 +43,34 @@ namespace Projecte_Chrysallis
             evento.ubicacion = "Plaza Urquiaona 10";
             evento2.titulo = "tessst 2";
 
+            eventos.Add(evento);
+            eventos.Add(evento2);
             dataGridViewEventos.DataSource = eventos;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridViewEventos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

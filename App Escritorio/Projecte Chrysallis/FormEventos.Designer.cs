@@ -39,6 +39,11 @@
             this.ubicacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.asistentes = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.buttonAtras = new System.Windows.Forms.Button();
+            this.buttonAnadir = new System.Windows.Forms.Button();
+            this.buttonModificar = new System.Windows.Forms.Button();
+            this.buttonEliminar = new System.Windows.Forms.Button();
+            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.documentos = new System.Windows.Forms.DataGridViewImageColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEventos)).BeginInit();
             this.SuspendLayout();
@@ -76,7 +81,7 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridViewEventos.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridViewEventos.EnableHeadersVisualStyles = false;
-            this.dataGridViewEventos.Location = new System.Drawing.Point(61, 62);
+            this.dataGridViewEventos.Location = new System.Drawing.Point(100, 108);
             this.dataGridViewEventos.MultiSelect = false;
             this.dataGridViewEventos.Name = "dataGridViewEventos";
             this.dataGridViewEventos.ReadOnly = true;
@@ -96,6 +101,7 @@
             this.dataGridViewEventos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewEventos.Size = new System.Drawing.Size(1122, 485);
             this.dataGridViewEventos.TabIndex = 0;
+            this.dataGridViewEventos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewEventos_CellContentClick);
             // 
             // evento
             // 
@@ -139,12 +145,64 @@
             this.asistentes.Name = "asistentes";
             this.asistentes.ReadOnly = true;
             // 
+            // buttonAtras
+            // 
+            this.buttonAtras.Location = new System.Drawing.Point(12, 12);
+            this.buttonAtras.Name = "buttonAtras";
+            this.buttonAtras.Size = new System.Drawing.Size(64, 25);
+            this.buttonAtras.TabIndex = 1;
+            this.buttonAtras.Text = "Atrás";
+            this.buttonAtras.UseVisualStyleBackColor = true;
+            this.buttonAtras.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // buttonAnadir
+            // 
+            this.buttonAnadir.Location = new System.Drawing.Point(100, 46);
+            this.buttonAnadir.Name = "buttonAnadir";
+            this.buttonAnadir.Size = new System.Drawing.Size(130, 42);
+            this.buttonAnadir.TabIndex = 2;
+            this.buttonAnadir.Text = "Añadir";
+            this.buttonAnadir.UseVisualStyleBackColor = true;
+            this.buttonAnadir.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // buttonModificar
+            // 
+            this.buttonModificar.Location = new System.Drawing.Point(272, 46);
+            this.buttonModificar.Name = "buttonModificar";
+            this.buttonModificar.Size = new System.Drawing.Size(130, 42);
+            this.buttonModificar.TabIndex = 3;
+            this.buttonModificar.Text = "Modificar";
+            this.buttonModificar.UseVisualStyleBackColor = true;
+            this.buttonModificar.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // buttonEliminar
+            // 
+            this.buttonEliminar.Location = new System.Drawing.Point(451, 46);
+            this.buttonEliminar.Name = "buttonEliminar";
+            this.buttonEliminar.Size = new System.Drawing.Size(130, 42);
+            this.buttonEliminar.TabIndex = 4;
+            this.buttonEliminar.Text = "Eliminar";
+            this.buttonEliminar.UseVisualStyleBackColor = true;
+            this.buttonEliminar.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // dataGridViewImageColumn1
+            // 
+            this.dataGridViewImageColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewImageColumn1.DataPropertyName = "documentos";
+            this.dataGridViewImageColumn1.HeaderText = "Documentos";
+            this.dataGridViewImageColumn1.Image = global::Projecte_Chrysallis.Properties.Resources.add;
+            this.dataGridViewImageColumn1.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
+            this.dataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewImageColumn1.ToolTipText = "Añadir";
+            // 
             // documentos
             // 
             this.documentos.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.documentos.DataPropertyName = "documentos";
             this.documentos.HeaderText = "Documentos";
             this.documentos.Image = global::Projecte_Chrysallis.Properties.Resources.add;
+            this.documentos.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
             this.documentos.Name = "documentos";
             this.documentos.ReadOnly = true;
             this.documentos.Resizable = System.Windows.Forms.DataGridViewTriState.True;
@@ -155,7 +213,11 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.ClientSize = new System.Drawing.Size(1219, 623);
+            this.ClientSize = new System.Drawing.Size(1244, 623);
+            this.Controls.Add(this.buttonEliminar);
+            this.Controls.Add(this.buttonModificar);
+            this.Controls.Add(this.buttonAnadir);
+            this.Controls.Add(this.buttonAtras);
             this.Controls.Add(this.dataGridViewEventos);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormEventos";
@@ -175,5 +237,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn descripcion;
         private System.Windows.Forms.DataGridViewTextBoxColumn asistentes;
         private System.Windows.Forms.DataGridViewImageColumn documentos;
+        private System.Windows.Forms.Button buttonAtras;
+        private System.Windows.Forms.Button buttonAnadir;
+        private System.Windows.Forms.Button buttonModificar;
+        private System.Windows.Forms.Button buttonEliminar;
+        private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
     }
 }
