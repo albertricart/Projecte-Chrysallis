@@ -47,17 +47,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Evento.cs" />
     <Compile Include="FormCrearEvento.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormCrearEvento.Designer.cs">
       <DependentUpon>FormCrearEvento.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormEvento.cs">
+    <Compile Include="FormEventos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormEvento.Designer.cs">
-      <DependentUpon>FormEvento.cs</DependentUpon>
+    <Compile Include="FormEventos.Designer.cs">
+      <DependentUpon>FormEventos.cs</DependentUpon>
     </Compile>
     <Compile Include="FormMenu.cs">
       <SubType>Form</SubType>
@@ -70,8 +71,8 @@
     <EmbeddedResource Include="FormCrearEvento.resx">
       <DependentUpon>FormCrearEvento.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormEvento.resx">
-      <DependentUpon>FormEvento.cs</DependentUpon>
+    <EmbeddedResource Include="FormEventos.resx">
+      <DependentUpon>FormEventos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormMenu.resx">
       <DependentUpon>FormMenu.cs</DependentUpon>
@@ -107,6 +108,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Crear Evento.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
