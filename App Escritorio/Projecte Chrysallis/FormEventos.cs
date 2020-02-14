@@ -43,8 +43,6 @@ namespace Projecte_Chrysallis
             evento.ubicacion = "Plaza Urquiaona 10";
             evento2.titulo = "tessst 2";
 
-            dataGridView1.AutoGenerateColumns = true;
-            dataGridView1.DataSource = eventos;
             dataGridViewEventos.DataSource = eventos;
         }
     }
