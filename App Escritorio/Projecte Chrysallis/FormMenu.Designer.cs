@@ -85,6 +85,7 @@
             this.pictureBoxGestionarSocios.Size = new System.Drawing.Size(338, 51);
             this.pictureBoxGestionarSocios.TabIndex = 3;
             this.pictureBoxGestionarSocios.TabStop = false;
+            this.pictureBoxGestionarSocios.Click += new System.EventHandler(this.pictureBoxGestionarSocios_Click);
             // 
             // pictureBoxGestionarAdmins
             // 

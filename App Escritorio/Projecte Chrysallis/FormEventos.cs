@@ -1,5 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Projecte_Chrysallis
@@ -30,19 +36,41 @@ namespace Projecte_Chrysallis
             List<Evento> eventos = new List<Evento>();
             Evento evento = new Evento();
             Evento evento2 = new Evento();
-            eventos.Add(evento);
-            eventos.Add(evento2);
+            dataGridViewEventos.AutoGenerateColumns = false;
             evento.titulo = "test";
+            evento.fecha = DateTime.Parse("18/03/2020");
             evento.descripcion = "esta es la descripcion del evento";
             evento.ubicacion = "Plaza Urquiaona 10";
             evento2.titulo = "tessst 2";
-            dataGridViewEventos.AutoGenerateColumns = false;
+
+            eventos.Add(evento);
+            eventos.Add(evento2);
             dataGridViewEventos.DataSource = eventos;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            this.Close();
+
+        }
+
+        private void dataGridViewEventos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

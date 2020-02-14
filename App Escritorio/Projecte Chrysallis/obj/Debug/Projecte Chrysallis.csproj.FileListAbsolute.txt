@@ -21,16 +21,33 @@ C:\Users\cep.CEPNET0\Downloads\Projecte Chrysallis\obj\Debug\Projecte Chrysallis
 C:\Users\cep.CEPNET0\Downloads\Projecte Chrysallis\obj\Debug\Projecte Chrysallis.csproj.CoreCompileInputs.cache
 C:\Users\cep.CEPNET0\Downloads\Projecte Chrysallis\obj\Debug\Projecte Chrysallis.exe
 C:\Users\cep.CEPNET0\Downloads\Projecte Chrysallis\obj\Debug\Projecte Chrysallis.pdb
-C:\Users\cep.CEPNET0\Documents\GitHub\Projecte-Chrysallis\App Escritorio\Projecte Chrysallis\obj\Debug\Projecte Chrysallis.csprojAssemblyReference.cache
-C:\Users\cep.CEPNET0\Documents\GitHub\Projecte-Chrysallis\App Escritorio\Projecte Chrysallis\obj\Debug\Projecte_Chrysallis.FormCrearEvento.resources
-C:\Users\cep.CEPNET0\Documents\GitHub\Projecte-Chrysallis\App Escritorio\Projecte Chrysallis\obj\Debug\Projecte_Chrysallis.FormEventos.resources
-C:\Users\cep.CEPNET0\Documents\GitHub\Projecte-Chrysallis\App Escritorio\Projecte Chrysallis\obj\Debug\Projecte_Chrysallis.FormMenu.resources
-C:\Users\cep.CEPNET0\Documents\GitHub\Projecte-Chrysallis\App Escritorio\Projecte Chrysallis\obj\Debug\Projecte_Chrysallis.Properties.Resources.resources
-C:\Users\cep.CEPNET0\Documents\GitHub\Projecte-Chrysallis\App Escritorio\Projecte Chrysallis\obj\Debug\Projecte Chrysallis.csproj.GenerateResource.cache
-C:\Users\cep.CEPNET0\Documents\GitHub\Projecte-Chrysallis\App Escritorio\Projecte Chrysallis\obj\Debug\Projecte Chrysallis.csproj.CoreCompileInputs.cache
-C:\Users\cep.CEPNET0\Documents\GitHub\Projecte-Chrysallis\App Escritorio\Projecte Chrysallis\obj\Debug\Projecte Chrysallis.exe
-C:\Users\cep.CEPNET0\Documents\GitHub\Projecte-Chrysallis\App Escritorio\Projecte Chrysallis\obj\Debug\Projecte Chrysallis.pdb
-C:\Users\cep.CEPNET0\Documents\GitHub\Projecte-Chrysallis\App Escritorio\Projecte Chrysallis\bin\Debug\Projecte Chrysallis.exe.config
-C:\Users\cep.CEPNET0\Documents\GitHub\Projecte-Chrysallis\App Escritorio\Projecte Chrysallis\bin\Debug\Projecte Chrysallis.exe
-C:\Users\cep.CEPNET0\Documents\GitHub\Projecte-Chrysallis\App Escritorio\Projecte Chrysallis\bin\Debug\Projecte Chrysallis.pdb
-C:\Users\cep.CEPNET0\Documents\GitHub\Projecte-Chrysallis\App Escritorio\Projecte Chrysallis\obj\Debug\Projecte_Chrysallis.FormSocios.resources
+C:\Users\jribg\Source\Repos\Projecte-Chrysallis\App Escritorio\Projecte Chrysallis\obj\Debug\Projecte Chrysallis.csprojAssemblyReference.cache
+C:\Users\jribg\Source\Repos\Projecte-Chrysallis\App Escritorio\Projecte Chrysallis\obj\Debug\Projecte_Chrysallis.FormCrearEvento.resources
+C:\Users\jribg\Source\Repos\Projecte-Chrysallis\App Escritorio\Projecte Chrysallis\obj\Debug\Projecte_Chrysallis.FormEventos.resources
+C:\Users\jribg\Source\Repos\Projecte-Chrysallis\App Escritorio\Projecte Chrysallis\obj\Debug\Projecte_Chrysallis.FormMenu.resources
+C:\Users\jribg\Source\Repos\Projecte-Chrysallis\App Escritorio\Projecte Chrysallis\obj\Debug\Projecte_Chrysallis.Properties.Resources.resources
+C:\Users\jribg\Source\Repos\Projecte-Chrysallis\App Escritorio\Projecte Chrysallis\obj\Debug\Projecte Chrysallis.csproj.GenerateResource.cache
+C:\Users\jribg\Source\Repos\Projecte-Chrysallis\App Escritorio\Projecte Chrysallis\obj\Debug\Projecte Chrysallis.csproj.CoreCompileInputs.cache
+C:\Users\jribg\Source\Repos\Projecte-Chrysallis\App Escritorio\Projecte Chrysallis\obj\Debug\Projecte Chrysallis.exe
+C:\Users\jribg\Source\Repos\Projecte-Chrysallis\App Escritorio\Projecte Chrysallis\obj\Debug\Projecte Chrysallis.pdb
+C:\Users\jribg\Source\Repos\Projecte-Chrysallis\App Escritorio\Projecte Chrysallis\bin\Debug\Projecte Chrysallis.exe.config
+C:\Users\jribg\Source\Repos\Projecte-Chrysallis\App Escritorio\Projecte Chrysallis\bin\Debug\Projecte Chrysallis.exe
+C:\Users\jribg\Source\Repos\Projecte-Chrysallis\App Escritorio\Projecte Chrysallis\bin\Debug\Projecte Chrysallis.pdb
+D:\Projecte-Chrysallis-master\App Escritorio\Projecte Chrysallis\bin\Debug\Projecte Chrysallis.exe.config
+D:\Projecte-Chrysallis-master\App Escritorio\Projecte Chrysallis\bin\Debug\Projecte Chrysallis.exe
+D:\Projecte-Chrysallis-master\App Escritorio\Projecte Chrysallis\bin\Debug\Projecte Chrysallis.pdb
+D:\Projecte-Chrysallis-master\App Escritorio\Projecte Chrysallis\bin\Debug\EntityFramework.dll
+D:\Projecte-Chrysallis-master\App Escritorio\Projecte Chrysallis\bin\Debug\EntityFramework.SqlServer.dll
+D:\Projecte-Chrysallis-master\App Escritorio\Projecte Chrysallis\bin\Debug\EntityFramework.xml
+D:\Projecte-Chrysallis-master\App Escritorio\Projecte Chrysallis\bin\Debug\EntityFramework.SqlServer.xml
+D:\Projecte-Chrysallis-master\App Escritorio\Projecte Chrysallis\obj\Debug\Projecte Chrysallis.csprojAssemblyReference.cache
+D:\Projecte-Chrysallis-master\App Escritorio\Projecte Chrysallis\obj\Debug\Projecte_Chrysallis.FormCrearEvento.resources
+D:\Projecte-Chrysallis-master\App Escritorio\Projecte Chrysallis\obj\Debug\Projecte_Chrysallis.FormEventos.resources
+D:\Projecte-Chrysallis-master\App Escritorio\Projecte Chrysallis\obj\Debug\Projecte_Chrysallis.FormMenu.resources
+D:\Projecte-Chrysallis-master\App Escritorio\Projecte Chrysallis\obj\Debug\Projecte_Chrysallis.Properties.Resources.resources
+D:\Projecte-Chrysallis-master\App Escritorio\Projecte Chrysallis\obj\Debug\Projecte Chrysallis.csproj.GenerateResource.cache
+D:\Projecte-Chrysallis-master\App Escritorio\Projecte Chrysallis\obj\Debug\Projecte Chrysallis.csproj.CoreCompileInputs.cache
+D:\Projecte-Chrysallis-master\App Escritorio\Projecte Chrysallis\obj\Debug\Projecte Chrysallis.csproj.CopyComplete
+D:\Projecte-Chrysallis-master\App Escritorio\Projecte Chrysallis\obj\Debug\Projecte Chrysallis.exe
+D:\Projecte-Chrysallis-master\App Escritorio\Projecte Chrysallis\obj\Debug\Projecte Chrysallis.pdb
+D:\Projecte-Chrysallis-master\App Escritorio\Projecte Chrysallis\obj\Debug\Projecte_Chrysallis.FormSocios.resources
