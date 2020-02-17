@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
+using System.Data.Entity.Validation;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -29,6 +30,10 @@ namespace Projecte_Chrysallis.Base_de_Datos
 
                 SqlException sqlEx = (SqlException)ex.InnerException.InnerException;
                 mensaje = ORM.MensajeError(sqlEx);
+            }
+            catch (Exception e)
+            {
+                
             }
 
             return mensaje;

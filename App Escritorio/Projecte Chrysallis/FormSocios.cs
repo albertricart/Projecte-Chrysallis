@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Projecte_Chrysallis.Base_de_Datos;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -22,6 +23,10 @@ namespace Projecte_Chrysallis
         private void button2_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void buttonAnadir_Click(object sender, EventArgs e)
+        {
         }
     }
 }
