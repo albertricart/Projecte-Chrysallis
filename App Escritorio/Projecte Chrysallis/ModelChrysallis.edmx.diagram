@@ -4,23 +4,23 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="996fcd52dc8146c4954b8f3db74f4da0" Name="Diagram1">
-        <EntityTypeShape EntityType="ChrysallisModel.Administradores" Width="1.5" PointX="0.75" PointY="6.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="ChrysallisModel.Asistir" Width="1.5" PointX="10.5" PointY="5.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="ChrysallisModel.Comunidad" Width="1.5" PointX="3" PointY="6.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="ChrysallisModel.Documentos" Width="1.5" PointX="10.5" PointY="8.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="ChrysallisModel.Eventos" Width="1.5" PointX="8.25" PointY="5.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="ChrysallisModel.Notificaciones" Width="1.5" PointX="10.5" PointY="10.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="ChrysallisModel.Socios" Width="1.5" PointX="5.25" PointY="5.5" IsExpanded="true" />
-        <AssociationConnector Association="ChrysallisModel.FK_Eventos_Administradores" ManuallyRouted="false" />
-        <AssociationConnector Association="ChrysallisModel.FK_Asistir_Eventos" ManuallyRouted="false" />
-        <AssociationConnector Association="ChrysallisModel.FK_Asistir_Socios" ManuallyRouted="false" />
-        <AssociationConnector Association="ChrysallisModel.FK_Eventos_Comunidad" ManuallyRouted="false" />
-        <AssociationConnector Association="ChrysallisModel.FK_Socios_Comunidad" ManuallyRouted="false" />
-        <AssociationConnector Association="ChrysallisModel.FK_Documentos_Eventos" ManuallyRouted="false" />
-        <AssociationConnector Association="ChrysallisModel.FK_Notificaciones_Eventos" ManuallyRouted="false" />
-        <AssociationConnector Association="ChrysallisModel.AdministrarComunidad" ManuallyRouted="false" />
-        <AssociationConnector Association="ChrysallisModel.ComunidadesInteresadas" ManuallyRouted="false" />
+      <Diagram DiagramId="996fcd52dc8146c4954b8f3db74f4da0" Name="Diagram1" ZoomLevel="47">
+        <EntityTypeShape EntityType="ChrysallisModel.Administradores" Width="1.5" PointX="0.75" PointY="6.125" />
+        <EntityTypeShape EntityType="ChrysallisModel.Asistir" Width="1.5" PointX="13.5" PointY="6.125" />
+        <EntityTypeShape EntityType="ChrysallisModel.Comunidad" Width="1.5" PointX="3" PointY="6.125" />
+        <EntityTypeShape EntityType="ChrysallisModel.Documentos" Width="1.5" PointX="10.5" PointY="5.125" />
+        <EntityTypeShape EntityType="ChrysallisModel.Eventos" Width="1.5" PointX="8.25" PointY="5.5" />
+        <EntityTypeShape EntityType="ChrysallisModel.Notificaciones" Width="1.5" PointX="10.5" PointY="10.75" />
+        <EntityTypeShape EntityType="ChrysallisModel.Socios" Width="1.5" PointX="5.25" PointY="5.5" />
+        <AssociationConnector Association="ChrysallisModel.FK_Eventos_Administradores" />
+        <AssociationConnector Association="ChrysallisModel.FK_Asistir_Eventos" />
+        <AssociationConnector Association="ChrysallisModel.FK_Asistir_Socios" />
+        <AssociationConnector Association="ChrysallisModel.FK_Eventos_Comunidad" />
+        <AssociationConnector Association="ChrysallisModel.FK_Socios_Comunidad" />
+        <AssociationConnector Association="ChrysallisModel.FK_Documentos_Eventos" />
+        <AssociationConnector Association="ChrysallisModel.FK_Notificaciones_Eventos" />
+        <AssociationConnector Association="ChrysallisModel.AdministrarComunidad" />
+        <AssociationConnector Association="ChrysallisModel.ComunidadesInteresadas" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
