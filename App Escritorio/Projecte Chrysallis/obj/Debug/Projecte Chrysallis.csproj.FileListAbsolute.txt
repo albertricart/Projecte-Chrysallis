@@ -51,3 +51,21 @@ D:\Projecte-Chrysallis-master\App Escritorio\Projecte Chrysallis\obj\Debug\Proje
 D:\Projecte-Chrysallis-master\App Escritorio\Projecte Chrysallis\obj\Debug\Projecte Chrysallis.exe
 D:\Projecte-Chrysallis-master\App Escritorio\Projecte Chrysallis\obj\Debug\Projecte Chrysallis.pdb
 D:\Projecte-Chrysallis-master\App Escritorio\Projecte Chrysallis\obj\Debug\Projecte_Chrysallis.FormSocios.resources
+C:\Users\jribg\Source\Repos\Projecte-Chrysallis2\App Escritorio\Projecte Chrysallis\bin\Debug\Projecte Chrysallis.exe.config
+C:\Users\jribg\Source\Repos\Projecte-Chrysallis2\App Escritorio\Projecte Chrysallis\bin\Debug\Projecte Chrysallis.exe
+C:\Users\jribg\Source\Repos\Projecte-Chrysallis2\App Escritorio\Projecte Chrysallis\bin\Debug\Projecte Chrysallis.pdb
+C:\Users\jribg\Source\Repos\Projecte-Chrysallis2\App Escritorio\Projecte Chrysallis\bin\Debug\EntityFramework.dll
+C:\Users\jribg\Source\Repos\Projecte-Chrysallis2\App Escritorio\Projecte Chrysallis\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\jribg\Source\Repos\Projecte-Chrysallis2\App Escritorio\Projecte Chrysallis\bin\Debug\EntityFramework.xml
+C:\Users\jribg\Source\Repos\Projecte-Chrysallis2\App Escritorio\Projecte Chrysallis\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\jribg\Source\Repos\Projecte-Chrysallis2\App Escritorio\Projecte Chrysallis\obj\Debug\Projecte Chrysallis.csprojAssemblyReference.cache
+C:\Users\jribg\Source\Repos\Projecte-Chrysallis2\App Escritorio\Projecte Chrysallis\obj\Debug\Projecte_Chrysallis.FormCrearEvento.resources
+C:\Users\jribg\Source\Repos\Projecte-Chrysallis2\App Escritorio\Projecte Chrysallis\obj\Debug\Projecte_Chrysallis.FormEventos.resources
+C:\Users\jribg\Source\Repos\Projecte-Chrysallis2\App Escritorio\Projecte Chrysallis\obj\Debug\Projecte_Chrysallis.FormMenu.resources
+C:\Users\jribg\Source\Repos\Projecte-Chrysallis2\App Escritorio\Projecte Chrysallis\obj\Debug\Projecte_Chrysallis.FormSocios.resources
+C:\Users\jribg\Source\Repos\Projecte-Chrysallis2\App Escritorio\Projecte Chrysallis\obj\Debug\Projecte_Chrysallis.Properties.Resources.resources
+C:\Users\jribg\Source\Repos\Projecte-Chrysallis2\App Escritorio\Projecte Chrysallis\obj\Debug\Projecte Chrysallis.csproj.GenerateResource.cache
+C:\Users\jribg\Source\Repos\Projecte-Chrysallis2\App Escritorio\Projecte Chrysallis\obj\Debug\Projecte Chrysallis.csproj.CoreCompileInputs.cache
+C:\Users\jribg\Source\Repos\Projecte-Chrysallis2\App Escritorio\Projecte Chrysallis\obj\Debug\Projecte Chrysallis.csproj.CopyComplete
+C:\Users\jribg\Source\Repos\Projecte-Chrysallis2\App Escritorio\Projecte Chrysallis\obj\Debug\Projecte Chrysallis.exe
+C:\Users\jribg\Source\Repos\Projecte-Chrysallis2\App Escritorio\Projecte Chrysallis\obj\Debug\Projecte Chrysallis.pdb

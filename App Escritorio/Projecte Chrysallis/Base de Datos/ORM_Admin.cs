@@ -9,9 +9,69 @@ namespace Projecte_Chrysallis.Base_de_Datos
     public static class ORM_Admin
     {
         //select
+        public static List<Administradores> SelectAdmins()
+        {
+            List<Administradores> admins =
+                (from a in ORM.bd.Administradores
+                 select a).ToList();
+
+            return admins;
+        }
+
         //insert
+        public static String InsertAdmin(string email, string contrasenya, bool superadmin)
+        {
+            String result = "";
+
+            Administradores admin = new Administradores();
+            admin.email = email;
+            admin.contrasenya = encriptarContrasenya(contrasenya);
+            admin.superadmin = superadmin;
+
+            //Añadimos el admin a la base de datos
+            ORM.bd.Administradores.Add(admin);
+
+            //Recogemos el resultado del insert en forma de string
+            result = ORM.SaveChanges();
+
+            return result;
+        }
+
         //update
+        public static String updateAdmin(int id, string email, string contrasenya, bool superadmin)
+        {
+            String result = "";
+            Administradores admin = ORM.bd.Administradores.Find(id);
+            admin.email = email;
+            admin.contrasenya = encriptarContrasenya(contrasenya);
+            admin.superadmin = superadmin;
+
+            result = ORM.SaveChanges();
+
+            return result;
+        }
+
         //delete
-        //public static List<Administradores>
+        public static String deleteAdmin(Administradores admin)
+        {
+            String result = "";
+
+            ORM.bd.Administradores.Remove(admin);
+
+            result = ORM.SaveChanges();
+
+            return result;
+        }
+
+
+        private static String encriptarContrasenya(string contrasenya)
+        {
+            String contrasenyaFinal = "";
+
+            OC.Core.Crypto.Hash hash = new OC.Core.Crypto.Hash();
+            contrasenyaFinal = hash.Sha512(contrasenya);
+
+            return contrasenyaFinal;
+        }
     }
 }
