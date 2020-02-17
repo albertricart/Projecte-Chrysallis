@@ -9,11 +9,6 @@ namespace Projecte_Chrysallis.Base_de_Datos
     public static class ORM_Evento
     {
         //Select
-        //Insert
-        //Update
-        //Delete
-
-        //Select
         public static List<Eventos> SelectEventos()
         {
             List<Eventos> eventos =

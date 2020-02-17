@@ -74,6 +74,7 @@
     <Compile Include="Base de Datos\ORM.cs" />
     <Compile Include="Base de Datos\ORM_Admin.cs" />
     <Compile Include="Base de Datos\ORM_Evento.cs" />
+    <Compile Include="Base de Datos\ORM_Socio.cs" />
     <Compile Include="Comunidad.cs">
       <DependentUpon>ModelChrysallis.tt</DependentUpon>
     </Compile>
