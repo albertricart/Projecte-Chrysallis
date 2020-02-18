@@ -8,10 +8,6 @@ namespace Projecte_Chrysallis.Base_de_Datos
 {
     public static class ORM_Admin
     {
-        //TODO:
-        //Arreglar en la base de datos la longitud de la pw: si se encripta el tamaño no puede ser
-        //varchar(16)
-
         //select
         public static List<Administradores> SelectAdmins()
         {
@@ -29,8 +25,7 @@ namespace Projecte_Chrysallis.Base_de_Datos
 
             Administradores admin = new Administradores();
             admin.email = email;
-            //admin.contrasenya = encriptarContrasenya(contrasenya);
-            admin.contrasenya = contrasenya;
+            admin.contrasenya = encriptarContrasenya(contrasenya);
             admin.superadmin = superadmin;
 
             //Añadimos el admin a la base de datos
@@ -43,7 +38,7 @@ namespace Projecte_Chrysallis.Base_de_Datos
         }
 
         //update
-        public static String updateAdmin(int id, string email, string contrasenya, bool superadmin)
+        public static String UpdateAdmin(int id, string email, string contrasenya, bool superadmin)
         {
             String result = "";
             Administradores admin = ORM.bd.Administradores.Find(id);
@@ -57,7 +52,7 @@ namespace Projecte_Chrysallis.Base_de_Datos
         }
 
         //delete
-        public static String deleteAdmin(Administradores admin)
+        public static String DeleteAdmin(Administradores admin)
         {
             String result = "";
 

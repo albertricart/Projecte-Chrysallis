@@ -12,10 +12,10 @@ namespace Projecte_Chrysallis
     using System;
     using System.Collections.Generic;
     
-    public partial class Comunidad
+    public partial class Comunidades
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Comunidad()
+        public Comunidades()
         {
             this.Eventos = new HashSet<Eventos>();
             this.Socios = new HashSet<Socios>();

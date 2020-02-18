@@ -18,7 +18,7 @@ namespace Projecte_Chrysallis
         public Socios()
         {
             this.Asistir = new HashSet<Asistir>();
-            this.Comunidad1 = new HashSet<Comunidad>();
+            this.Comunidades1 = new HashSet<Comunidades>();
         }
     
         public int id { get; set; }
@@ -34,8 +34,8 @@ namespace Projecte_Chrysallis
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Asistir> Asistir { get; set; }
-        public virtual Comunidad Comunidad { get; set; }
+        public virtual Comunidades Comunidades { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Comunidad> Comunidad1 { get; set; }
+        public virtual ICollection<Comunidades> Comunidades1 { get; set; }
     }
 }
