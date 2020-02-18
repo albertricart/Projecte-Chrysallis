@@ -86,6 +86,18 @@
     <Compile Include="Eventos.cs">
       <DependentUpon>ModelChrysallis.tt</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\FormCambiarPW_email.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\FormCambiarPW_email.Designer.cs">
+      <DependentUpon>FormCambiarPW_email.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\FormContacto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\FormContacto.Designer.cs">
+      <DependentUpon>FormContacto.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\FormCrearEvento.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -98,11 +110,29 @@
     <Compile Include="Formularios\FormEventos.Designer.cs">
       <DependentUpon>FormEventos.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\FormLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\FormLogin.Designer.cs">
+      <DependentUpon>FormLogin.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\FormMenu.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Formularios\FormMenu.Designer.cs">
       <DependentUpon>FormMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\FormNuevoAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\FormNuevoAdmin.Designer.cs">
+      <DependentUpon>FormNuevoAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\FormPerfil.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\FormPerfil.Designer.cs">
+      <DependentUpon>FormPerfil.cs</DependentUpon>
     </Compile>
     <Compile Include="Formularios\FormSocios.cs">
       <SubType>Form</SubType>
@@ -133,11 +163,17 @@
     <Compile Include="Socios.cs">
       <DependentUpon>ModelChrysallis.tt</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Formularios\FormContacto.resx">
+      <DependentUpon>FormContacto.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\FormCrearEvento.resx">
       <DependentUpon>FormCrearEvento.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\FormEventos.resx">
       <DependentUpon>FormEventos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\FormLogin.resx">
+      <DependentUpon>FormLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\FormMenu.resx">
       <DependentUpon>FormMenu.cs</DependentUpon>
@@ -199,6 +235,7 @@
       <DependentUpon>ModelChrysallis.edmx</DependentUpon>
       <LastGenOutput>ModelChrysallis.cs</LastGenOutput>
     </Content>
+    <Content Include="Resources\icon_wrong.png" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

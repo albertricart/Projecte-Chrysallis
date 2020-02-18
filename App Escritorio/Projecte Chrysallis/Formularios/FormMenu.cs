@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Projecte_Chrysallis.Formularios;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -59,6 +60,18 @@ namespace Projecte_Chrysallis
         {
             FormSocios formSocios = new FormSocios();
             formSocios.ShowDialog();
+        }
+
+        private void pictureBoxContacto_Click(object sender, EventArgs e)
+        {
+            FormContacto f = new FormContacto();
+            f.ShowDialog();
+        }
+
+        private void FormMenu_Load(object sender, EventArgs e)
+        {
+            FormLogin f = new FormLogin();
+            f.ShowDialog();
         }
     }
 }

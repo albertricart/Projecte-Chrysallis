@@ -106,6 +106,7 @@
             this.pictureBoxContacto.Size = new System.Drawing.Size(338, 51);
             this.pictureBoxContacto.TabIndex = 5;
             this.pictureBoxContacto.TabStop = false;
+            this.pictureBoxContacto.Click += new System.EventHandler(this.pictureBoxContacto_Click);
             // 
             // FormMenu
             // 
@@ -127,6 +128,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormMenu";
             this.Text = "Menú Principal";
+            this.Load += new System.EventHandler(this.FormMenu_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSalir)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMinimizar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxGestionarEventos)).EndInit();
