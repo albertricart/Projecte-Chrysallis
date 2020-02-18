@@ -86,28 +86,28 @@
     <Compile Include="Eventos.cs">
       <DependentUpon>ModelChrysallis.tt</DependentUpon>
     </Compile>
-    <Compile Include="FormCrearEvento.cs">
+    <Compile Include="Formularios\FormCrearEvento.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormCrearEvento.Designer.cs">
+    <Compile Include="Formularios\FormCrearEvento.Designer.cs">
       <DependentUpon>FormCrearEvento.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormEventos.cs">
+    <Compile Include="Formularios\FormEventos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormEventos.Designer.cs">
+    <Compile Include="Formularios\FormEventos.Designer.cs">
       <DependentUpon>FormEventos.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormMenu.cs">
+    <Compile Include="Formularios\FormMenu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormMenu.Designer.cs">
+    <Compile Include="Formularios\FormMenu.Designer.cs">
       <DependentUpon>FormMenu.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormSocios.cs">
+    <Compile Include="Formularios\FormSocios.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormSocios.Designer.cs">
+    <Compile Include="Formularios\FormSocios.Designer.cs">
       <DependentUpon>FormSocios.cs</DependentUpon>
     </Compile>
     <Compile Include="ModelChrysallis.Context.cs">
@@ -133,16 +133,16 @@
     <Compile Include="Socios.cs">
       <DependentUpon>ModelChrysallis.tt</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="FormCrearEvento.resx">
+    <EmbeddedResource Include="Formularios\FormCrearEvento.resx">
       <DependentUpon>FormCrearEvento.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormEventos.resx">
+    <EmbeddedResource Include="Formularios\FormEventos.resx">
       <DependentUpon>FormEventos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormMenu.resx">
+    <EmbeddedResource Include="Formularios\FormMenu.resx">
       <DependentUpon>FormMenu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormSocios.resx">
+    <EmbeddedResource Include="Formularios\FormSocios.resx">
       <DependentUpon>FormSocios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
