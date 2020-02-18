@@ -10,16 +10,17 @@ using System.Windows.Forms;
 
 namespace Projecte_Chrysallis.Formularios
 {
-    public partial class FormNuevoAdmin : Form
+    public partial class FormAdmins : Form
     {
-        public FormNuevoAdmin()
+        public FormAdmins()
         {
             InitializeComponent();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void buttonNuevo_Click(object sender, EventArgs e)
         {
-            this.Close();
+            FormNuevoAdmin f = new FormNuevoAdmin();
+            f.ShowDialog();
         }
     }
 }

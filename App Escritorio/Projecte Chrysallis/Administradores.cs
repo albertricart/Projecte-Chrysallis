@@ -22,6 +22,8 @@ namespace Projecte_Chrysallis
         }
     
         public byte id { get; set; }
+        public string nombre { get; set; }
+        public string apellidos { get; set; }
         public string email { get; set; }
         public string contrasenya { get; set; }
         public bool superadmin { get; set; }

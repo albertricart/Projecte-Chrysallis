@@ -96,6 +96,7 @@
             this.pictureBoxGestionarAdmins.Size = new System.Drawing.Size(338, 51);
             this.pictureBoxGestionarAdmins.TabIndex = 4;
             this.pictureBoxGestionarAdmins.TabStop = false;
+            this.pictureBoxGestionarAdmins.Click += new System.EventHandler(this.pictureBoxGestionarAdmins_Click);
             // 
             // pictureBoxContacto
             // 

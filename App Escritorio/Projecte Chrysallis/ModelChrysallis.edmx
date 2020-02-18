@@ -10,6 +10,8 @@
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="apellidos" Type="varchar" MaxLength="30" />
           <Property Name="email" Type="varchar" MaxLength="30" Nullable="false" />
           <Property Name="contrasenya" Type="varchar" MaxLength="256" Nullable="false" />
           <Property Name="superadmin" Type="bit" Nullable="false" />
@@ -61,7 +63,7 @@
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="titulo" Type="varchar" MaxLength="15" />
+          <Property Name="titulo" Type="varchar" MaxLength="30" Nullable="false" />
           <Property Name="fecha" Type="smalldatetime" Nullable="false" />
           <Property Name="ubicacion" Type="varchar" MaxLength="30" Nullable="false" />
           <Property Name="descripcion" Type="ntext" Nullable="false" />
@@ -284,16 +286,11 @@
     <edmx:ConceptualModels>
       <Schema Namespace="ChrysallisModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="ChrysallisEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Administradores" EntityType="ChrysallisModel.Administradores" />
           <EntitySet Name="Asistir" EntityType="ChrysallisModel.Asistir" />
           <EntitySet Name="Documentos" EntityType="ChrysallisModel.Documentos" />
           <EntitySet Name="Eventos" EntityType="ChrysallisModel.Eventos" />
           <EntitySet Name="Notificaciones" EntityType="ChrysallisModel.Notificaciones" />
           <EntitySet Name="Socios" EntityType="ChrysallisModel.Socios" />
-          <AssociationSet Name="FK_Eventos_Administradores" Association="ChrysallisModel.FK_Eventos_Administradores">
-            <End Role="Administradores" EntitySet="Administradores" />
-            <End Role="Eventos" EntitySet="Eventos" />
-          </AssociationSet>
           <AssociationSet Name="FK_Asistir_Eventos" Association="ChrysallisModel.FK_Asistir_Eventos">
             <End Role="Eventos" EntitySet="Eventos" />
             <End Role="Asistir" EntitySet="Asistir" />
@@ -319,26 +316,20 @@
             <End Role="Comunidades" EntitySet="Comunidades" />
             <End Role="Socios" EntitySet="Socios" />
           </AssociationSet>
-          <AssociationSet Name="AdministrarComunidad" Association="ChrysallisModel.AdministrarComunidad">
-            <End Role="Administradores" EntitySet="Administradores" />
-            <End Role="Comunidades" EntitySet="Comunidades" />
-          </AssociationSet>
           <AssociationSet Name="ComunidadesInteresadas" Association="ChrysallisModel.ComunidadesInteresadas">
             <End Role="Comunidades" EntitySet="Comunidades" />
             <End Role="Socios" EntitySet="Socios" />
           </AssociationSet>
+          <EntitySet Name="Administradores" EntityType="ChrysallisModel.Administradores" />
+          <AssociationSet Name="FK_Eventos_Administradores" Association="ChrysallisModel.FK_Eventos_Administradores">
+            <End Role="Administradores" EntitySet="Administradores" />
+            <End Role="Eventos" EntitySet="Eventos" />
+          </AssociationSet>
+          <AssociationSet Name="AdministrarComunidad" Association="ChrysallisModel.AdministrarComunidad">
+            <End Role="Administradores" EntitySet="Administradores" />
+            <End Role="Comunidades" EntitySet="Comunidades" />
+          </AssociationSet>
         </EntityContainer>
-        <EntityType Name="Administradores">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="email" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
-          <Property Name="contrasenya" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="false" />
-          <Property Name="superadmin" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="Eventos" Relationship="ChrysallisModel.FK_Eventos_Administradores" FromRole="Administradores" ToRole="Eventos" />
-          <NavigationProperty Name="Comunidades" Relationship="ChrysallisModel.AdministrarComunidad" FromRole="Administradores" ToRole="Comunidades" />
-        </EntityType>
         <EntityType Name="Asistir">
           <Key>
             <PropertyRef Name="idSocio" />
@@ -366,18 +357,18 @@
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="titulo" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="titulo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="fecha" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="ubicacion" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Name="descripcion" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="fecha_limite" Type="DateTime" Precision="0" />
           <Property Name="idComunidad" Type="Byte" Nullable="false" />
           <Property Name="idAdmin" Type="Byte" Nullable="false" />
-          <NavigationProperty Name="Administradores" Relationship="ChrysallisModel.FK_Eventos_Administradores" FromRole="Eventos" ToRole="Administradores" />
           <NavigationProperty Name="Asistir" Relationship="ChrysallisModel.FK_Asistir_Eventos" FromRole="Eventos" ToRole="Asistir" />
           <NavigationProperty Name="Documentos" Relationship="ChrysallisModel.FK_Documentos_Eventos" FromRole="Eventos" ToRole="Documentos" />
           <NavigationProperty Name="Notificaciones" Relationship="ChrysallisModel.FK_Notificaciones_Eventos" FromRole="Eventos" ToRole="Notificaciones" />
           <NavigationProperty Name="Comunidades" Relationship="ChrysallisModel.FK_Eventos_Comunidad" FromRole="Eventos" ToRole="Comunidades" />
+          <NavigationProperty Name="Administradores" Relationship="ChrysallisModel.FK_Eventos_Administradores" FromRole="Eventos" ToRole="Administradores" />
         </EntityType>
         <EntityType Name="Notificaciones">
           <Key>
@@ -406,18 +397,6 @@
           <NavigationProperty Name="Comunidades" Relationship="ChrysallisModel.FK_Socios_Comunidad" FromRole="Socios" ToRole="Comunidades" />
           <NavigationProperty Name="Comunidades1" Relationship="ChrysallisModel.ComunidadesInteresadas" FromRole="Socios" ToRole="Comunidades" />
           </EntityType>
-        <Association Name="FK_Eventos_Administradores">
-          <End Type="ChrysallisModel.Administradores" Role="Administradores" Multiplicity="1" />
-          <End Type="ChrysallisModel.Eventos" Role="Eventos" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Administradores">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="Eventos">
-              <PropertyRef Name="idAdmin" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Asistir_Eventos">
           <End Type="ChrysallisModel.Eventos" Role="Eventos" Multiplicity="1" />
           <End Type="ChrysallisModel.Asistir" Role="Asistir" Multiplicity="*" />
@@ -474,8 +453,8 @@
           <Property Name="nombre" Type="String" Nullable="false" MaxLength="60" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Eventos" Relationship="ChrysallisModel.FK_Eventos_Comunidad" FromRole="Comunidades" ToRole="Eventos" />
           <NavigationProperty Name="Socios" Relationship="ChrysallisModel.FK_Socios_Comunidad" FromRole="Comunidades" ToRole="Socios" />
-          <NavigationProperty Name="Administradores" Relationship="ChrysallisModel.AdministrarComunidad" FromRole="Comunidades" ToRole="Administradores" />
           <NavigationProperty Name="Socios1" Relationship="ChrysallisModel.ComunidadesInteresadas" FromRole="Comunidades" ToRole="Socios" />
+          <NavigationProperty Name="Administradores" Relationship="ChrysallisModel.AdministrarComunidad" FromRole="Comunidades" ToRole="Administradores" />
         </EntityType>
         <Association Name="FK_Eventos_Comunidad">
           <End Type="ChrysallisModel.Comunidades" Role="Comunidades" Multiplicity="1" />
@@ -501,13 +480,38 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="AdministrarComunidad">
-          <End Type="ChrysallisModel.Administradores" Role="Administradores" Multiplicity="*" />
-          <End Type="ChrysallisModel.Comunidades" Role="Comunidades" Multiplicity="*" />
-        </Association>
         <Association Name="ComunidadesInteresadas">
           <End Type="ChrysallisModel.Comunidades" Role="Comunidades" Multiplicity="*" />
           <End Type="ChrysallisModel.Socios" Role="Socios" Multiplicity="*" />
+        </Association>
+        <EntityType Name="Administradores">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="apellidos" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="contrasenya" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="false" />
+          <Property Name="superadmin" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Eventos" Relationship="ChrysallisModel.FK_Eventos_Administradores" FromRole="Administradores" ToRole="Eventos" />
+          <NavigationProperty Name="Comunidades" Relationship="ChrysallisModel.AdministrarComunidad" FromRole="Administradores" ToRole="Comunidades" />
+        </EntityType>
+        <Association Name="FK_Eventos_Administradores">
+          <End Type="ChrysallisModel.Administradores" Role="Administradores" Multiplicity="1" />
+          <End Type="ChrysallisModel.Eventos" Role="Eventos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Administradores">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Eventos">
+              <PropertyRef Name="idAdmin" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AdministrarComunidad">
+          <End Type="ChrysallisModel.Administradores" Role="Administradores" Multiplicity="*" />
+          <End Type="ChrysallisModel.Comunidades" Role="Comunidades" Multiplicity="*" />
         </Association>
       </Schema>
     </edmx:ConceptualModels>
@@ -515,16 +519,6 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="ChrysallisModelStoreContainer" CdmEntityContainer="ChrysallisEntities">
-          <EntitySetMapping Name="Administradores">
-            <EntityTypeMapping TypeName="ChrysallisModel.Administradores">
-              <MappingFragment StoreEntitySet="Administradores">
-                <ScalarProperty Name="superadmin" ColumnName="superadmin" />
-                <ScalarProperty Name="contrasenya" ColumnName="contrasenya" />
-                <ScalarProperty Name="email" ColumnName="email" />
-                <ScalarProperty Name="id" ColumnName="id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Asistir">
             <EntityTypeMapping TypeName="ChrysallisModel.Asistir">
               <MappingFragment StoreEntitySet="Asistir">
@@ -592,19 +586,31 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <AssociationSetMapping Name="AdministrarComunidad" TypeName="ChrysallisModel.AdministrarComunidad" StoreEntitySet="AdministrarComunidad">
-            <EndProperty Name="Comunidades">
-              <ScalarProperty Name="id" ColumnName="idAdmin" />
-            </EndProperty>
-            <EndProperty Name="Administradores">
-              <ScalarProperty Name="id" ColumnName="idComunidad" />
-            </EndProperty>
-          </AssociationSetMapping>
           <AssociationSetMapping Name="ComunidadesInteresadas" TypeName="ChrysallisModel.ComunidadesInteresadas" StoreEntitySet="ComunidadesInteresadas">
             <EndProperty Name="Socios">
               <ScalarProperty Name="id" ColumnName="idSocio" />
             </EndProperty>
             <EndProperty Name="Comunidades">
+              <ScalarProperty Name="id" ColumnName="idComunidad" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <EntitySetMapping Name="Administradores">
+            <EntityTypeMapping TypeName="ChrysallisModel.Administradores">
+              <MappingFragment StoreEntitySet="Administradores">
+                <ScalarProperty Name="superadmin" ColumnName="superadmin" />
+                <ScalarProperty Name="contrasenya" ColumnName="contrasenya" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="apellidos" ColumnName="apellidos" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="AdministrarComunidad" TypeName="ChrysallisModel.AdministrarComunidad" StoreEntitySet="AdministrarComunidad">
+            <EndProperty Name="Comunidades">
+              <ScalarProperty Name="id" ColumnName="idAdmin" />
+            </EndProperty>
+            <EndProperty Name="Administradores">
               <ScalarProperty Name="id" ColumnName="idComunidad" />
             </EndProperty>
           </AssociationSetMapping>
