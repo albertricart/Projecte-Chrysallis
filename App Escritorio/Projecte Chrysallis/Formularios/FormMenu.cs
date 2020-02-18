@@ -73,5 +73,11 @@ namespace Projecte_Chrysallis
             FormLogin f = new FormLogin();
             f.ShowDialog();
         }
+
+        private void pictureBoxGestionarAdmins_Click(object sender, EventArgs e)
+        {
+            FormAdmins f = new FormAdmins();
+            f.ShowDialog();
+        }
     }
 }
