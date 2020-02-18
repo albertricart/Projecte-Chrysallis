@@ -18,6 +18,17 @@ namespace Projecte_Chrysallis.Base_de_Datos
             return eventos;
         }
 
+        public static Eventos SelectEventoByID(int id)
+        {
+            List<Eventos> eventos =
+                (from e in ORM.bd.Eventos
+                 where e.id == id
+                 select e).ToList();
+
+            Eventos evento = eventos[0];
+            return evento;
+        }
+
         //Insert
         public static String InsertEvento(string titulo, DateTime fecha, string ubicacion, string descripcion,
                                                     DateTime fecha_limite, byte idComunidad, byte idAdmin)

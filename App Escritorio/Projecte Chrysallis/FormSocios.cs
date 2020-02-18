@@ -26,5 +26,19 @@ namespace Projecte_Chrysallis
         private void buttonAnadir_Click(object sender, EventArgs e)
         {
         }
+
+        private void buttonModificar_Click(object sender, EventArgs e)
+        {
+            //testeando
+            Administradores admin = ORM_Admin.SelectAdminByID(1);
+            MessageBox.Show(admin.email);
+        }
+
+        private void buttonEliminar_Click(object sender, EventArgs e)
+        {
+            //testeando
+            Socios socio = ORM_Socio.SelectSocioByID(1);
+            MessageBox.Show(socio.apellidos);
+        }
     }
 }

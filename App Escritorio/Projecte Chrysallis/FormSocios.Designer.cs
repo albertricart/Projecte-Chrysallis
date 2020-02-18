@@ -77,6 +77,7 @@
             this.buttonEliminar.TabIndex = 11;
             this.buttonEliminar.Text = "Eliminar";
             this.buttonEliminar.UseVisualStyleBackColor = true;
+            this.buttonEliminar.Click += new System.EventHandler(this.buttonEliminar_Click);
             // 
             // buttonModificar
             // 
@@ -86,6 +87,7 @@
             this.buttonModificar.TabIndex = 10;
             this.buttonModificar.Text = "Modificar";
             this.buttonModificar.UseVisualStyleBackColor = true;
+            this.buttonModificar.Click += new System.EventHandler(this.buttonModificar_Click);
             // 
             // buttonAnadir
             // 

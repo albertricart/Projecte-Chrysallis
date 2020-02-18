@@ -18,6 +18,17 @@ namespace Projecte_Chrysallis.Base_de_Datos
             return admins;
         }
 
+        public static Administradores SelectAdminByID(int id)
+        {
+            List<Administradores> admins =
+                (from a in ORM.bd.Administradores
+                        where a.id == id
+                        select a).ToList();
+
+            Administradores admin = admins[0];
+            return admin;
+        }
+
         //insert
         public static String InsertAdmin(string email, string contrasenya, bool superadmin)
         {

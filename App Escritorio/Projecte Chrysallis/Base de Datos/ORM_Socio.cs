@@ -10,7 +10,7 @@ namespace Projecte_Chrysallis.Base_de_Datos
     public static class ORM_Socio
     {
 
-        //Select
+        //Selects
         public static List<Socios> SelectSocios()
         {
             List<Socios> socios =
@@ -20,21 +20,22 @@ namespace Projecte_Chrysallis.Base_de_Datos
             return socios;
         }
 
+        public static Socios SelectSocioByID(int id)
+        {
+            List<Socios> socios = 
+                (from s in ORM.bd.Socios
+                 where s.id == id
+                 select s).ToList();
+
+            Socios socio = socios[0];
+            return socio;
+        }
+        //------------------------------------------------
         //Insert
         public static String InsertSocio(string dni, string nombre, string apellidos, string email,
                                                 string contrasenya, string telefono, string poblacion,
                                                       byte idComunidad, bool activo)
         {
-            /*        public int id { get; set; }
-        public string dni { get; set; }
-        public string nombre { get; set; }
-        public string apellidos { get; set; }
-        public string email { get; set; }
-        public string contrasenya { get; set; }
-        public string telefono { get; set; }
-        public string poblacion { get; set; }
-        public byte idComunidad { get; set; }
-        public bool activo { get; set; }*/
             String result = "";
 
             Socios socio = new Socios();
@@ -52,7 +53,7 @@ namespace Projecte_Chrysallis.Base_de_Datos
 
             return result;
         }
-
+        //------------------------------------------------
         //Update
         public static String UpdateSocio(int id, string dni, string nombre, string apellidos,
                                                 string email, string contrasenya, string telefono,
@@ -76,7 +77,7 @@ namespace Projecte_Chrysallis.Base_de_Datos
 
             return result;
         }
-
+        //------------------------------------------------
         //Delete
         public static String DeleteSocio(Socios socio)
         {
@@ -98,6 +99,5 @@ namespace Projecte_Chrysallis.Base_de_Datos
 
             return contrasenyaFinal;
         }
-
     }
 }
