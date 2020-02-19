@@ -91,3 +91,32 @@ C:\Users\jribg\Source\Repos\Projecte-Chrysallis\App Escritorio\Projecte Chrysall
 C:\Users\jribg\Source\Repos\Projecte-Chrysallis\App Escritorio\Projecte Chrysallis\obj\Debug\Projecte_Chrysallis.Formularios.FormLogin.resources
 C:\Users\jribg\Source\Repos\Projecte-Chrysallis\App Escritorio\Projecte Chrysallis\obj\Debug\Projecte_Chrysallis.Formularios.FormAdmins.resources
 C:\Users\jribg\Source\Repos\Projecte-Chrysallis\App Escritorio\Projecte Chrysallis\obj\Debug\Projecte_Chrysallis.Formularios.FormNuevoAdmin.resources
+C:\Users\cep.CEPNET0\Source\Repos\Projecte-Chrysallis6\App Escritorio\Projecte Chrysallis\bin\Debug\Projecte Chrysallis.exe.config
+C:\Users\cep.CEPNET0\Source\Repos\Projecte-Chrysallis6\App Escritorio\Projecte Chrysallis\bin\Debug\Projecte Chrysallis.exe
+C:\Users\cep.CEPNET0\Source\Repos\Projecte-Chrysallis6\App Escritorio\Projecte Chrysallis\bin\Debug\Projecte Chrysallis.pdb
+C:\Users\cep.CEPNET0\Source\Repos\Projecte-Chrysallis6\App Escritorio\Projecte Chrysallis\bin\Debug\BouncyCastle.Crypto.dll
+C:\Users\cep.CEPNET0\Source\Repos\Projecte-Chrysallis6\App Escritorio\Projecte Chrysallis\bin\Debug\EntityFramework.dll
+C:\Users\cep.CEPNET0\Source\Repos\Projecte-Chrysallis6\App Escritorio\Projecte Chrysallis\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\cep.CEPNET0\Source\Repos\Projecte-Chrysallis6\App Escritorio\Projecte Chrysallis\bin\Debug\OC.Core.Crypto.dll
+C:\Users\cep.CEPNET0\Source\Repos\Projecte-Chrysallis6\App Escritorio\Projecte Chrysallis\bin\Debug\OC.Core.dll
+C:\Users\cep.CEPNET0\Source\Repos\Projecte-Chrysallis6\App Escritorio\Projecte Chrysallis\bin\Debug\BouncyCastle.Crypto.pdb
+C:\Users\cep.CEPNET0\Source\Repos\Projecte-Chrysallis6\App Escritorio\Projecte Chrysallis\bin\Debug\EntityFramework.xml
+C:\Users\cep.CEPNET0\Source\Repos\Projecte-Chrysallis6\App Escritorio\Projecte Chrysallis\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\cep.CEPNET0\Source\Repos\Projecte-Chrysallis6\App Escritorio\Projecte Chrysallis\bin\Debug\OC.Core.pdb
+C:\Users\cep.CEPNET0\Source\Repos\Projecte-Chrysallis6\App Escritorio\Projecte Chrysallis\bin\Debug\OC.Core.Crypto.pdb
+C:\Users\cep.CEPNET0\Source\Repos\Projecte-Chrysallis6\App Escritorio\Projecte Chrysallis\obj\Debug\Projecte Chrysallis.csprojAssemblyReference.cache
+C:\Users\cep.CEPNET0\Source\Repos\Projecte-Chrysallis6\App Escritorio\Projecte Chrysallis\obj\Debug\Projecte_Chrysallis.Formularios.FormAdmins.resources
+C:\Users\cep.CEPNET0\Source\Repos\Projecte-Chrysallis6\App Escritorio\Projecte Chrysallis\obj\Debug\Projecte_Chrysallis.Formularios.FormContacto.resources
+C:\Users\cep.CEPNET0\Source\Repos\Projecte-Chrysallis6\App Escritorio\Projecte Chrysallis\obj\Debug\Projecte_Chrysallis.FormCrearEvento.resources
+C:\Users\cep.CEPNET0\Source\Repos\Projecte-Chrysallis6\App Escritorio\Projecte Chrysallis\obj\Debug\Projecte_Chrysallis.FormEventos.resources
+C:\Users\cep.CEPNET0\Source\Repos\Projecte-Chrysallis6\App Escritorio\Projecte Chrysallis\obj\Debug\Projecte_Chrysallis.Formularios.FormLogin.resources
+C:\Users\cep.CEPNET0\Source\Repos\Projecte-Chrysallis6\App Escritorio\Projecte Chrysallis\obj\Debug\Projecte_Chrysallis.FormMenu.resources
+C:\Users\cep.CEPNET0\Source\Repos\Projecte-Chrysallis6\App Escritorio\Projecte Chrysallis\obj\Debug\Projecte_Chrysallis.Formularios.FormNuevoAdmin.resources
+C:\Users\cep.CEPNET0\Source\Repos\Projecte-Chrysallis6\App Escritorio\Projecte Chrysallis\obj\Debug\Projecte_Chrysallis.Formularios.FormPerfil.resources
+C:\Users\cep.CEPNET0\Source\Repos\Projecte-Chrysallis6\App Escritorio\Projecte Chrysallis\obj\Debug\Projecte_Chrysallis.FormSocios.resources
+C:\Users\cep.CEPNET0\Source\Repos\Projecte-Chrysallis6\App Escritorio\Projecte Chrysallis\obj\Debug\Projecte_Chrysallis.Properties.Resources.resources
+C:\Users\cep.CEPNET0\Source\Repos\Projecte-Chrysallis6\App Escritorio\Projecte Chrysallis\obj\Debug\Projecte Chrysallis.csproj.GenerateResource.cache
+C:\Users\cep.CEPNET0\Source\Repos\Projecte-Chrysallis6\App Escritorio\Projecte Chrysallis\obj\Debug\Projecte Chrysallis.csproj.CoreCompileInputs.cache
+C:\Users\cep.CEPNET0\Source\Repos\Projecte-Chrysallis6\App Escritorio\Projecte Chrysallis\obj\Debug\Projecte Chrysallis.csproj.CopyComplete
+C:\Users\cep.CEPNET0\Source\Repos\Projecte-Chrysallis6\App Escritorio\Projecte Chrysallis\obj\Debug\Projecte Chrysallis.exe
+C:\Users\cep.CEPNET0\Source\Repos\Projecte-Chrysallis6\App Escritorio\Projecte Chrysallis\obj\Debug\Projecte Chrysallis.pdb

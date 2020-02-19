@@ -33,19 +33,8 @@ namespace Projecte_Chrysallis
 
         private void FormEventos_Load(object sender, EventArgs e)
         {
-            List<Evento> eventos = new List<Evento>();
-            Evento evento = new Evento();
-            Evento evento2 = new Evento();
-            dataGridViewEventos.AutoGenerateColumns = false;
-            evento.titulo = "test";
-            evento.fecha = DateTime.Parse("18/03/2020");
-            evento.descripcion = "esta es la descripcion del evento";
-            evento.ubicacion = "Plaza Urquiaona 10";
-            evento2.titulo = "tessst 2";
-
-            eventos.Add(evento);
-            eventos.Add(evento2);
-            dataGridViewEventos.DataSource = eventos;
+            bindingSourceEventos.DataSource = null;
+            bindingSourceEventos.DataSource = Base_de_Datos.ORM_Evento.SelectEventos();
         }
 
         private void button1_Click(object sender, EventArgs e)
