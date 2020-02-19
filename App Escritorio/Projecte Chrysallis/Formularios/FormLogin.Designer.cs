@@ -35,15 +35,19 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.textBoxContrasenya = new System.Windows.Forms.TextBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
             // labelIncorrectos
             // 
             this.labelIncorrectos.AutoSize = true;
             this.labelIncorrectos.ForeColor = System.Drawing.Color.Red;
-            this.labelIncorrectos.Location = new System.Drawing.Point(49, 123);
+            this.labelIncorrectos.Location = new System.Drawing.Point(49, 130);
             this.labelIncorrectos.Name = "labelIncorrectos";
             this.labelIncorrectos.Size = new System.Drawing.Size(176, 13);
             this.labelIncorrectos.TabIndex = 0;
@@ -55,26 +59,26 @@
             this.textBoxEmail.Name = "textBoxEmail";
             this.textBoxEmail.Size = new System.Drawing.Size(142, 20);
             this.textBoxEmail.TabIndex = 1;
-            this.textBoxEmail.Text = "email";
             // 
             // linkLabel1
             // 
             this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(63, 187);
+            this.linkLabel1.Location = new System.Drawing.Point(63, 204);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(135, 13);
-            this.linkLabel1.TabIndex = 2;
+            this.linkLabel1.TabIndex = 4;
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "Me olvidé de la contraseña\r\n";
             // 
             // buttonAcceder
             // 
-            this.buttonAcceder.Location = new System.Drawing.Point(83, 148);
+            this.buttonAcceder.Location = new System.Drawing.Point(83, 155);
             this.buttonAcceder.Name = "buttonAcceder";
             this.buttonAcceder.Size = new System.Drawing.Size(93, 36);
             this.buttonAcceder.TabIndex = 3;
             this.buttonAcceder.Text = "Acceder";
             this.buttonAcceder.UseVisualStyleBackColor = true;
+            this.buttonAcceder.Click += new System.EventHandler(this.buttonAcceder_Click);
             // 
             // pictureBox1
             // 
@@ -89,29 +93,62 @@
             // 
             // textBoxContrasenya
             // 
-            this.textBoxContrasenya.Location = new System.Drawing.Point(83, 85);
+            this.textBoxContrasenya.Location = new System.Drawing.Point(83, 98);
+            this.textBoxContrasenya.MaxLength = 16;
             this.textBoxContrasenya.Name = "textBoxContrasenya";
             this.textBoxContrasenya.PasswordChar = '•';
             this.textBoxContrasenya.Size = new System.Drawing.Size(142, 20);
-            this.textBoxContrasenya.TabIndex = 5;
-            this.textBoxContrasenya.Text = "contraseña";
+            this.textBoxContrasenya.TabIndex = 2;
+            this.textBoxContrasenya.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxContrasenya_KeyDown);
             // 
             // pictureBox2
             // 
             this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox2.Image = global::Projecte_Chrysallis.Properties.Resources.icon_wrong;
-            this.pictureBox2.Location = new System.Drawing.Point(52, 76);
+            this.pictureBox2.Location = new System.Drawing.Point(52, 93);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(25, 25);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 6;
             this.pictureBox2.TabStop = false;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(80, 29);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(32, 13);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "Email";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(83, 82);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(61, 13);
+            this.label2.TabIndex = 8;
+            this.label2.Text = "Contraseña";
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox3.Image = global::Projecte_Chrysallis.Properties.Resources.icon_wrong;
+            this.pictureBox3.Location = new System.Drawing.Point(231, 93);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(25, 25);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox3.TabIndex = 9;
+            this.pictureBox3.TabStop = false;
+            // 
             // FormLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(261, 261);
+            this.ClientSize = new System.Drawing.Size(282, 261);
+            this.Controls.Add(this.pictureBox3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.textBoxContrasenya);
             this.Controls.Add(this.pictureBox1);
@@ -124,9 +161,11 @@
             this.Name = "FormLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Log In";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormLogin_FormClosing);
             this.Load += new System.EventHandler(this.FormLogin_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -141,5 +180,8 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.TextBox textBoxContrasenya;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.PictureBox pictureBox3;
     }
 }

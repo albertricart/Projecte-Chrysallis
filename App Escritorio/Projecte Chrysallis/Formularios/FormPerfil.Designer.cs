@@ -28,35 +28,37 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.buttonEmail = new System.Windows.Forms.Button();
+            this.buttonContraseña = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // button1
+            // buttonEmail
             // 
-            this.button1.Location = new System.Drawing.Point(34, 53);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(179, 35);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Modificar email";
-            this.button1.UseVisualStyleBackColor = true;
+            this.buttonEmail.Location = new System.Drawing.Point(34, 53);
+            this.buttonEmail.Name = "buttonEmail";
+            this.buttonEmail.Size = new System.Drawing.Size(179, 35);
+            this.buttonEmail.TabIndex = 0;
+            this.buttonEmail.Text = "Modificar email";
+            this.buttonEmail.UseVisualStyleBackColor = true;
+            this.buttonEmail.Click += new System.EventHandler(this.buttonEmail_Click);
             // 
-            // button2
+            // buttonContraseña
             // 
-            this.button2.Location = new System.Drawing.Point(34, 116);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(179, 34);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Modificar contraseña";
-            this.button2.UseVisualStyleBackColor = true;
+            this.buttonContraseña.Location = new System.Drawing.Point(34, 116);
+            this.buttonContraseña.Name = "buttonContraseña";
+            this.buttonContraseña.Size = new System.Drawing.Size(179, 34);
+            this.buttonContraseña.TabIndex = 1;
+            this.buttonContraseña.Text = "Modificar contraseña";
+            this.buttonContraseña.UseVisualStyleBackColor = true;
+            this.buttonContraseña.Click += new System.EventHandler(this.buttonContraseña_Click);
             // 
             // FormPerfil
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(240, 207);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.buttonContraseña);
+            this.Controls.Add(this.buttonEmail);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FormPerfil";
@@ -67,7 +69,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button buttonEmail;
+        private System.Windows.Forms.Button buttonContraseña;
     }
 }

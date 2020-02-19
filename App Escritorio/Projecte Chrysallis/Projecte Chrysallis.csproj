@@ -172,6 +172,9 @@
     <EmbeddedResource Include="Formularios\FormAdmins.resx">
       <DependentUpon>FormAdmins.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\FormCambiarPW_email.resx">
+      <DependentUpon>FormCambiarPW_email.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\FormContacto.resx">
       <DependentUpon>FormContacto.cs</DependentUpon>
     </EmbeddedResource>
@@ -250,7 +253,10 @@
       <DependentUpon>ModelChrysallis.edmx</DependentUpon>
       <LastGenOutput>ModelChrysallis.cs</LastGenOutput>
     </Content>
+    <Content Include="Resources\bloquear.png" />
     <Content Include="Resources\icon_wrong.png" />
+    <Content Include="Resources\ojo.png" />
+    <Content Include="Resources\usuario.png" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
