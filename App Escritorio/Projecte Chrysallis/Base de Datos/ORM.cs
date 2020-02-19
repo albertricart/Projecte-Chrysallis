@@ -33,7 +33,6 @@ namespace Projecte_Chrysallis.Base_de_Datos
             }
             catch (Exception e)
             {
-                
             }
 
             return mensaje;
