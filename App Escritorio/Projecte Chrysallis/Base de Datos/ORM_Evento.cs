@@ -44,6 +44,7 @@ namespace Projecte_Chrysallis.Base_de_Datos
             evento.idComunidad = idComunidad;
             evento.idAdmin = idAdmin;
 
+            ORM.bd.Eventos.Add(evento);
             result = ORM.SaveChanges();
 
             return result;
