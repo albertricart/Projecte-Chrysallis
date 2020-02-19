@@ -33,31 +33,25 @@ namespace Projecte_Chrysallis
 
         private void FormEventos_Load(object sender, EventArgs e)
         {
+            bindingSourceEventos.DataSource = null ;
+            bindingSourceEventos.DataSource = Base_de_Datos.ORM_Evento.SelectEventos();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void pictureBoxAtras_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void pictureBoxAnadir_Click(object sender, EventArgs e)
         {
-
+            FormCrearEvento formCrearEvento = new FormCrearEvento();
+            formCrearEvento.ShowDialog();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void FormEventos_Activated(object sender, EventArgs e)
         {
-
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dataGridViewEventos_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
+            bindingSourceEventos.DataSource = null;
+            bindingSourceEventos.DataSource = Base_de_Datos.ORM_Evento.SelectEventos();
         }
     }
 }
