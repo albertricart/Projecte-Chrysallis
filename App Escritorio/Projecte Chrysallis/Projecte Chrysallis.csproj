@@ -253,9 +253,10 @@
       <DependentUpon>ModelChrysallis.edmx</DependentUpon>
       <LastGenOutput>ModelChrysallis.cs</LastGenOutput>
     </Content>
-    <Content Include="Resources\bloquear.png" />
+    <Content Include="Resources\candado.png" />
     <Content Include="Resources\icon_wrong.png" />
     <Content Include="Resources\ojo.png" />
+    <Content Include="Resources\ojoActivado.png" />
     <Content Include="Resources\usuario.png" />
   </ItemGroup>
   <ItemGroup>

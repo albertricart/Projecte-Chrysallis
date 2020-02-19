@@ -9,7 +9,6 @@ namespace Projecte_Chrysallis.Base_de_Datos
 
     public static class ORM_Socio
     {
-
         //Selects
         public static List<Socios> SelectSocios()
         {
