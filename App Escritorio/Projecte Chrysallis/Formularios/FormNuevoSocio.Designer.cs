@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -45,16 +44,10 @@
             this.textBoxPoblacion = new System.Windows.Forms.TextBox();
             this.textBoxRepContrasena = new System.Windows.Forms.TextBox();
             this.textBoxComunidad = new System.Windows.Forms.TextBox();
+            this.buttonCancelar = new System.Windows.Forms.Button();
+            this.buttonAnadir = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 13);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(68, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Codigo socio";
             // 
             // label2
             // 
@@ -185,11 +178,41 @@
             this.textBoxComunidad.Size = new System.Drawing.Size(308, 20);
             this.textBoxComunidad.TabIndex = 16;
             // 
+            // buttonCancelar
+            // 
+            this.buttonCancelar.Location = new System.Drawing.Point(667, 270);
+            this.buttonCancelar.Name = "buttonCancelar";
+            this.buttonCancelar.Size = new System.Drawing.Size(75, 23);
+            this.buttonCancelar.TabIndex = 19;
+            this.buttonCancelar.Text = "Cancelar";
+            this.buttonCancelar.UseVisualStyleBackColor = true;
+            this.buttonCancelar.Click += new System.EventHandler(this.buttonCancelar_Click);
+            // 
+            // buttonAnadir
+            // 
+            this.buttonAnadir.Location = new System.Drawing.Point(748, 270);
+            this.buttonAnadir.Name = "buttonAnadir";
+            this.buttonAnadir.Size = new System.Drawing.Size(75, 23);
+            this.buttonAnadir.TabIndex = 18;
+            this.buttonAnadir.Text = "Añadir";
+            this.buttonAnadir.UseVisualStyleBackColor = true;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(16, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(68, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Codigo socio";
+            // 
             // FormNuevoSocio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(842, 450);
+            this.ClientSize = new System.Drawing.Size(842, 364);
+            this.Controls.Add(this.buttonCancelar);
+            this.Controls.Add(this.buttonAnadir);
             this.Controls.Add(this.textBoxComunidad);
             this.Controls.Add(this.textBoxRepContrasena);
             this.Controls.Add(this.textBoxPoblacion);
@@ -215,8 +238,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
@@ -233,5 +254,8 @@
         private System.Windows.Forms.TextBox textBoxPoblacion;
         private System.Windows.Forms.TextBox textBoxRepContrasena;
         private System.Windows.Forms.TextBox textBoxComunidad;
+        private System.Windows.Forms.Button buttonCancelar;
+        private System.Windows.Forms.Button buttonAnadir;
+        private System.Windows.Forms.Label label1;
     }
 }
