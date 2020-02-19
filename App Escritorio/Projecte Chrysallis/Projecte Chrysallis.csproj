@@ -223,6 +223,13 @@
       <DependentUpon>ModelChrysallis.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\Administradores.datasource" />
+    <None Include="Properties\DataSources\Asistir.datasource" />
+    <None Include="Properties\DataSources\Comunidades.datasource" />
+    <None Include="Properties\DataSources\Documentos.datasource" />
+    <None Include="Properties\DataSources\Eventos.datasource" />
+    <None Include="Properties\DataSources\Notificaciones.datasource" />
+    <None Include="Properties\DataSources\Socios.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
