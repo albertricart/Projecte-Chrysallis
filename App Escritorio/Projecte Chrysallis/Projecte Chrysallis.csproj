@@ -82,7 +82,6 @@
     <Compile Include="Documentos.cs">
       <DependentUpon>ModelChrysallis.tt</DependentUpon>
     </Compile>
-    <Compile Include="Evento.cs" />
     <Compile Include="Eventos.cs">
       <DependentUpon>ModelChrysallis.tt</DependentUpon>
     </Compile>
