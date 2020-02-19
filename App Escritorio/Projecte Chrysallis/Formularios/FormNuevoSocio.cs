@@ -21,5 +21,14 @@ namespace Projecte_Chrysallis.Formularios
         {
             this.Close();
         }
+
+        private void FormNuevoSocio_Load(object sender, EventArgs e)
+        {
+            comboBoxComunidad.DataSource = Base_de_Datos.ORM_Comunidades.SelectComunidades();
+            comboBoxComunidad.DisplayMember = "nombre";
+            comboBoxComunidad.ValueMember = "id;
+
+             
+        }
     }
 }
