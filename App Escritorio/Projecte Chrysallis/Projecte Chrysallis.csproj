@@ -217,6 +217,53 @@
       <DependentUpon>ModelChrysallis.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\Administradores.datasource" />
+    <None Include="Properties\DataSources\Asistir.datasource" />
+    <None Include="Properties\DataSources\ChrysallisDataSet.AdministradoresDataTable.datasource" />
+    <None Include="Properties\DataSources\ChrysallisDataSet.AdministradoresRow.datasource" />
+    <None Include="Properties\DataSources\ChrysallisDataSet.AdministradoresRowChangeEvent.datasource" />
+    <None Include="Properties\DataSources\ChrysallisDataSet.AdministradoresRowChangeEventHandler.datasource" />
+    <None Include="Properties\DataSources\ChrysallisDataSet.AdministrarComunidadDataTable.datasource" />
+    <None Include="Properties\DataSources\ChrysallisDataSet.AdministrarComunidadRow.datasource" />
+    <None Include="Properties\DataSources\ChrysallisDataSet.AdministrarComunidadRowChangeEvent.datasource" />
+    <None Include="Properties\DataSources\ChrysallisDataSet.AdministrarComunidadRowChangeEventHandler.datasource" />
+    <None Include="Properties\DataSources\ChrysallisDataSet.AsistirDataTable.datasource" />
+    <None Include="Properties\DataSources\ChrysallisDataSet.AsistirRow.datasource" />
+    <None Include="Properties\DataSources\ChrysallisDataSet.AsistirRowChangeEvent.datasource" />
+    <None Include="Properties\DataSources\ChrysallisDataSet.AsistirRowChangeEventHandler.datasource" />
+    <None Include="Properties\DataSources\ChrysallisDataSet.ComunidadesDataTable.datasource" />
+    <None Include="Properties\DataSources\ChrysallisDataSet.ComunidadesInteresadasDataTable.datasource" />
+    <None Include="Properties\DataSources\ChrysallisDataSet.ComunidadesInteresadasRow.datasource" />
+    <None Include="Properties\DataSources\ChrysallisDataSet.ComunidadesInteresadasRowChangeEvent.datasource" />
+    <None Include="Properties\DataSources\ChrysallisDataSet.ComunidadesInteresadasRowChangeEventHandler.datasource" />
+    <None Include="Properties\DataSources\ChrysallisDataSet.ComunidadesRow.datasource" />
+    <None Include="Properties\DataSources\ChrysallisDataSet.ComunidadesRowChangeEvent.datasource" />
+    <None Include="Properties\DataSources\ChrysallisDataSet.ComunidadesRowChangeEventHandler.datasource" />
+    <None Include="Properties\DataSources\ChrysallisDataSet.DocumentosDataTable.datasource" />
+    <None Include="Properties\DataSources\ChrysallisDataSet.DocumentosRow.datasource" />
+    <None Include="Properties\DataSources\ChrysallisDataSet.DocumentosRowChangeEvent.datasource" />
+    <None Include="Properties\DataSources\ChrysallisDataSet.DocumentosRowChangeEventHandler.datasource" />
+    <None Include="Properties\DataSources\ChrysallisDataSet.EventosDataTable.datasource" />
+    <None Include="Properties\DataSources\ChrysallisDataSet.EventosRow.datasource" />
+    <None Include="Properties\DataSources\ChrysallisDataSet.EventosRowChangeEvent.datasource" />
+    <None Include="Properties\DataSources\ChrysallisDataSet.NotificacionesDataTable.datasource" />
+    <None Include="Properties\DataSources\ChrysallisDataSet.NotificacionesRow.datasource" />
+    <None Include="Properties\DataSources\ChrysallisDataSet.NotificacionesRowChangeEvent.datasource" />
+    <None Include="Properties\DataSources\ChrysallisDataSet.NotificacionesRowChangeEventHandler.datasource" />
+    <None Include="Properties\DataSources\ChrysallisDataSet.SociosDataTable.datasource" />
+    <None Include="Properties\DataSources\ChrysallisDataSet.SociosRow.datasource" />
+    <None Include="Properties\DataSources\ChrysallisDataSet.SociosRowChangeEvent.datasource" />
+    <None Include="Properties\DataSources\ChrysallisEntities.datasource" />
+    <None Include="Properties\DataSources\Comunidades.datasource" />
+    <None Include="Properties\DataSources\Documentos.datasource" />
+    <None Include="Properties\DataSources\Evento.datasource" />
+    <None Include="Properties\DataSources\Eventos.datasource" />
+    <None Include="Properties\DataSources\FormCrearEvento.datasource" />
+    <None Include="Properties\DataSources\FormEventos.datasource" />
+    <None Include="Properties\DataSources\FormMenu.datasource" />
+    <None Include="Properties\DataSources\FormSocios.datasource" />
+    <None Include="Properties\DataSources\Notificaciones.datasource" />
+    <None Include="Properties\DataSources\Socios.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

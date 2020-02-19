@@ -22,5 +22,17 @@ namespace Projecte_Chrysallis.Properties {
                 return defaultInstance;
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=192.168.56.101\\SQLEXPRESS;Initial Catalog=Chrysallis;Persist Security" +
+            " Info=True;User ID=sa;Password=cep;MultipleActiveResultSets=True;Application Nam" +
+            "e=EntityFramework")]
+        public string ChrysallisConnectionString {
+            get {
+                return ((string)(this["ChrysallisConnectionString"]));
+            }
+        }
     }
 }

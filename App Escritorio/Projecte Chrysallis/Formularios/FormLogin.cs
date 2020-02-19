@@ -20,6 +20,9 @@ namespace Projecte_Chrysallis.Formularios
         {
             labelIncorrectos.Visible = false;
             valido = false;
+
+            bindingSource1.DataSource = null;
+            bindingSource1.DataSource = Base_de_Datos.ORM_Comunidades.SelectComunidades();
         }
 
         private void FormLogin_FormClosing(object sender, FormClosingEventArgs e)
