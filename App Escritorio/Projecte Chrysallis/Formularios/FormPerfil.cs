@@ -12,9 +12,24 @@ namespace Projecte_Chrysallis.Formularios
 {
     public partial class FormPerfil : Form
     {
-        public FormPerfil()
+        Administradores admin;
+
+        public FormPerfil(Administradores admin)
         {
             InitializeComponent();
+            this.admin = admin;
+        }
+
+        private void buttonContraseña_Click(object sender, EventArgs e)
+        {
+            FormCambiarPW_email f = new FormCambiarPW_email(admin, false);
+            f.ShowDialog();
+        }
+
+        private void buttonEmail_Click(object sender, EventArgs e)
+        {
+            FormCambiarPW_email f = new FormCambiarPW_email(admin, true);
+            f.ShowDialog();
         }
     }
 }

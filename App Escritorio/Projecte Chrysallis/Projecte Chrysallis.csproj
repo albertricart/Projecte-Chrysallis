@@ -82,6 +82,7 @@
     <Compile Include="Documentos.cs">
       <DependentUpon>ModelChrysallis.tt</DependentUpon>
     </Compile>
+    <Compile Include="Evento.cs" />
     <Compile Include="Eventos.cs">
       <DependentUpon>ModelChrysallis.tt</DependentUpon>
     </Compile>
@@ -133,12 +134,6 @@
     <Compile Include="Formularios\FormNuevoAdmin.Designer.cs">
       <DependentUpon>FormNuevoAdmin.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\FormNuevoSocio.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Formularios\FormNuevoSocio.Designer.cs">
-      <DependentUpon>FormNuevoSocio.cs</DependentUpon>
-    </Compile>
     <Compile Include="Formularios\FormPerfil.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -177,6 +172,9 @@
     <EmbeddedResource Include="Formularios\FormAdmins.resx">
       <DependentUpon>FormAdmins.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\FormCambiarPW_email.resx">
+      <DependentUpon>FormCambiarPW_email.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\FormContacto.resx">
       <DependentUpon>FormContacto.cs</DependentUpon>
     </EmbeddedResource>
@@ -194,9 +192,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\FormNuevoAdmin.resx">
       <DependentUpon>FormNuevoAdmin.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\FormNuevoSocio.resx">
-      <DependentUpon>FormNuevoSocio.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\FormPerfil.resx">
       <DependentUpon>FormPerfil.cs</DependentUpon>
@@ -224,9 +219,49 @@
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Administradores.datasource" />
     <None Include="Properties\DataSources\Asistir.datasource" />
+    <None Include="Properties\DataSources\ChrysallisDataSet.AdministradoresDataTable.datasource" />
+    <None Include="Properties\DataSources\ChrysallisDataSet.AdministradoresRow.datasource" />
+    <None Include="Properties\DataSources\ChrysallisDataSet.AdministradoresRowChangeEvent.datasource" />
+    <None Include="Properties\DataSources\ChrysallisDataSet.AdministradoresRowChangeEventHandler.datasource" />
+    <None Include="Properties\DataSources\ChrysallisDataSet.AdministrarComunidadDataTable.datasource" />
+    <None Include="Properties\DataSources\ChrysallisDataSet.AdministrarComunidadRow.datasource" />
+    <None Include="Properties\DataSources\ChrysallisDataSet.AdministrarComunidadRowChangeEvent.datasource" />
+    <None Include="Properties\DataSources\ChrysallisDataSet.AdministrarComunidadRowChangeEventHandler.datasource" />
+    <None Include="Properties\DataSources\ChrysallisDataSet.AsistirDataTable.datasource" />
+    <None Include="Properties\DataSources\ChrysallisDataSet.AsistirRow.datasource" />
+    <None Include="Properties\DataSources\ChrysallisDataSet.AsistirRowChangeEvent.datasource" />
+    <None Include="Properties\DataSources\ChrysallisDataSet.AsistirRowChangeEventHandler.datasource" />
+    <None Include="Properties\DataSources\ChrysallisDataSet.ComunidadesDataTable.datasource" />
+    <None Include="Properties\DataSources\ChrysallisDataSet.ComunidadesInteresadasDataTable.datasource" />
+    <None Include="Properties\DataSources\ChrysallisDataSet.ComunidadesInteresadasRow.datasource" />
+    <None Include="Properties\DataSources\ChrysallisDataSet.ComunidadesInteresadasRowChangeEvent.datasource" />
+    <None Include="Properties\DataSources\ChrysallisDataSet.ComunidadesInteresadasRowChangeEventHandler.datasource" />
+    <None Include="Properties\DataSources\ChrysallisDataSet.ComunidadesRow.datasource" />
+    <None Include="Properties\DataSources\ChrysallisDataSet.ComunidadesRowChangeEvent.datasource" />
+    <None Include="Properties\DataSources\ChrysallisDataSet.ComunidadesRowChangeEventHandler.datasource" />
+    <None Include="Properties\DataSources\ChrysallisDataSet.DocumentosDataTable.datasource" />
+    <None Include="Properties\DataSources\ChrysallisDataSet.DocumentosRow.datasource" />
+    <None Include="Properties\DataSources\ChrysallisDataSet.DocumentosRowChangeEvent.datasource" />
+    <None Include="Properties\DataSources\ChrysallisDataSet.DocumentosRowChangeEventHandler.datasource" />
+    <None Include="Properties\DataSources\ChrysallisDataSet.EventosDataTable.datasource" />
+    <None Include="Properties\DataSources\ChrysallisDataSet.EventosRow.datasource" />
+    <None Include="Properties\DataSources\ChrysallisDataSet.EventosRowChangeEvent.datasource" />
+    <None Include="Properties\DataSources\ChrysallisDataSet.NotificacionesDataTable.datasource" />
+    <None Include="Properties\DataSources\ChrysallisDataSet.NotificacionesRow.datasource" />
+    <None Include="Properties\DataSources\ChrysallisDataSet.NotificacionesRowChangeEvent.datasource" />
+    <None Include="Properties\DataSources\ChrysallisDataSet.NotificacionesRowChangeEventHandler.datasource" />
+    <None Include="Properties\DataSources\ChrysallisDataSet.SociosDataTable.datasource" />
+    <None Include="Properties\DataSources\ChrysallisDataSet.SociosRow.datasource" />
+    <None Include="Properties\DataSources\ChrysallisDataSet.SociosRowChangeEvent.datasource" />
+    <None Include="Properties\DataSources\ChrysallisEntities.datasource" />
     <None Include="Properties\DataSources\Comunidades.datasource" />
     <None Include="Properties\DataSources\Documentos.datasource" />
+    <None Include="Properties\DataSources\Evento.datasource" />
     <None Include="Properties\DataSources\Eventos.datasource" />
+    <None Include="Properties\DataSources\FormCrearEvento.datasource" />
+    <None Include="Properties\DataSources\FormEventos.datasource" />
+    <None Include="Properties\DataSources\FormMenu.datasource" />
+    <None Include="Properties\DataSources\FormSocios.datasource" />
     <None Include="Properties\DataSources\Notificaciones.datasource" />
     <None Include="Properties\DataSources\Socios.datasource" />
     <None Include="Properties\Settings.settings">
@@ -265,7 +300,11 @@
       <DependentUpon>ModelChrysallis.edmx</DependentUpon>
       <LastGenOutput>ModelChrysallis.cs</LastGenOutput>
     </Content>
+    <Content Include="Resources\candado.png" />
     <Content Include="Resources\icon_wrong.png" />
+    <Content Include="Resources\ojo.png" />
+    <Content Include="Resources\ojoActivado.png" />
+    <Content Include="Resources\usuario.png" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
