@@ -43,5 +43,17 @@ namespace Projecte_Chrysallis
             Socios socio = ORM_Socio.SelectSocioByID(1);
             MessageBox.Show(socio.apellidos);
         }
+
+        private void FormSocios_Load(object sender, EventArgs e)
+        {
+            bindingSourceSocios.DataSource = null;
+            bindingSourceSocios.DataSource = Base_de_Datos.ORM_Socio.SelectSocios();
+        }
+
+        private void FormSocios_Activated(object sender, EventArgs e)
+        {
+            bindingSourceSocios.DataSource = null;
+            bindingSourceSocios.DataSource = Base_de_Datos.ORM_Socio.SelectSocios();
+        }
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Projecte_Chrysallis.Base_de_Datos
 {
@@ -40,13 +41,14 @@ namespace Projecte_Chrysallis.Base_de_Datos
             socio.nombre = nombre;
             socio.apellidos = apellidos;
             socio.email = email;
-            String contrasenya = nombre.Substring(0, 5) + dni.Substring(0, 5);
+            String contrasenya = "aaa";
             socio.contrasenya = encriptarContrasesenya(contrasenya);
             socio.telefono = telefono;
             socio.poblacion = poblacion;
             socio.idComunidad = idComunidad;
             socio.activo = activo;
 
+            ORM.bd.Socios.Add(socio);
             result = ORM.SaveChanges();
 
             return result;
