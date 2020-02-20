@@ -26,6 +26,9 @@ namespace Projecte_Chrysallis
                 m.Result = (IntPtr)(HT_CAPTION);
         }
 
+        public static int idEvento;
+        public static bool modificar = false;
+
         //========================================================================================================//
         //CONSTRUCTOR
         //========================================================================================================//
@@ -37,6 +40,8 @@ namespace Projecte_Chrysallis
         public FormCrearEvento(int id)
         {
             InitializeComponent();
+            idEvento = id;
+            modificar = true;
         }
 
 
@@ -53,6 +58,11 @@ namespace Projecte_Chrysallis
             dateTimePickerEvento.CustomFormat = "dd/MM/yyyy || hh:mm";
             dateTimePickerLimite.Format = DateTimePickerFormat.Custom;
             dateTimePickerLimite.CustomFormat = "dd/MM/yyyy || hh:mm";
+
+            if (modificar == true)
+            {
+                RellenarCampos();
+            }
         }
 
         private void pictureBoxAtras_Click(object sender, EventArgs e)
@@ -130,6 +140,25 @@ namespace Projecte_Chrysallis
             return correcto;
         }
 
-        
+        public void RellenarCampos()
+        {
+            Eventos evento = Base_de_Datos.ORM_Evento.SelectEventoByID(idEvento);
+            textBoxTitulo.Text = evento.titulo;
+            textBoxUbicacion.Text = evento.ubicacion;
+            textBoxDescripcion.Text = evento.descripcion;
+
+            //comboBoxComunidades.SelectedIndex = comboBoxComunidades.FindStringExact(evento.idComunidad.ToString());
+
+            foreach (Comunidades comunidad in comboBoxComunidades.Items)
+            {
+                if (comunidad.id == evento.idComunidad)
+                {
+                    comboBoxComunidades.SelectedItem = comunidad.id;
+                }
+            }
+
+        }
+
+
     }
 }

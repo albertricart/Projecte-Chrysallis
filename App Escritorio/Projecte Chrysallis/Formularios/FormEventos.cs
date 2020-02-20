@@ -33,7 +33,7 @@ namespace Projecte_Chrysallis
 
         private void FormEventos_Load(object sender, EventArgs e)
         {
-            bindingSourceEventos.DataSource = null ;
+            bindingSourceEventos.DataSource = null;
             bindingSourceEventos.DataSource = Base_de_Datos.ORM_Evento.SelectEventos();
         }
 
@@ -57,13 +57,18 @@ namespace Projecte_Chrysallis
         private void dataGridViewEventos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             ModificarEvento();
-
         }
 
         public void ModificarEvento()
         {
             int.TryParse(dataGridViewEventos.SelectedRows[0].Cells[0].Value.ToString(), out int id);
-            FormCrearEvento formEvento = new FormCrearEvento(id);
+            FormCrearEvento formModificarEvento = new FormCrearEvento(id);
+            formModificarEvento.ShowDialog();
+        }
+
+        private void pictureBoxModificar_Click(object sender, EventArgs e)
+        {
+            ModificarEvento();
         }
     }
 }
