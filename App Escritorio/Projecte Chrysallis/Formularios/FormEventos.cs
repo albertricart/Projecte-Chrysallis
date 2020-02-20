@@ -56,7 +56,7 @@ namespace Projecte_Chrysallis
 
         private void dataGridViewEventos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            
+            ModificarEvento();
 
         }
 
