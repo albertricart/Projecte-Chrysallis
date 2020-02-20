@@ -83,7 +83,7 @@ namespace Projecte_Chrysallis.Formularios
         {
             if (CamposCorrectos())
             {
-
+                Base_de_Datos.ORM_Socio.InsertSocio(textBoxDNI.Text, textBoxNombre.Text, textBoxApellidos.Text, textBoxEmail.Text, textBoxTelefono.Text, textBoxPoblacion.Text, (byte)comboBoxComunidad.SelectedIndex, true);
             }
         }
     }
