@@ -212,11 +212,18 @@
             // 
             // comboBoxComunidad
             // 
+            this.comboBoxComunidad.DataSource = this.bindingSourceComunidad;
+            this.comboBoxComunidad.DisplayMember = "nombre";
             this.comboBoxComunidad.FormattingEnabled = true;
             this.comboBoxComunidad.Location = new System.Drawing.Point(522, 203);
             this.comboBoxComunidad.Name = "comboBoxComunidad";
             this.comboBoxComunidad.Size = new System.Drawing.Size(308, 21);
             this.comboBoxComunidad.TabIndex = 21;
+            this.comboBoxComunidad.ValueMember = "id";
+            // 
+            // bindingSourceComunidad
+            // 
+            this.bindingSourceComunidad.DataSource = typeof(Projecte_Chrysallis.Comunidades);
             // 
             // FormNuevoSocio
             // 

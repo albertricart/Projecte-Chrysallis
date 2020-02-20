@@ -1,4 +1,5 @@
 ﻿using Projecte_Chrysallis.Base_de_Datos;
+using Projecte_Chrysallis.Formularios;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -25,6 +26,8 @@ namespace Projecte_Chrysallis
 
         private void buttonAnadir_Click(object sender, EventArgs e)
         {
+            FormNuevoSocio formNuevoSocio = new FormNuevoSocio();
+            formNuevoSocio.ShowDialog();
         }
 
         private void buttonModificar_Click(object sender, EventArgs e)
