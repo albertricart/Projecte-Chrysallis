@@ -29,17 +29,17 @@
         private void InitializeComponent()
         {
             this.buttonNuevo = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.dataGridViewAdmins = new System.Windows.Forms.DataGridView();
+            this.comboBoxFiltro = new System.Windows.Forms.ComboBox();
+            this.listBoxComunidades = new System.Windows.Forms.ListBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBoxFiltro = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.checkBoxFiltrar = new System.Windows.Forms.CheckBox();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAdmins)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -55,39 +55,39 @@
             this.buttonNuevo.UseVisualStyleBackColor = true;
             this.buttonNuevo.Click += new System.EventHandler(this.buttonNuevo_Click);
             // 
-            // dataGridView1
+            // dataGridViewAdmins
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 100);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(437, 338);
-            this.dataGridView1.TabIndex = 1;
+            this.dataGridViewAdmins.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewAdmins.Location = new System.Drawing.Point(12, 100);
+            this.dataGridViewAdmins.Name = "dataGridViewAdmins";
+            this.dataGridViewAdmins.Size = new System.Drawing.Size(437, 338);
+            this.dataGridViewAdmins.TabIndex = 1;
             // 
-            // comboBox1
+            // comboBoxFiltro
             // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.comboBoxFiltro.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxFiltro.FormattingEnabled = true;
+            this.comboBoxFiltro.Items.AddRange(new object[] {
             "Nombre",
             "Apellidos",
             "Email",
             "Comunidad Autónoma"});
-            this.comboBox1.Location = new System.Drawing.Point(169, 26);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(163, 21);
-            this.comboBox1.TabIndex = 2;
+            this.comboBoxFiltro.Location = new System.Drawing.Point(169, 26);
+            this.comboBoxFiltro.Name = "comboBoxFiltro";
+            this.comboBoxFiltro.Size = new System.Drawing.Size(163, 21);
+            this.comboBoxFiltro.TabIndex = 2;
             // 
-            // listBox1
+            // listBoxComunidades
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(6, 23);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(209, 303);
-            this.listBox1.TabIndex = 3;
+            this.listBoxComunidades.FormattingEnabled = true;
+            this.listBoxComunidades.Location = new System.Drawing.Point(6, 23);
+            this.listBoxComunidades.Name = "listBoxComunidades";
+            this.listBoxComunidades.Size = new System.Drawing.Size(209, 303);
+            this.listBoxComunidades.TabIndex = 3;
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.listBox1);
+            this.groupBox1.Controls.Add(this.listBoxComunidades);
             this.groupBox1.Location = new System.Drawing.Point(455, 100);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(221, 338);
@@ -95,12 +95,12 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Comunidades que administra";
             // 
-            // textBox1
+            // textBoxFiltro
             // 
-            this.textBox1.Location = new System.Drawing.Point(5, 27);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(158, 20);
-            this.textBox1.TabIndex = 6;
+            this.textBoxFiltro.Location = new System.Drawing.Point(5, 27);
+            this.textBoxFiltro.Name = "textBoxFiltro";
+            this.textBoxFiltro.Size = new System.Drawing.Size(158, 20);
+            this.textBoxFiltro.TabIndex = 6;
             // 
             // button1
             // 
@@ -134,9 +134,9 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.checkBox1);
-            this.groupBox3.Controls.Add(this.textBox1);
-            this.groupBox3.Controls.Add(this.comboBox1);
+            this.groupBox3.Controls.Add(this.checkBoxFiltrar);
+            this.groupBox3.Controls.Add(this.textBoxFiltro);
+            this.groupBox3.Controls.Add(this.comboBoxFiltro);
             this.groupBox3.Location = new System.Drawing.Point(338, 31);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(338, 60);
@@ -144,14 +144,15 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Filtrar por";
             // 
-            // checkBox1
+            // checkBoxFiltrar
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(58, 0);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(15, 14);
-            this.checkBox1.TabIndex = 10;
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBoxFiltrar.AutoSize = true;
+            this.checkBoxFiltrar.Location = new System.Drawing.Point(58, 0);
+            this.checkBoxFiltrar.Name = "checkBoxFiltrar";
+            this.checkBoxFiltrar.Size = new System.Drawing.Size(15, 14);
+            this.checkBoxFiltrar.TabIndex = 10;
+            this.checkBoxFiltrar.UseVisualStyleBackColor = true;
+            this.checkBoxFiltrar.CheckedChanged += new System.EventHandler(this.checkBoxFiltrar_CheckedChanged);
             // 
             // FormAdmins
             // 
@@ -161,10 +162,10 @@
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dataGridViewAdmins);
             this.Name = "FormAdmins";
             this.Text = "Gestión de Administradores - MeetChrysallis";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAdmins)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
@@ -176,15 +177,15 @@
         #endregion
 
         private System.Windows.Forms.Button buttonNuevo;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.DataGridView dataGridViewAdmins;
+        private System.Windows.Forms.ComboBox comboBoxFiltro;
+        private System.Windows.Forms.ListBox listBoxComunidades;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBoxFiltro;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox checkBoxFiltrar;
     }
 }

@@ -133,6 +133,12 @@
     <Compile Include="Formularios\FormNuevoAdmin.Designer.cs">
       <DependentUpon>FormNuevoAdmin.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\FormNuevoSocio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\FormNuevoSocio.Designer.cs">
+      <DependentUpon>FormNuevoSocio.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\FormPerfil.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -196,6 +202,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\FormNuevoAdmin.resx">
       <DependentUpon>FormNuevoAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\FormNuevoSocio.resx">
+      <DependentUpon>FormNuevoSocio.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\FormPerfil.resx">
       <DependentUpon>FormPerfil.cs</DependentUpon>

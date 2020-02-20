@@ -30,7 +30,7 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBoxSA = new System.Windows.Forms.GroupBox();
             this.radioButtonNo = new System.Windows.Forms.RadioButton();
             this.radioButtonSi = new System.Windows.Forms.RadioButton();
             this.textBox2 = new System.Windows.Forms.TextBox();
@@ -40,7 +40,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.checkBoxGenerar = new System.Windows.Forms.CheckBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -49,7 +49,7 @@
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBoxComunidades = new System.Windows.Forms.PictureBox();
             this.pictureBoxContrasenya = new System.Windows.Forms.PictureBox();
-            this.groupBox1.SuspendLayout();
+            this.groupBoxSA.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxNombre)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxApellidos)).BeginInit();
@@ -74,16 +74,16 @@
             this.textBox1.Size = new System.Drawing.Size(146, 20);
             this.textBox1.TabIndex = 1;
             // 
-            // groupBox1
+            // groupBoxSA
             // 
-            this.groupBox1.Controls.Add(this.radioButtonNo);
-            this.groupBox1.Controls.Add(this.radioButtonSi);
-            this.groupBox1.Location = new System.Drawing.Point(28, 228);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(113, 50);
-            this.groupBox1.TabIndex = 2;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Es super admin?";
+            this.groupBoxSA.Controls.Add(this.radioButtonNo);
+            this.groupBoxSA.Controls.Add(this.radioButtonSi);
+            this.groupBoxSA.Location = new System.Drawing.Point(27, 228);
+            this.groupBoxSA.Name = "groupBoxSA";
+            this.groupBoxSA.Size = new System.Drawing.Size(113, 50);
+            this.groupBoxSA.TabIndex = 2;
+            this.groupBoxSA.TabStop = false;
+            this.groupBoxSA.Text = "Es super admin?";
             // 
             // radioButtonNo
             // 
@@ -135,7 +135,7 @@
             // 
             this.textBox3.Location = new System.Drawing.Point(27, 139);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(140, 20);
+            this.textBox3.Size = new System.Drawing.Size(146, 20);
             this.textBox3.TabIndex = 3;
             // 
             // label4
@@ -163,15 +163,15 @@
             this.label5.TabIndex = 9;
             this.label5.Text = "Contraseña";
             // 
-            // checkBox1
+            // checkBoxGenerar
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(109, 169);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(140, 17);
-            this.checkBox1.TabIndex = 5;
-            this.checkBox1.Text = "Generar una automática";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBoxGenerar.AutoSize = true;
+            this.checkBoxGenerar.Location = new System.Drawing.Point(109, 169);
+            this.checkBoxGenerar.Name = "checkBoxGenerar";
+            this.checkBoxGenerar.Size = new System.Drawing.Size(140, 17);
+            this.checkBoxGenerar.TabIndex = 5;
+            this.checkBoxGenerar.Text = "Generar una automática";
+            this.checkBoxGenerar.UseVisualStyleBackColor = true;
             // 
             // groupBox2
             // 
@@ -181,7 +181,7 @@
             this.groupBox2.Size = new System.Drawing.Size(169, 258);
             this.groupBox2.TabIndex = 12;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Comunidades que administra";
+            this.groupBox2.Text = "Comunidad/es que administra";
             // 
             // button1
             // 
@@ -206,7 +206,7 @@
             // 
             this.pictureBoxNombre.BackColor = System.Drawing.Color.Transparent;
             this.pictureBoxNombre.Image = global::Projecte_Chrysallis.Properties.Resources.icon_wrong;
-            this.pictureBoxNombre.Location = new System.Drawing.Point(179, 31);
+            this.pictureBoxNombre.Location = new System.Drawing.Point(179, 34);
             this.pictureBoxNombre.Name = "pictureBoxNombre";
             this.pictureBoxNombre.Size = new System.Drawing.Size(25, 25);
             this.pictureBoxNombre.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -217,7 +217,7 @@
             // 
             this.pictureBoxApellidos.BackColor = System.Drawing.Color.Transparent;
             this.pictureBoxApellidos.Image = global::Projecte_Chrysallis.Properties.Resources.icon_wrong;
-            this.pictureBoxApellidos.Location = new System.Drawing.Point(179, 81);
+            this.pictureBoxApellidos.Location = new System.Drawing.Point(179, 84);
             this.pictureBoxApellidos.Name = "pictureBoxApellidos";
             this.pictureBoxApellidos.Size = new System.Drawing.Size(25, 25);
             this.pictureBoxApellidos.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -228,7 +228,7 @@
             // 
             this.pictureBox3.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox3.Image = global::Projecte_Chrysallis.Properties.Resources.icon_wrong;
-            this.pictureBox3.Location = new System.Drawing.Point(179, 131);
+            this.pictureBox3.Location = new System.Drawing.Point(179, 134);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(25, 25);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -250,7 +250,7 @@
             // 
             this.pictureBoxContrasenya.BackColor = System.Drawing.Color.Transparent;
             this.pictureBoxContrasenya.Image = global::Projecte_Chrysallis.Properties.Resources.icon_wrong;
-            this.pictureBoxContrasenya.Location = new System.Drawing.Point(179, 181);
+            this.pictureBoxContrasenya.Location = new System.Drawing.Point(179, 183);
             this.pictureBoxContrasenya.Name = "pictureBoxContrasenya";
             this.pictureBoxContrasenya.Size = new System.Drawing.Size(25, 25);
             this.pictureBoxContrasenya.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -270,20 +270,20 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.checkBox1);
+            this.Controls.Add(this.checkBoxGenerar);
             this.Controls.Add(this.textBox4);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.groupBoxSA);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
             this.Name = "FormNuevoAdmin";
             this.Text = "Nuevo administrador - MeetChrysallis";
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.groupBoxSA.ResumeLayout(false);
+            this.groupBoxSA.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxNombre)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxApellidos)).EndInit();
@@ -299,7 +299,7 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupBoxSA;
         private System.Windows.Forms.RadioButton radioButtonNo;
         private System.Windows.Forms.RadioButton radioButtonSi;
         private System.Windows.Forms.TextBox textBox2;
@@ -309,7 +309,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox checkBoxGenerar;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;

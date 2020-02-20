@@ -22,5 +22,20 @@ namespace Projecte_Chrysallis.Formularios
             FormNuevoAdmin f = new FormNuevoAdmin();
             f.ShowDialog();
         }
+
+        private void checkBoxFiltrar_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBoxFiltrar.Checked)
+            {
+                comboBoxFiltro.Enabled = false;
+                textBoxFiltro.Enabled = false;
+                textBoxFiltro.Text = "";
+            }
+            else
+            {
+                comboBoxFiltro.Enabled = true;
+                textBoxFiltro.Enabled = true;
+            }
+        }
     }
 }
