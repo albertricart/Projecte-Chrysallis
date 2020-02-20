@@ -33,7 +33,7 @@ namespace Projecte_Chrysallis.Base_de_Datos
         //------------------------------------------------
         //Insert
         public static String InsertSocio(string dni, string nombre, string apellidos, string email,
-                                                string contrasenya, string telefono, string poblacion,
+                                                string telefono, string poblacion,
                                                       byte idComunidad, bool activo)
         {
             String result = "";
@@ -43,6 +43,7 @@ namespace Projecte_Chrysallis.Base_de_Datos
             socio.nombre = nombre;
             socio.apellidos = apellidos;
             socio.email = email;
+            String contrasenya = nombre.Substring(0, 5) + dni.Substring(0, 5);
             socio.contrasenya = encriptarContrasesenya(contrasenya);
             socio.telefono = telefono;
             socio.poblacion = poblacion;
