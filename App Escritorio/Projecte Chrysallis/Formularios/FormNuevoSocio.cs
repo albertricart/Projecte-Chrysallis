@@ -17,6 +17,56 @@ namespace Projecte_Chrysallis.Formularios
             InitializeComponent();
         }
 
+        public Boolean CamposCorrectos()
+        {
+            Boolean correcto = false;
+
+            if (string.IsNullOrWhiteSpace(textBoxNombre.Text))
+            {
+                MessageBox.Show("Introduce el nombre del socio", "Socio sin nombre", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+            }
+            else
+            {
+                if (string.IsNullOrWhiteSpace(textBoxApellidos.Text))
+                {
+                    MessageBox.Show("Introduce los apellidos del socio", "Socio sin apellidos", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                }
+                else
+                {
+                    if (string.IsNullOrWhiteSpace(textBoxDNI.Text))
+                    {
+                        MessageBox.Show("Introduce el DNI del socio", "Socio sin DNI", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                    }
+                    else
+                    {
+                        if (string.IsNullOrWhiteSpace(textBoxEmail.Text))
+                        {
+                            MessageBox.Show("Introduce el email del socio", "Socio sin email", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                        }
+                        else
+                        {
+                            if (string.IsNullOrWhiteSpace(textBoxTelefono.Text))
+                            {
+                                MessageBox.Show("Introduce el telefono del socio", "Socio sin telefono", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                            }
+                            else
+                            {
+                                if (string.IsNullOrWhiteSpace(textBoxPoblacion.Text))
+                                {
+                                    MessageBox.Show("Introduce la población del socio", "Socio sin población", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                                }
+                                else
+                                {
+                                    correcto = true;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            return correcto;
+        }
+
         private void buttonCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -27,6 +77,14 @@ namespace Projecte_Chrysallis.Formularios
             bindingSourceComunidad.DataSource = null;
             bindingSourceComunidad.DataSource = Base_de_Datos.ORM_Comunidades.SelectComunidades();
              
+        }
+
+        private void buttonAnadir_Click(object sender, EventArgs e)
+        {
+            if (CamposCorrectos())
+            {
+
+            }
         }
     }
 }
