@@ -94,7 +94,7 @@
             // 
             // dateTimePickerEvento
             // 
-            this.dateTimePickerEvento.CustomFormat = "dd/MM/yyyy \\t|\\t hh:mm";
+            this.dateTimePickerEvento.CustomFormat = "dd/MM/yyyy hh:mm";
             this.dateTimePickerEvento.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
             this.dateTimePickerEvento.Location = new System.Drawing.Point(14, 131);
             this.dateTimePickerEvento.Name = "dateTimePickerEvento";
@@ -142,7 +142,7 @@
             // 
             // dateTimePickerLimite
             // 
-            this.dateTimePickerLimite.CustomFormat = "dd/MM/yyyy \\t|\\t hh:mm";
+            this.dateTimePickerLimite.CustomFormat = "dd/MM/yyyy hh:mm";
             this.dateTimePickerLimite.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
             this.dateTimePickerLimite.Location = new System.Drawing.Point(12, 195);
             this.dateTimePickerLimite.Name = "dateTimePickerLimite";
