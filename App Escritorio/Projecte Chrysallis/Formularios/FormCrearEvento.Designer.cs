@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCrearEvento));
             this.textBoxTitulo = new System.Windows.Forms.TextBox();
             this.textBoxUbicacion = new System.Windows.Forms.TextBox();
@@ -45,7 +46,8 @@
             this.textBoxDocumento4 = new System.Windows.Forms.TextBox();
             this.textBoxDocumento5 = new System.Windows.Forms.TextBox();
             this.textBoxDocumento6 = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.comboBoxComunidades = new System.Windows.Forms.ComboBox();
+            this.bindingSourceComunidades = new System.Windows.Forms.BindingSource(this.components);
             this.buttonCrearEvento = new System.Windows.Forms.Button();
             this.pictureBoxDocumento6 = new System.Windows.Forms.PictureBox();
             this.pictureBoxDocumento5 = new System.Windows.Forms.PictureBox();
@@ -54,6 +56,8 @@
             this.pictureBoxDocumento2 = new System.Windows.Forms.PictureBox();
             this.pictureBoxDocumento1 = new System.Windows.Forms.PictureBox();
             this.pictureBoxAtras = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceComunidades)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDocumento6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDocumento5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDocumento4)).BeginInit();
@@ -111,7 +115,7 @@
             // 
             this.labelUbi.AutoSize = true;
             this.labelUbi.Font = new System.Drawing.Font("Consolas", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelUbi.Location = new System.Drawing.Point(8, 248);
+            this.labelUbi.Location = new System.Drawing.Point(12, 248);
             this.labelUbi.Name = "labelUbi";
             this.labelUbi.Size = new System.Drawing.Size(118, 24);
             this.labelUbi.TabIndex = 6;
@@ -220,14 +224,22 @@
             this.textBoxDocumento6.Size = new System.Drawing.Size(228, 27);
             this.textBoxDocumento6.TabIndex = 3;
             // 
-            // comboBox1
+            // comboBoxComunidades
             // 
-            this.comboBox1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(12, 534);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(408, 29);
-            this.comboBox1.TabIndex = 8;
+            this.comboBoxComunidades.DataSource = this.bindingSourceComunidades;
+            this.comboBoxComunidades.DisplayMember = "nombre";
+            this.comboBoxComunidades.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxComunidades.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxComunidades.FormattingEnabled = true;
+            this.comboBoxComunidades.Location = new System.Drawing.Point(12, 534);
+            this.comboBoxComunidades.Name = "comboBoxComunidades";
+            this.comboBoxComunidades.Size = new System.Drawing.Size(408, 29);
+            this.comboBoxComunidades.TabIndex = 8;
+            this.comboBoxComunidades.ValueMember = "id";
+            // 
+            // bindingSourceComunidades
+            // 
+            this.bindingSourceComunidades.DataSource = typeof(Projecte_Chrysallis.Comunidades);
             // 
             // buttonCrearEvento
             // 
@@ -319,6 +331,16 @@
             this.pictureBoxAtras.TabStop = false;
             this.pictureBoxAtras.Click += new System.EventHandler(this.pictureBoxAtras_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Consolas", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(12, 318);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(142, 24);
+            this.label1.TabIndex = 19;
+            this.label1.Text = "Descripción";
+            // 
             // FormCrearEvento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -326,8 +348,9 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(807, 695);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.buttonCrearEvento);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.comboBoxComunidades);
             this.Controls.Add(this.pictureBoxDocumento6);
             this.Controls.Add(this.pictureBoxDocumento5);
             this.Controls.Add(this.pictureBoxDocumento4);
@@ -358,6 +381,7 @@
             this.Name = "FormCrearEvento";
             this.Text = "Crear Evento";
             this.Load += new System.EventHandler(this.FormCrearEvento_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceComunidades)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDocumento6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDocumento5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDocumento4)).EndInit();
@@ -395,7 +419,9 @@
         private System.Windows.Forms.TextBox textBoxDocumento4;
         private System.Windows.Forms.TextBox textBoxDocumento5;
         private System.Windows.Forms.TextBox textBoxDocumento6;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox comboBoxComunidades;
         private System.Windows.Forms.Button buttonCrearEvento;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.BindingSource bindingSourceComunidades;
     }
 }

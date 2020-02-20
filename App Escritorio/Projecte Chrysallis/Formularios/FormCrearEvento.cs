@@ -34,6 +34,8 @@ namespace Projecte_Chrysallis
 
         private void FormCrearEvento_Load(object sender, EventArgs e)
         {
+            bindingSourceComunidades.DataSource = null;
+            bindingSourceComunidades.DataSource = Base_de_Datos.ORM_Comunidades.SelectComunidades();
         }
 
         private void textBoxTitulo_Enter(object sender, EventArgs e)
