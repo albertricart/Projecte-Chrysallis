@@ -26,17 +26,58 @@ namespace Projecte_Chrysallis
                 m.Result = (IntPtr)(HT_CAPTION);
         }
 
-
+        //========================================================================================================//
+        //CONSTRUCTOR
+        //========================================================================================================//
         public FormCrearEvento()
         {
             InitializeComponent();
         }
 
+        public FormCrearEvento(int id)
+        {
+            InitializeComponent();
+        }
+
+
+
+        //========================================================================================================//
+        //EVENTOS
+        //========================================================================================================//
         private void FormCrearEvento_Load(object sender, EventArgs e)
         {
             bindingSourceComunidades.DataSource = null;
             bindingSourceComunidades.DataSource = Base_de_Datos.ORM_Comunidades.SelectComunidades();
+
+            dateTimePickerEvento.Format = DateTimePickerFormat.Custom;
+            dateTimePickerEvento.CustomFormat = "dd/MM/yyyy || hh:mm";
+            dateTimePickerLimite.Format = DateTimePickerFormat.Custom;
+            dateTimePickerLimite.CustomFormat = "dd/MM/yyyy || hh:mm";
         }
+
+        private void pictureBoxAtras_Click(object sender, EventArgs e)
+        {
+            // Pregunta si esta seguro que desea cerrar
+            var respuesta = MessageBox.Show("Perderás los datos introducidos, quieres salir?", "Salir", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            // Si es así, se cierra el form
+            if (respuesta == DialogResult.Yes)
+            {
+                this.Close();
+            }
+        }
+
+        private void buttonCrearEvento_Click(object sender, EventArgs e)
+        {
+            if (CamposCorrectos())
+            {
+                Base_de_Datos.ORM_Evento.InsertEvento(textBoxTitulo.Text, dateTimePickerEvento.Value.Date.Add(dateTimePickerEvento.Value.TimeOfDay),
+                    textBoxUbicacion.Text, textBoxDescripcion.Text, dateTimePickerLimite.Value.Date.Add(dateTimePickerLimite.Value.TimeOfDay), 5, 1);
+                MessageBox.Show("Evento añadido correctamente", "Evento Creado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Close();
+            }
+        }
+
 
         private void textBoxTitulo_Enter(object sender, EventArgs e)
         {
@@ -56,18 +97,9 @@ namespace Projecte_Chrysallis
             }
         }
 
-        private void pictureBoxAtras_Click(object sender, EventArgs e)
-        {
-            // Pregunta si esta seguro que desea cerrar
-            var respuesta = MessageBox.Show("Perderás los datos introducidos, quieres salir?", "Salir", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-            // Si es así, se cierra el form
-            if (respuesta == DialogResult.Yes)
-            {
-                this.Close();
-            }
-        }
-
+        //========================================================================================================//
+        //METODOS
+        //========================================================================================================//
         public bool CamposCorrectos()
         {
             bool correcto = false;
@@ -98,15 +130,6 @@ namespace Projecte_Chrysallis
             return correcto;
         }
 
-        private void buttonCrearEvento_Click(object sender, EventArgs e)
-        {
-            if (CamposCorrectos())
-            {
-                Base_de_Datos.ORM_Evento.InsertEvento(textBoxTitulo.Text, dateTimePickerEvento.Value.Date.Add(dateTimePickerEvento.Value.TimeOfDay),
-                    textBoxUbicacion.Text, textBoxDescripcion.Text, dateTimePickerLimite.Value.Date.Add(dateTimePickerLimite.Value.TimeOfDay), 5, 1);
-                MessageBox.Show("Evento añadido correctamente", "Evento Creado", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.Close();
-            }
-        }
+        
     }
 }

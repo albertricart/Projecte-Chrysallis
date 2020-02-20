@@ -53,5 +53,17 @@ namespace Projecte_Chrysallis
             bindingSourceEventos.DataSource = null;
             bindingSourceEventos.DataSource = Base_de_Datos.ORM_Evento.SelectEventos();
         }
+
+        private void dataGridViewEventos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
+
+        }
+
+        public void ModificarEvento()
+        {
+            int.TryParse(dataGridViewEventos.SelectedRows[0].Cells[0].Value.ToString(), out int id);
+            FormCrearEvento formEvento = new FormCrearEvento(id);
+        }
     }
 }
