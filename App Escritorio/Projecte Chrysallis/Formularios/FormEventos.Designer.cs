@@ -279,6 +279,7 @@
             this.pictureBoxModificar.Size = new System.Drawing.Size(100, 50);
             this.pictureBoxModificar.TabIndex = 6;
             this.pictureBoxModificar.TabStop = false;
+            this.pictureBoxModificar.Click += new System.EventHandler(this.pictureBoxModificar_Click_1);
             // 
             // pictureBoxEliminar
             // 

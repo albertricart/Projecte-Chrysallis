@@ -50,8 +50,8 @@ namespace Projecte_Chrysallis.Formularios
         /// </summary>
         private void intentarLogin()
         {
-            if (textBoxContrasenya.Text.Equals("prueba") &&
-             textBoxEmail.Text.Equals("prueba"))
+            if (textBoxContrasenya.Text.Equals("") &&
+             textBoxEmail.Text.Equals(""))
             {
                 valido = true;
                 this.Close();

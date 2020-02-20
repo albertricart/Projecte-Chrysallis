@@ -103,11 +103,11 @@
     <Compile Include="Formularios\FormContacto.Designer.cs">
       <DependentUpon>FormContacto.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\FormCrearEvento.cs">
+    <Compile Include="Formularios\FormEvento.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\FormCrearEvento.Designer.cs">
-      <DependentUpon>FormCrearEvento.cs</DependentUpon>
+    <Compile Include="Formularios\FormEvento.Designer.cs">
+      <DependentUpon>FormEvento.cs</DependentUpon>
     </Compile>
     <Compile Include="Formularios\FormEventos.cs">
       <SubType>Form</SubType>
@@ -188,8 +188,8 @@
     <EmbeddedResource Include="Formularios\FormContacto.resx">
       <DependentUpon>FormContacto.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\FormCrearEvento.resx">
-      <DependentUpon>FormCrearEvento.cs</DependentUpon>
+    <EmbeddedResource Include="Formularios\FormEvento.resx">
+      <DependentUpon>FormEvento.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\FormEventos.resx">
       <DependentUpon>FormEventos.cs</DependentUpon>

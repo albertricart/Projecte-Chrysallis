@@ -44,7 +44,7 @@ namespace Projecte_Chrysallis
 
         private void pictureBoxAnadir_Click(object sender, EventArgs e)
         {
-            FormCrearEvento formCrearEvento = new FormCrearEvento();
+            FormEvento formCrearEvento = new FormEvento();
             formCrearEvento.ShowDialog();
         }
 
@@ -62,11 +62,11 @@ namespace Projecte_Chrysallis
         public void ModificarEvento()
         {
             int.TryParse(dataGridViewEventos.SelectedRows[0].Cells[0].Value.ToString(), out int id);
-            FormCrearEvento formModificarEvento = new FormCrearEvento(id);
+            FormEvento formModificarEvento = new FormEvento(id);
             formModificarEvento.ShowDialog();
         }
 
-        private void pictureBoxModificar_Click(object sender, EventArgs e)
+        private void pictureBoxModificar_Click_1(object sender, EventArgs e)
         {
             ModificarEvento();
         }

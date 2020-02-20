@@ -1,6 +1,6 @@
 ﻿namespace Projecte_Chrysallis
 {
-    partial class FormCrearEvento
+    partial class FormEvento
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCrearEvento));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormEvento));
             this.textBoxTitulo = new System.Windows.Forms.TextBox();
             this.textBoxUbicacion = new System.Windows.Forms.TextBox();
             this.dateTimePickerEvento = new System.Windows.Forms.DateTimePicker();
@@ -341,7 +341,7 @@
             this.label1.TabIndex = 19;
             this.label1.Text = "Descripción";
             // 
-            // FormCrearEvento
+            // FormEvento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -378,7 +378,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "FormCrearEvento";
+            this.Name = "FormEvento";
             this.Text = "Crear Evento";
             this.Load += new System.EventHandler(this.FormCrearEvento_Load);
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceComunidades)).EndInit();

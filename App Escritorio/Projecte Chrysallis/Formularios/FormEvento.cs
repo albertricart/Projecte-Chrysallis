@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace Projecte_Chrysallis
 {
-    public partial class FormCrearEvento : Form
+    public partial class FormEvento : Form
     {
         //Constantes necesarias para mover form
         private const int WM_NCHITTEST = 0x84;
@@ -27,17 +27,18 @@ namespace Projecte_Chrysallis
         }
 
         public static int idEvento;
-        public static bool modificar = false;
+        public static bool modificar;
 
         //========================================================================================================//
         //CONSTRUCTOR
         //========================================================================================================//
-        public FormCrearEvento()
+        public FormEvento()
         {
             InitializeComponent();
+            modificar = false;
         }
 
-        public FormCrearEvento(int id)
+        public FormEvento(int id)
         {
             InitializeComponent();
             idEvento = id;
@@ -62,6 +63,7 @@ namespace Projecte_Chrysallis
             if (modificar == true)
             {
                 RellenarCampos();
+                buttonCrearEvento.Text = "GUARDAR EVENTO";
             }
         }
 
