@@ -5,26 +5,11 @@ using System.Windows.Forms;
 namespace Projecte_Chrysallis
 {
     public partial class FormEvento : Form
-    {
-        //Constantes necesarias para mover form
-        private const int WM_NCHITTEST = 0x84;
-        private const int HT_CLIENT = 0x1;
-        private const int HT_CAPTION = 0x2;
-
-
-        // Permite mover la ventana
-        protected override void WndProc(ref Message m)
-        {
-            base.WndProc(ref m);
-            if (m.Msg == WM_NCHITTEST)
-                m.Result = (IntPtr)(HT_CAPTION);
-        }
-
-
-        //Variable que usaremos para hacer la select del evento que querramos modificar
-        public static int idEvento;
+    { 
+        //Evento seleccionado en el formEventos
+        public Eventos evento;
         //Variable para indicar si queremos añadir o modificar un evento
-        public static bool modificar;
+        public bool modificar;
 
         //========================================================================================================//
         //CONSTRUCTOR
@@ -42,10 +27,10 @@ namespace Projecte_Chrysallis
         /// CONSTRUCTOR PARAMETRIZADO PARA MODIFICAR UN EVENTO
         /// </summary>
         /// <param name="id"></param>
-        public FormEvento(int id)
+        public FormEvento(Eventos evento)
         {
             InitializeComponent();
-            idEvento = id;
+            this.evento = evento;
             modificar = true;
         }
 
@@ -109,15 +94,17 @@ namespace Projecte_Chrysallis
         {
             if (CamposCorrectos())
             {
-                if (modificar != true)
+                if (modificar == true)
                 {
-                    Base_de_Datos.ORM_Evento.InsertEvento(textBoxTitulo.Text, dateTimePickerEvento.Value.Date.Add(dateTimePickerEvento.Value.TimeOfDay),
-                    textBoxUbicacion.Text, textBoxDescripcion.Text, dateTimePickerLimite.Value.Date.Add(dateTimePickerLimite.Value.TimeOfDay), (byte) comboBoxComunidades.SelectedValue, Formularios.FormLogin.idAdmin);
-                    MessageBox.Show("Evento añadido correctamente", "Evento Creado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Base_de_Datos.ORM_Evento.UpdateEvento(evento.id, textBoxTitulo.Text, dateTimePickerEvento.Value.Date.Add(dateTimePickerEvento.Value.TimeOfDay),
+                    textBoxUbicacion.Text, textBoxDescripcion.Text, dateTimePickerLimite.Value.Date.Add(dateTimePickerLimite.Value.TimeOfDay), (byte)comboBoxComunidades.SelectedValue, Formularios.FormLogin.idAdmin);
+                    MessageBox.Show("Evento modficado correctamente", "Evento Modificado", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
-
+                    Base_de_Datos.ORM_Evento.InsertEvento(textBoxTitulo.Text, dateTimePickerEvento.Value.Date.Add(dateTimePickerEvento.Value.TimeOfDay),
+                    textBoxUbicacion.Text, textBoxDescripcion.Text, dateTimePickerLimite.Value.Date.Add(dateTimePickerLimite.Value.TimeOfDay), (byte)comboBoxComunidades.SelectedValue, Formularios.FormLogin.idAdmin);
+                    MessageBox.Show("Evento añadido correctamente", "Evento Creado", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 
                 this.Close();
@@ -191,7 +178,6 @@ namespace Projecte_Chrysallis
         /// </summary>
         public void RellenarCamposModificar()
         {
-            Eventos evento = Base_de_Datos.ORM_Evento.SelectEventoByID(idEvento);
             textBoxTitulo.Text = evento.titulo;
             textBoxUbicacion.Text = evento.ubicacion;
             textBoxDescripcion.Text = evento.descripcion;
@@ -199,5 +185,22 @@ namespace Projecte_Chrysallis
         }
 
 
+        //========================================================================================================//
+        //OTROS
+        //========================================================================================================//
+
+        //Constantes necesarias para mover form
+        private const int WM_NCHITTEST = 0x84;
+        private const int HT_CLIENT = 0x1;
+        private const int HT_CAPTION = 0x2;
+
+
+        // Permite mover la ventana
+        protected override void WndProc(ref Message m)
+        {
+            base.WndProc(ref m);
+            if (m.Msg == WM_NCHITTEST)
+                m.Result = (IntPtr)(HT_CAPTION);
+        }
     }
 }
