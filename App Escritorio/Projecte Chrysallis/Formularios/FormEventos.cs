@@ -1,21 +1,151 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Projecte_Chrysallis
 {
     public partial class FormEventos : Form
     {
+
+        //========================================================================================================//
+        //CONSTRUCTORES
+        //========================================================================================================//
+        /// <summary>
+        /// Constructor vacío por defecto
+        /// </summary>
         public FormEventos()
         {
             InitializeComponent();
         }
+
+
+        //========================================================================================================//
+        //EVENTOS
+        //========================================================================================================//
+        /// <summary>
+        /// Evento Load del Form 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void FormEventos_Load(object sender, EventArgs e)
+        {
+            //el bindingSource obteniene los eventos de la bd
+            bindingSourceEventos.DataSource = null;
+            bindingSourceEventos.DataSource = Base_de_Datos.ORM_Evento.SelectEventos();
+        }
+
+        /// <summary>
+        /// Evento Activated del Form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void FormEventos_Activated(object sender, EventArgs e)
+        {
+            //mantendremos el bindingSource actualizado cada vez que volvamos a este form o se actualice
+            bindingSourceEventos.DataSource = null;
+            bindingSourceEventos.DataSource = Base_de_Datos.ORM_Evento.SelectEventos();
+        }
+
+        /// <summary>
+        /// Evento click del botón atrás
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void pictureBoxAtras_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        /// <summary>
+        /// Evento click del boton añadir
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void pictureBoxAnadir_Click(object sender, EventArgs e)
+        {
+            FormEvento formCrearEvento = new FormEvento();
+            formCrearEvento.ShowDialog();
+        }
+
+        
+        /// <summary>
+        /// Evento CellDoubleClick del datagridview Eventos
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void dataGridViewEventos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //modificaremos el evento al que le hayamos dado doble click
+            ModificarEvento();
+        }
+
+        /// <summary>
+        /// Evento click del botón modificar
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void pictureBoxModificar_Click_1(object sender, EventArgs e)
+        {
+            //modificaremos el evento al que tengamos seleccionado
+            ModificarEvento();
+        }
+
+        /// <summary>
+        /// Evento click del botón eliminar
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void pictureBoxEliminar_Click(object sender, EventArgs e)
+        {
+            //eliminamos el evento seleccionado
+            EliminarEvento(ObtenerEventoSeleccionado());
+        }
+
+
+        //========================================================================================================//
+        //METODOS
+        //========================================================================================================//
+        /// <summary>
+        /// Método para obtener el evento que hayamos seleccionado
+        /// </summary>
+        /// <returns></returns>
+        public Eventos ObtenerEventoSeleccionado()
+        {
+            int.TryParse(dataGridViewEventos.SelectedRows[0].Cells[0].Value.ToString(), out int id);
+            Eventos evento = Base_de_Datos.ORM_Evento.SelectEventoByID(id);
+            return evento;
+        }
+
+        /// <summary>
+        /// Método para abrir el form para modificar el evento
+        /// </summary>
+        public void ModificarEvento()
+        {
+            FormEvento formModificarEvento = new FormEvento(ObtenerEventoSeleccionado());
+            formModificarEvento.ShowDialog();
+        }
+
+        /// <summary>
+        /// Método para eliminar el evento que hayamos seleccionado
+        /// </summary>
+        public void EliminarEvento(Eventos evento)
+        {
+            //pediremos al usuario si esta seguro si quiere eliminarlo
+            var respuesta = MessageBox.Show("Seguro que quieres eliminar el evento seleccionado?", "Eliminar Evento", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (respuesta == DialogResult.Yes)
+            {
+                //eliminamos el evento si le da click en si
+                Base_de_Datos.ORM_Evento.DeleteEvento(evento);
+                MessageBox.Show("El evento " + evento.titulo +" ha sido eliminado", "Evento eliminado", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+
+            }
+            
+        }
+
+
+        //========================================================================================================//
+        //OTROS
+        //========================================================================================================//
 
         //Constantes necesarias para mover form
         private const int WM_NCHITTEST = 0x84;
@@ -29,46 +159,6 @@ namespace Projecte_Chrysallis
             base.WndProc(ref m);
             if (m.Msg == WM_NCHITTEST)
                 m.Result = (IntPtr)(HT_CAPTION);
-        }
-
-        private void FormEventos_Load(object sender, EventArgs e)
-        {
-            bindingSourceEventos.DataSource = null;
-            bindingSourceEventos.DataSource = Base_de_Datos.ORM_Evento.SelectEventos();
-        }
-
-        private void pictureBoxAtras_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void pictureBoxAnadir_Click(object sender, EventArgs e)
-        {
-            FormEvento formCrearEvento = new FormEvento();
-            formCrearEvento.ShowDialog();
-        }
-
-        private void FormEventos_Activated(object sender, EventArgs e)
-        {
-            bindingSourceEventos.DataSource = null;
-            bindingSourceEventos.DataSource = Base_de_Datos.ORM_Evento.SelectEventos();
-        }
-
-        private void dataGridViewEventos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            ModificarEvento();
-        }
-
-        public void ModificarEvento()
-        {
-            int.TryParse(dataGridViewEventos.SelectedRows[0].Cells[0].Value.ToString(), out int id);
-            FormEvento formModificarEvento = new FormEvento(id);
-            formModificarEvento.ShowDialog();
-        }
-
-        private void pictureBoxModificar_Click_1(object sender, EventArgs e)
-        {
-            ModificarEvento();
         }
     }
 }
