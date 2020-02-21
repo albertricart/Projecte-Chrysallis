@@ -66,7 +66,7 @@ namespace Projecte_Chrysallis
             formCrearEvento.ShowDialog();
         }
 
-        
+
         /// <summary>
         /// Evento CellDoubleClick del datagridview Eventos
         /// </summary>
@@ -96,8 +96,11 @@ namespace Projecte_Chrysallis
         /// <param name="e"></param>
         private void pictureBoxEliminar_Click(object sender, EventArgs e)
         {
-            //eliminamos el evento seleccionado
-            EliminarEvento(ObtenerEventoSeleccionado());
+            if (EventosExistentes())
+            {
+                //eliminamos el evento seleccionado
+                EliminarEvento(ObtenerEventoSeleccionado());
+            }
         }
 
 
@@ -113,6 +116,7 @@ namespace Projecte_Chrysallis
             int.TryParse(dataGridViewEventos.SelectedRows[0].Cells[0].Value.ToString(), out int id);
             Eventos evento = Base_de_Datos.ORM_Evento.SelectEventoByID(id);
             return evento;
+
         }
 
         /// <summary>
@@ -120,8 +124,11 @@ namespace Projecte_Chrysallis
         /// </summary>
         public void ModificarEvento()
         {
-            FormEvento formModificarEvento = new FormEvento(ObtenerEventoSeleccionado());
-            formModificarEvento.ShowDialog();
+            if (EventosExistentes())
+            {
+                FormEvento formModificarEvento = new FormEvento(ObtenerEventoSeleccionado());
+                formModificarEvento.ShowDialog();
+            }
         }
 
         /// <summary>
@@ -136,10 +143,23 @@ namespace Projecte_Chrysallis
             {
                 //eliminamos el evento si le da click en si
                 Base_de_Datos.ORM_Evento.DeleteEvento(evento);
-                MessageBox.Show("El evento " + evento.titulo +" ha sido eliminado", "Evento eliminado", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                MessageBox.Show("El evento " + evento.titulo + " ha sido eliminado", "Evento eliminado", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
 
             }
-            
+
+        }
+
+        public bool EventosExistentes()
+        {
+            if (dataGridViewEventos.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("No hay eventos", "Sin eventos", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return false;
+            }
+            else
+            {
+                return true;
+            }
         }
 
 

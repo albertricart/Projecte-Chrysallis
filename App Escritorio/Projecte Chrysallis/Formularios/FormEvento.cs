@@ -97,13 +97,13 @@ namespace Projecte_Chrysallis
                 if (modificar == true)
                 {
                     Base_de_Datos.ORM_Evento.UpdateEvento(evento.id, textBoxTitulo.Text, dateTimePickerEvento.Value.Date.Add(dateTimePickerEvento.Value.TimeOfDay),
-                    textBoxUbicacion.Text, textBoxDescripcion.Text, dateTimePickerLimite.Value.Date.Add(dateTimePickerLimite.Value.TimeOfDay), (byte)comboBoxComunidades.SelectedValue, Formularios.FormLogin.idAdmin);
+                    textBoxUbicacion.Text, textBoxDescripcion.Text, dateTimePickerLimite.Value.Date.Add(dateTimePickerLimite.Value.TimeOfDay), (byte)comboBoxComunidades.SelectedValue, Formularios.FormLogin.adminLogeado.id);
                     MessageBox.Show("Evento modficado correctamente", "Evento Modificado", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
                     Base_de_Datos.ORM_Evento.InsertEvento(textBoxTitulo.Text, dateTimePickerEvento.Value.Date.Add(dateTimePickerEvento.Value.TimeOfDay),
-                    textBoxUbicacion.Text, textBoxDescripcion.Text, dateTimePickerLimite.Value.Date.Add(dateTimePickerLimite.Value.TimeOfDay), (byte)comboBoxComunidades.SelectedValue, Formularios.FormLogin.idAdmin);
+                    textBoxUbicacion.Text, textBoxDescripcion.Text, dateTimePickerLimite.Value.Date.Add(dateTimePickerLimite.Value.TimeOfDay), (byte)comboBoxComunidades.SelectedValue, Formularios.FormLogin.adminLogeado.id);
                     MessageBox.Show("Evento añadido correctamente", "Evento Creado", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 
