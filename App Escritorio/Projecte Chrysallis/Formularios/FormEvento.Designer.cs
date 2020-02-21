@@ -96,6 +96,7 @@
             // 
             this.dateTimePickerEvento.CustomFormat = "dd/MM/yyyy hh:mm";
             this.dateTimePickerEvento.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
+            this.dateTimePickerEvento.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTimePickerEvento.Location = new System.Drawing.Point(14, 131);
             this.dateTimePickerEvento.Name = "dateTimePickerEvento";
             this.dateTimePickerEvento.Size = new System.Drawing.Size(406, 23);
@@ -107,9 +108,9 @@
             this.labelFecha.Font = new System.Drawing.Font("Consolas", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelFecha.Location = new System.Drawing.Point(12, 102);
             this.labelFecha.Name = "labelFecha";
-            this.labelFecha.Size = new System.Drawing.Size(202, 24);
+            this.labelFecha.Size = new System.Drawing.Size(286, 24);
             this.labelFecha.TabIndex = 6;
-            this.labelFecha.Text = "Fecha del evento";
+            this.labelFecha.Text = "Fecha y hora del evento";
             // 
             // labelUbi
             // 
@@ -144,6 +145,7 @@
             // 
             this.dateTimePickerLimite.CustomFormat = "dd/MM/yyyy hh:mm";
             this.dateTimePickerLimite.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
+            this.dateTimePickerLimite.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTimePickerLimite.Location = new System.Drawing.Point(12, 195);
             this.dateTimePickerLimite.Name = "dateTimePickerLimite";
             this.dateTimePickerLimite.Size = new System.Drawing.Size(408, 23);
@@ -152,12 +154,12 @@
             // labelFechaLimite
             // 
             this.labelFechaLimite.AutoSize = true;
-            this.labelFechaLimite.Font = new System.Drawing.Font("Consolas", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelFechaLimite.Font = new System.Drawing.Font("Consolas", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelFechaLimite.Location = new System.Drawing.Point(10, 166);
             this.labelFechaLimite.Name = "labelFechaLimite";
-            this.labelFechaLimite.Size = new System.Drawing.Size(334, 24);
+            this.labelFechaLimite.Size = new System.Drawing.Size(406, 23);
             this.labelFechaLimite.TabIndex = 6;
-            this.labelFechaLimite.Text = "Fecha límite de inscripción";
+            this.labelFechaLimite.Text = "Fecha y hora límite para inscribirse";
             // 
             // label2
             // 
@@ -263,6 +265,7 @@
             // 
             this.pictureBoxDocumento6.BackgroundImage = global::Projecte_Chrysallis.Properties.Resources.add;
             this.pictureBoxDocumento6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBoxDocumento6.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBoxDocumento6.Location = new System.Drawing.Point(484, 522);
             this.pictureBoxDocumento6.Name = "pictureBoxDocumento6";
             this.pictureBoxDocumento6.Size = new System.Drawing.Size(57, 50);
@@ -273,6 +276,7 @@
             // 
             this.pictureBoxDocumento5.BackgroundImage = global::Projecte_Chrysallis.Properties.Resources.add;
             this.pictureBoxDocumento5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBoxDocumento5.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBoxDocumento5.Location = new System.Drawing.Point(484, 441);
             this.pictureBoxDocumento5.Name = "pictureBoxDocumento5";
             this.pictureBoxDocumento5.Size = new System.Drawing.Size(57, 50);
@@ -283,6 +287,7 @@
             // 
             this.pictureBoxDocumento4.BackgroundImage = global::Projecte_Chrysallis.Properties.Resources.add;
             this.pictureBoxDocumento4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBoxDocumento4.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBoxDocumento4.Location = new System.Drawing.Point(484, 364);
             this.pictureBoxDocumento4.Name = "pictureBoxDocumento4";
             this.pictureBoxDocumento4.Size = new System.Drawing.Size(57, 50);
@@ -293,6 +298,7 @@
             // 
             this.pictureBoxDocumento3.BackgroundImage = global::Projecte_Chrysallis.Properties.Resources.add;
             this.pictureBoxDocumento3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBoxDocumento3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBoxDocumento3.Location = new System.Drawing.Point(484, 288);
             this.pictureBoxDocumento3.Name = "pictureBoxDocumento3";
             this.pictureBoxDocumento3.Size = new System.Drawing.Size(57, 50);
@@ -303,6 +309,7 @@
             // 
             this.pictureBoxDocumento2.BackgroundImage = global::Projecte_Chrysallis.Properties.Resources.add;
             this.pictureBoxDocumento2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBoxDocumento2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBoxDocumento2.Location = new System.Drawing.Point(484, 213);
             this.pictureBoxDocumento2.Name = "pictureBoxDocumento2";
             this.pictureBoxDocumento2.Size = new System.Drawing.Size(57, 50);
@@ -313,6 +320,7 @@
             // 
             this.pictureBoxDocumento1.BackgroundImage = global::Projecte_Chrysallis.Properties.Resources.add;
             this.pictureBoxDocumento1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBoxDocumento1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBoxDocumento1.Location = new System.Drawing.Point(484, 140);
             this.pictureBoxDocumento1.Name = "pictureBoxDocumento1";
             this.pictureBoxDocumento1.Size = new System.Drawing.Size(57, 50);
@@ -323,7 +331,7 @@
             // 
             this.pictureBoxAtras.BackgroundImage = global::Projecte_Chrysallis.Properties.Resources.atras;
             this.pictureBoxAtras.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBoxAtras.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBoxAtras.Cursor = System.Windows.Forms.Cursors.Help;
             this.pictureBoxAtras.Location = new System.Drawing.Point(12, 12);
             this.pictureBoxAtras.Name = "pictureBoxAtras";
             this.pictureBoxAtras.Size = new System.Drawing.Size(72, 56);

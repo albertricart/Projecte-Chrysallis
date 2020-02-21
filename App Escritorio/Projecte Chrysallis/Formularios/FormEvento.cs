@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Projecte_Chrysallis
@@ -26,18 +20,28 @@ namespace Projecte_Chrysallis
                 m.Result = (IntPtr)(HT_CAPTION);
         }
 
+
+        //Variable que usaremos para hacer la select del evento que querramos modificar
         public static int idEvento;
+        //Variable para indicar si queremos añadir o modificar un evento
         public static bool modificar;
 
         //========================================================================================================//
         //CONSTRUCTOR
         //========================================================================================================//
+        /// <summary>
+        /// CONSTRUCTOR VACIO POR DEFECTO QUE SE USA PARA AÑADIR UN NUEVO EVENTO
+        /// </summary>
         public FormEvento()
         {
             InitializeComponent();
             modificar = false;
         }
 
+        /// <summary>
+        /// CONSTRUCTOR PARAMETRIZADO PARA MODIFICAR UN EVENTO
+        /// </summary>
+        /// <param name="id"></param>
         public FormEvento(int id)
         {
             InitializeComponent();
@@ -50,23 +54,39 @@ namespace Projecte_Chrysallis
         //========================================================================================================//
         //EVENTOS
         //========================================================================================================//
+
+        /// <summary>
+        /// ==EVENTO LOAD==
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        
         private void FormCrearEvento_Load(object sender, EventArgs e)
         {
+            //obtenemos las comunidades de la bd en el bindingSourceComunidades, que sera el datasource de la combobox
             bindingSourceComunidades.DataSource = null;
             bindingSourceComunidades.DataSource = Base_de_Datos.ORM_Comunidades.SelectComunidades();
 
-            dateTimePickerEvento.Format = DateTimePickerFormat.Custom;
-            dateTimePickerEvento.CustomFormat = "dd/MM/yyyy || hh:mm";
-            dateTimePickerLimite.Format = DateTimePickerFormat.Custom;
-            dateTimePickerLimite.CustomFormat = "dd/MM/yyyy || hh:mm";
-
+            //si estamos modificando el form...
             if (modificar == true)
             {
-                RellenarCampos();
+                //rellenaremos los datos del evento que hayamos seleccionado en el formEventos
+                RellenarCamposModificar();
+                //en lugar de crear evento, guardaremos el evento modificado
                 buttonCrearEvento.Text = "GUARDAR EVENTO";
+
             }
+
+            //propiedad para que le textboxtitulo no tenga focus
+            ActiveControl = pictureBoxAtras;  
         }
 
+
+        /// <summary>
+        /// EVENTO CLICK DEL BOTON ATRÁS
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void pictureBoxAtras_Click(object sender, EventArgs e)
         {
             // Pregunta si esta seguro que desea cerrar
@@ -79,16 +99,34 @@ namespace Projecte_Chrysallis
             }
         }
 
+
+        /// <summary>
+        /// EVENTO CLICK DEL BOTON PARA CREAR O MODIFICAR EL EVENTO
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonCrearEvento_Click(object sender, EventArgs e)
         {
             if (CamposCorrectos())
             {
-                Base_de_Datos.ORM_Evento.InsertEvento(textBoxTitulo.Text, dateTimePickerEvento.Value.Date.Add(dateTimePickerEvento.Value.TimeOfDay),
-                    textBoxUbicacion.Text, textBoxDescripcion.Text, dateTimePickerLimite.Value.Date.Add(dateTimePickerLimite.Value.TimeOfDay), 5, 1);
-                MessageBox.Show("Evento añadido correctamente", "Evento Creado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if (modificar != true)
+                {
+                    Base_de_Datos.ORM_Evento.InsertEvento(textBoxTitulo.Text, dateTimePickerEvento.Value.Date.Add(dateTimePickerEvento.Value.TimeOfDay),
+                    textBoxUbicacion.Text, textBoxDescripcion.Text, dateTimePickerLimite.Value.Date.Add(dateTimePickerLimite.Value.TimeOfDay), (byte) comboBoxComunidades.SelectedValue, Formularios.FormLogin.idAdmin);
+                    MessageBox.Show("Evento añadido correctamente", "Evento Creado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+
+                }
+
                 this.Close();
             }
         }
+
+
+
+
 
 
         private void textBoxTitulo_Enter(object sender, EventArgs e)
@@ -112,6 +150,11 @@ namespace Projecte_Chrysallis
         //========================================================================================================//
         //METODOS
         //========================================================================================================//
+
+        /// <summary>
+        /// METODO PARA VERIFICAR QUE LOS CAMPOS ESTEN CORRECTOS
+        /// </summary>
+        /// <returns></returns>
         public bool CamposCorrectos()
         {
             bool correcto = false;
@@ -142,23 +185,17 @@ namespace Projecte_Chrysallis
             return correcto;
         }
 
-        public void RellenarCampos()
+
+        /// <summary>
+        /// METODO PARA RELLENAR LOS CAMPOS DEL EVENTO QUE QUERAMOS MODIFICAR
+        /// </summary>
+        public void RellenarCamposModificar()
         {
             Eventos evento = Base_de_Datos.ORM_Evento.SelectEventoByID(idEvento);
             textBoxTitulo.Text = evento.titulo;
             textBoxUbicacion.Text = evento.ubicacion;
             textBoxDescripcion.Text = evento.descripcion;
-
-            //comboBoxComunidades.SelectedIndex = comboBoxComunidades.FindStringExact(evento.idComunidad.ToString());
-
-            foreach (Comunidades comunidad in comboBoxComunidades.Items)
-            {
-                if (comunidad.id == evento.idComunidad)
-                {
-                    comboBoxComunidades.SelectedItem = comunidad.id;
-                }
-            }
-
+            comboBoxComunidades.SelectedValue = evento.idComunidad;
         }
 
 
