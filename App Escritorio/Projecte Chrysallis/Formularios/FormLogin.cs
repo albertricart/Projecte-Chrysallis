@@ -1,10 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace Projecte_Chrysallis.Formularios
 {
     public partial class FormLogin : Form
     {
+        public static byte idAdmin;
         bool valido, //para comprobar si el login es correcto o no
             pwVisible = false; //para comprobar si la contraseña es visible o no (con '•')
 
@@ -50,17 +52,23 @@ namespace Projecte_Chrysallis.Formularios
         /// </summary>
         private void intentarLogin()
         {
-            if (textBoxContrasenya.Text.Equals("") &&
-             textBoxEmail.Text.Equals(""))
+            List<Administradores> listaAdministradores =  Base_de_Datos.ORM_Admin.SelectAdmins();
+
+            foreach (Administradores admin in listaAdministradores)
             {
-                valido = true;
-                this.Close();
+                if (textBoxContrasenya.Text.Equals(admin.contrasenya) && textBoxEmail.Text.Equals(admin.email))
+                {
+                    idAdmin = admin.id;
+                    valido = true;
+                    this.Close();
+                }
+                else
+                {
+                    valido = false;
+                    labelIncorrectos.Visible = true;
+                }
             }
-            else
-            {
-                valido = false;
-                labelIncorrectos.Visible = true;
-            }
+            
         }
 
         //Eventos que se activa al tabular para acceder a los TextBox email y contraseña
