@@ -28,9 +28,20 @@ namespace Projecte_Chrysallis
         /// <param name="e"></param>
         private void FormEventos_Load(object sender, EventArgs e)
         {
-            //el bindingSource obteniene los eventos de la bd
-            bindingSourceEventos.DataSource = null;
-            bindingSourceEventos.DataSource = Base_de_Datos.ORM_Evento.SelectEventos();
+            if (Formularios.FormLogin.adminLogeado.superadmin == true)
+            {
+                //el bindingSource obteniene los eventos de la bd
+                bindingSourceEventos.DataSource = null;
+                bindingSourceEventos.DataSource = Base_de_Datos.ORM_Evento.SelectEventos();
+            }
+            else
+            {
+                //el bindingSource obteniene los eventos de la bd
+                bindingSourceEventos.DataSource = null;
+                //bindingSourceEventos.DataSource = Base_de_Datos.ORM_Evento.SelectEventosByComunidadAdmin();
+            }
+
+
         }
 
         /// <summary>

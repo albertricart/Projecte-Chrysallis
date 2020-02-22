@@ -6,6 +6,7 @@ namespace Projecte_Chrysallis.Formularios
 {
     public partial class FormLogin : Form
     {
+        //administrador con el que se haya entrado en la aplicación
         public static Administradores adminLogeado;
         bool valido, //para comprobar si el login es correcto o no
             pwVisible = false; //para comprobar si la contraseña es visible o no (con '•')
@@ -59,6 +60,7 @@ namespace Projecte_Chrysallis.Formularios
                 if (textBoxContrasenya.Text.Equals(admin.contrasenya) && textBoxEmail.Text.Equals(admin.email))
                 {
                     adminLogeado = admin;
+                    int i = (adminLogeado.Comunidades).Count;
                     valido = true;
                     this.Close();
                 }
