@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Projecte_Chrysallis.Base_de_Datos
 {
@@ -29,9 +27,18 @@ namespace Projecte_Chrysallis.Base_de_Datos
             return evento;
         }
 
+        //public static Eventos SelectEventosByComunidadAdmin(List<Comunidades> comunidades)
+        //{
+        //    List<Eventos> eventos =
+        //        (from e in ORM.bd.Eventos
+        //         select e).ToList();
+
+        //    return eventos;
+        //}
+
         //Insert
         public static String InsertEvento(string titulo, DateTime fecha, string ubicacion, string descripcion,
-                                                    DateTime fecha_limite, byte idComunidad, byte idAdmin)
+                                                    DateTime fecha_limite, byte idComunidad, byte idAdmin, List<Documentos> documentos)
         {
             String result = "";
 
@@ -43,6 +50,7 @@ namespace Projecte_Chrysallis.Base_de_Datos
             evento.fecha_limite = fecha_limite;
             evento.idComunidad = idComunidad;
             evento.idAdmin = idAdmin;
+            evento.Documentos = documentos;
 
             ORM.bd.Eventos.Add(evento);
             result = ORM.SaveChanges();

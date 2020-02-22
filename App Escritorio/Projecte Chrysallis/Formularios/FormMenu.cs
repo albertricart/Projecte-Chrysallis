@@ -76,8 +76,15 @@ namespace Projecte_Chrysallis
 
         private void pictureBoxGestionarAdmins_Click(object sender, EventArgs e)
         {
-            FormAdmins f = new FormAdmins();
-            f.ShowDialog();
+            if (Formularios.FormLogin.adminLogeado.superadmin == true)
+            {
+                FormAdmins f = new FormAdmins();
+                f.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Opción sólo disponible para superadministradores", "Acceso Denegado", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+            }
         }
     }
 }

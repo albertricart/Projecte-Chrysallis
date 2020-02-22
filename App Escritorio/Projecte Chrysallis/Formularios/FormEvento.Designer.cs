@@ -77,7 +77,7 @@
             this.textBoxTitulo.Margin = new System.Windows.Forms.Padding(5);
             this.textBoxTitulo.Multiline = true;
             this.textBoxTitulo.Name = "textBoxTitulo";
-            this.textBoxTitulo.Size = new System.Drawing.Size(631, 35);
+            this.textBoxTitulo.Size = new System.Drawing.Size(777, 35);
             this.textBoxTitulo.TabIndex = 1;
             this.textBoxTitulo.Text = "Evento...";
             this.textBoxTitulo.UseSystemPasswordChar = true;
@@ -177,7 +177,7 @@
             this.textBoxDocumento1.Location = new System.Drawing.Point(547, 150);
             this.textBoxDocumento1.Name = "textBoxDocumento1";
             this.textBoxDocumento1.ReadOnly = true;
-            this.textBoxDocumento1.Size = new System.Drawing.Size(228, 27);
+            this.textBoxDocumento1.Size = new System.Drawing.Size(374, 27);
             this.textBoxDocumento1.TabIndex = 3;
             this.textBoxDocumento1.Text = "(Ruta...)";
             // 
@@ -187,7 +187,7 @@
             this.textBoxDocumento2.Location = new System.Drawing.Point(547, 225);
             this.textBoxDocumento2.Name = "textBoxDocumento2";
             this.textBoxDocumento2.ReadOnly = true;
-            this.textBoxDocumento2.Size = new System.Drawing.Size(228, 27);
+            this.textBoxDocumento2.Size = new System.Drawing.Size(374, 27);
             this.textBoxDocumento2.TabIndex = 3;
             // 
             // textBoxDocumento3
@@ -196,7 +196,7 @@
             this.textBoxDocumento3.Location = new System.Drawing.Point(547, 301);
             this.textBoxDocumento3.Name = "textBoxDocumento3";
             this.textBoxDocumento3.ReadOnly = true;
-            this.textBoxDocumento3.Size = new System.Drawing.Size(228, 27);
+            this.textBoxDocumento3.Size = new System.Drawing.Size(374, 27);
             this.textBoxDocumento3.TabIndex = 3;
             // 
             // textBoxDocumento4
@@ -205,7 +205,7 @@
             this.textBoxDocumento4.Location = new System.Drawing.Point(547, 376);
             this.textBoxDocumento4.Name = "textBoxDocumento4";
             this.textBoxDocumento4.ReadOnly = true;
-            this.textBoxDocumento4.Size = new System.Drawing.Size(228, 27);
+            this.textBoxDocumento4.Size = new System.Drawing.Size(374, 27);
             this.textBoxDocumento4.TabIndex = 3;
             // 
             // textBoxDocumento5
@@ -214,7 +214,7 @@
             this.textBoxDocumento5.Location = new System.Drawing.Point(547, 452);
             this.textBoxDocumento5.Name = "textBoxDocumento5";
             this.textBoxDocumento5.ReadOnly = true;
-            this.textBoxDocumento5.Size = new System.Drawing.Size(228, 27);
+            this.textBoxDocumento5.Size = new System.Drawing.Size(374, 27);
             this.textBoxDocumento5.TabIndex = 3;
             // 
             // textBoxDocumento6
@@ -223,7 +223,7 @@
             this.textBoxDocumento6.Location = new System.Drawing.Point(547, 534);
             this.textBoxDocumento6.Name = "textBoxDocumento6";
             this.textBoxDocumento6.ReadOnly = true;
-            this.textBoxDocumento6.Size = new System.Drawing.Size(228, 27);
+            this.textBoxDocumento6.Size = new System.Drawing.Size(374, 27);
             this.textBoxDocumento6.TabIndex = 3;
             // 
             // comboBoxComunidades
@@ -252,7 +252,7 @@
             this.buttonCrearEvento.Font = new System.Drawing.Font("Consolas", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonCrearEvento.Image = global::Projecte_Chrysallis.Properties.Resources.calendar;
             this.buttonCrearEvento.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buttonCrearEvento.Location = new System.Drawing.Point(547, 611);
+            this.buttonCrearEvento.Location = new System.Drawing.Point(673, 611);
             this.buttonCrearEvento.Name = "buttonCrearEvento";
             this.buttonCrearEvento.Size = new System.Drawing.Size(248, 72);
             this.buttonCrearEvento.TabIndex = 10;
@@ -271,6 +271,7 @@
             this.pictureBoxDocumento6.Size = new System.Drawing.Size(57, 50);
             this.pictureBoxDocumento6.TabIndex = 12;
             this.pictureBoxDocumento6.TabStop = false;
+            this.pictureBoxDocumento6.Click += new System.EventHandler(this.pictureBoxDocumento6_Click);
             // 
             // pictureBoxDocumento5
             // 
@@ -282,6 +283,7 @@
             this.pictureBoxDocumento5.Size = new System.Drawing.Size(57, 50);
             this.pictureBoxDocumento5.TabIndex = 13;
             this.pictureBoxDocumento5.TabStop = false;
+            this.pictureBoxDocumento5.Click += new System.EventHandler(this.pictureBoxDocumento5_Click);
             // 
             // pictureBoxDocumento4
             // 
@@ -293,6 +295,7 @@
             this.pictureBoxDocumento4.Size = new System.Drawing.Size(57, 50);
             this.pictureBoxDocumento4.TabIndex = 14;
             this.pictureBoxDocumento4.TabStop = false;
+            this.pictureBoxDocumento4.Click += new System.EventHandler(this.pictureBoxDocumento4_Click);
             // 
             // pictureBoxDocumento3
             // 
@@ -304,6 +307,7 @@
             this.pictureBoxDocumento3.Size = new System.Drawing.Size(57, 50);
             this.pictureBoxDocumento3.TabIndex = 15;
             this.pictureBoxDocumento3.TabStop = false;
+            this.pictureBoxDocumento3.Click += new System.EventHandler(this.pictureBoxDocumento3_Click);
             // 
             // pictureBoxDocumento2
             // 
@@ -315,6 +319,7 @@
             this.pictureBoxDocumento2.Size = new System.Drawing.Size(57, 50);
             this.pictureBoxDocumento2.TabIndex = 16;
             this.pictureBoxDocumento2.TabStop = false;
+            this.pictureBoxDocumento2.Click += new System.EventHandler(this.pictureBoxDocumento2_Click);
             // 
             // pictureBoxDocumento1
             // 
@@ -326,6 +331,7 @@
             this.pictureBoxDocumento1.Size = new System.Drawing.Size(57, 50);
             this.pictureBoxDocumento1.TabIndex = 17;
             this.pictureBoxDocumento1.TabStop = false;
+            this.pictureBoxDocumento1.Click += new System.EventHandler(this.pictureBoxDocumento1_Click);
             // 
             // pictureBoxAtras
             // 
@@ -355,7 +361,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ClientSize = new System.Drawing.Size(807, 695);
+            this.ClientSize = new System.Drawing.Size(961, 695);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.buttonCrearEvento);
             this.Controls.Add(this.comboBoxComunidades);

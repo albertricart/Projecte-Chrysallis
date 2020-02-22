@@ -111,7 +111,35 @@ namespace Projecte_Chrysallis
             }
         }
 
+        private void pictureBoxDocumento1_Click(object sender, EventArgs e)
+        {
+            textBoxDocumento1.Text = SeleccionarDocumento();
+        }
 
+        private void pictureBoxDocumento2_Click(object sender, EventArgs e)
+        {
+            textBoxDocumento2.Text = SeleccionarDocumento();
+        }
+
+        private void pictureBoxDocumento3_Click(object sender, EventArgs e)
+        {
+            textBoxDocumento3.Text = SeleccionarDocumento();
+        }
+
+        private void pictureBoxDocumento4_Click(object sender, EventArgs e)
+        {
+            textBoxDocumento4.Text = SeleccionarDocumento();
+        }
+
+        private void pictureBoxDocumento5_Click(object sender, EventArgs e)
+        {
+            textBoxDocumento5.Text = SeleccionarDocumento();
+        }
+
+        private void pictureBoxDocumento6_Click(object sender, EventArgs e)
+        {
+            textBoxDocumento6.Text = SeleccionarDocumento();
+        }
 
 
 
@@ -185,6 +213,22 @@ namespace Projecte_Chrysallis
         }
 
 
+        public String SeleccionarDocumento()
+        {
+            String ruta = null;
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+
+            openFileDialog.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*";
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                ruta = openFileDialog.FileName;
+
+            }
+
+
+            return ruta;
+        }
+
         //========================================================================================================//
         //OTROS
         //========================================================================================================//
@@ -202,5 +246,7 @@ namespace Projecte_Chrysallis
             if (m.Msg == WM_NCHITTEST)
                 m.Result = (IntPtr)(HT_CAPTION);
         }
+
+        
     }
 }
