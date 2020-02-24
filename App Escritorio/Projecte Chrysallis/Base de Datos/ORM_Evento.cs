@@ -38,7 +38,7 @@ namespace Projecte_Chrysallis.Base_de_Datos
 
         //Insert
         public static String InsertEvento(string titulo, DateTime fecha, string ubicacion, string descripcion,
-                                                    DateTime fecha_limite, byte idComunidad, byte idAdmin, List<Documentos> documentos)
+                                                    DateTime fecha_limite, byte idComunidad, byte idAdmin, List<Documentos> documentos, List<Notificaciones> notificaciones)
         {
             String result = "";
 
@@ -51,6 +51,7 @@ namespace Projecte_Chrysallis.Base_de_Datos
             evento.idComunidad = idComunidad;
             evento.idAdmin = idAdmin;
             evento.Documentos = documentos;
+            evento.Notificaciones = notificaciones;
 
             ORM.bd.Eventos.Add(evento);
             result = ORM.SaveChanges();
@@ -61,7 +62,7 @@ namespace Projecte_Chrysallis.Base_de_Datos
         //Update
         public static String UpdateEvento(int id, string titulo, DateTime fecha, string ubicacion,
                                                 string descripcion, DateTime fecha_limite,
-                                                       byte idComunidad, byte idAdmin)
+                                                       byte idComunidad, byte idAdmin, List<Documentos> documentos, List<Notificaciones> notificaciones)
         {
             String result = "";
 
@@ -73,6 +74,8 @@ namespace Projecte_Chrysallis.Base_de_Datos
             evento.fecha_limite = fecha_limite;
             evento.idComunidad = idComunidad;
             evento.idAdmin = idAdmin;
+            evento.Documentos = documentos;
+            evento.Notificaciones = notificaciones;
 
             result = ORM.SaveChanges();
             return result;
@@ -84,9 +87,7 @@ namespace Projecte_Chrysallis.Base_de_Datos
             String result = "";
 
             ORM.bd.Eventos.Remove(evento);
-
             result = ORM.SaveChanges();
-
             return result;
         }
 
