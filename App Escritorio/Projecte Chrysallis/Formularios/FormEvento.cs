@@ -6,16 +6,22 @@ using System.Windows.Forms;
 namespace Projecte_Chrysallis
 {
     public partial class FormEvento : Form
-    { 
+    {
+        //========================================================================================================//
+        //VARIABLES
+        //========================================================================================================//
         //Evento seleccionado en el formEventos
         public Eventos evento;
         //Variable para indicar si queremos añadir o modificar un evento
         public bool modificar;
+        //lista de los documentos del nuevo evento
         public List<Documentos> documentos = new List<Documentos>();
+        //lista de las notificaciones del nuevo evento
         public List<Notificaciones> notificaciones = new List<Notificaciones>();
 
+
         //========================================================================================================//
-        //CONSTRUCTOR
+        //CONSTRUCTORES
         //========================================================================================================//
         /// <summary>
         /// CONSTRUCTOR VACIO POR DEFECTO QUE SE USA PARA AÑADIR UN NUEVO EVENTO
@@ -114,13 +120,13 @@ namespace Projecte_Chrysallis
                 if (modificar == true)
                 {
                     Base_de_Datos.ORM_Evento.UpdateEvento(evento.id, textBoxTitulo.Text, dateTimePickerEvento.Value.Date.Add(dateTimePickerEvento.Value.TimeOfDay),
-                    textBoxCalle.Text, textBoxDescripcion.Text, dateTimePickerLimite.Value.Date.Add(dateTimePickerLimite.Value.TimeOfDay), (byte)comboBoxComunidades.SelectedValue, Formularios.FormLogin.adminLogeado.id);
+                    textBoxCalle.Text, textBoxDescripcion.Text, dateTimePickerLimite.Value.Date.Add(dateTimePickerLimite.Value.TimeOfDay), (byte)comboBoxComunidades.SelectedValue, Formularios.FormLogin.adminLogeado.id, documentos, notificaciones);
                     MessageBox.Show("Evento modficado correctamente", "Evento Modificado", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
                     Base_de_Datos.ORM_Evento.InsertEvento(textBoxTitulo.Text, dateTimePickerEvento.Value.Date.Add(dateTimePickerEvento.Value.TimeOfDay),
-                    textBoxCalle.Text, textBoxDescripcion.Text, dateTimePickerLimite.Value.Date.Add(dateTimePickerLimite.Value.TimeOfDay), (byte)comboBoxComunidades.SelectedValue, Formularios.FormLogin.adminLogeado.id, documentos);
+                    textBoxCalle.Text, textBoxDescripcion.Text, dateTimePickerLimite.Value.Date.Add(dateTimePickerLimite.Value.TimeOfDay), (byte)comboBoxComunidades.SelectedValue, Formularios.FormLogin.adminLogeado.id, documentos, notificaciones);
                     MessageBox.Show("Evento añadido correctamente", "Evento Creado", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 
@@ -128,6 +134,12 @@ namespace Projecte_Chrysallis
             }
         }
 
+
+        /// <summary>
+        /// Evento click del botón para ajuntar un documento al evento
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void pictureBoxAddDocumento_Click(object sender, EventArgs e)
         {
             Documentos doc = SeleccionarDocumento();
@@ -135,11 +147,23 @@ namespace Projecte_Chrysallis
             RefrescarListDocumentos();
         }
 
+        /// <summary>
+        /// Evento click del botón eliminar un documento del evento
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void pictureBoxEliminarDoc_Click(object sender, EventArgs e)
         {
-
+            documentos.Remove((Documentos) listBoxDocumentos.SelectedItem);
+            RefrescarListDocumentos();
         }
 
+
+        /// <summary>
+        /// Evento click del botón añadir notificación del evento
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void pictureBoxAnadirNotificacion_Click(object sender, EventArgs e)
         {
             Notificaciones notificacion = new Notificaciones();
@@ -148,6 +172,20 @@ namespace Projecte_Chrysallis
             notificaciones.Add(notificacion);
             RefrescarListNotificaciones();
         }
+
+
+        /// <summary>
+        /// Evento click del botón eliminar una notificación del evento
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void pictureBoxEliminarNotificacion_Click(object sender, EventArgs e)
+        {
+            notificaciones.Remove((Notificaciones)listBoxNotificaciones.SelectedItem);
+            RefrescarListNotificaciones();
+        }
+
+
 
         private void textBoxTitulo_Enter(object sender, EventArgs e)
         {
@@ -229,7 +267,7 @@ namespace Projecte_Chrysallis
             Documentos documento = new Documentos();
             OpenFileDialog openFileDialog = new OpenFileDialog();
 
-            openFileDialog.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*";
+            openFileDialog.Filter = "All files (*.*)|*.*|txt files (*.txt)|*.txt";
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
                 documento.url = openFileDialog.FileName;
@@ -271,6 +309,6 @@ namespace Projecte_Chrysallis
                 m.Result = (IntPtr)(HT_CAPTION);
         }
 
-       
+        
     }
 }

@@ -160,6 +160,10 @@ namespace Projecte_Chrysallis
 
         }
 
+        /// <summary>
+        /// Metodo para comprobar si hay eventos en la grid
+        /// </summary>
+        /// <returns></returns>
         public bool EventosExistentes()
         {
             if (dataGridViewEventos.SelectedRows.Count == 0)
