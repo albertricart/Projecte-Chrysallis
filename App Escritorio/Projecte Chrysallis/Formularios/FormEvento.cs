@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -10,6 +11,8 @@ namespace Projecte_Chrysallis
         public Eventos evento;
         //Variable para indicar si queremos añadir o modificar un evento
         public bool modificar;
+        public List<Documentos> documentos = new List<Documentos>();
+        public List<Notificaciones> notificaciones = new List<Notificaciones>();
 
         //========================================================================================================//
         //CONSTRUCTOR
@@ -46,7 +49,7 @@ namespace Projecte_Chrysallis
         /// <param name="sender"></param>
         /// <param name="e"></param>
         
-        private void FormCrearEvento_Load(object sender, EventArgs e)
+        private void FormEvento_Load(object sender, EventArgs e)
         {
             //obtenemos las comunidades de la bd en el bindingSourceComunidades, que sera el datasource de la combobox
             bindingSourceComunidades.DataSource = null;
@@ -64,6 +67,20 @@ namespace Projecte_Chrysallis
 
             //propiedad para que le textboxtitulo no tenga focus
             ActiveControl = pictureBoxAtras;  
+        }
+
+        /// <summary>
+        /// Evento Activated del formEvento
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void FormEvento_Activated(object sender, EventArgs e)
+        {
+            if (modificar == false)
+            {
+                RefrescarListDocumentos();
+                RefrescarListNotificaciones();
+            }
         }
 
 
@@ -97,13 +114,13 @@ namespace Projecte_Chrysallis
                 if (modificar == true)
                 {
                     Base_de_Datos.ORM_Evento.UpdateEvento(evento.id, textBoxTitulo.Text, dateTimePickerEvento.Value.Date.Add(dateTimePickerEvento.Value.TimeOfDay),
-                    textBoxUbicacion.Text, textBoxDescripcion.Text, dateTimePickerLimite.Value.Date.Add(dateTimePickerLimite.Value.TimeOfDay), (byte)comboBoxComunidades.SelectedValue, Formularios.FormLogin.adminLogeado.id);
+                    textBoxCalle.Text, textBoxDescripcion.Text, dateTimePickerLimite.Value.Date.Add(dateTimePickerLimite.Value.TimeOfDay), (byte)comboBoxComunidades.SelectedValue, Formularios.FormLogin.adminLogeado.id);
                     MessageBox.Show("Evento modficado correctamente", "Evento Modificado", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
                     Base_de_Datos.ORM_Evento.InsertEvento(textBoxTitulo.Text, dateTimePickerEvento.Value.Date.Add(dateTimePickerEvento.Value.TimeOfDay),
-                    textBoxUbicacion.Text, textBoxDescripcion.Text, dateTimePickerLimite.Value.Date.Add(dateTimePickerLimite.Value.TimeOfDay), (byte)comboBoxComunidades.SelectedValue, Formularios.FormLogin.adminLogeado.id);
+                    textBoxCalle.Text, textBoxDescripcion.Text, dateTimePickerLimite.Value.Date.Add(dateTimePickerLimite.Value.TimeOfDay), (byte)comboBoxComunidades.SelectedValue, Formularios.FormLogin.adminLogeado.id, documentos);
                     MessageBox.Show("Evento añadido correctamente", "Evento Creado", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 
@@ -111,38 +128,26 @@ namespace Projecte_Chrysallis
             }
         }
 
-        private void pictureBoxDocumento1_Click(object sender, EventArgs e)
+        private void pictureBoxAddDocumento_Click(object sender, EventArgs e)
         {
-            textBoxDocumento1.Text = SeleccionarDocumento();
+            Documentos doc = SeleccionarDocumento();
+            documentos.Add(doc);
+            RefrescarListDocumentos();
         }
 
-        private void pictureBoxDocumento2_Click(object sender, EventArgs e)
+        private void pictureBoxEliminarDoc_Click(object sender, EventArgs e)
         {
-            textBoxDocumento2.Text = SeleccionarDocumento();
+
         }
 
-        private void pictureBoxDocumento3_Click(object sender, EventArgs e)
+        private void pictureBoxAnadirNotificacion_Click(object sender, EventArgs e)
         {
-            textBoxDocumento3.Text = SeleccionarDocumento();
+            Notificaciones notificacion = new Notificaciones();
+            int.TryParse(dateTimePickerNotificacion.Value.ToString(), out int antelacion);
+            notificacion.antelacion = antelacion;
+            notificaciones.Add(notificacion);
+            RefrescarListNotificaciones();
         }
-
-        private void pictureBoxDocumento4_Click(object sender, EventArgs e)
-        {
-            textBoxDocumento4.Text = SeleccionarDocumento();
-        }
-
-        private void pictureBoxDocumento5_Click(object sender, EventArgs e)
-        {
-            textBoxDocumento5.Text = SeleccionarDocumento();
-        }
-
-        private void pictureBoxDocumento6_Click(object sender, EventArgs e)
-        {
-            textBoxDocumento6.Text = SeleccionarDocumento();
-        }
-
-
-
 
         private void textBoxTitulo_Enter(object sender, EventArgs e)
         {
@@ -180,7 +185,7 @@ namespace Projecte_Chrysallis
             }
             else
             {
-                if (string.IsNullOrWhiteSpace(textBoxUbicacion.Text))
+                if (string.IsNullOrWhiteSpace(textBoxCalle.Text))
                 {
                     MessageBox.Show("Introduce la ubicación del evento", "Evento sin ubicación", MessageBoxButtons.OK, MessageBoxIcon.Hand);
                 }
@@ -207,26 +212,45 @@ namespace Projecte_Chrysallis
         public void RellenarCamposModificar()
         {
             textBoxTitulo.Text = evento.titulo;
-            textBoxUbicacion.Text = evento.ubicacion;
+            textBoxCalle.Text = evento.ubicacion;
             textBoxDescripcion.Text = evento.descripcion;
             comboBoxComunidades.SelectedValue = evento.idComunidad;
+            listBoxDocumentos.DataSource = evento.Documentos;
+            listBoxDocumentos.DisplayMember = "url";
+            listBoxDocumentos.ValueMember = "id";
+            listBoxNotificaciones.DataSource = evento.Notificaciones;
+            listBoxNotificaciones.DisplayMember = "antelacion";
+            listBoxNotificaciones.ValueMember = "id";
         }
 
 
-        public String SeleccionarDocumento()
+        public Documentos SeleccionarDocumento()
         {
-            String ruta = null;
+            Documentos documento = new Documentos();
             OpenFileDialog openFileDialog = new OpenFileDialog();
 
             openFileDialog.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*";
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
-                ruta = openFileDialog.FileName;
-
+                documento.url = openFileDialog.FileName;
             }
+            return documento;
+        }
 
+        public void RefrescarListDocumentos()
+        {
+            listBoxDocumentos.DataSource = null;
+            listBoxDocumentos.DataSource = documentos;
+            listBoxDocumentos.DisplayMember = "url";
+            listBoxDocumentos.ValueMember = "id";
+        }
 
-            return ruta;
+        public void RefrescarListNotificaciones()
+        {
+            listBoxNotificaciones.DataSource = null;
+            listBoxNotificaciones.DataSource = notificaciones;
+            listBoxNotificaciones.DisplayMember = "antelacion";
+            listBoxNotificaciones.ValueMember = "id";
         }
 
         //========================================================================================================//
@@ -247,6 +271,6 @@ namespace Projecte_Chrysallis
                 m.Result = (IntPtr)(HT_CAPTION);
         }
 
-        
+       
     }
 }

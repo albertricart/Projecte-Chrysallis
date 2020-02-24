@@ -38,7 +38,7 @@ namespace Projecte_Chrysallis
             {
                 //el bindingSource obteniene los eventos de la bd
                 bindingSourceEventos.DataSource = null;
-                //bindingSourceEventos.DataSource = Base_de_Datos.ORM_Evento.SelectEventosByComunidadAdmin();
+                bindingSourceEventos.DataSource = Base_de_Datos.ORM_Evento.SelectEventos();
             }
 
 

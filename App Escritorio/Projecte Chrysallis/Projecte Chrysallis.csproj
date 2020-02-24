@@ -311,6 +311,7 @@
     <None Include="Resources\atras.png" />
     <None Include="Resources\calendar.png" />
     <Content Include="Resources\candado.png" />
+    <None Include="Resources\delete.png" />
     <Content Include="Resources\icon_wrong.png" />
     <Content Include="Resources\ojo.png" />
     <Content Include="Resources\ojoActivado.png" />
@@ -318,6 +319,9 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\Documentos\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
