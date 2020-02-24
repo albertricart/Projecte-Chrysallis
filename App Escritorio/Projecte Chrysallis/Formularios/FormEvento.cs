@@ -57,9 +57,18 @@ namespace Projecte_Chrysallis
         
         private void FormEvento_Load(object sender, EventArgs e)
         {
-            //obtenemos las comunidades de la bd en el bindingSourceComunidades, que sera el datasource de la combobox
-            bindingSourceComunidades.DataSource = null;
-            bindingSourceComunidades.DataSource = Base_de_Datos.ORM_Comunidades.SelectComunidades();
+            if (Formularios.FormLogin.adminLogeado.superadmin == true)
+            {
+                //obtenemos las comunidades de la bd en el bindingSourceComunidades, que sera el datasource de la combobox
+                bindingSourceComunidades.DataSource = null;
+                bindingSourceComunidades.DataSource = Base_de_Datos.ORM_Comunidades.SelectComunidades();
+            }
+            else
+            {
+                //obtenemos las comunidades de la bd en el bindingSourceComunidades, que sera el datasource de la combobox
+                bindingSourceComunidades.DataSource = null;
+                bindingSourceComunidades.DataSource = Base_de_Datos.ORM_Comunidades.SelectComunidades();
+            }
 
             //si estamos modificando el form...
             if (modificar == true)
@@ -253,10 +262,12 @@ namespace Projecte_Chrysallis
             textBoxCalle.Text = evento.ubicacion;
             textBoxDescripcion.Text = evento.descripcion;
             comboBoxComunidades.SelectedValue = evento.idComunidad;
-            listBoxDocumentos.DataSource = evento.Documentos;
+
+            listBoxDocumentos.DataSource = Base_de_Datos.ORM_Documentos.SelectDocumentosByEvento(evento.id);
             listBoxDocumentos.DisplayMember = "url";
             listBoxDocumentos.ValueMember = "id";
-            listBoxNotificaciones.DataSource = evento.Notificaciones;
+
+            listBoxNotificaciones.DataSource = Base_de_Datos.ORM_Notificaciones.SelectNotificacionesByEvento(evento.id);
             listBoxNotificaciones.DisplayMember = "antelacion";
             listBoxNotificaciones.ValueMember = "id";
         }
