@@ -17,5 +17,14 @@ namespace Projecte_Chrysallis.Base_de_Datos
 
             return comunidades;
         }
+
+        public static List<Comunidades> SelectComunidadesByAdmin()
+        {
+            List<Comunidades> comunidades =
+                (from c in ORM.bd.Comunidades
+                 select c).ToList();
+
+            return comunidades;
+        }
     }
 }

@@ -218,10 +218,12 @@
             // 
             // listBoxDocumentos
             // 
+            this.listBoxDocumentos.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listBoxDocumentos.FormattingEnabled = true;
+            this.listBoxDocumentos.ItemHeight = 18;
             this.listBoxDocumentos.Location = new System.Drawing.Point(484, 131);
             this.listBoxDocumentos.Name = "listBoxDocumentos";
-            this.listBoxDocumentos.Size = new System.Drawing.Size(437, 186);
+            this.listBoxDocumentos.Size = new System.Drawing.Size(437, 184);
             this.listBoxDocumentos.TabIndex = 21;
             // 
             // label3
@@ -238,7 +240,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Consolas", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(480, 413);
+            this.label4.Location = new System.Drawing.Point(480, 409);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(154, 24);
             this.label4.TabIndex = 6;
@@ -249,7 +251,7 @@
             this.dateTimePickerNotificacion.CustomFormat = "dd/MM/yyyy hh:mm";
             this.dateTimePickerNotificacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
             this.dateTimePickerNotificacion.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePickerNotificacion.Location = new System.Drawing.Point(484, 444);
+            this.dateTimePickerNotificacion.Location = new System.Drawing.Point(484, 440);
             this.dateTimePickerNotificacion.Name = "dateTimePickerNotificacion";
             this.dateTimePickerNotificacion.Size = new System.Drawing.Size(363, 23);
             this.dateTimePickerNotificacion.TabIndex = 22;
@@ -266,10 +268,12 @@
             // 
             // listBoxNotificaciones
             // 
+            this.listBoxNotificaciones.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listBoxNotificaciones.FormattingEnabled = true;
+            this.listBoxNotificaciones.ItemHeight = 18;
             this.listBoxNotificaciones.Location = new System.Drawing.Point(484, 516);
             this.listBoxNotificaciones.Name = "listBoxNotificaciones";
-            this.listBoxNotificaciones.Size = new System.Drawing.Size(437, 134);
+            this.listBoxNotificaciones.Size = new System.Drawing.Size(437, 130);
             this.listBoxNotificaciones.TabIndex = 24;
             // 
             // label5
