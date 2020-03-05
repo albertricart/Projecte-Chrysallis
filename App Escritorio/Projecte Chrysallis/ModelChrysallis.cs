@@ -7,3 +7,8 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+namespace Projecte_Chrysallis
+{
+    using System;
+    using System.Collections.Generic;
+}

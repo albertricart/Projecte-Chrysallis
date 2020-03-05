@@ -11,7 +11,7 @@ namespace Projecte_Chrysallis
 {
     using System;
     using System.Collections.Generic;
-    
+
     public partial class Eventos
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -22,7 +22,7 @@ namespace Projecte_Chrysallis
             this.Documentos = new HashSet<Documentos>();
             this.Notificaciones = new HashSet<Notificaciones>();
         }
-    
+
         public short id { get; set; }
         public string titulo { get; set; }
         public System.DateTime fecha { get; set; }
@@ -32,7 +32,7 @@ namespace Projecte_Chrysallis
         public byte idComunidad { get; set; }
         public byte idAdmin { get; set; }
         public double valoracionMedia { get; set; }
-    
+
         public virtual Administradores Administradores { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Asistir> Asistir { get; set; }
@@ -44,4 +44,5 @@ namespace Projecte_Chrysallis
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Notificaciones> Notificaciones { get; set; }
     }
+
 }

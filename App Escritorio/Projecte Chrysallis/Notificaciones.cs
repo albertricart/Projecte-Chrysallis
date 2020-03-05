@@ -11,13 +11,13 @@ namespace Projecte_Chrysallis
 {
     using System;
     using System.Collections.Generic;
-    
+
     public partial class Notificaciones
     {
         public int id { get; set; }
         public int antelacion { get; set; }
         public short idEvento { get; set; }
-    
+
         public virtual Eventos Eventos { get; set; }
     }
 }

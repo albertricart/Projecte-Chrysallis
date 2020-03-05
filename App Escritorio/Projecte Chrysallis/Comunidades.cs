@@ -11,7 +11,7 @@ namespace Projecte_Chrysallis
 {
     using System;
     using System.Collections.Generic;
-    
+
     public partial class Comunidades
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -22,10 +22,10 @@ namespace Projecte_Chrysallis
             this.Administradores = new HashSet<Administradores>();
             this.Eventos = new HashSet<Eventos>();
         }
-    
+
         public byte id { get; set; }
         public string nombre { get; set; }
-    
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Socios> Socios { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

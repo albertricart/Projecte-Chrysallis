@@ -13,7 +13,7 @@
         <AssociationConnector Association="ChrysallisModel.ComunidadesInteresadas" />
         <EntityTypeShape EntityType="ChrysallisModel.Administradores" Width="1.5" PointX="0.75" PointY="6" />
         <AssociationConnector Association="ChrysallisModel.AdministrarComunidad" />
-        <EntityTypeShape EntityType="ChrysallisModel.Comentario" Width="1.5" PointX="13.5" PointY="2.125" />
+        <EntityTypeShape EntityType="ChrysallisModel.Comentario" Width="1.5" PointX="12.625" PointY="3.5" />
         <AssociationConnector Association="ChrysallisModel.FK_Comentario_Socios" />
         <EntityTypeShape EntityType="ChrysallisModel.Asistir" Width="1.5" PointX="13" PointY="6.125" />
         <AssociationConnector Association="ChrysallisModel.FK_Asistir_Socios" />

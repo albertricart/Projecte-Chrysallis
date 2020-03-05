@@ -11,7 +11,7 @@ namespace Projecte_Chrysallis
 {
     using System;
     using System.Collections.Generic;
-    
+
     public partial class Comentario
     {
         public short idEvento { get; set; }
@@ -19,7 +19,7 @@ namespace Projecte_Chrysallis
         public bool mostrarNombre { get; set; }
         public System.DateTime fecha { get; set; }
         public bool activo { get; set; }
-    
+
         public virtual Socios Socios { get; set; }
         public virtual Eventos Eventos { get; set; }
     }
