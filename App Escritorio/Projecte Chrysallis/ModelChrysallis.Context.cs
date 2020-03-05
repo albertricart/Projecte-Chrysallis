@@ -30,8 +30,8 @@ namespace Projecte_Chrysallis
         public virtual DbSet<Socios> Socios { get; set; }
         public virtual DbSet<Comunidades> Comunidades { get; set; }
         public virtual DbSet<Administradores> Administradores { get; set; }
-        public virtual DbSet<Comentario> Comentario { get; set; }
         public virtual DbSet<Asistir> Asistir { get; set; }
         public virtual DbSet<Eventos> Eventos { get; set; }
+        public virtual DbSet<Comentarios> Comentarios { get; set; }
     }
 }

@@ -7,17 +7,15 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Projecte_Chrysallis
+using Projecte_Chrysallis;
+using System;
+using System.Collections.Generic;
+
+public partial class Documentos
 {
-    using System;
-    using System.Collections.Generic;
+    public int id { get; set; }
+    public string url { get; set; }
+    public short idEvento { get; set; }
 
-    public partial class Documentos
-    {
-        public int id { get; set; }
-        public string url { get; set; }
-        public short idEvento { get; set; }
-
-        public virtual Eventos Eventos { get; set; }
-    }
+    public virtual Eventos Eventos { get; set; }
 }

@@ -34,16 +34,19 @@
           <Property Name="valoracion" Type="tinyint" />
           <Property Name="numAsistentes" Type="smallint" Nullable="false" />
         </EntityType>
-        <EntityType Name="Comentario">
+        <EntityType Name="Comentarios">
           <Key>
             <PropertyRef Name="idEvento" />
             <PropertyRef Name="idSocio" />
+            <PropertyRef Name="id" />
           </Key>
           <Property Name="idEvento" Type="smallint" Nullable="false" />
           <Property Name="idSocio" Type="int" Nullable="false" />
+          <Property Name="id" Type="int" Nullable="false" />
           <Property Name="mostrarNombre" Type="bit" Nullable="false" />
           <Property Name="fecha" Type="smalldatetime" Nullable="false" />
           <Property Name="activo" Type="bit" Nullable="false" />
+          <Property Name="body" Type="ntext" Nullable="false" />
         </EntityType>
         <EntityType Name="Comunidades">
           <Key>
@@ -155,24 +158,24 @@
         </Association>
         <Association Name="FK_Comentario_Eventos">
           <End Role="Eventos" Type="Self.Eventos" Multiplicity="1" />
-          <End Role="Comentario" Type="Self.Comentario" Multiplicity="*" />
+          <End Role="Comentarios" Type="Self.Comentarios" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Eventos">
               <PropertyRef Name="id" />
             </Principal>
-            <Dependent Role="Comentario">
+            <Dependent Role="Comentarios">
               <PropertyRef Name="idEvento" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Comentario_Socios">
           <End Role="Socios" Type="Self.Socios" Multiplicity="1" />
-          <End Role="Comentario" Type="Self.Comentario" Multiplicity="*" />
+          <End Role="Comentarios" Type="Self.Comentarios" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Socios">
               <PropertyRef Name="id" />
             </Principal>
-            <Dependent Role="Comentario">
+            <Dependent Role="Comentarios">
               <PropertyRef Name="idSocio" />
             </Dependent>
           </ReferentialConstraint>
@@ -265,7 +268,7 @@
           <EntitySet Name="Administradores" EntityType="Self.Administradores" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AdministrarComunidad" EntityType="Self.AdministrarComunidad" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Asistir" EntityType="Self.Asistir" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Comentario" EntityType="Self.Comentario" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Comentarios" EntityType="Self.Comentarios" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Comunidades" EntityType="Self.Comunidades" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ComunidadesInteresadas" EntityType="Self.ComunidadesInteresadas" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Documentos" EntityType="Self.Documentos" Schema="dbo" store:Type="Tables" />
@@ -290,11 +293,11 @@
           </AssociationSet>
           <AssociationSet Name="FK_Comentario_Eventos" Association="Self.FK_Comentario_Eventos">
             <End Role="Eventos" EntitySet="Eventos" />
-            <End Role="Comentario" EntitySet="Comentario" />
+            <End Role="Comentarios" EntitySet="Comentarios" />
           </AssociationSet>
           <AssociationSet Name="FK_Comentario_Socios" Association="Self.FK_Comentario_Socios">
             <End Role="Socios" EntitySet="Socios" />
-            <End Role="Comentario" EntitySet="Comentario" />
+            <End Role="Comentarios" EntitySet="Comentarios" />
           </AssociationSet>
           <AssociationSet Name="FK_ComunidadesInteresadas_Comunidad" Association="Self.FK_ComunidadesInteresadas_Comunidad">
             <End Role="Comunidades" EntitySet="Comunidades" />
@@ -347,11 +350,6 @@
             <End Role="Administradores" EntitySet="Administradores" />
             <End Role="Comunidades" EntitySet="Comunidades" />
           </AssociationSet>
-          <EntitySet Name="Comentario" EntityType="ChrysallisModel.Comentario" />
-          <AssociationSet Name="FK_Comentario_Socios" Association="ChrysallisModel.FK_Comentario_Socios">
-            <End Role="Socios" EntitySet="Socios" />
-            <End Role="Comentario" EntitySet="Comentario" />
-          </AssociationSet>
           <EntitySet Name="Asistir" EntityType="ChrysallisModel.Asistir" />
           <AssociationSet Name="FK_Asistir_Socios" Association="ChrysallisModel.FK_Asistir_Socios">
             <End Role="Socios" EntitySet="Socios" />
@@ -366,10 +364,6 @@
             <End Role="Eventos" EntitySet="Eventos" />
             <End Role="Asistir" EntitySet="Asistir" />
           </AssociationSet>
-          <AssociationSet Name="FK_Comentario_Eventos" Association="ChrysallisModel.FK_Comentario_Eventos">
-            <End Role="Eventos" EntitySet="Eventos" />
-            <End Role="Comentario" EntitySet="Comentario" />
-          </AssociationSet>
           <AssociationSet Name="FK_Eventos_Comunidad" Association="ChrysallisModel.FK_Eventos_Comunidad">
             <End Role="Comunidades" EntitySet="Comunidades" />
             <End Role="Eventos" EntitySet="Eventos" />
@@ -381,6 +375,15 @@
           <AssociationSet Name="FK_Notificaciones_Eventos" Association="ChrysallisModel.FK_Notificaciones_Eventos">
             <End Role="Eventos" EntitySet="Eventos" />
             <End Role="Notificaciones" EntitySet="Notificaciones" />
+          </AssociationSet>
+          <EntitySet Name="Comentarios" EntityType="ChrysallisModel.Comentarios" />
+          <AssociationSet Name="FK_Comentario_Eventos" Association="ChrysallisModel.FK_Comentario_Eventos">
+            <End Role="Eventos" EntitySet="Eventos" />
+            <End Role="Comentarios" EntitySet="Comentarios" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Comentario_Socios" Association="ChrysallisModel.FK_Comentario_Socios">
+            <End Role="Socios" EntitySet="Socios" />
+            <End Role="Comentarios" EntitySet="Comentarios" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="Documentos">
@@ -417,8 +420,8 @@
           <Property Name="activo" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="Comunidades" Relationship="ChrysallisModel.FK_Socios_Comunidad" FromRole="Socios" ToRole="Comunidades" />
           <NavigationProperty Name="Comunidades1" Relationship="ChrysallisModel.ComunidadesInteresadas" FromRole="Socios" ToRole="Comunidades" />
-          <NavigationProperty Name="Comentario" Relationship="ChrysallisModel.FK_Comentario_Socios" FromRole="Socios" ToRole="Comentario" />
           <NavigationProperty Name="Asistir" Relationship="ChrysallisModel.FK_Asistir_Socios" FromRole="Socios" ToRole="Asistir" />
+          <NavigationProperty Name="Comentarios" Relationship="ChrysallisModel.FK_Comentario_Socios" FromRole="Socios" ToRole="Comentarios" />
           </EntityType>
         <EntityType Name="Comunidades">
           <Key>
@@ -464,31 +467,6 @@
           <End Type="ChrysallisModel.Administradores" Role="Administradores" Multiplicity="*" />
           <End Type="ChrysallisModel.Comunidades" Role="Comunidades" Multiplicity="*" />
         </Association>
-        <EntityType Name="Comentario">
-          <Key>
-            <PropertyRef Name="idEvento" />
-            <PropertyRef Name="idSocio" />
-          </Key>
-          <Property Name="idEvento" Type="Int16" Nullable="false" />
-          <Property Name="idSocio" Type="Int32" Nullable="false" />
-          <Property Name="mostrarNombre" Type="Boolean" Nullable="false" />
-          <Property Name="fecha" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="activo" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="Socios" Relationship="ChrysallisModel.FK_Comentario_Socios" FromRole="Comentario" ToRole="Socios" />
-          <NavigationProperty Name="Eventos" Relationship="ChrysallisModel.FK_Comentario_Eventos" FromRole="Comentario" ToRole="Eventos" />
-        </EntityType>
-        <Association Name="FK_Comentario_Socios">
-          <End Type="ChrysallisModel.Socios" Role="Socios" Multiplicity="1" />
-          <End Type="ChrysallisModel.Comentario" Role="Comentario" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Socios">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="Comentario">
-              <PropertyRef Name="idSocio" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityType Name="Asistir">
           <Key>
             <PropertyRef Name="idSocio" />
@@ -528,10 +506,10 @@
           <Property Name="valoracionMedia" Type="Double" Nullable="false" />
           <NavigationProperty Name="Administradores" Relationship="ChrysallisModel.FK_Eventos_Administradores" FromRole="Eventos" ToRole="Administradores" />
           <NavigationProperty Name="Asistir" Relationship="ChrysallisModel.FK_Asistir_Eventos" FromRole="Eventos" ToRole="Asistir" />
-          <NavigationProperty Name="Comentario" Relationship="ChrysallisModel.FK_Comentario_Eventos" FromRole="Eventos" ToRole="Comentario" />
           <NavigationProperty Name="Comunidades" Relationship="ChrysallisModel.FK_Eventos_Comunidad" FromRole="Eventos" ToRole="Comunidades" />
           <NavigationProperty Name="Documentos" Relationship="ChrysallisModel.FK_Documentos_Eventos" FromRole="Eventos" ToRole="Documentos" />
           <NavigationProperty Name="Notificaciones" Relationship="ChrysallisModel.FK_Notificaciones_Eventos" FromRole="Eventos" ToRole="Notificaciones" />
+          <NavigationProperty Name="Comentarios" Relationship="ChrysallisModel.FK_Comentario_Eventos" FromRole="Eventos" ToRole="Comentarios" />
         </EntityType>
         <Association Name="FK_Eventos_Administradores">
           <End Type="ChrysallisModel.Administradores" Role="Administradores" Multiplicity="1" />
@@ -553,18 +531,6 @@
               <PropertyRef Name="id" />
             </Principal>
             <Dependent Role="Asistir">
-              <PropertyRef Name="idEvento" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Comentario_Eventos">
-          <End Type="ChrysallisModel.Eventos" Role="Eventos" Multiplicity="1" />
-          <End Type="ChrysallisModel.Comentario" Role="Comentario" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Eventos">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="Comentario">
               <PropertyRef Name="idEvento" />
             </Dependent>
           </ReferentialConstraint>
@@ -602,6 +568,46 @@
             </Principal>
             <Dependent Role="Notificaciones">
               <PropertyRef Name="idEvento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Comentarios">
+          <Key>
+            <PropertyRef Name="idEvento" />
+            <PropertyRef Name="idSocio" />
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="idEvento" Type="Int16" Nullable="false" />
+          <Property Name="idSocio" Type="Int32" Nullable="false" />
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="mostrarNombre" Type="Boolean" Nullable="false" />
+          <Property Name="fecha" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="activo" Type="Boolean" Nullable="false" />
+          <Property Name="body" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Eventos" Relationship="ChrysallisModel.FK_Comentario_Eventos" FromRole="Comentarios" ToRole="Eventos" />
+          <NavigationProperty Name="Socios" Relationship="ChrysallisModel.FK_Comentario_Socios" FromRole="Comentarios" ToRole="Socios" />
+        </EntityType>
+        <Association Name="FK_Comentario_Eventos">
+          <End Type="ChrysallisModel.Eventos" Role="Eventos" Multiplicity="1" />
+          <End Type="ChrysallisModel.Comentarios" Role="Comentarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Eventos">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Comentarios">
+              <PropertyRef Name="idEvento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Comentario_Socios">
+          <End Type="ChrysallisModel.Socios" Role="Socios" Multiplicity="1" />
+          <End Type="ChrysallisModel.Comentarios" Role="Comentarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Socios">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Comentarios">
+              <PropertyRef Name="idSocio" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -681,17 +687,6 @@
               <ScalarProperty Name="id" ColumnName="idComunidad" />
             </EndProperty>
           </AssociationSetMapping>
-          <EntitySetMapping Name="Comentario">
-            <EntityTypeMapping TypeName="ChrysallisModel.Comentario">
-              <MappingFragment StoreEntitySet="Comentario">
-                <ScalarProperty Name="activo" ColumnName="activo" />
-                <ScalarProperty Name="fecha" ColumnName="fecha" />
-                <ScalarProperty Name="mostrarNombre" ColumnName="mostrarNombre" />
-                <ScalarProperty Name="idSocio" ColumnName="idSocio" />
-                <ScalarProperty Name="idEvento" ColumnName="idEvento" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Asistir">
             <EntityTypeMapping TypeName="ChrysallisModel.Asistir">
               <MappingFragment StoreEntitySet="Asistir">
@@ -714,6 +709,19 @@
                 <ScalarProperty Name="fecha" ColumnName="fecha" />
                 <ScalarProperty Name="titulo" ColumnName="titulo" />
                 <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Comentarios">
+            <EntityTypeMapping TypeName="ChrysallisModel.Comentarios">
+              <MappingFragment StoreEntitySet="Comentarios">
+                <ScalarProperty Name="body" ColumnName="body" />
+                <ScalarProperty Name="activo" ColumnName="activo" />
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+                <ScalarProperty Name="mostrarNombre" ColumnName="mostrarNombre" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="idSocio" ColumnName="idSocio" />
+                <ScalarProperty Name="idEvento" ColumnName="idEvento" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

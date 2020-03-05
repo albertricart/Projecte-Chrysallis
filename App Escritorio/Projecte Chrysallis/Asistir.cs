@@ -22,4 +22,5 @@ namespace Projecte_Chrysallis
         public virtual Socios Socios { get; set; }
         public virtual Eventos Eventos { get; set; }
     }
+
 }

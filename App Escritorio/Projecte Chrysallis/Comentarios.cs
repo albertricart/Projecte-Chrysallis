@@ -12,15 +12,18 @@ namespace Projecte_Chrysallis
     using System;
     using System.Collections.Generic;
 
-    public partial class Comentario
+    public partial class Comentarios
     {
         public short idEvento { get; set; }
         public int idSocio { get; set; }
+        public int id { get; set; }
         public bool mostrarNombre { get; set; }
         public System.DateTime fecha { get; set; }
         public bool activo { get; set; }
+        public string body { get; set; }
 
-        public virtual Socios Socios { get; set; }
         public virtual Eventos Eventos { get; set; }
+        public virtual Socios Socios { get; set; }
     }
+
 }

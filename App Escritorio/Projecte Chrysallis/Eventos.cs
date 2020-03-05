@@ -18,9 +18,9 @@ namespace Projecte_Chrysallis
         public Eventos()
         {
             this.Asistir = new HashSet<Asistir>();
-            this.Comentario = new HashSet<Comentario>();
             this.Documentos = new HashSet<Documentos>();
             this.Notificaciones = new HashSet<Notificaciones>();
+            this.Comentarios = new HashSet<Comentarios>();
         }
 
         public short id { get; set; }
@@ -36,13 +36,13 @@ namespace Projecte_Chrysallis
         public virtual Administradores Administradores { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Asistir> Asistir { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Comentario> Comentario { get; set; }
         public virtual Comunidades Comunidades { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Documentos> Documentos { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Notificaciones> Notificaciones { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Comentarios> Comentarios { get; set; }
     }
 
 }
