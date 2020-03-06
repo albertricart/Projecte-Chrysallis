@@ -225,6 +225,7 @@
             this.listBoxDocumentos.Name = "listBoxDocumentos";
             this.listBoxDocumentos.Size = new System.Drawing.Size(437, 184);
             this.listBoxDocumentos.TabIndex = 21;
+            this.listBoxDocumentos.DoubleClick += new System.EventHandler(this.listBoxDocumentos_DoubleClick);
             // 
             // label3
             // 
