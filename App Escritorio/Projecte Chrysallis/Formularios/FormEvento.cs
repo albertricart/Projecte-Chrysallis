@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -196,6 +195,7 @@ namespace Projecte_Chrysallis
         }
 
 
+
         private void textBoxTitulo_Enter(object sender, EventArgs e)
         {
             if (textBoxTitulo.Text.Equals("Evento..."))
@@ -213,16 +213,6 @@ namespace Projecte_Chrysallis
                 textBoxTitulo.ForeColor = Color.DimGray;
             }
         }
-
-        private void listBoxDocumentos_DoubleClick(object sender, EventArgs e)
-        {
-            if (listBoxDocumentos.SelectedItem != null)
-            {
-                VerDocumento();
-            }
-            
-        }
-
 
         //========================================================================================================//
         //METODOS
@@ -282,10 +272,7 @@ namespace Projecte_Chrysallis
             listBoxNotificaciones.ValueMember = "id";
         }
 
-        /// <summary>
-        /// Metodo para seleccionar un documento del ordenador
-        /// </summary>
-        /// <returns></returns>
+
         public Documentos SeleccionarDocumento()
         {
             Documentos documento = new Documentos();
@@ -299,9 +286,6 @@ namespace Projecte_Chrysallis
             return documento;
         }
 
-        /// <summary>
-        /// Metodo para refrescar los datos de la list de documentos
-        /// </summary>
         public void RefrescarListDocumentos()
         {
             listBoxDocumentos.DataSource = null;
@@ -310,21 +294,12 @@ namespace Projecte_Chrysallis
             listBoxDocumentos.ValueMember = "id";
         }
 
-        /// <summary>
-        /// Metodo para refrescar la list de notificaciones
-        /// </summary>
         public void RefrescarListNotificaciones()
         {
             listBoxNotificaciones.DataSource = null;
             listBoxNotificaciones.DataSource = notificaciones;
             listBoxNotificaciones.DisplayMember = "antelacion";
             listBoxNotificaciones.ValueMember = "id";
-        }
-
-
-        public void VerDocumento()
-        {
-            Process.Start(listBoxDocumentos.SelectedItem.ToString());
         }
 
         //========================================================================================================//
