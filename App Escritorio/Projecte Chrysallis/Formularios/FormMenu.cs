@@ -1,5 +1,4 @@
 ﻿using Projecte_Chrysallis.Formularios;
-using Projecte_Chrysallis.Properties;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -73,16 +72,19 @@ namespace Projecte_Chrysallis
         {
             FormLogin f = new FormLogin();
             f.ShowDialog();
+        }
 
+        private void pictureBoxGestionarAdmins_Click(object sender, EventArgs e)
+        {
             if (Formularios.FormLogin.adminLogeado.superadmin == true)
             {
-                this.BackgroundImage = Resources.FondoSuperAdmin;
+                FormAdmins f = new FormAdmins();
+                f.ShowDialog();
             }
             else
             {
-                this.BackgroundImage = Resources.FondoNoSuperAdmin;
+                MessageBox.Show("Opción sólo disponible para superadministradores", "Acceso Denegado", MessageBoxButtons.OK, MessageBoxIcon.Hand);
             }
         }
-
     }
 }

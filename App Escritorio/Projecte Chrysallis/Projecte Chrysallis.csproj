@@ -317,8 +317,6 @@
     <None Include="Resources\calendar.png" />
     <Content Include="Resources\candado.png" />
     <None Include="Resources\delete.png" />
-    <None Include="Resources\FondoSuperAdmin.png" />
-    <None Include="Resources\FondoNoSuperAdmin.png" />
     <Content Include="Resources\icon_wrong.png" />
     <Content Include="Resources\ojo.png" />
     <Content Include="Resources\ojoActivado.png" />
