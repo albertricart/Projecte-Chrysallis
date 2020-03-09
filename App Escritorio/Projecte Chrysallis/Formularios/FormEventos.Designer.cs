@@ -40,6 +40,7 @@
             this.pictureBoxAnadir = new System.Windows.Forms.PictureBox();
             this.pictureBoxModificar = new System.Windows.Forms.PictureBox();
             this.pictureBoxEliminar = new System.Windows.Forms.PictureBox();
+            this.bindingSourceEventos = new System.Windows.Forms.BindingSource(this.components);
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tituloDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fechaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -49,11 +50,10 @@
             this.idComunidadDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idAdminDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.asistirDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.documentosDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.notificacionesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.documentosDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.comunidadesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.administradoresDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bindingSourceEventos = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEventos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAtras)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAnadir)).BeginInit();
@@ -91,8 +91,8 @@
             this.idComunidadDataGridViewTextBoxColumn,
             this.idAdminDataGridViewTextBoxColumn,
             this.asistirDataGridViewTextBoxColumn,
-            this.documentosDataGridViewTextBoxColumn,
             this.notificacionesDataGridViewTextBoxColumn,
+            this.documentosDataGridViewTextBoxColumn,
             this.comunidadesDataGridViewTextBoxColumn,
             this.administradoresDataGridViewTextBoxColumn});
             this.dataGridViewEventos.DataSource = this.bindingSourceEventos;
@@ -105,7 +105,7 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridViewEventos.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewEventos.EnableHeadersVisualStyles = false;
-            this.dataGridViewEventos.Location = new System.Drawing.Point(12, 169);
+            this.dataGridViewEventos.Location = new System.Drawing.Point(12, 179);
             this.dataGridViewEventos.MultiSelect = false;
             this.dataGridViewEventos.Name = "dataGridViewEventos";
             this.dataGridViewEventos.ReadOnly = true;
@@ -125,7 +125,7 @@
             this.dataGridViewEventos.RowTemplate.Height = 75;
             this.dataGridViewEventos.RowTemplate.ReadOnly = true;
             this.dataGridViewEventos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewEventos.Size = new System.Drawing.Size(1404, 485);
+            this.dataGridViewEventos.Size = new System.Drawing.Size(1095, 484);
             this.dataGridViewEventos.TabIndex = 0;
             this.dataGridViewEventos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewEventos_CellDoubleClick);
             // 
@@ -184,6 +184,10 @@
             this.pictureBoxEliminar.TabIndex = 6;
             this.pictureBoxEliminar.TabStop = false;
             this.pictureBoxEliminar.Click += new System.EventHandler(this.pictureBoxEliminar_Click);
+            // 
+            // bindingSourceEventos
+            // 
+            this.bindingSourceEventos.DataSource = typeof(Projecte_Chrysallis.Eventos);
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -258,15 +262,6 @@
             this.asistirDataGridViewTextBoxColumn.ReadOnly = true;
             this.asistirDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
-            // documentosDataGridViewTextBoxColumn
-            // 
-            this.documentosDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.documentosDataGridViewTextBoxColumn.DataPropertyName = "Documentos";
-            this.documentosDataGridViewTextBoxColumn.HeaderText = "Documentos";
-            this.documentosDataGridViewTextBoxColumn.Name = "documentosDataGridViewTextBoxColumn";
-            this.documentosDataGridViewTextBoxColumn.ReadOnly = true;
-            this.documentosDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
             // notificacionesDataGridViewTextBoxColumn
             // 
             this.notificacionesDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
@@ -275,6 +270,15 @@
             this.notificacionesDataGridViewTextBoxColumn.Name = "notificacionesDataGridViewTextBoxColumn";
             this.notificacionesDataGridViewTextBoxColumn.ReadOnly = true;
             this.notificacionesDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // documentosDataGridViewTextBoxColumn
+            // 
+            this.documentosDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.documentosDataGridViewTextBoxColumn.DataPropertyName = "Documentos";
+            this.documentosDataGridViewTextBoxColumn.HeaderText = "Documentos";
+            this.documentosDataGridViewTextBoxColumn.Name = "documentosDataGridViewTextBoxColumn";
+            this.documentosDataGridViewTextBoxColumn.ReadOnly = true;
+            this.documentosDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
             // comunidadesDataGridViewTextBoxColumn
             // 
@@ -292,16 +296,12 @@
             this.administradoresDataGridViewTextBoxColumn.ReadOnly = true;
             this.administradoresDataGridViewTextBoxColumn.Visible = false;
             // 
-            // bindingSourceEventos
-            // 
-            this.bindingSourceEventos.DataSource = typeof(Projecte_Chrysallis.Eventos);
-            // 
             // FormEventos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.ClientSize = new System.Drawing.Size(1434, 675);
+            this.ClientSize = new System.Drawing.Size(1125, 675);
             this.Controls.Add(this.pictureBoxEliminar);
             this.Controls.Add(this.pictureBoxModificar);
             this.Controls.Add(this.pictureBoxAnadir);
@@ -331,6 +331,10 @@
         private System.Windows.Forms.DataGridView dataGridViewEventos;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
         private System.Windows.Forms.BindingSource bindingSourceEventos;
+        private System.Windows.Forms.PictureBox pictureBoxAtras;
+        private System.Windows.Forms.PictureBox pictureBoxAnadir;
+        private System.Windows.Forms.PictureBox pictureBoxModificar;
+        private System.Windows.Forms.PictureBox pictureBoxEliminar;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn tituloDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn fechaDataGridViewTextBoxColumn;
@@ -340,13 +344,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn idComunidadDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn idAdminDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn asistirDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn documentosDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn notificacionesDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn documentosDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn comunidadesDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn administradoresDataGridViewTextBoxColumn;
-        private System.Windows.Forms.PictureBox pictureBoxAtras;
-        private System.Windows.Forms.PictureBox pictureBoxAnadir;
-        private System.Windows.Forms.PictureBox pictureBoxModificar;
-        private System.Windows.Forms.PictureBox pictureBoxEliminar;
     }
 }

@@ -27,15 +27,6 @@ namespace Projecte_Chrysallis.Base_de_Datos
             return evento;
         }
 
-        //public static Eventos SelectEventosByComunidadAdmin(List<Comunidades> comunidades)
-        //{
-        //    List<Eventos> eventos =
-        //        (from e in ORM.bd.Eventos
-        //         select e).ToList();
-
-        //    return eventos;
-        //}
-
         //Insert
         public static String InsertEvento(string titulo, DateTime fecha, string ubicacion, string descripcion,
                                                     DateTime fecha_limite, byte idComunidad, byte idAdmin, List<Documentos> documentos, List<Notificaciones> notificaciones)

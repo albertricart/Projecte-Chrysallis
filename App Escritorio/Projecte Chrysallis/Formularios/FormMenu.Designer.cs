@@ -47,9 +47,9 @@
             // 
             this.pictureBoxSalir.BackColor = System.Drawing.Color.Transparent;
             this.pictureBoxSalir.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBoxSalir.Location = new System.Drawing.Point(360, 8);
+            this.pictureBoxSalir.Location = new System.Drawing.Point(376, 13);
             this.pictureBoxSalir.Name = "pictureBoxSalir";
-            this.pictureBoxSalir.Size = new System.Drawing.Size(67, 34);
+            this.pictureBoxSalir.Size = new System.Drawing.Size(50, 26);
             this.pictureBoxSalir.TabIndex = 0;
             this.pictureBoxSalir.TabStop = false;
             this.pictureBoxSalir.Click += new System.EventHandler(this.pictureBoxSalir_Click);
@@ -58,9 +58,9 @@
             // 
             this.pictureBoxMinimizar.BackColor = System.Drawing.Color.Transparent;
             this.pictureBoxMinimizar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBoxMinimizar.Location = new System.Drawing.Point(291, 9);
+            this.pictureBoxMinimizar.Location = new System.Drawing.Point(326, 13);
             this.pictureBoxMinimizar.Name = "pictureBoxMinimizar";
-            this.pictureBoxMinimizar.Size = new System.Drawing.Size(65, 33);
+            this.pictureBoxMinimizar.Size = new System.Drawing.Size(45, 25);
             this.pictureBoxMinimizar.TabIndex = 1;
             this.pictureBoxMinimizar.TabStop = false;
             this.pictureBoxMinimizar.Click += new System.EventHandler(this.pictureBoxMinimizar_Click);
@@ -69,9 +69,9 @@
             // 
             this.pictureBoxGestionarEventos.BackColor = System.Drawing.Color.Transparent;
             this.pictureBoxGestionarEventos.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBoxGestionarEventos.Location = new System.Drawing.Point(47, 358);
+            this.pictureBoxGestionarEventos.Location = new System.Drawing.Point(42, 324);
             this.pictureBoxGestionarEventos.Name = "pictureBoxGestionarEventos";
-            this.pictureBoxGestionarEventos.Size = new System.Drawing.Size(338, 51);
+            this.pictureBoxGestionarEventos.Size = new System.Drawing.Size(347, 51);
             this.pictureBoxGestionarEventos.TabIndex = 2;
             this.pictureBoxGestionarEventos.TabStop = false;
             this.pictureBoxGestionarEventos.Click += new System.EventHandler(this.pictureBoxGestionarEventos_Click);
@@ -80,9 +80,9 @@
             // 
             this.pictureBoxGestionarSocios.BackColor = System.Drawing.Color.Transparent;
             this.pictureBoxGestionarSocios.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBoxGestionarSocios.Location = new System.Drawing.Point(47, 430);
+            this.pictureBoxGestionarSocios.Location = new System.Drawing.Point(42, 400);
             this.pictureBoxGestionarSocios.Name = "pictureBoxGestionarSocios";
-            this.pictureBoxGestionarSocios.Size = new System.Drawing.Size(338, 51);
+            this.pictureBoxGestionarSocios.Size = new System.Drawing.Size(347, 51);
             this.pictureBoxGestionarSocios.TabIndex = 3;
             this.pictureBoxGestionarSocios.TabStop = false;
             this.pictureBoxGestionarSocios.Click += new System.EventHandler(this.pictureBoxGestionarSocios_Click);
@@ -91,9 +91,9 @@
             // 
             this.pictureBoxGestionarAdmins.BackColor = System.Drawing.Color.Transparent;
             this.pictureBoxGestionarAdmins.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBoxGestionarAdmins.Location = new System.Drawing.Point(47, 501);
+            this.pictureBoxGestionarAdmins.Location = new System.Drawing.Point(42, 474);
             this.pictureBoxGestionarAdmins.Name = "pictureBoxGestionarAdmins";
-            this.pictureBoxGestionarAdmins.Size = new System.Drawing.Size(338, 51);
+            this.pictureBoxGestionarAdmins.Size = new System.Drawing.Size(350, 51);
             this.pictureBoxGestionarAdmins.TabIndex = 4;
             this.pictureBoxGestionarAdmins.TabStop = false;
             this.pictureBoxGestionarAdmins.Click += new System.EventHandler(this.pictureBoxGestionarAdmins_Click);
@@ -102,9 +102,9 @@
             // 
             this.pictureBoxContacto.BackColor = System.Drawing.Color.Transparent;
             this.pictureBoxContacto.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBoxContacto.Location = new System.Drawing.Point(47, 573);
+            this.pictureBoxContacto.Location = new System.Drawing.Point(42, 552);
             this.pictureBoxContacto.Name = "pictureBoxContacto";
-            this.pictureBoxContacto.Size = new System.Drawing.Size(338, 51);
+            this.pictureBoxContacto.Size = new System.Drawing.Size(348, 51);
             this.pictureBoxContacto.TabIndex = 5;
             this.pictureBoxContacto.TabStop = false;
             this.pictureBoxContacto.Click += new System.EventHandler(this.pictureBoxContacto_Click);
@@ -115,7 +115,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.Black;
-            this.BackgroundImage = global::Projecte_Chrysallis.Properties.Resources.Main;
+            this.BackgroundImage = global::Projecte_Chrysallis.Properties.Resources.Fondo;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(432, 660);
             this.Controls.Add(this.pictureBoxContacto);
             this.Controls.Add(this.pictureBoxGestionarAdmins);
