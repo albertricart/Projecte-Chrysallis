@@ -69,7 +69,7 @@
             // 
             this.pictureBoxGestionarEventos.BackColor = System.Drawing.Color.Transparent;
             this.pictureBoxGestionarEventos.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBoxGestionarEventos.Location = new System.Drawing.Point(42, 324);
+            this.pictureBoxGestionarEventos.Location = new System.Drawing.Point(42, 333);
             this.pictureBoxGestionarEventos.Name = "pictureBoxGestionarEventos";
             this.pictureBoxGestionarEventos.Size = new System.Drawing.Size(347, 51);
             this.pictureBoxGestionarEventos.TabIndex = 2;
@@ -80,9 +80,9 @@
             // 
             this.pictureBoxGestionarSocios.BackColor = System.Drawing.Color.Transparent;
             this.pictureBoxGestionarSocios.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBoxGestionarSocios.Location = new System.Drawing.Point(42, 400);
+            this.pictureBoxGestionarSocios.Location = new System.Drawing.Point(41, 411);
             this.pictureBoxGestionarSocios.Name = "pictureBoxGestionarSocios";
-            this.pictureBoxGestionarSocios.Size = new System.Drawing.Size(347, 51);
+            this.pictureBoxGestionarSocios.Size = new System.Drawing.Size(351, 51);
             this.pictureBoxGestionarSocios.TabIndex = 3;
             this.pictureBoxGestionarSocios.TabStop = false;
             this.pictureBoxGestionarSocios.Click += new System.EventHandler(this.pictureBoxGestionarSocios_Click);
@@ -91,9 +91,9 @@
             // 
             this.pictureBoxGestionarAdmins.BackColor = System.Drawing.Color.Transparent;
             this.pictureBoxGestionarAdmins.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBoxGestionarAdmins.Location = new System.Drawing.Point(42, 474);
+            this.pictureBoxGestionarAdmins.Location = new System.Drawing.Point(41, 484);
             this.pictureBoxGestionarAdmins.Name = "pictureBoxGestionarAdmins";
-            this.pictureBoxGestionarAdmins.Size = new System.Drawing.Size(350, 51);
+            this.pictureBoxGestionarAdmins.Size = new System.Drawing.Size(350, 55);
             this.pictureBoxGestionarAdmins.TabIndex = 4;
             this.pictureBoxGestionarAdmins.TabStop = false;
             this.pictureBoxGestionarAdmins.Click += new System.EventHandler(this.pictureBoxGestionarAdmins_Click);
@@ -128,7 +128,10 @@
             this.ForeColor = System.Drawing.Color.Transparent;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FormMenu";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Menú Principal";
             this.Load += new System.EventHandler(this.FormMenu_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSalir)).EndInit();
