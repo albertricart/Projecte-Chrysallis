@@ -27,6 +27,7 @@ namespace Projecte_Chrysallis.Formularios
 
         private void FormLogin_FormClosing(object sender, FormClosingEventArgs e)
         {
+
             //Si el login no es válido, se cierra toda la app
             if (!valido)
             {
