@@ -55,5 +55,10 @@ namespace Projecte_Chrysallis
             bindingSourceSocios.DataSource = null;
             bindingSourceSocios.DataSource = Base_de_Datos.ORM_Socio.SelectSocios();
         }
+
+        private void pictureBoxAtras_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
