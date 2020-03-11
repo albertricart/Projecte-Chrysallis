@@ -35,12 +35,12 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormEventos));
             this.dataGridViewEventos = new System.Windows.Forms.DataGridView();
+            this.bindingSourceEventos = new System.Windows.Forms.BindingSource(this.components);
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.pictureBoxAtras = new System.Windows.Forms.PictureBox();
             this.pictureBoxAnadir = new System.Windows.Forms.PictureBox();
             this.pictureBoxModificar = new System.Windows.Forms.PictureBox();
             this.pictureBoxEliminar = new System.Windows.Forms.PictureBox();
-            this.bindingSourceEventos = new System.Windows.Forms.BindingSource(this.components);
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tituloDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fechaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -50,16 +50,17 @@
             this.idComunidadDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idAdminDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.asistirDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.valoracionMedia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.notificacionesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.documentosDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.comunidadesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.administradoresDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEventos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceEventos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAtras)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAnadir)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxModificar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEliminar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceEventos)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridViewEventos
@@ -91,6 +92,7 @@
             this.idComunidadDataGridViewTextBoxColumn,
             this.idAdminDataGridViewTextBoxColumn,
             this.asistirDataGridViewTextBoxColumn,
+            this.valoracionMedia,
             this.notificacionesDataGridViewTextBoxColumn,
             this.documentosDataGridViewTextBoxColumn,
             this.comunidadesDataGridViewTextBoxColumn,
@@ -125,9 +127,13 @@
             this.dataGridViewEventos.RowTemplate.Height = 75;
             this.dataGridViewEventos.RowTemplate.ReadOnly = true;
             this.dataGridViewEventos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewEventos.Size = new System.Drawing.Size(1095, 484);
+            this.dataGridViewEventos.Size = new System.Drawing.Size(955, 484);
             this.dataGridViewEventos.TabIndex = 0;
             this.dataGridViewEventos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewEventos_CellDoubleClick);
+            // 
+            // bindingSourceEventos
+            // 
+            this.bindingSourceEventos.DataSource = typeof(Projecte_Chrysallis.Eventos);
             // 
             // dataGridViewImageColumn1
             // 
@@ -185,10 +191,6 @@
             this.pictureBoxEliminar.TabStop = false;
             this.pictureBoxEliminar.Click += new System.EventHandler(this.pictureBoxEliminar_Click);
             // 
-            // bindingSourceEventos
-            // 
-            this.bindingSourceEventos.DataSource = typeof(Projecte_Chrysallis.Eventos);
-            // 
             // idDataGridViewTextBoxColumn
             // 
             this.idDataGridViewTextBoxColumn.DataPropertyName = "id";
@@ -228,6 +230,7 @@
             this.descripcionDataGridViewTextBoxColumn.HeaderText = "Descripción";
             this.descripcionDataGridViewTextBoxColumn.Name = "descripcionDataGridViewTextBoxColumn";
             this.descripcionDataGridViewTextBoxColumn.ReadOnly = true;
+            this.descripcionDataGridViewTextBoxColumn.Visible = false;
             // 
             // fechalimiteDataGridViewTextBoxColumn
             // 
@@ -262,6 +265,14 @@
             this.asistirDataGridViewTextBoxColumn.ReadOnly = true;
             this.asistirDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
+            // valoracionMedia
+            // 
+            this.valoracionMedia.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.valoracionMedia.DataPropertyName = "valoracionMedia";
+            this.valoracionMedia.HeaderText = "Valoración media";
+            this.valoracionMedia.Name = "valoracionMedia";
+            this.valoracionMedia.ReadOnly = true;
+            // 
             // notificacionesDataGridViewTextBoxColumn
             // 
             this.notificacionesDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
@@ -270,6 +281,7 @@
             this.notificacionesDataGridViewTextBoxColumn.Name = "notificacionesDataGridViewTextBoxColumn";
             this.notificacionesDataGridViewTextBoxColumn.ReadOnly = true;
             this.notificacionesDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.notificacionesDataGridViewTextBoxColumn.Visible = false;
             // 
             // documentosDataGridViewTextBoxColumn
             // 
@@ -279,6 +291,7 @@
             this.documentosDataGridViewTextBoxColumn.Name = "documentosDataGridViewTextBoxColumn";
             this.documentosDataGridViewTextBoxColumn.ReadOnly = true;
             this.documentosDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.documentosDataGridViewTextBoxColumn.Visible = false;
             // 
             // comunidadesDataGridViewTextBoxColumn
             // 
@@ -301,7 +314,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.ClientSize = new System.Drawing.Size(1125, 675);
+            this.ClientSize = new System.Drawing.Size(988, 675);
             this.Controls.Add(this.pictureBoxEliminar);
             this.Controls.Add(this.pictureBoxModificar);
             this.Controls.Add(this.pictureBoxAnadir);
@@ -317,11 +330,11 @@
             this.Activated += new System.EventHandler(this.FormEventos_Activated);
             this.Load += new System.EventHandler(this.FormEventos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEventos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceEventos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAtras)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAnadir)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxModificar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEliminar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceEventos)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -344,6 +357,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn idComunidadDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn idAdminDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn asistirDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn valoracionMedia;
         private System.Windows.Forms.DataGridViewTextBoxColumn notificacionesDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn documentosDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn comunidadesDataGridViewTextBoxColumn;

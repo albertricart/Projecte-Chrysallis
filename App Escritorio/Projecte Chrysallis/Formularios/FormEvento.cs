@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace Projecte_Chrysallis
@@ -54,7 +55,7 @@ namespace Projecte_Chrysallis
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        
+
         private void FormEvento_Load(object sender, EventArgs e)
         {
             if (Formularios.FormLogin.adminLogeado.superadmin == true)
@@ -77,11 +78,12 @@ namespace Projecte_Chrysallis
                 RellenarCamposModificar();
                 //en lugar de crear evento, guardaremos el evento modificado
                 buttonCrearEvento.Text = "GUARDAR EVENTO";
-
             }
 
+            //no mostraremos el labelValoracion hasta que se haya acabado el evento
+            labelValoracion.Hide();
             //propiedad para que le textboxtitulo no tenga focus
-            ActiveControl = pictureBoxAtras;  
+            ActiveControl = pictureBoxAtras;
         }
 
         /// <summary>
@@ -163,7 +165,7 @@ namespace Projecte_Chrysallis
         /// <param name="e"></param>
         private void pictureBoxEliminarDoc_Click(object sender, EventArgs e)
         {
-            documentos.Remove((Documentos) listBoxDocumentos.SelectedItem);
+            documentos.Remove((Documentos)listBoxDocumentos.SelectedItem);
             RefrescarListDocumentos();
         }
 
@@ -262,14 +264,24 @@ namespace Projecte_Chrysallis
             textBoxCalle.Text = evento.ubicacion;
             textBoxDescripcion.Text = evento.descripcion;
             comboBoxComunidades.SelectedValue = evento.idComunidad;
+            dateTimePickerEvento.Value = evento.fecha;
+            dateTimePickerLimite.Value = (DateTime)evento.fecha_limite;
 
-            listBoxDocumentos.DataSource = Base_de_Datos.ORM_Documentos.SelectDocumentosByEvento(evento.id);
+            listBoxDocumentos.DataSource = evento.Documentos.ToList();
             listBoxDocumentos.DisplayMember = "url";
             listBoxDocumentos.ValueMember = "id";
 
-            listBoxNotificaciones.DataSource = Base_de_Datos.ORM_Notificaciones.SelectNotificacionesByEvento(evento.id);
+            listBoxNotificaciones.DataSource = evento.Notificaciones.ToList();
             listBoxNotificaciones.DisplayMember = "antelacion";
             listBoxNotificaciones.ValueMember = "id";
+
+            if (EventoFinalizado(evento))
+            {
+                labelValoracion.Show();
+                labelValoracion.Text += evento.valoracionMedia.ToString();
+            }
+
+
         }
 
 
@@ -302,6 +314,16 @@ namespace Projecte_Chrysallis
             listBoxNotificaciones.ValueMember = "id";
         }
 
+        public bool EventoFinalizado(Eventos evento)
+        {
+            bool finalizado = false;
+            if (DateTime.Now > evento.fecha)
+            {
+                finalizado = true;
+            }
+            return finalizado;
+        }
+
         //========================================================================================================//
         //OTROS
         //========================================================================================================//
@@ -320,6 +342,6 @@ namespace Projecte_Chrysallis
                 m.Result = (IntPtr)(HT_CAPTION);
         }
 
-        
+
     }
 }

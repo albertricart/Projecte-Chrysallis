@@ -57,6 +57,7 @@
             this.pictureBoxAddDocumento = new System.Windows.Forms.PictureBox();
             this.pictureBoxEliminarDoc = new System.Windows.Forms.PictureBox();
             this.pictureBoxEliminarNotificacion = new System.Windows.Forms.PictureBox();
+            this.labelValoracion = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceComunidades)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAtras)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAnadirNotificacion)).BeginInit();
@@ -348,6 +349,16 @@
             this.pictureBoxEliminarNotificacion.TabStop = false;
             this.pictureBoxEliminarNotificacion.Click += new System.EventHandler(this.pictureBoxEliminarNotificacion_Click);
             // 
+            // labelValoracion
+            // 
+            this.labelValoracion.AutoSize = true;
+            this.labelValoracion.Font = new System.Drawing.Font("Consolas", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelValoracion.Location = new System.Drawing.Point(12, 744);
+            this.labelValoracion.Name = "labelValoracion";
+            this.labelValoracion.Size = new System.Drawing.Size(214, 24);
+            this.labelValoracion.TabIndex = 6;
+            this.labelValoracion.Text = "Valoración media:";
+            // 
             // FormEvento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -366,6 +377,7 @@
             this.Controls.Add(this.buttonCrearEvento);
             this.Controls.Add(this.comboBoxComunidades);
             this.Controls.Add(this.pictureBoxAddDocumento);
+            this.Controls.Add(this.labelValoracion);
             this.Controls.Add(this.labelCom);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label4);
@@ -429,5 +441,6 @@
         private System.Windows.Forms.PictureBox pictureBoxAddDocumento;
         private System.Windows.Forms.PictureBox pictureBoxEliminarDoc;
         private System.Windows.Forms.PictureBox pictureBoxEliminarNotificacion;
+        private System.Windows.Forms.Label labelValoracion;
     }
 }
