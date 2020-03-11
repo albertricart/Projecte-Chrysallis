@@ -55,9 +55,7 @@ namespace Projecte_Chrysallis.Base_de_Datos
         }
         //------------------------------------------------
         //Update
-        public static String UpdateSocio(int id, string dni, string nombre, string apellidos,
-                                                string email, string contrasenya, string telefono,
-                                                    string poblacion, byte idComunidad, bool activo)
+        public static String UpdateSocio(int id, string dni, string nombre, string apellidos, string email, string telefono, string poblacion, byte idComunidad, bool activo)
         {
             String result = "";
 
@@ -67,7 +65,6 @@ namespace Projecte_Chrysallis.Base_de_Datos
             socio.nombre = nombre;
             socio.apellidos = apellidos;
             socio.email = email;
-            socio.contrasenya = contrasenya;
             socio.telefono = telefono;
             socio.poblacion = poblacion;
             socio.idComunidad = idComunidad;

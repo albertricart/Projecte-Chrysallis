@@ -12,10 +12,24 @@ namespace Projecte_Chrysallis.Formularios
 {
     public partial class FormNuevoSocio : Form
     {
+        //Evento seleccionado en el formEventos
+        public Socios socio;
+        //Variable para indicar si queremos añadir o modificar un evento
+        public bool modificar;
+
+
         public FormNuevoSocio()
         {
             InitializeComponent();
+            modificar = false;
         }
+        public FormNuevoSocio(Socios socio)
+        {
+            InitializeComponent();
+            this.socio = socio;
+            modificar = true;
+        }
+
 
         public Boolean CamposCorrectos()
         {
@@ -83,9 +97,18 @@ namespace Projecte_Chrysallis.Formularios
         {
             if (CamposCorrectos())
             {
-                Base_de_Datos.ORM_Socio.InsertSocio(textBoxDNI.Text, textBoxNombre.Text, textBoxApellidos.Text, textBoxEmail.Text, textBoxTelefono.Text, textBoxPoblacion.Text, (byte)comboBoxComunidad.SelectedIndex, true);
-                MessageBox.Show("Socio añadido correctamente", "Socio Creado", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.Close();
+                if (modificar == true)
+                {
+                    Base_de_Datos.ORM_Socio.UpdateSocio(socio.id, textBoxDNI.Text, textBoxNombre.Text, textBoxApellidos.Text, textBoxEmail.Text, textBoxTelefono.Text, textBoxPoblacion.Text, (byte)comboBoxComunidad.SelectedIndex, true);
+                    MessageBox.Show("Socio modificado correctamente", "Socio Modificado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Close();
+                }
+                else
+                {
+                    Base_de_Datos.ORM_Socio.InsertSocio(textBoxDNI.Text, textBoxNombre.Text, textBoxApellidos.Text, textBoxEmail.Text, textBoxTelefono.Text, textBoxPoblacion.Text, (byte)comboBoxComunidad.SelectedIndex, true);
+                    MessageBox.Show("Socio añadido correctamente", "Socio Creado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Close();
+                }
             }
         }
     }

@@ -8,7 +8,7 @@ namespace Projecte_Chrysallis.Formularios
     {
         //administrador con el que se haya entrado en la aplicación
         public static Administradores adminLogeado;
-        bool valido, //para comprobar si el login es correcto o no
+        bool valido = false, //para comprobar si el login es correcto o no
             pwVisible = false; //para comprobar si la contraseña es visible o no (con '•')
 
         public FormLogin()
@@ -22,22 +22,15 @@ namespace Projecte_Chrysallis.Formularios
         private void FormLogin_Load(object sender, EventArgs e)
         {
             labelIncorrectos.Visible = false;
-            valido = false;
-        }
-
-        private void FormLogin_FormClosing(object sender, FormClosingEventArgs e)
-        {
-
-            //Si el login no es válido, se cierra toda la app
-            if (!valido)
-            {
-                Application.Exit();
-            }
         }
 
         private void buttonAcceder_Click(object sender, EventArgs e)
         {
             intentarLogin();
+            if (valido)
+            {
+                this.Close();
+            }
         }
 
         private void textBoxContrasenya_KeyDown(object sender, KeyEventArgs e)
@@ -63,15 +56,15 @@ namespace Projecte_Chrysallis.Formularios
                     adminLogeado = admin;
                     int i = (adminLogeado.Comunidades).Count;
                     valido = true;
-                    this.Close();
+                    FormMenu form = new FormMenu();
+                    form.ShowDialog();
                 }
                 else
                 {
                     valido = false;
                     labelIncorrectos.Visible = true;
                 }
-            }
-            
+            }            
         }
 
         //Eventos que se activa al tabular para acceder a los TextBox email y contraseña
