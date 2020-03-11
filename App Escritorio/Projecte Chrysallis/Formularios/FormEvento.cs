@@ -55,7 +55,7 @@ namespace Projecte_Chrysallis
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-
+        
         private void FormEvento_Load(object sender, EventArgs e)
         {
             if (Formularios.FormLogin.adminLogeado.superadmin == true)
@@ -83,7 +83,7 @@ namespace Projecte_Chrysallis
             //no mostraremos el labelValoracion hasta que se haya acabado el evento
             labelValoracion.Hide();
             //propiedad para que le textboxtitulo no tenga focus
-            ActiveControl = pictureBoxAtras;
+            ActiveControl = pictureBoxAtras;  
         }
 
         /// <summary>
@@ -165,7 +165,7 @@ namespace Projecte_Chrysallis
         /// <param name="e"></param>
         private void pictureBoxEliminarDoc_Click(object sender, EventArgs e)
         {
-            documentos.Remove((Documentos)listBoxDocumentos.SelectedItem);
+            documentos.Remove((Documentos) listBoxDocumentos.SelectedItem);
             RefrescarListDocumentos();
         }
 
@@ -280,8 +280,8 @@ namespace Projecte_Chrysallis
                 labelValoracion.Show();
                 labelValoracion.Text += evento.valoracionMedia.ToString();
             }
-
-
+            
+            
         }
 
 
@@ -342,6 +342,6 @@ namespace Projecte_Chrysallis
                 m.Result = (IntPtr)(HT_CAPTION);
         }
 
-
+        
     }
 }
