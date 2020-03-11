@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace Projecte_Chrysallis
@@ -77,9 +78,10 @@ namespace Projecte_Chrysallis
                 RellenarCamposModificar();
                 //en lugar de crear evento, guardaremos el evento modificado
                 buttonCrearEvento.Text = "GUARDAR EVENTO";
-
             }
 
+            //no mostraremos el labelValoracion hasta que se haya acabado el evento
+            labelValoracion.Hide();
             //propiedad para que le textboxtitulo no tenga focus
             ActiveControl = pictureBoxAtras;  
         }
@@ -262,14 +264,24 @@ namespace Projecte_Chrysallis
             textBoxCalle.Text = evento.ubicacion;
             textBoxDescripcion.Text = evento.descripcion;
             comboBoxComunidades.SelectedValue = evento.idComunidad;
+            dateTimePickerEvento.Value = evento.fecha;
+            dateTimePickerLimite.Value = (DateTime)evento.fecha_limite;
 
-            listBoxDocumentos.DataSource = Base_de_Datos.ORM_Documentos.SelectDocumentosByEvento(evento.id);
+            listBoxDocumentos.DataSource = evento.Documentos.ToList();
             listBoxDocumentos.DisplayMember = "url";
             listBoxDocumentos.ValueMember = "id";
 
-            listBoxNotificaciones.DataSource = Base_de_Datos.ORM_Notificaciones.SelectNotificacionesByEvento(evento.id);
+            listBoxNotificaciones.DataSource = evento.Notificaciones.ToList();
             listBoxNotificaciones.DisplayMember = "antelacion";
             listBoxNotificaciones.ValueMember = "id";
+
+            if (EventoFinalizado(evento))
+            {
+                labelValoracion.Show();
+                labelValoracion.Text += evento.valoracionMedia.ToString();
+            }
+            
+            
         }
 
 
@@ -300,6 +312,16 @@ namespace Projecte_Chrysallis
             listBoxNotificaciones.DataSource = notificaciones;
             listBoxNotificaciones.DisplayMember = "antelacion";
             listBoxNotificaciones.ValueMember = "id";
+        }
+
+        public bool EventoFinalizado(Eventos evento)
+        {
+            bool finalizado = false;
+            if (DateTime.Now > evento.fecha)
+            {
+                finalizado = true;
+            }
+            return finalizado;
         }
 
         //========================================================================================================//

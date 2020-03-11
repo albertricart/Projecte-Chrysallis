@@ -125,6 +125,7 @@ namespace Projecte_Chrysallis
         public Eventos ObtenerEventoSeleccionado()
         {
             int.TryParse(dataGridViewEventos.SelectedRows[0].Cells[0].Value.ToString(), out int id);
+
             Eventos evento = Base_de_Datos.ORM_Evento.SelectEventoByID(id);
             return evento;
 
