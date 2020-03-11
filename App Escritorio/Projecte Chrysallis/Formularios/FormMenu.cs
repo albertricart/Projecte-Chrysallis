@@ -71,9 +71,6 @@ namespace Projecte_Chrysallis
 
         private void FormMenu_Load(object sender, EventArgs e)
         {
-            FormLogin f = new FormLogin();
-            f.ShowDialog();
-
             if (Formularios.FormLogin.adminLogeado.superadmin == true)
             {
                 BackgroundImage = Resources.Fondo;

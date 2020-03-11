@@ -19,6 +19,36 @@ namespace Projecte_Chrysallis
             InitializeComponent();
         }
 
+        public void ModificarSocio()
+        {
+            if (SociosExistentes())
+            {
+                FormNuevoSocio formModificarSocio = new FormNuevoSocio(ObtenerSocioSeleccionado());
+                formModificarSocio.ShowDialog();
+            }
+        }
+
+        public Socios ObtenerSocioSeleccionado()
+        {
+            int.TryParse(dataGridViewSocios.SelectedRows[0].Cells[0].Value.ToString(), out int id);
+            Socios socio = Base_de_Datos.ORM_Socio.SelectSocioByID(id);
+            return socio;
+
+        }
+
+        public bool SociosExistentes()
+        {
+            if (dataGridViewSocios.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("No hay socios", "Sin socios", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
         private void button2_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -32,9 +62,8 @@ namespace Projecte_Chrysallis
 
         private void buttonModificar_Click(object sender, EventArgs e)
         {
-            //testeando
-            Administradores admin = ORM_Admin.SelectAdminByID(1);
-            MessageBox.Show(admin.email);
+            //modificaremos el socio al que tengamos seleccionado
+            ModificarSocio();
         }
 
         private void buttonEliminar_Click(object sender, EventArgs e)
