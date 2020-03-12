@@ -108,7 +108,7 @@ namespace Projecte_Chrysallis
         /// <returns></returns>
         public Eventos ObtenerEventoSeleccionado()
         {
-            Eventos evento=null;
+            Eventos evento = null;
 
             if (EventosExistentes())
             {
@@ -135,7 +135,7 @@ namespace Projecte_Chrysallis
         /// </summary>
         public void EliminarEvento(Eventos evento)
         {
-            if (evento!=null)
+            if (evento != null)
             {
                 //pediremos al usuario si esta seguro si quiere eliminarlo
                 var respuesta = MessageBox.Show("Seguro que quieres eliminar el evento seleccionado?", "Eliminar Evento", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -143,10 +143,16 @@ namespace Projecte_Chrysallis
                 if (respuesta == DialogResult.Yes)
                 {
                     //eliminamos el evento si le da click en si
-                    Base_de_Datos.ORM_Evento.DeleteEvento(evento);
-                    RefrescarGrid();
-                    MessageBox.Show("El evento " + evento.titulo + " ha sido eliminado", "Evento eliminado", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-
+                    String mensaje = Base_de_Datos.ORM_Evento.DeleteEvento(evento);
+                    if (!mensaje.Equals(""))
+                    {
+                        MessageBox.Show(mensaje, "Error al eliminar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                    else
+                    {
+                        RefrescarGrid();
+                        MessageBox.Show("El evento " + evento.titulo + " ha sido eliminado", "Evento eliminado", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                    }
                 }
             }
         }
@@ -168,12 +174,24 @@ namespace Projecte_Chrysallis
             }
         }
 
-
+        /// <summary>
+        /// Metodo que refresca los datos de la gridview segun los eventos que tenga asignado el adminLogeado
+        /// </summary>
         public void RefrescarGrid()
-        {   
-            //el bindingSource obteniene los eventos de la bd
-            bindingSourceEventos.DataSource = null;
-            bindingSourceEventos.DataSource = FormLogin.adminLogeado.Eventos.ToList();   
+        {
+            if (FormLogin.adminLogeado.superadmin)
+            {
+                //el bindingSource obteniene los eventos de la bd
+                bindingSourceEventos.DataSource = null;
+                bindingSourceEventos.DataSource = Base_de_Datos.ORM_Evento.SelectEventos();
+            }
+            else
+            {
+                //el bindingSource obteniene los eventos de la bd
+                bindingSourceEventos.DataSource = null;
+                bindingSourceEventos.DataSource = FormLogin.adminLogeado.Eventos.ToList();
+            }
+
         }
 
 

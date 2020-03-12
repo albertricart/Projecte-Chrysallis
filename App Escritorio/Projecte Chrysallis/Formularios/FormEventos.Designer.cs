@@ -35,12 +35,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormEventos));
             this.dataGridViewEventos = new System.Windows.Forms.DataGridView();
-            this.bindingSourceEventos = new System.Windows.Forms.BindingSource(this.components);
-            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.pictureBoxAtras = new System.Windows.Forms.PictureBox();
-            this.pictureBoxAnadir = new System.Windows.Forms.PictureBox();
-            this.pictureBoxModificar = new System.Windows.Forms.PictureBox();
-            this.pictureBoxEliminar = new System.Windows.Forms.PictureBox();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tituloDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fechaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -55,6 +49,12 @@
             this.documentosDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.comunidadesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.administradoresDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bindingSourceEventos = new System.Windows.Forms.BindingSource(this.components);
+            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.pictureBoxAtras = new System.Windows.Forms.PictureBox();
+            this.pictureBoxAnadir = new System.Windows.Forms.PictureBox();
+            this.pictureBoxModificar = new System.Windows.Forms.PictureBox();
+            this.pictureBoxEliminar = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEventos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceEventos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAtras)).BeginInit();
@@ -124,72 +124,12 @@
             dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
             this.dataGridViewEventos.RowsDefaultCellStyle = dataGridViewCellStyle4;
-            this.dataGridViewEventos.RowTemplate.Height = 75;
+            this.dataGridViewEventos.RowTemplate.Height = 55;
             this.dataGridViewEventos.RowTemplate.ReadOnly = true;
             this.dataGridViewEventos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewEventos.Size = new System.Drawing.Size(955, 484);
             this.dataGridViewEventos.TabIndex = 0;
             this.dataGridViewEventos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewEventos_CellDoubleClick);
-            // 
-            // bindingSourceEventos
-            // 
-            this.bindingSourceEventos.DataSource = typeof(Projecte_Chrysallis.Eventos);
-            // 
-            // dataGridViewImageColumn1
-            // 
-            this.dataGridViewImageColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewImageColumn1.DataPropertyName = "documentos";
-            this.dataGridViewImageColumn1.HeaderText = "Documentos";
-            this.dataGridViewImageColumn1.Image = global::Projecte_Chrysallis.Properties.Resources.add;
-            this.dataGridViewImageColumn1.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
-            this.dataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewImageColumn1.ToolTipText = "Añadir";
-            // 
-            // pictureBoxAtras
-            // 
-            this.pictureBoxAtras.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBoxAtras.BackgroundImage = global::Projecte_Chrysallis.Properties.Resources.atras;
-            this.pictureBoxAtras.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBoxAtras.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBoxAtras.Location = new System.Drawing.Point(12, 12);
-            this.pictureBoxAtras.Name = "pictureBoxAtras";
-            this.pictureBoxAtras.Size = new System.Drawing.Size(72, 56);
-            this.pictureBoxAtras.TabIndex = 5;
-            this.pictureBoxAtras.TabStop = false;
-            this.pictureBoxAtras.Click += new System.EventHandler(this.pictureBoxAtras_Click);
-            // 
-            // pictureBoxAnadir
-            // 
-            this.pictureBoxAnadir.BackColor = System.Drawing.Color.Lime;
-            this.pictureBoxAnadir.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBoxAnadir.Location = new System.Drawing.Point(12, 104);
-            this.pictureBoxAnadir.Name = "pictureBoxAnadir";
-            this.pictureBoxAnadir.Size = new System.Drawing.Size(100, 50);
-            this.pictureBoxAnadir.TabIndex = 6;
-            this.pictureBoxAnadir.TabStop = false;
-            this.pictureBoxAnadir.Click += new System.EventHandler(this.pictureBoxAnadir_Click);
-            // 
-            // pictureBoxModificar
-            // 
-            this.pictureBoxModificar.BackColor = System.Drawing.Color.Blue;
-            this.pictureBoxModificar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBoxModificar.Location = new System.Drawing.Point(152, 104);
-            this.pictureBoxModificar.Name = "pictureBoxModificar";
-            this.pictureBoxModificar.Size = new System.Drawing.Size(100, 50);
-            this.pictureBoxModificar.TabIndex = 6;
-            this.pictureBoxModificar.TabStop = false;
-            this.pictureBoxModificar.Click += new System.EventHandler(this.pictureBoxModificar_Click_1);
-            // 
-            // pictureBoxEliminar
-            // 
-            this.pictureBoxEliminar.BackColor = System.Drawing.Color.Red;
-            this.pictureBoxEliminar.Location = new System.Drawing.Point(296, 104);
-            this.pictureBoxEliminar.Name = "pictureBoxEliminar";
-            this.pictureBoxEliminar.Size = new System.Drawing.Size(100, 50);
-            this.pictureBoxEliminar.TabIndex = 6;
-            this.pictureBoxEliminar.TabStop = false;
-            this.pictureBoxEliminar.Click += new System.EventHandler(this.pictureBoxEliminar_Click);
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -308,6 +248,66 @@
             this.administradoresDataGridViewTextBoxColumn.Name = "administradoresDataGridViewTextBoxColumn";
             this.administradoresDataGridViewTextBoxColumn.ReadOnly = true;
             this.administradoresDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // bindingSourceEventos
+            // 
+            this.bindingSourceEventos.DataSource = typeof(Projecte_Chrysallis.Eventos);
+            // 
+            // dataGridViewImageColumn1
+            // 
+            this.dataGridViewImageColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewImageColumn1.DataPropertyName = "documentos";
+            this.dataGridViewImageColumn1.HeaderText = "Documentos";
+            this.dataGridViewImageColumn1.Image = global::Projecte_Chrysallis.Properties.Resources.add;
+            this.dataGridViewImageColumn1.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
+            this.dataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewImageColumn1.ToolTipText = "Añadir";
+            // 
+            // pictureBoxAtras
+            // 
+            this.pictureBoxAtras.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBoxAtras.BackgroundImage = global::Projecte_Chrysallis.Properties.Resources.atras;
+            this.pictureBoxAtras.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBoxAtras.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBoxAtras.Location = new System.Drawing.Point(12, 12);
+            this.pictureBoxAtras.Name = "pictureBoxAtras";
+            this.pictureBoxAtras.Size = new System.Drawing.Size(72, 56);
+            this.pictureBoxAtras.TabIndex = 5;
+            this.pictureBoxAtras.TabStop = false;
+            this.pictureBoxAtras.Click += new System.EventHandler(this.pictureBoxAtras_Click);
+            // 
+            // pictureBoxAnadir
+            // 
+            this.pictureBoxAnadir.BackColor = System.Drawing.Color.Lime;
+            this.pictureBoxAnadir.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBoxAnadir.Location = new System.Drawing.Point(12, 104);
+            this.pictureBoxAnadir.Name = "pictureBoxAnadir";
+            this.pictureBoxAnadir.Size = new System.Drawing.Size(100, 50);
+            this.pictureBoxAnadir.TabIndex = 6;
+            this.pictureBoxAnadir.TabStop = false;
+            this.pictureBoxAnadir.Click += new System.EventHandler(this.pictureBoxAnadir_Click);
+            // 
+            // pictureBoxModificar
+            // 
+            this.pictureBoxModificar.BackColor = System.Drawing.Color.Blue;
+            this.pictureBoxModificar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBoxModificar.Location = new System.Drawing.Point(152, 104);
+            this.pictureBoxModificar.Name = "pictureBoxModificar";
+            this.pictureBoxModificar.Size = new System.Drawing.Size(100, 50);
+            this.pictureBoxModificar.TabIndex = 6;
+            this.pictureBoxModificar.TabStop = false;
+            this.pictureBoxModificar.Click += new System.EventHandler(this.pictureBoxModificar_Click_1);
+            // 
+            // pictureBoxEliminar
+            // 
+            this.pictureBoxEliminar.BackColor = System.Drawing.Color.Red;
+            this.pictureBoxEliminar.Location = new System.Drawing.Point(296, 104);
+            this.pictureBoxEliminar.Name = "pictureBoxEliminar";
+            this.pictureBoxEliminar.Size = new System.Drawing.Size(100, 50);
+            this.pictureBoxEliminar.TabIndex = 6;
+            this.pictureBoxEliminar.TabStop = false;
+            this.pictureBoxEliminar.Click += new System.EventHandler(this.pictureBoxEliminar_Click);
             // 
             // FormEventos
             // 
