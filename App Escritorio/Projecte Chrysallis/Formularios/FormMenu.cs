@@ -1,4 +1,4 @@
-﻿using Projecte_Chrysallis.Formularios;
+using Projecte_Chrysallis.Formularios;
 using Projecte_Chrysallis.Properties;
 using System;
 using System.Collections.Generic;
@@ -71,18 +71,24 @@ namespace Projecte_Chrysallis
 
         private void FormMenu_Load(object sender, EventArgs e)
         {
-            if (Formularios.FormLogin.adminLogeado.superadmin == true)
-            {
-                BackgroundImage = Resources.Fondo;
-            }
-            else
-            {
-                BackgroundImage = Resources.FondoNoSuper;
-                pictureBoxGestionarAdmins.Enabled = false;
-                pictureBoxGestionarEventos.Location = new Point(42, 372);
-                pictureBoxGestionarSocios.Location = new Point(42, 471);
-                
-            }
+
+            FormLogin f = new FormLogin();
+            f.ShowDialog();
+
+            try{
+            if (FormLogin.adminLogeado.superadmin == true)
+                {
+                    BackgroundImage = Resources.Fondo;
+                }
+                else
+                {
+                    BackgroundImage = Resources.FondoNoSuper;
+                    pictureBoxGestionarAdmins.Enabled = false;
+                    pictureBoxGestionarEventos.Location = new Point(42, 372);
+                    pictureBoxGestionarSocios.Location = new Point(42, 471);
+
+                }
+            }catch (NullReferenceException) { }            
         }
 
         private void pictureBoxGestionarAdmins_Click(object sender, EventArgs e)

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Projecte_Chrysallis.Formularios;
+using System;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace Projecte_Chrysallis
@@ -28,20 +30,7 @@ namespace Projecte_Chrysallis
         /// <param name="e"></param>
         private void FormEventos_Load(object sender, EventArgs e)
         {
-            if (Formularios.FormLogin.adminLogeado.superadmin == true)
-            {
-                //el bindingSource obteniene los eventos de la bd
-                bindingSourceEventos.DataSource = null;
-                bindingSourceEventos.DataSource = Base_de_Datos.ORM_Evento.SelectEventos();
-            }
-            else
-            {
-                //el bindingSource obteniene los eventos de la bd
-                bindingSourceEventos.DataSource = null;
-                bindingSourceEventos.DataSource = Base_de_Datos.ORM_Evento.SelectEventos();
-            }
-
-
+            RefrescarGrid();
         }
 
         /// <summary>
@@ -51,9 +40,7 @@ namespace Projecte_Chrysallis
         /// <param name="e"></param>
         private void FormEventos_Activated(object sender, EventArgs e)
         {
-            //mantendremos el bindingSource actualizado cada vez que volvamos a este form o se actualice
-            bindingSourceEventos.DataSource = null;
-            bindingSourceEventos.DataSource = Base_de_Datos.ORM_Evento.SelectEventos();
+            RefrescarGrid();
         }
 
         /// <summary>
@@ -107,11 +94,8 @@ namespace Projecte_Chrysallis
         /// <param name="e"></param>
         private void pictureBoxEliminar_Click(object sender, EventArgs e)
         {
-            if (EventosExistentes())
-            {
-                //eliminamos el evento seleccionado
-                EliminarEvento(ObtenerEventoSeleccionado());
-            }
+            //eliminamos el evento seleccionado
+            EliminarEvento(ObtenerEventoSeleccionado());
         }
 
 
@@ -124,10 +108,14 @@ namespace Projecte_Chrysallis
         /// <returns></returns>
         public Eventos ObtenerEventoSeleccionado()
         {
-            int.TryParse(dataGridViewEventos.SelectedRows[0].Cells[0].Value.ToString(), out int id);
-            Eventos evento = Base_de_Datos.ORM_Evento.SelectEventoByID(id);
-            return evento;
+            Eventos evento=null;
 
+            if (EventosExistentes())
+            {
+                int.TryParse(dataGridViewEventos.SelectedRows[0].Cells[0].Value.ToString(), out int id);
+                evento = Base_de_Datos.ORM_Evento.SelectEventoByID(id);
+            }
+            return evento;
         }
 
         /// <summary>
@@ -147,17 +135,20 @@ namespace Projecte_Chrysallis
         /// </summary>
         public void EliminarEvento(Eventos evento)
         {
-            //pediremos al usuario si esta seguro si quiere eliminarlo
-            var respuesta = MessageBox.Show("Seguro que quieres eliminar el evento seleccionado?", "Eliminar Evento", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-            if (respuesta == DialogResult.Yes)
+            if (evento!=null)
             {
-                //eliminamos el evento si le da click en si
-                Base_de_Datos.ORM_Evento.DeleteEvento(evento);
-                MessageBox.Show("El evento " + evento.titulo + " ha sido eliminado", "Evento eliminado", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                //pediremos al usuario si esta seguro si quiere eliminarlo
+                var respuesta = MessageBox.Show("Seguro que quieres eliminar el evento seleccionado?", "Eliminar Evento", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
+                if (respuesta == DialogResult.Yes)
+                {
+                    //eliminamos el evento si le da click en si
+                    Base_de_Datos.ORM_Evento.DeleteEvento(evento);
+                    RefrescarGrid();
+                    MessageBox.Show("El evento " + evento.titulo + " ha sido eliminado", "Evento eliminado", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+
+                }
             }
-
         }
 
         /// <summary>
@@ -175,6 +166,14 @@ namespace Projecte_Chrysallis
             {
                 return true;
             }
+        }
+
+
+        public void RefrescarGrid()
+        {   
+            //el bindingSource obteniene los eventos de la bd
+            bindingSourceEventos.DataSource = null;
+            bindingSourceEventos.DataSource = FormLogin.adminLogeado.Eventos.ToList();   
         }
 
 

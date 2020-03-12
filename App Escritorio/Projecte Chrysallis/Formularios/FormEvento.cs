@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Projecte_Chrysallis.Formularios;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -68,7 +69,7 @@ namespace Projecte_Chrysallis
             {
                 //obtenemos las comunidades de la bd en el bindingSourceComunidades, que sera el datasource de la combobox
                 bindingSourceComunidades.DataSource = null;
-                bindingSourceComunidades.DataSource = Base_de_Datos.ORM_Comunidades.SelectComunidades();
+                bindingSourceComunidades.DataSource = FormLogin.adminLogeado.Comunidades.ToList();
             }
 
             //si estamos modificando el form...
