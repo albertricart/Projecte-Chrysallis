@@ -24,13 +24,17 @@ namespace Projecte_Chrysallis.Formularios
             labelIncorrectos.Visible = false;
         }
 
+        private void FormLogin_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (!valido)
+            {
+                Application.Exit();
+            }
+        }
+
         private void buttonAcceder_Click(object sender, EventArgs e)
         {
             intentarLogin();
-            if (valido)
-            {
-                this.Close();
-            }
         }
 
         private void textBoxContrasenya_KeyDown(object sender, KeyEventArgs e)
@@ -47,22 +51,18 @@ namespace Projecte_Chrysallis.Formularios
         /// </summary>
         private void intentarLogin()
         {
-            List<Administradores> listaAdministradores = Base_de_Datos.ORM_Admin.SelectAdmins();
+            Administradores admin = Base_de_Datos.ORM_Admin.SelectAdminLogin(textBoxEmail.Text, textBoxContrasenya.Text);
 
-            foreach (Administradores admin in listaAdministradores)
+            if (admin==null)
             {
-                if (textBoxContrasenya.Text.Equals(admin.contrasenya) && textBoxEmail.Text.Equals(admin.email))
-                {
-                    adminLogeado = admin;
-                    valido = true;
-                    FormMenu form = new FormMenu();
-                    form.ShowDialog();
-                }
-                else
-                {
-                    valido = false;
-                    labelIncorrectos.Visible = true;
-                }
+                valido = false;
+                labelIncorrectos.Visible = true;
+            }
+            else
+            {
+                adminLogeado = admin;
+                valido = true;
+                Close();
             }
         }
 
@@ -76,6 +76,8 @@ namespace Projecte_Chrysallis.Formularios
         {
             textBoxContrasenya.SelectAll();
         }
+
+        
 
         /// <summary>
         /// Evento que se activa cuando se hace click en el ojo
