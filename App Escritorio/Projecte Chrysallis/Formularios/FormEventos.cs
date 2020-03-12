@@ -50,7 +50,7 @@ namespace Projecte_Chrysallis
         /// <param name="e"></param>
         private void pictureBoxAtras_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
         }
 
         /// <summary>

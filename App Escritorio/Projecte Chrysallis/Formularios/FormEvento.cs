@@ -285,10 +285,10 @@ namespace Projecte_Chrysallis
                 {
                     comboBoxComunidades.SelectedValue = (byte)FormLogin.adminLogeado.Comunidades.First().id;
                 }
-                catch (InvalidOperationException e)
+                catch (InvalidOperationException)
                 {
                     MessageBox.Show("No tienes ninguna comunidad asociada", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    this.Close();
+                    Close();
                 }
             }
         }

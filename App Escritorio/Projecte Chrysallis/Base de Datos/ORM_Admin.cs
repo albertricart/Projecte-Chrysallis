@@ -18,14 +18,17 @@ namespace Projecte_Chrysallis.Base_de_Datos
             return admins;
         }
 
-        public static Administradores SelectAdminByID(int id)
+        public static Administradores SelectAdminLogin(String email, String pw)
         {
-            List<Administradores> admins =
-                (from a in ORM.bd.Administradores
-                        where a.id == id
-                        select a).ToList();
+            Administradores admin = null;
+            try
+            {
+                admin = (from a in ORM.bd.Administradores
+                 where a.email.Equals(email) && a.contrasenya.Equals(pw)
+                 select a).First();
+            }
+            catch(InvalidOperationException){}
 
-            Administradores admin = admins[0];
             return admin;
         }
 
