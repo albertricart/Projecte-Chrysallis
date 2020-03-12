@@ -74,18 +74,22 @@ namespace Projecte_Chrysallis
             FormLogin f = new FormLogin();
             f.ShowDialog();
 
-            if (Formularios.FormLogin.adminLogeado.superadmin == true)
+            try
             {
-                BackgroundImage = Resources.Fondo;
+                if (FormLogin.adminLogeado.superadmin == true)
+                {
+                    BackgroundImage = Resources.Fondo;
+                }
+                else
+                {
+                    BackgroundImage = Resources.FondoNoSuper;
+                    pictureBoxGestionarAdmins.Enabled = false;
+                    pictureBoxGestionarEventos.Location = new Point(42, 372);
+                    pictureBoxGestionarSocios.Location = new Point(42, 471);
+
+                }
             }
-            else
-            {
-                BackgroundImage = Resources.FondoNoSuper;
-                pictureBoxGestionarAdmins.Enabled = false;
-                pictureBoxGestionarEventos.Location = new Point(42, 372);
-                pictureBoxGestionarSocios.Location = new Point(42, 471);
-                
-            }
+            catch (NullReferenceException) { }            
         }
 
         private void pictureBoxGestionarAdmins_Click(object sender, EventArgs e)
