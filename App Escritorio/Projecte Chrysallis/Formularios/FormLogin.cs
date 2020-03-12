@@ -35,7 +35,7 @@ namespace Projecte_Chrysallis.Formularios
 
         private void textBoxContrasenya_KeyDown(object sender, KeyEventArgs e)
         {
-            if(e.KeyData == Keys.Enter)
+            if (e.KeyData == Keys.Enter)
             {
                 intentarLogin();
             }
@@ -47,14 +47,13 @@ namespace Projecte_Chrysallis.Formularios
         /// </summary>
         private void intentarLogin()
         {
-            List<Administradores> listaAdministradores =  Base_de_Datos.ORM_Admin.SelectAdmins();
+            List<Administradores> listaAdministradores = Base_de_Datos.ORM_Admin.SelectAdmins();
 
             foreach (Administradores admin in listaAdministradores)
             {
                 if (textBoxContrasenya.Text.Equals(admin.contrasenya) && textBoxEmail.Text.Equals(admin.email))
                 {
                     adminLogeado = admin;
-                    int i = (adminLogeado.Comunidades).Count;
                     valido = true;
                     FormMenu form = new FormMenu();
                     form.ShowDialog();
@@ -64,7 +63,7 @@ namespace Projecte_Chrysallis.Formularios
                     valido = false;
                     labelIncorrectos.Visible = true;
                 }
-            }            
+            }
         }
 
         //Eventos que se activa al tabular para acceder a los TextBox email y contraseña
@@ -89,7 +88,7 @@ namespace Projecte_Chrysallis.Formularios
             {
                 pwVisible = false;
                 textBoxContrasenya.PasswordChar = '•';
-                
+
                 pictureBoxOjo.Image = Properties.Resources.ojo;
             }
             //Si está oculta la vuelve visible

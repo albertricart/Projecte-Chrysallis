@@ -26,7 +26,7 @@ namespace Projecte_Chrysallis
         //CONSTRUCTORES
         //========================================================================================================//
         /// <summary>
-        /// CONSTRUCTOR VACIO POR DEFECTO QUE SE USA PARA AÑADIR UN NUEVO EVENTO
+        /// Constructor vacio por defecto que se usa para añadir un nuevo evento
         /// </summary>
         public FormEvento()
         {
@@ -35,7 +35,7 @@ namespace Projecte_Chrysallis
         }
 
         /// <summary>
-        /// CONSTRUCTOR PARAMETRIZADO PARA MODIFICAR UN EVENTO
+        /// Constructor parametrizado para modificar un evento
         /// </summary>
         /// <param name="id"></param>
         public FormEvento(Eventos evento)
@@ -59,18 +59,8 @@ namespace Projecte_Chrysallis
 
         private void FormEvento_Load(object sender, EventArgs e)
         {
-            if (Formularios.FormLogin.adminLogeado.superadmin == true)
-            {
-                //obtenemos las comunidades de la bd en el bindingSourceComunidades, que sera el datasource de la combobox
-                bindingSourceComunidades.DataSource = null;
-                bindingSourceComunidades.DataSource = Base_de_Datos.ORM_Comunidades.SelectComunidades();
-            }
-            else
-            {
-                //obtenemos las comunidades de la bd en el bindingSourceComunidades, que sera el datasource de la combobox
-                bindingSourceComunidades.DataSource = null;
-                bindingSourceComunidades.DataSource = FormLogin.adminLogeado.Comunidades.ToList();
-            }
+            //rellenamos la combobox comunidades con todas la comunidades
+            RellenarComunidades();
 
             //si estamos modificando el form...
             if (modificar == true)
@@ -103,7 +93,7 @@ namespace Projecte_Chrysallis
 
 
         /// <summary>
-        /// EVENTO CLICK DEL BOTON ATRÁS
+        /// Evento click del boton atrás
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -121,7 +111,7 @@ namespace Projecte_Chrysallis
 
 
         /// <summary>
-        /// EVENTO CLICK DEL BOTON PARA CREAR O MODIFICAR EL EVENTO
+        /// Evento click del boton para crear o modificar el evento
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -221,8 +211,107 @@ namespace Projecte_Chrysallis
         //METODOS
         //========================================================================================================//
 
+
         /// <summary>
-        /// METODO PARA VERIFICAR QUE LOS CAMPOS ESTEN CORRECTOS
+        /// Metodo para rellenar los campos del evento que queramos modificar
+        /// </summary>
+        public void RellenarCamposModificar()
+        {
+            textBoxTitulo.Text = evento.titulo;
+            textBoxCalle.Text = evento.ubicacion;
+            textBoxDescripcion.Text = evento.descripcion;
+            comboBoxComunidades.SelectedValue = evento.idComunidad;
+            dateTimePickerEvento.Value = evento.fecha;
+            dateTimePickerLimite.Value = (DateTime)evento.fecha_limite;
+            listBoxDocumentos.DataSource = evento.Documentos.ToList();
+            listBoxNotificaciones.DataSource = evento.Notificaciones.ToList();
+
+            if (EventoFinalizado(evento))
+            {
+                labelValoracion.Show();
+                labelValoracion.Text += evento.valoracionMedia.ToString();
+            }
+
+        }
+
+        /// <summary>
+        /// Metodo para abrir un showdialog para seleccionar un documento que querramos adjuntar al evento
+        /// </summary>
+        /// <returns></returns>
+        public Documentos SeleccionarDocumento()
+        {
+            Documentos documento = new Documentos();
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+
+            openFileDialog.Filter = "All files (*.*)|*.*|txt files (*.txt)|*.txt";
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                documento.url = openFileDialog.FileName;
+            }
+            return documento;
+        }
+
+        /// <summary>
+        /// Metodo para refrescar la lista de documentos
+        /// </summary>
+        public void RefrescarListDocumentos()
+        {
+            listBoxDocumentos.DataSource = null;
+            listBoxDocumentos.DataSource = documentos;
+        }
+
+        /// <summary>
+        /// Metodo para refrescar la lista de notificaciones
+        /// </summary>
+        public void RefrescarListNotificaciones()
+        {
+            listBoxNotificaciones.DataSource = null;
+            listBoxNotificaciones.DataSource = notificaciones;
+        }
+
+        /// <summary>
+        /// Metodo para rellenar la comboboxComunidades con las comunidades de la bd
+        /// </summary>
+        public void RellenarComunidades()
+        {
+            //obtenemos las comunidades de la bd en el bindingSourceComunidades, que sera el datasource de la combobox
+            bindingSourceComunidades.DataSource = null;
+            bindingSourceComunidades.DataSource = Base_de_Datos.ORM_Comunidades.SelectComunidades();
+
+            //si es administrador de una comunidad (no es super)
+            if (!FormLogin.adminLogeado.superadmin)
+            {
+                try
+                {
+                    comboBoxComunidades.SelectedValue = (byte)FormLogin.adminLogeado.Comunidades.First().id;
+                }
+                catch (InvalidOperationException e)
+                {
+                    MessageBox.Show("No tienes ninguna comunidad asociada", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    this.Close();
+                }
+            }
+        }
+
+        /// <summary>
+        /// Metodo para comprovar si ha acabado el evento consultando la fecha del evento y la fecha actual
+        /// </summary>
+        /// <param name="evento"></param>
+        /// <returns></returns>
+        public bool EventoFinalizado(Eventos evento)
+        {
+            bool finalizado = false;
+            if (DateTime.Now > evento.fecha)
+            {
+                finalizado = true;
+            }
+            return finalizado;
+        }
+
+
+
+        /// <summary>
+        /// Metodo para verificar que los campos esten correctos
         /// </summary>
         /// <returns></returns>
         public bool CamposCorrectos()
@@ -251,78 +340,7 @@ namespace Projecte_Chrysallis
                     }
                 }
             }
-
             return correcto;
-        }
-
-
-        /// <summary>
-        /// METODO PARA RELLENAR LOS CAMPOS DEL EVENTO QUE QUERAMOS MODIFICAR
-        /// </summary>
-        public void RellenarCamposModificar()
-        {
-            textBoxTitulo.Text = evento.titulo;
-            textBoxCalle.Text = evento.ubicacion;
-            textBoxDescripcion.Text = evento.descripcion;
-            comboBoxComunidades.SelectedValue = evento.idComunidad;
-            dateTimePickerEvento.Value = evento.fecha;
-            dateTimePickerLimite.Value = (DateTime)evento.fecha_limite;
-
-            listBoxDocumentos.DataSource = evento.Documentos.ToList();
-            listBoxDocumentos.DisplayMember = "url";
-            listBoxDocumentos.ValueMember = "id";
-
-            listBoxNotificaciones.DataSource = evento.Notificaciones.ToList();
-            listBoxNotificaciones.DisplayMember = "antelacion";
-            listBoxNotificaciones.ValueMember = "id";
-
-            if (EventoFinalizado(evento))
-            {
-                labelValoracion.Show();
-                labelValoracion.Text += evento.valoracionMedia.ToString();
-            }
-
-
-        }
-
-
-        public Documentos SeleccionarDocumento()
-        {
-            Documentos documento = new Documentos();
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-
-            openFileDialog.Filter = "All files (*.*)|*.*|txt files (*.txt)|*.txt";
-            if (openFileDialog.ShowDialog() == DialogResult.OK)
-            {
-                documento.url = openFileDialog.FileName;
-            }
-            return documento;
-        }
-
-        public void RefrescarListDocumentos()
-        {
-            listBoxDocumentos.DataSource = null;
-            listBoxDocumentos.DataSource = documentos;
-            listBoxDocumentos.DisplayMember = "url";
-            listBoxDocumentos.ValueMember = "id";
-        }
-
-        public void RefrescarListNotificaciones()
-        {
-            listBoxNotificaciones.DataSource = null;
-            listBoxNotificaciones.DataSource = notificaciones;
-            listBoxNotificaciones.DisplayMember = "antelacion";
-            listBoxNotificaciones.ValueMember = "id";
-        }
-
-        public bool EventoFinalizado(Eventos evento)
-        {
-            bool finalizado = false;
-            if (DateTime.Now > evento.fecha)
-            {
-                finalizado = true;
-            }
-            return finalizado;
         }
 
         //========================================================================================================//
@@ -342,7 +360,5 @@ namespace Projecte_Chrysallis
             if (m.Msg == WM_NCHITTEST)
                 m.Result = (IntPtr)(HT_CAPTION);
         }
-
-
     }
 }
