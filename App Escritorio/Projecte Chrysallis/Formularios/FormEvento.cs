@@ -1,7 +1,9 @@
 ﻿using Projecte_Chrysallis.Formularios;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -71,8 +73,6 @@ namespace Projecte_Chrysallis
                 buttonCrearEvento.Text = "GUARDAR EVENTO";
             }
 
-            //no mostraremos el labelValoracion hasta que se haya acabado el evento
-            labelValoracion.Hide();
             //propiedad para que le textboxtitulo no tenga focus
             ActiveControl = pictureBoxAtras;
         }
@@ -84,11 +84,8 @@ namespace Projecte_Chrysallis
         /// <param name="e"></param>
         private void FormEvento_Activated(object sender, EventArgs e)
         {
-            if (modificar == false)
-            {
-                RefrescarListDocumentos();
-                RefrescarListNotificaciones();
-            }
+            RefrescarListDocumentos();
+            RefrescarListNotificaciones();
         }
 
 
@@ -105,7 +102,7 @@ namespace Projecte_Chrysallis
             // Si es así, se cierra el form
             if (respuesta == DialogResult.Yes)
             {
-                this.Close();
+                Close();
             }
         }
 
@@ -132,7 +129,7 @@ namespace Projecte_Chrysallis
                     MessageBox.Show("Evento añadido correctamente", "Evento Creado", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 
-                this.Close();
+                Close();
             }
         }
 
@@ -160,6 +157,24 @@ namespace Projecte_Chrysallis
             RefrescarListDocumentos();
         }
 
+        /// <summary>
+        /// Evento click del botón ver un documento del evento
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void pictureBoxVerDoc_Click(object sender, EventArgs e)
+        {
+            Documentos documento;
+            
+            //if (listBoxDocumentos.SelectedItem!=null)
+            //{
+            //    documento = (Documentos)listBoxDocumentos.SelectedItem;
+            //    FileStream stream = File.OpenRead(documento.url);
+            //    byte[] documentoBytes = new byte[stream.Length];
+            //    File.WriteAllBytes(".", documentoBytes);
+            //    Process.Start(documento.url);
+            //}
+        }
 
         /// <summary>
         /// Evento click del botón añadir notificación del evento
@@ -230,6 +245,10 @@ namespace Projecte_Chrysallis
             {
                 labelValoracion.Show();
                 labelValoracion.Text += evento.valoracionMedia.ToString();
+            }
+            else
+            {
+                labelValoracion.Hide();
             }
 
         }
@@ -360,5 +379,6 @@ namespace Projecte_Chrysallis
             if (m.Msg == WM_NCHITTEST)
                 m.Result = (IntPtr)(HT_CAPTION);
         }
+
     }
 }

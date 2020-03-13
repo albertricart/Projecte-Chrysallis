@@ -58,12 +58,14 @@
             this.pictureBoxEliminarDoc = new System.Windows.Forms.PictureBox();
             this.pictureBoxEliminarNotificacion = new System.Windows.Forms.PictureBox();
             this.labelValoracion = new System.Windows.Forms.Label();
+            this.pictureBoxVerDoc = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceComunidades)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAtras)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAnadirNotificacion)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAddDocumento)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEliminarDoc)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEliminarNotificacion)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxVerDoc)).BeginInit();
             this.SuspendLayout();
             // 
             // textBoxTitulo
@@ -219,6 +221,7 @@
             // 
             // listBoxDocumentos
             // 
+            this.listBoxDocumentos.DisplayMember = "url";
             this.listBoxDocumentos.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listBoxDocumentos.FormattingEnabled = true;
             this.listBoxDocumentos.ItemHeight = 18;
@@ -226,6 +229,7 @@
             this.listBoxDocumentos.Name = "listBoxDocumentos";
             this.listBoxDocumentos.Size = new System.Drawing.Size(437, 184);
             this.listBoxDocumentos.TabIndex = 21;
+            this.listBoxDocumentos.ValueMember = "id";
             // 
             // label3
             // 
@@ -269,6 +273,7 @@
             // 
             // listBoxNotificaciones
             // 
+            this.listBoxNotificaciones.DisplayMember = "antelacion";
             this.listBoxNotificaciones.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listBoxNotificaciones.FormattingEnabled = true;
             this.listBoxNotificaciones.ItemHeight = 18;
@@ -276,6 +281,7 @@
             this.listBoxNotificaciones.Name = "listBoxNotificaciones";
             this.listBoxNotificaciones.Size = new System.Drawing.Size(437, 130);
             this.listBoxNotificaciones.TabIndex = 24;
+            this.listBoxNotificaciones.ValueMember = "id";
             // 
             // label5
             // 
@@ -352,12 +358,23 @@
             // labelValoracion
             // 
             this.labelValoracion.AutoSize = true;
-            this.labelValoracion.Font = new System.Drawing.Font("Consolas", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelValoracion.Font = new System.Drawing.Font("Consolas", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelValoracion.Location = new System.Drawing.Point(12, 744);
             this.labelValoracion.Name = "labelValoracion";
-            this.labelValoracion.Size = new System.Drawing.Size(214, 24);
+            this.labelValoracion.Size = new System.Drawing.Size(226, 24);
             this.labelValoracion.TabIndex = 6;
-            this.labelValoracion.Text = "Valoración media:";
+            this.labelValoracion.Text = "Valoración media: ";
+            // 
+            // pictureBoxVerDoc
+            // 
+            this.pictureBoxVerDoc.BackgroundImage = global::Projecte_Chrysallis.Properties.Resources.ojo;
+            this.pictureBoxVerDoc.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBoxVerDoc.Location = new System.Drawing.Point(624, 328);
+            this.pictureBoxVerDoc.Name = "pictureBoxVerDoc";
+            this.pictureBoxVerDoc.Size = new System.Drawing.Size(59, 59);
+            this.pictureBoxVerDoc.TabIndex = 27;
+            this.pictureBoxVerDoc.TabStop = false;
+            this.pictureBoxVerDoc.Click += new System.EventHandler(this.pictureBoxVerDoc_Click);
             // 
             // FormEvento
             // 
@@ -366,6 +383,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(951, 804);
+            this.Controls.Add(this.pictureBoxVerDoc);
             this.Controls.Add(this.pictureBoxEliminarNotificacion);
             this.Controls.Add(this.pictureBoxEliminarDoc);
             this.Controls.Add(this.listBoxNotificaciones);
@@ -407,6 +425,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAddDocumento)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEliminarDoc)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEliminarNotificacion)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxVerDoc)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -442,5 +461,6 @@
         private System.Windows.Forms.PictureBox pictureBoxEliminarDoc;
         private System.Windows.Forms.PictureBox pictureBoxEliminarNotificacion;
         private System.Windows.Forms.Label labelValoracion;
+        private System.Windows.Forms.PictureBox pictureBoxVerDoc;
     }
 }
