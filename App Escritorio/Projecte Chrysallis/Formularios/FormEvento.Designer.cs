@@ -59,6 +59,7 @@
             this.pictureBoxEliminarNotificacion = new System.Windows.Forms.PictureBox();
             this.labelValoracion = new System.Windows.Forms.Label();
             this.pictureBoxVerDoc = new System.Windows.Forms.PictureBox();
+            this.bindingSourceDocumentos = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceComunidades)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAtras)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAnadirNotificacion)).BeginInit();
@@ -66,6 +67,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEliminarDoc)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEliminarNotificacion)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxVerDoc)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceDocumentos)).BeginInit();
             this.SuspendLayout();
             // 
             // textBoxTitulo
@@ -221,6 +223,7 @@
             // 
             // listBoxDocumentos
             // 
+            this.listBoxDocumentos.DataSource = this.bindingSourceDocumentos;
             this.listBoxDocumentos.DisplayMember = "url";
             this.listBoxDocumentos.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listBoxDocumentos.FormattingEnabled = true;
@@ -376,6 +379,10 @@
             this.pictureBoxVerDoc.TabStop = false;
             this.pictureBoxVerDoc.Click += new System.EventHandler(this.pictureBoxVerDoc_Click);
             // 
+            // bindingSourceDocumentos
+            // 
+            this.bindingSourceDocumentos.DataSource = typeof(Projecte_Chrysallis.Documentos);
+            // 
             // FormEvento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -426,6 +433,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEliminarDoc)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEliminarNotificacion)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxVerDoc)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceDocumentos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -462,5 +470,6 @@
         private System.Windows.Forms.PictureBox pictureBoxEliminarNotificacion;
         private System.Windows.Forms.Label labelValoracion;
         private System.Windows.Forms.PictureBox pictureBoxVerDoc;
+        private System.Windows.Forms.BindingSource bindingSourceDocumentos;
     }
 }

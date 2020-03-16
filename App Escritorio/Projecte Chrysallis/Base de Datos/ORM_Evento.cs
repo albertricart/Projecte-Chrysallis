@@ -28,22 +28,10 @@ namespace Projecte_Chrysallis.Base_de_Datos
         }
 
         //Insert
-        public static String InsertEvento(string titulo, DateTime fecha, string ubicacion, string descripcion,
-                                                    DateTime fecha_limite, byte idComunidad, byte idAdmin, List<Documentos> documentos, List<Notificaciones> notificaciones)
+        public static String InsertEvento(Eventos evento)
         {
             String result = "";
-
-            Eventos evento = new Eventos();
-            evento.titulo = titulo;
-            evento.fecha = fecha;
-            evento.ubicacion = ubicacion;
-            evento.descripcion = descripcion;
-            evento.fecha_limite = fecha_limite;
-            evento.idComunidad = idComunidad;
-            evento.idAdmin = idAdmin;
-            evento.Documentos = documentos;
-            evento.Notificaciones = notificaciones;
-
+            
             ORM.bd.Eventos.Add(evento);
             result = ORM.SaveChanges();
 

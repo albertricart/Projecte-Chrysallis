@@ -15,11 +15,11 @@ namespace Projecte_Chrysallis
         //VARIABLES
         //========================================================================================================//
         //Evento seleccionado en el formEventos
-        public Eventos evento;
+        public Eventos _evento;
         //Variable para indicar si queremos añadir o modificar un evento
         public bool modificar;
         //lista de los documentos del nuevo evento
-        public List<Documentos> documentos = new List<Documentos>();
+        public List<Documentos> _documentos = new List<Documentos>();
         //lista de las notificaciones del nuevo evento
         public List<Notificaciones> notificaciones = new List<Notificaciones>();
 
@@ -43,8 +43,13 @@ namespace Projecte_Chrysallis
         public FormEvento(Eventos evento)
         {
             InitializeComponent();
-            this.evento = evento;
-            modificar = true;
+            modificar = true; 
+            _evento = evento;
+            foreach (Documentos documento in _evento.Documentos)
+            {
+                _documentos.Add(documento);
+            }
+            
         }
 
 
@@ -116,16 +121,26 @@ namespace Projecte_Chrysallis
         {
             if (CamposCorrectos())
             {
-                if (modificar == true)
+                if (modificar)
                 {
-                    Base_de_Datos.ORM_Evento.UpdateEvento(evento.id, textBoxTitulo.Text, dateTimePickerEvento.Value.Date.Add(dateTimePickerEvento.Value.TimeOfDay),
-                    textBoxCalle.Text, textBoxDescripcion.Text, dateTimePickerLimite.Value.Date.Add(dateTimePickerLimite.Value.TimeOfDay), (byte)comboBoxComunidades.SelectedValue, Formularios.FormLogin.adminLogeado.id, documentos, notificaciones);
+                    Eventos evento = new Eventos();
+                    evento.titulo = textBoxTitulo;
+                    evento.fecha = fecha;
+                    evento.ubicacion = ubicacion;
+                    evento.descripcion = descripcion;
+                    evento.fecha_limite = fecha_limite;
+                    evento.idComunidad = idComunidad;
+                    evento.idAdmin = idAdmin;
+                    evento.Documentos = documentos;
+                    evento.Notificaciones = notificaciones;
+                    Base_de_Datos.ORM_Evento.UpdateEvento(_evento.id, textBoxTitulo.Text, dateTimePickerEvento.Value.Date.Add(dateTimePickerEvento.Value.TimeOfDay),
+                    textBoxCalle.Text, textBoxDescripcion.Text, dateTimePickerLimite.Value.Date.Add(dateTimePickerLimite.Value.TimeOfDay), (byte)comboBoxComunidades.SelectedValue, Formularios.FormLogin.adminLogeado.id, _documentos, notificaciones);
                     MessageBox.Show("Evento modficado correctamente", "Evento Modificado", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
                     Base_de_Datos.ORM_Evento.InsertEvento(textBoxTitulo.Text, dateTimePickerEvento.Value.Date.Add(dateTimePickerEvento.Value.TimeOfDay),
-                    textBoxCalle.Text, textBoxDescripcion.Text, dateTimePickerLimite.Value.Date.Add(dateTimePickerLimite.Value.TimeOfDay), (byte)comboBoxComunidades.SelectedValue, Formularios.FormLogin.adminLogeado.id, documentos, notificaciones);
+                    textBoxCalle.Text, textBoxDescripcion.Text, dateTimePickerLimite.Value.Date.Add(dateTimePickerLimite.Value.TimeOfDay), (byte)comboBoxComunidades.SelectedValue, Formularios.FormLogin.adminLogeado.id, _documentos, notificaciones);
                     MessageBox.Show("Evento añadido correctamente", "Evento Creado", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 
@@ -142,7 +157,7 @@ namespace Projecte_Chrysallis
         private void pictureBoxAddDocumento_Click(object sender, EventArgs e)
         {
             Documentos doc = SeleccionarDocumento();
-            documentos.Add(doc);
+            _documentos.Add(doc);
             RefrescarListDocumentos();
         }
 
@@ -153,7 +168,7 @@ namespace Projecte_Chrysallis
         /// <param name="e"></param>
         private void pictureBoxEliminarDoc_Click(object sender, EventArgs e)
         {
-            documentos.Remove((Documentos)listBoxDocumentos.SelectedItem);
+            _documentos.Remove((Documentos)listBoxDocumentos.SelectedItem);
             RefrescarListDocumentos();
         }
 
@@ -232,19 +247,19 @@ namespace Projecte_Chrysallis
         /// </summary>
         public void RellenarCamposModificar()
         {
-            textBoxTitulo.Text = evento.titulo;
-            textBoxCalle.Text = evento.ubicacion;
-            textBoxDescripcion.Text = evento.descripcion;
-            comboBoxComunidades.SelectedValue = evento.idComunidad;
-            dateTimePickerEvento.Value = evento.fecha;
-            dateTimePickerLimite.Value = (DateTime)evento.fecha_limite;
-            listBoxDocumentos.DataSource = evento.Documentos.ToList();
-            listBoxNotificaciones.DataSource = evento.Notificaciones.ToList();
+            textBoxTitulo.Text = _evento.titulo;
+            textBoxCalle.Text = _evento.ubicacion;
+            textBoxDescripcion.Text = _evento.descripcion;
+            comboBoxComunidades.SelectedValue = _evento.idComunidad;
+            dateTimePickerEvento.Value = _evento.fecha;
+            dateTimePickerLimite.Value = (DateTime)_evento.fecha_limite;
+            bindingSourceDocumentos.DataSource = _documentos;
+            //listBoxNotificaciones.DataSource = _evento.Notificaciones.ToList();
 
-            if (EventoFinalizado(evento))
+            if (EventoFinalizado(_evento))
             {
                 labelValoracion.Show();
-                labelValoracion.Text += evento.valoracionMedia.ToString();
+                labelValoracion.Text += _evento.valoracionMedia.ToString();
             }
             else
             {
@@ -254,7 +269,7 @@ namespace Projecte_Chrysallis
         }
 
         /// <summary>
-        /// Metodo para abrir un showdialog para seleccionar un documento que querramos adjuntar al evento
+        /// Metodo que abre un showdialog para seleccionar un documento que querramos adjuntar al evento
         /// </summary>
         /// <returns></returns>
         public Documentos SeleccionarDocumento()
@@ -275,8 +290,8 @@ namespace Projecte_Chrysallis
         /// </summary>
         public void RefrescarListDocumentos()
         {
-            listBoxDocumentos.DataSource = null;
-            listBoxDocumentos.DataSource = documentos;
+            bindingSourceDocumentos.DataSource = null;
+            bindingSourceDocumentos.DataSource = _documentos;
         }
 
         /// <summary>
