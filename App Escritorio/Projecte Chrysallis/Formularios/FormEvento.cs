@@ -43,13 +43,13 @@ namespace Projecte_Chrysallis
         public FormEvento(Eventos evento)
         {
             InitializeComponent();
-            modificar = true; 
+            modificar = true;
             _evento = evento;
             foreach (Documentos documento in _evento.Documentos)
             {
                 _documentos.Add(documento);
             }
-            
+
         }
 
 
@@ -121,26 +121,27 @@ namespace Projecte_Chrysallis
         {
             if (CamposCorrectos())
             {
+                Eventos evento = new Eventos();
+                evento.titulo = textBoxTitulo.Text;
+                evento.fecha = dateTimePickerEvento.Value.Date.Add(dateTimePickerEvento.Value.TimeOfDay);
+                evento.ubicacion = textBoxCalle.Text + ", " + textBoxCiudad.Text;
+                evento.descripcion = textBoxDescripcion.Text;
+                evento.fecha_limite = dateTimePickerLimite.Value.Date.Add(dateTimePickerLimite.Value.TimeOfDay);
+                evento.idComunidad = (byte)comboBoxComunidades.SelectedValue;
+                evento.idAdmin = FormLogin.adminLogeado.id;
+                evento.Documentos = _documentos;
+                evento.Notificaciones = notificaciones;
+
                 if (modificar)
                 {
-                    Eventos evento = new Eventos();
-                    evento.titulo = textBoxTitulo;
-                    evento.fecha = fecha;
-                    evento.ubicacion = ubicacion;
-                    evento.descripcion = descripcion;
-                    evento.fecha_limite = fecha_limite;
-                    evento.idComunidad = idComunidad;
-                    evento.idAdmin = idAdmin;
-                    evento.Documentos = documentos;
-                    evento.Notificaciones = notificaciones;
-                    Base_de_Datos.ORM_Evento.UpdateEvento(_evento.id, textBoxTitulo.Text, dateTimePickerEvento.Value.Date.Add(dateTimePickerEvento.Value.TimeOfDay),
-                    textBoxCalle.Text, textBoxDescripcion.Text, dateTimePickerLimite.Value.Date.Add(dateTimePickerLimite.Value.TimeOfDay), (byte)comboBoxComunidades.SelectedValue, Formularios.FormLogin.adminLogeado.id, _documentos, notificaciones);
+                    evento.id = _evento.id;
+                    Base_de_Datos.ORM_Evento.UpdateEvento(evento);
                     MessageBox.Show("Evento modficado correctamente", "Evento Modificado", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
-                    Base_de_Datos.ORM_Evento.InsertEvento(textBoxTitulo.Text, dateTimePickerEvento.Value.Date.Add(dateTimePickerEvento.Value.TimeOfDay),
-                    textBoxCalle.Text, textBoxDescripcion.Text, dateTimePickerLimite.Value.Date.Add(dateTimePickerLimite.Value.TimeOfDay), (byte)comboBoxComunidades.SelectedValue, Formularios.FormLogin.adminLogeado.id, _documentos, notificaciones);
+
+                    Base_de_Datos.ORM_Evento.InsertEvento(evento);
                     MessageBox.Show("Evento añadido correctamente", "Evento Creado", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 
@@ -180,7 +181,7 @@ namespace Projecte_Chrysallis
         private void pictureBoxVerDoc_Click(object sender, EventArgs e)
         {
             Documentos documento;
-            
+
             //if (listBoxDocumentos.SelectedItem!=null)
             //{
             //    documento = (Documentos)listBoxDocumentos.SelectedItem;
