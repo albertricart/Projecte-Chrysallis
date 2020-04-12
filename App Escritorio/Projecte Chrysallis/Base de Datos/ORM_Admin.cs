@@ -18,6 +18,49 @@ namespace Projecte_Chrysallis.Base_de_Datos
             return admins;
         }
 
+        public static List<Administradores> SelectAdminsByNombre(String nombre)
+        {
+            List<Administradores> admins =
+                (from a in ORM.bd.Administradores
+                 where a.nombre.Contains(nombre)
+                 select a).ToList();
+
+            return admins;
+        }
+
+        public static List<Administradores> SelectAdminsByApellidos(String apellidos)
+        {
+            List<Administradores> admins =
+                (from a in ORM.bd.Administradores
+                 where a.apellidos.Contains(apellidos)
+                 select a).ToList();
+
+            return admins;
+        }
+
+        public static List<Administradores> SelectAdminsByEmail(String email)
+        {
+            List<Administradores> admins =
+                (from a in ORM.bd.Administradores
+                 where a.email.Contains(email)
+                 select a).ToList();
+
+            return admins;
+        }
+
+        public static List<Administradores> SelectAdminsByComunidad(String comunidad)
+        {
+            Comunidades _comunidad = new Comunidades();
+            _comunidad.nombre = comunidad;
+
+            List<Administradores> admins =
+                (from a in ORM.bd.Administradores
+                 where a.Comunidades.Contains(_comunidad)
+                 select a).ToList();
+
+            return admins;
+        }
+
         public static Administradores SelectAdminLogin(String email, String pw)
         {
             Administradores admin = null;

@@ -35,6 +35,13 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormEventos));
             this.dataGridViewEventos = new System.Windows.Forms.DataGridView();
+            this.valoracionMedia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.pictureBoxAtras = new System.Windows.Forms.PictureBox();
+            this.pictureBoxAnadir = new System.Windows.Forms.PictureBox();
+            this.pictureBoxModificar = new System.Windows.Forms.PictureBox();
+            this.pictureBoxEliminar = new System.Windows.Forms.PictureBox();
+            this.pictureBoxChrysallis = new System.Windows.Forms.PictureBox();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tituloDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fechaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -44,25 +51,18 @@
             this.idComunidadDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idAdminDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.asistirDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.valoracionMedia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.notificacionesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.documentosDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.comunidadesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.administradoresDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bindingSourceEventos = new System.Windows.Forms.BindingSource(this.components);
-            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.pictureBoxAtras = new System.Windows.Forms.PictureBox();
-            this.pictureBoxAnadir = new System.Windows.Forms.PictureBox();
-            this.pictureBoxModificar = new System.Windows.Forms.PictureBox();
-            this.pictureBoxEliminar = new System.Windows.Forms.PictureBox();
-            this.pictureBoxChrysallis = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEventos)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceEventos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAtras)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAnadir)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxModificar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEliminar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxChrysallis)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceEventos)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridViewEventos
@@ -132,6 +132,83 @@
             this.dataGridViewEventos.Size = new System.Drawing.Size(1023, 484);
             this.dataGridViewEventos.TabIndex = 0;
             this.dataGridViewEventos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewEventos_CellDoubleClick);
+            // 
+            // valoracionMedia
+            // 
+            this.valoracionMedia.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.valoracionMedia.DataPropertyName = "valoracionMedia";
+            this.valoracionMedia.HeaderText = "Valoración media";
+            this.valoracionMedia.Name = "valoracionMedia";
+            this.valoracionMedia.ReadOnly = true;
+            // 
+            // dataGridViewImageColumn1
+            // 
+            this.dataGridViewImageColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewImageColumn1.DataPropertyName = "documentos";
+            this.dataGridViewImageColumn1.HeaderText = "Documentos";
+            this.dataGridViewImageColumn1.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
+            this.dataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewImageColumn1.ToolTipText = "Añadir";
+            // 
+            // pictureBoxAtras
+            // 
+            this.pictureBoxAtras.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBoxAtras.BackgroundImage = global::Projecte_Chrysallis.Properties.Resources.atras;
+            this.pictureBoxAtras.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBoxAtras.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBoxAtras.Location = new System.Drawing.Point(25, 12);
+            this.pictureBoxAtras.Name = "pictureBoxAtras";
+            this.pictureBoxAtras.Size = new System.Drawing.Size(72, 56);
+            this.pictureBoxAtras.TabIndex = 5;
+            this.pictureBoxAtras.TabStop = false;
+            this.pictureBoxAtras.Click += new System.EventHandler(this.pictureBoxAtras_Click);
+            // 
+            // pictureBoxAnadir
+            // 
+            this.pictureBoxAnadir.BackColor = System.Drawing.Color.Lime;
+            this.pictureBoxAnadir.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBoxAnadir.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBoxAnadir.Location = new System.Drawing.Point(25, 104);
+            this.pictureBoxAnadir.Name = "pictureBoxAnadir";
+            this.pictureBoxAnadir.Size = new System.Drawing.Size(100, 50);
+            this.pictureBoxAnadir.TabIndex = 6;
+            this.pictureBoxAnadir.TabStop = false;
+            this.pictureBoxAnadir.Click += new System.EventHandler(this.pictureBoxAnadir_Click);
+            // 
+            // pictureBoxModificar
+            // 
+            this.pictureBoxModificar.BackColor = System.Drawing.Color.Blue;
+            this.pictureBoxModificar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBoxModificar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBoxModificar.Location = new System.Drawing.Point(172, 104);
+            this.pictureBoxModificar.Name = "pictureBoxModificar";
+            this.pictureBoxModificar.Size = new System.Drawing.Size(100, 50);
+            this.pictureBoxModificar.TabIndex = 6;
+            this.pictureBoxModificar.TabStop = false;
+            this.pictureBoxModificar.Click += new System.EventHandler(this.pictureBoxModificar_Click_1);
+            // 
+            // pictureBoxEliminar
+            // 
+            this.pictureBoxEliminar.BackColor = System.Drawing.Color.Red;
+            this.pictureBoxEliminar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBoxEliminar.Location = new System.Drawing.Point(328, 104);
+            this.pictureBoxEliminar.Name = "pictureBoxEliminar";
+            this.pictureBoxEliminar.Size = new System.Drawing.Size(100, 50);
+            this.pictureBoxEliminar.TabIndex = 6;
+            this.pictureBoxEliminar.TabStop = false;
+            this.pictureBoxEliminar.Click += new System.EventHandler(this.pictureBoxEliminar_Click);
+            // 
+            // pictureBoxChrysallis
+            // 
+            this.pictureBoxChrysallis.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBoxChrysallis.BackgroundImage = global::Projecte_Chrysallis.Properties.Resources.LogoChrysallis;
+            this.pictureBoxChrysallis.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBoxChrysallis.Location = new System.Drawing.Point(880, 13);
+            this.pictureBoxChrysallis.Name = "pictureBoxChrysallis";
+            this.pictureBoxChrysallis.Size = new System.Drawing.Size(168, 141);
+            this.pictureBoxChrysallis.TabIndex = 7;
+            this.pictureBoxChrysallis.TabStop = false;
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -207,14 +284,6 @@
             this.asistirDataGridViewTextBoxColumn.ReadOnly = true;
             this.asistirDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
-            // valoracionMedia
-            // 
-            this.valoracionMedia.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.valoracionMedia.DataPropertyName = "valoracionMedia";
-            this.valoracionMedia.HeaderText = "Valoración media";
-            this.valoracionMedia.Name = "valoracionMedia";
-            this.valoracionMedia.ReadOnly = true;
-            // 
             // notificacionesDataGridViewTextBoxColumn
             // 
             this.notificacionesDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
@@ -255,75 +324,6 @@
             // 
             this.bindingSourceEventos.DataSource = typeof(Projecte_Chrysallis.Eventos);
             // 
-            // dataGridViewImageColumn1
-            // 
-            this.dataGridViewImageColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewImageColumn1.DataPropertyName = "documentos";
-            this.dataGridViewImageColumn1.HeaderText = "Documentos";
-            this.dataGridViewImageColumn1.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
-            this.dataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewImageColumn1.ToolTipText = "Añadir";
-            // 
-            // pictureBoxAtras
-            // 
-            this.pictureBoxAtras.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBoxAtras.BackgroundImage = global::Projecte_Chrysallis.Properties.Resources.atras;
-            this.pictureBoxAtras.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBoxAtras.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBoxAtras.Location = new System.Drawing.Point(25, 12);
-            this.pictureBoxAtras.Name = "pictureBoxAtras";
-            this.pictureBoxAtras.Size = new System.Drawing.Size(72, 56);
-            this.pictureBoxAtras.TabIndex = 5;
-            this.pictureBoxAtras.TabStop = false;
-            this.pictureBoxAtras.Click += new System.EventHandler(this.pictureBoxAtras_Click);
-            // 
-            // pictureBoxAnadir
-            // 
-            this.pictureBoxAnadir.BackColor = System.Drawing.Color.Lime;
-            this.pictureBoxAnadir.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBoxAnadir.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBoxAnadir.Location = new System.Drawing.Point(25, 104);
-            this.pictureBoxAnadir.Name = "pictureBoxAnadir";
-            this.pictureBoxAnadir.Size = new System.Drawing.Size(100, 50);
-            this.pictureBoxAnadir.TabIndex = 6;
-            this.pictureBoxAnadir.TabStop = false;
-            this.pictureBoxAnadir.Click += new System.EventHandler(this.pictureBoxAnadir_Click);
-            // 
-            // pictureBoxModificar
-            // 
-            this.pictureBoxModificar.BackColor = System.Drawing.Color.Blue;
-            this.pictureBoxModificar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBoxModificar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBoxModificar.Location = new System.Drawing.Point(172, 104);
-            this.pictureBoxModificar.Name = "pictureBoxModificar";
-            this.pictureBoxModificar.Size = new System.Drawing.Size(100, 50);
-            this.pictureBoxModificar.TabIndex = 6;
-            this.pictureBoxModificar.TabStop = false;
-            this.pictureBoxModificar.Click += new System.EventHandler(this.pictureBoxModificar_Click_1);
-            // 
-            // pictureBoxEliminar
-            // 
-            this.pictureBoxEliminar.BackColor = System.Drawing.Color.Red;
-            this.pictureBoxEliminar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBoxEliminar.Location = new System.Drawing.Point(328, 104);
-            this.pictureBoxEliminar.Name = "pictureBoxEliminar";
-            this.pictureBoxEliminar.Size = new System.Drawing.Size(100, 50);
-            this.pictureBoxEliminar.TabIndex = 6;
-            this.pictureBoxEliminar.TabStop = false;
-            this.pictureBoxEliminar.Click += new System.EventHandler(this.pictureBoxEliminar_Click);
-            // 
-            // pictureBoxChrysallis
-            // 
-            this.pictureBoxChrysallis.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBoxChrysallis.BackgroundImage = global::Projecte_Chrysallis.Properties.Resources.LogoChrysallis;
-            this.pictureBoxChrysallis.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBoxChrysallis.Location = new System.Drawing.Point(880, 13);
-            this.pictureBoxChrysallis.Name = "pictureBoxChrysallis";
-            this.pictureBoxChrysallis.Size = new System.Drawing.Size(168, 141);
-            this.pictureBoxChrysallis.TabIndex = 7;
-            this.pictureBoxChrysallis.TabStop = false;
-            // 
             // FormEventos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -342,19 +342,18 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.MinimizeBox = false;
             this.Name = "FormEventos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Gestor de Eventos";
+            this.Text = "Gestor de Eventos - MeetChrysallis";
             this.Activated += new System.EventHandler(this.FormEventos_Activated);
             this.Load += new System.EventHandler(this.FormEventos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEventos)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceEventos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAtras)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAnadir)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxModificar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEliminar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxChrysallis)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceEventos)).EndInit();
             this.ResumeLayout(false);
 
         }

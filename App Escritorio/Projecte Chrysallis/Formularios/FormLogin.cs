@@ -71,7 +71,14 @@ namespace Projecte_Chrysallis.Formularios
                 adminLogeado.Comunidades = admin.Comunidades;
 
                 valido = true;
-                Close();
+                
+                Hide();
+                FormMenu formMenu = new FormMenu();
+                labelIncorrectos.Visible = false;
+                formMenu.ShowDialog();
+                textBoxEmail.Clear();
+                textBoxContrasenya.Clear();
+                Show();
             }
         }
 

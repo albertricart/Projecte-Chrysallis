@@ -28,6 +28,8 @@ namespace Projecte_Chrysallis
             InitializeComponent();
         }
 
+        
+
         private void pictureBoxSalir_Click(object sender, EventArgs e)
         {
             // Pregunta si esta seguro que desea cerrar
@@ -61,6 +63,14 @@ namespace Projecte_Chrysallis
             Show();
         }
 
+        private void pictureBoxGestionarAdmins_Click(object sender, EventArgs e)
+        {
+            Hide();
+            FormAdmins formAdmins = new FormAdmins();
+            formAdmins.ShowDialog();
+            Show();
+        }
+
         private void pictureBoxContacto_Click(object sender, EventArgs e)
         {
             Hide();
@@ -71,9 +81,6 @@ namespace Projecte_Chrysallis
 
         private void FormMenu_Load(object sender, EventArgs e)
         {
-            FormLogin f = new FormLogin();
-            f.ShowDialog();
-
             try
             {
                 if (FormLogin.adminLogeado.superadmin == true)
@@ -92,9 +99,6 @@ namespace Projecte_Chrysallis
             catch (NullReferenceException) { }
         }
 
-        private void pictureBoxGestionarAdmins_Click(object sender, EventArgs e)
-        {
-
-        }
+        
     }
 }

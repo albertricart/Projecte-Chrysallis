@@ -112,12 +112,11 @@ namespace Projecte_Chrysallis
         /// <returns></returns>
         public Eventos ObtenerEventoSeleccionado()
         {
-            Eventos evento = null;
+            Eventos evento = new Eventos();
 
             if (EventosExistentes())
             {
-                int.TryParse(dataGridViewEventos.SelectedRows[0].Cells[0].Value.ToString(), out int id);
-                evento = Base_de_Datos.ORM_Evento.SelectEventoByID(id);
+                evento = (Eventos) dataGridViewEventos.SelectedRows[0].DataBoundItem;
                 ultimoEventoSeleccionado = dataGridViewEventos.SelectedRows[0].Index;
             }
             return evento;

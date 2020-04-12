@@ -15,15 +15,15 @@ namespace Projecte_Chrysallis
         //VARIABLES
         //========================================================================================================//
         //Evento seleccionado en el formEventos
-        public Eventos _evento;
+        private Eventos _evento;
         //Variable para indicar si queremos añadir o modificar un evento
-        public bool modificar;
+        private bool modificar;
         //lista de los documentos del nuevo evento
-        public List<Documentos> _documentos = new List<Documentos>();
+        private List<Documentos> _documentos = new List<Documentos>();
         //lista de las notificaciones del nuevo evento
-        public List<Notificaciones> notificaciones = new List<Notificaciones>();
+        private List<Notificaciones> notificaciones = new List<Notificaciones>();
         //click para saber si el usuario ha modificado o añadido un evento
-        public bool clickBotonEvento = false;
+        private bool clickBotonEvento = false;
 
 
         //========================================================================================================//
