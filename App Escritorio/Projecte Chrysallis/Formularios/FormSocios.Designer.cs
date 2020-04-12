@@ -33,6 +33,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormSocios));
             this.button1 = new System.Windows.Forms.Button();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.buttonEliminar = new System.Windows.Forms.Button();
@@ -330,9 +331,10 @@
             this.Controls.Add(this.dataGridViewSocios);
             this.Controls.Add(this.button1);
             this.DoubleBuffered = true;
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormSocios";
-            this.Text = "FormSocios";
+            this.Text = "Gestor de Socios";
             this.Activated += new System.EventHandler(this.FormSocios_Activated);
             this.Load += new System.EventHandler(this.FormSocios_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSocios)).EndInit();

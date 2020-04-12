@@ -16,15 +16,6 @@ namespace Projecte_Chrysallis.Base_de_Datos
             return _eventos;
         }
 
-        public static Eventos SelectEventoByID(int id)
-        {
-            Eventos _evento =
-                (from e in ORM.bd.Eventos
-                 where e.id == id
-                 select e).FirstOrDefault();
-            return _evento;
-        }
-
         //Insert
         public static String InsertEvento(Eventos evento)
         {

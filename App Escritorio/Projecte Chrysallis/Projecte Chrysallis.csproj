@@ -54,6 +54,7 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -132,11 +133,11 @@
     <Compile Include="Formularios\FormMenu.Designer.cs">
       <DependentUpon>FormMenu.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\FormNuevoAdmin.cs">
+    <Compile Include="Formularios\FormAdmin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\FormNuevoAdmin.Designer.cs">
-      <DependentUpon>FormNuevoAdmin.cs</DependentUpon>
+    <Compile Include="Formularios\FormAdmin.Designer.cs">
+      <DependentUpon>FormAdmin.cs</DependentUpon>
     </Compile>
     <Compile Include="Formularios\FormNuevoSocio.cs">
       <SubType>Form</SubType>
@@ -205,8 +206,8 @@
     <EmbeddedResource Include="Formularios\FormMenu.resx">
       <DependentUpon>FormMenu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\FormNuevoAdmin.resx">
-      <DependentUpon>FormNuevoAdmin.cs</DependentUpon>
+    <EmbeddedResource Include="Formularios\FormAdmin.resx">
+      <DependentUpon>FormAdmin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\FormNuevoSocio.resx">
       <DependentUpon>FormNuevoSocio.cs</DependentUpon>
