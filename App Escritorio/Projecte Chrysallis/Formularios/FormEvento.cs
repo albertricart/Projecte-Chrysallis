@@ -22,6 +22,8 @@ namespace Projecte_Chrysallis
         public List<Documentos> _documentos = new List<Documentos>();
         //lista de las notificaciones del nuevo evento
         public List<Notificaciones> notificaciones = new List<Notificaciones>();
+        //click para saber si el usuario ha modificado o añadido un evento
+        public bool clickBotonEvento = false;
 
 
         //========================================================================================================//
@@ -45,7 +47,8 @@ namespace Projecte_Chrysallis
             InitializeComponent();
             modificar = true;
             _evento = evento;
-            foreach (Documentos documento in _evento.Documentos)
+
+            foreach (Documentos documento in evento.Documentos)
             {
                 _documentos.Add(documento);
             }
@@ -75,7 +78,7 @@ namespace Projecte_Chrysallis
                 //rellenaremos los datos del evento que hayamos seleccionado en el formEventos
                 RellenarCamposModificar();
                 //en lugar de crear evento, guardaremos el evento modificado
-                buttonCrearEvento.Text = "GUARDAR EVENTO";
+                buttonAccionEvento.Text = "GUARDAR EVENTO";
             }
 
             //propiedad para que le textboxtitulo no tenga focus
@@ -101,14 +104,7 @@ namespace Projecte_Chrysallis
         /// <param name="e"></param>
         private void pictureBoxAtras_Click(object sender, EventArgs e)
         {
-            // Pregunta si esta seguro que desea cerrar
-            var respuesta = MessageBox.Show("Perderás los datos introducidos, quieres salir?", "Salir", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-            // Si es así, se cierra el form
-            if (respuesta == DialogResult.Yes)
-            {
-                Close();
-            }
+            Close();
         }
 
 
@@ -117,32 +113,27 @@ namespace Projecte_Chrysallis
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void buttonCrearEvento_Click(object sender, EventArgs e)
+        private void buttonAccionEvento_Click(object sender, EventArgs e)
         {
+            clickBotonEvento = true;
+
             if (CamposCorrectos())
             {
-                Eventos evento = new Eventos();
-                evento.titulo = textBoxTitulo.Text;
-                evento.fecha = dateTimePickerEvento.Value.Date.Add(dateTimePickerEvento.Value.TimeOfDay);
-                evento.ubicacion = textBoxCalle.Text + ", " + textBoxCiudad.Text;
-                evento.descripcion = textBoxDescripcion.Text;
-                evento.fecha_limite = dateTimePickerLimite.Value.Date.Add(dateTimePickerLimite.Value.TimeOfDay);
-                evento.idComunidad = (byte)comboBoxComunidades.SelectedValue;
-                evento.idAdmin = FormLogin.adminLogeado.id;
-                evento.Documentos = _documentos;
-                evento.Notificaciones = notificaciones;
+                String mensaje;
+                Eventos evento;
+
+                evento = RecogerDatos();
 
                 if (modificar)
                 {
                     evento.id = _evento.id;
-                    Base_de_Datos.ORM_Evento.UpdateEvento(evento);
-                    MessageBox.Show("Evento modficado correctamente", "Evento Modificado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    mensaje = Base_de_Datos.ORM_Evento.UpdateEvento(evento);
+                    MessageBox.Show("Evento modificado correctamente. " + mensaje, "Evento Modificado", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
-
-                    Base_de_Datos.ORM_Evento.InsertEvento(evento);
-                    MessageBox.Show("Evento añadido correctamente", "Evento Creado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    mensaje = Base_de_Datos.ORM_Evento.InsertEvento(evento);
+                    MessageBox.Show("Evento añadido correctamente. " + mensaje, "Evento Creado", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 
                 Close();
@@ -158,8 +149,11 @@ namespace Projecte_Chrysallis
         private void pictureBoxAddDocumento_Click(object sender, EventArgs e)
         {
             Documentos doc = SeleccionarDocumento();
-            _documentos.Add(doc);
-            RefrescarListDocumentos();
+            if (doc != null)
+            {
+                _documentos.Add(doc);
+                RefrescarListDocumentos();
+            }
         }
 
         /// <summary>
@@ -169,8 +163,16 @@ namespace Projecte_Chrysallis
         /// <param name="e"></param>
         private void pictureBoxEliminarDoc_Click(object sender, EventArgs e)
         {
-            _documentos.Remove((Documentos)listBoxDocumentos.SelectedItem);
-            RefrescarListDocumentos();
+            if (listBoxDocumentos.SelectedItem != null)
+            {
+                _documentos.Remove((Documentos)listBoxDocumentos.SelectedItem);
+                RefrescarListDocumentos();
+            }
+            else
+            {
+                MessageBox.Show("Selecciona el documento que quieras eliminar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
         }
 
         /// <summary>
@@ -180,16 +182,27 @@ namespace Projecte_Chrysallis
         /// <param name="e"></param>
         private void pictureBoxVerDoc_Click(object sender, EventArgs e)
         {
-            Documentos documento;
-
-            //if (listBoxDocumentos.SelectedItem!=null)
-            //{
-            //    documento = (Documentos)listBoxDocumentos.SelectedItem;
-            //    FileStream stream = File.OpenRead(documento.url);
-            //    byte[] documentoBytes = new byte[stream.Length];
-            //    File.WriteAllBytes(".", documentoBytes);
-            //    Process.Start(documento.url);
-            //}
+            if (listBoxDocumentos.SelectedItem != null)
+            {
+                Documentos documento = (Documentos)listBoxDocumentos.SelectedItem;
+                File.WriteAllBytes(documento.url, documento.datos);
+                try
+                {
+                    Process.Start(documento.url);
+                }
+                catch (System.ComponentModel.Win32Exception)
+                {
+                    MessageBox.Show("El documento seleccionado no puede visualizarse", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Error al abrir el documento", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Selecciona el documento que quieras ver", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         /// <summary>
@@ -218,6 +231,23 @@ namespace Projecte_Chrysallis
             RefrescarListNotificaciones();
         }
 
+        /// <summary>
+        /// Evento FormClosing que llama al metodo CerrarForm()
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void FormEvento_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (clickBotonEvento == false)
+            {
+                if (MessageBox.Show("Perderás los datos introducidos, quieres salir?", "Salir", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+                {
+                    e.Cancel = true;
+                    this.Activate();
+                }
+            }
+        }
+
 
 
         private void textBoxTitulo_Enter(object sender, EventArgs e)
@@ -242,6 +272,25 @@ namespace Projecte_Chrysallis
         //METODOS
         //========================================================================================================//
 
+        /// <summary>
+        /// Recoge los datos que esten introducidos en el form y crea un evento con ellos
+        /// </summary>
+        /// <returns></returns>
+        public Eventos RecogerDatos()
+        {
+            Eventos evento = new Eventos();
+            evento.titulo = textBoxTitulo.Text;
+            evento.fecha = dateTimePickerEvento.Value.Date.Add(dateTimePickerEvento.Value.TimeOfDay);
+            evento.ubicacion = textBoxCalle.Text + ", " + textBoxCiudad.Text;
+            evento.descripcion = textBoxDescripcion.Text;
+            evento.fecha_limite = dateTimePickerLimite.Value.Date.Add(dateTimePickerLimite.Value.TimeOfDay);
+            evento.idComunidad = (byte)comboBoxComunidades.SelectedValue;
+            evento.idAdmin = FormLogin.adminLogeado.id;
+            evento.Documentos = _documentos;
+            evento.Notificaciones = notificaciones;
+
+            return evento;
+        }
 
         /// <summary>
         /// Metodo para rellenar los campos del evento que queramos modificar
@@ -259,7 +308,7 @@ namespace Projecte_Chrysallis
 
             if (EventoFinalizado(_evento))
             {
-                labelValoracion.Show();
+                labelValoracion.Visible = true;
                 labelValoracion.Text += _evento.valoracionMedia.ToString();
             }
             else
@@ -278,11 +327,26 @@ namespace Projecte_Chrysallis
             Documentos documento = new Documentos();
             OpenFileDialog openFileDialog = new OpenFileDialog();
 
-            openFileDialog.Filter = "All files (*.*)|*.*|txt files (*.txt)|*.txt";
+            openFileDialog.Filter = "Archivos (*.*)|*.*|Documentos de texto (*.txt)|*.txt|Imágenes (*.png)|*.png";
+
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
                 documento.url = openFileDialog.FileName;
+                try
+                {
+                    documento.datos = File.ReadAllBytes(documento.url);
+                }
+                catch (System.IO.IOException)
+                {
+                    MessageBox.Show("El documento no se puede abrir porque ya está en uso", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    documento = null;
+                }
             }
+            else
+            {
+                documento = null;
+            }
+
             return documento;
         }
 
@@ -318,7 +382,7 @@ namespace Projecte_Chrysallis
             {
                 try
                 {
-                    comboBoxComunidades.SelectedValue = (byte)FormLogin.adminLogeado.Comunidades.First().id;
+                    comboBoxComunidades.SelectedValue = FormLogin.adminLogeado.Comunidades.First().id;
                 }
                 catch (InvalidOperationException)
                 {
@@ -353,7 +417,7 @@ namespace Projecte_Chrysallis
         {
             bool correcto = false;
 
-            if (string.IsNullOrWhiteSpace(textBoxTitulo.Text) || textBoxTitulo.Equals("Evento..."))
+            if (string.IsNullOrWhiteSpace(textBoxTitulo.Text) || textBoxTitulo.Text.Equals("Evento..."))
             {
                 MessageBox.Show("Introduce un nombre para el evento", "Evento sin nombre", MessageBoxButtons.OK, MessageBoxIcon.Hand);
             }
@@ -377,6 +441,7 @@ namespace Projecte_Chrysallis
             }
             return correcto;
         }
+
 
         //========================================================================================================//
         //OTROS

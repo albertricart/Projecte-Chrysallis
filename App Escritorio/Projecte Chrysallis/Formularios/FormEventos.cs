@@ -7,6 +7,7 @@ namespace Projecte_Chrysallis
 {
     public partial class FormEventos : Form
     {
+        int ultimoEventoSeleccionado;
 
         //========================================================================================================//
         //CONSTRUCTORES
@@ -31,6 +32,7 @@ namespace Projecte_Chrysallis
         private void FormEventos_Load(object sender, EventArgs e)
         {
             RefrescarGrid();
+            dataGridViewEventos.ClearSelection();
         }
 
         /// <summary>
@@ -60,8 +62,10 @@ namespace Projecte_Chrysallis
         /// <param name="e"></param>
         private void pictureBoxAnadir_Click(object sender, EventArgs e)
         {
+            Hide();
             FormEvento formCrearEvento = new FormEvento();
             formCrearEvento.ShowDialog();
+            Show();
         }
 
 
@@ -114,6 +118,7 @@ namespace Projecte_Chrysallis
             {
                 int.TryParse(dataGridViewEventos.SelectedRows[0].Cells[0].Value.ToString(), out int id);
                 evento = Base_de_Datos.ORM_Evento.SelectEventoByID(id);
+                ultimoEventoSeleccionado = dataGridViewEventos.SelectedRows[0].Index;
             }
             return evento;
         }
@@ -125,8 +130,14 @@ namespace Projecte_Chrysallis
         {
             if (EventosExistentes())
             {
+                Hide();
                 FormEvento formModificarEvento = new FormEvento(ObtenerEventoSeleccionado());
                 formModificarEvento.ShowDialog();
+                Show();
+            }
+            else
+            {
+                MessageBox.Show("No hay eventos", "Sin eventos", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -144,16 +155,20 @@ namespace Projecte_Chrysallis
                 {
                     //eliminamos el evento si le da click en si
                     String mensaje = Base_de_Datos.ORM_Evento.DeleteEvento(evento);
-                    if (!mensaje.Equals(""))
-                    {
-                        MessageBox.Show(mensaje, "Error al eliminar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    }
-                    else
+                    if (mensaje.Equals(""))
                     {
                         RefrescarGrid();
                         MessageBox.Show("El evento " + evento.titulo + " ha sido eliminado", "Evento eliminado", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                     }
+                    else
+                    {
+                        MessageBox.Show(mensaje, "Error al eliminar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
                 }
+            }
+            else
+            {
+                MessageBox.Show("No hay eventos", "Sin eventos", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -164,8 +179,7 @@ namespace Projecte_Chrysallis
         public bool EventosExistentes()
         {
             if (dataGridViewEventos.SelectedRows.Count == 0)
-            {
-                MessageBox.Show("No hay eventos", "Sin eventos", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            { 
                 return false;
             }
             else
@@ -191,6 +205,13 @@ namespace Projecte_Chrysallis
                 bindingSourceEventos.DataSource = null;
                 bindingSourceEventos.DataSource = FormLogin.adminLogeado.Eventos.ToList();
             }
+
+
+            if (EventosExistentes())
+            {
+                dataGridViewEventos.Rows[ultimoEventoSeleccionado].Selected = true;
+            }
+
 
         }
 

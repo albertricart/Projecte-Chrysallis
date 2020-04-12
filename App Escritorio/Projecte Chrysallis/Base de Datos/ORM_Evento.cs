@@ -9,22 +9,20 @@ namespace Projecte_Chrysallis.Base_de_Datos
         //Select
         public static List<Eventos> SelectEventos()
         {
-            List<Eventos> eventos =
+            List<Eventos> _eventos =
                 (from e in ORM.bd.Eventos
                  select e).ToList();
 
-            return eventos;
+            return _eventos;
         }
 
         public static Eventos SelectEventoByID(int id)
         {
-            List<Eventos> eventos =
+            Eventos _evento =
                 (from e in ORM.bd.Eventos
                  where e.id == id
-                 select e).ToList();
-
-            Eventos evento = eventos[0];
-            return evento;
+                 select e).FirstOrDefault();
+            return _evento;
         }
 
         //Insert
@@ -43,8 +41,16 @@ namespace Projecte_Chrysallis.Base_de_Datos
         {
             String result = "";
 
-            Eventos evento = ORM.bd.Eventos.Find(_evento.id);
+            Eventos evento = (Eventos) ORM.bd.Eventos.Find(_evento.id);
+
+            //no actualiza/funciona
             evento = _evento;
+
+            //funciona y actualiza correctamente
+            evento.fecha = _evento.fecha;
+            evento.descripcion = _evento.descripcion;
+
+
 
             result = ORM.SaveChanges();
             return result;

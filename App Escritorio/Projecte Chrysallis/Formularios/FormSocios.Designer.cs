@@ -40,7 +40,7 @@
             this.buttonAnadir = new System.Windows.Forms.Button();
             this.dataGridViewSocios = new System.Windows.Forms.DataGridView();
             this.pictureBoxAtras = new System.Windows.Forms.PictureBox();
-            this.bindingSourceSocios = new System.Windows.Forms.BindingSource(this.components);
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dniDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -54,8 +54,10 @@
             this.asistirDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.comunidadesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.comunidades1DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bindingSourceSocios = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSocios)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAtras)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceSocios)).BeginInit();
             this.SuspendLayout();
             // 
@@ -81,7 +83,7 @@
             // 
             // buttonEliminar
             // 
-            this.buttonEliminar.Location = new System.Drawing.Point(456, 55);
+            this.buttonEliminar.Location = new System.Drawing.Point(339, 99);
             this.buttonEliminar.Name = "buttonEliminar";
             this.buttonEliminar.Size = new System.Drawing.Size(130, 42);
             this.buttonEliminar.TabIndex = 11;
@@ -91,7 +93,7 @@
             // 
             // buttonModificar
             // 
-            this.buttonModificar.Location = new System.Drawing.Point(277, 55);
+            this.buttonModificar.Location = new System.Drawing.Point(178, 99);
             this.buttonModificar.Name = "buttonModificar";
             this.buttonModificar.Size = new System.Drawing.Size(130, 42);
             this.buttonModificar.TabIndex = 10;
@@ -101,7 +103,7 @@
             // 
             // buttonAnadir
             // 
-            this.buttonAnadir.Location = new System.Drawing.Point(105, 55);
+            this.buttonAnadir.Location = new System.Drawing.Point(12, 99);
             this.buttonAnadir.Name = "buttonAnadir";
             this.buttonAnadir.Size = new System.Drawing.Size(130, 42);
             this.buttonAnadir.TabIndex = 9;
@@ -114,14 +116,14 @@
             this.dataGridViewSocios.AllowUserToAddRows = false;
             this.dataGridViewSocios.AllowUserToDeleteRows = false;
             this.dataGridViewSocios.AutoGenerateColumns = false;
-            this.dataGridViewSocios.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridViewSocios.BackgroundColor = System.Drawing.SystemColors.Info;
             this.dataGridViewSocios.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridViewSocios.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dataGridViewSocios.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(122)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(174)))), ((int)(((byte)(0)))));
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
@@ -144,15 +146,15 @@
             this.comunidades1DataGridViewTextBoxColumn});
             this.dataGridViewSocios.DataSource = this.bindingSourceSocios;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Info;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(230)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridViewSocios.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewSocios.EnableHeadersVisualStyles = false;
-            this.dataGridViewSocios.Location = new System.Drawing.Point(105, 117);
+            this.dataGridViewSocios.Location = new System.Drawing.Point(12, 162);
             this.dataGridViewSocios.MultiSelect = false;
             this.dataGridViewSocios.Name = "dataGridViewSocios";
             this.dataGridViewSocios.ReadOnly = true;
@@ -161,13 +163,15 @@
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(230)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewSocios.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridViewSocios.RowHeadersVisible = false;
             dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(230)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
             this.dataGridViewSocios.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridViewSocios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewSocios.Size = new System.Drawing.Size(1122, 485);
@@ -186,9 +190,16 @@
             this.pictureBoxAtras.TabStop = false;
             this.pictureBoxAtras.Click += new System.EventHandler(this.pictureBoxAtras_Click);
             // 
-            // bindingSourceSocios
+            // pictureBox1
             // 
-            this.bindingSourceSocios.DataSource = typeof(Projecte_Chrysallis.Socios);
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.BackgroundImage = global::Projecte_Chrysallis.Properties.Resources.LogoChrysallis;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox1.Location = new System.Drawing.Point(966, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(168, 141);
+            this.pictureBox1.TabIndex = 14;
+            this.pictureBox1.TabStop = false;
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -299,18 +310,26 @@
             this.comunidades1DataGridViewTextBoxColumn.ReadOnly = true;
             this.comunidades1DataGridViewTextBoxColumn.Visible = false;
             // 
+            // bindingSourceSocios
+            // 
+            this.bindingSourceSocios.DataSource = typeof(Projecte_Chrysallis.Socios);
+            // 
             // FormSocios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.ClientSize = new System.Drawing.Size(1244, 623);
+            this.BackgroundImage = global::Projecte_Chrysallis.Properties.Resources.FondoPantalla;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(1170, 659);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.pictureBoxAtras);
             this.Controls.Add(this.buttonEliminar);
             this.Controls.Add(this.buttonModificar);
             this.Controls.Add(this.buttonAnadir);
             this.Controls.Add(this.dataGridViewSocios);
             this.Controls.Add(this.button1);
+            this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormSocios";
             this.Text = "FormSocios";
@@ -318,6 +337,7 @@
             this.Load += new System.EventHandler(this.FormSocios_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSocios)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAtras)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceSocios)).EndInit();
             this.ResumeLayout(false);
 
@@ -345,5 +365,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn asistirDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn comunidadesDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn comunidades1DataGridViewTextBoxColumn;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

@@ -41,10 +41,11 @@
             this.labelFechaLimite = new System.Windows.Forms.Label();
             this.comboBoxComunidades = new System.Windows.Forms.ComboBox();
             this.bindingSourceComunidades = new System.Windows.Forms.BindingSource(this.components);
-            this.buttonCrearEvento = new System.Windows.Forms.Button();
+            this.buttonAccionEvento = new System.Windows.Forms.Button();
             this.pictureBoxAtras = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.listBoxDocumentos = new System.Windows.Forms.ListBox();
+            this.bindingSourceDocumentos = new System.Windows.Forms.BindingSource(this.components);
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.dateTimePickerNotificacion = new System.Windows.Forms.DateTimePicker();
@@ -59,15 +60,14 @@
             this.pictureBoxEliminarNotificacion = new System.Windows.Forms.PictureBox();
             this.labelValoracion = new System.Windows.Forms.Label();
             this.pictureBoxVerDoc = new System.Windows.Forms.PictureBox();
-            this.bindingSourceDocumentos = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceComunidades)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAtras)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceDocumentos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAnadirNotificacion)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAddDocumento)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEliminarDoc)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEliminarNotificacion)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxVerDoc)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceDocumentos)).BeginInit();
             this.SuspendLayout();
             // 
             // textBoxTitulo
@@ -108,7 +108,9 @@
             // labelFecha
             // 
             this.labelFecha.AutoSize = true;
-            this.labelFecha.Font = new System.Drawing.Font("Consolas", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelFecha.BackColor = System.Drawing.Color.Transparent;
+            this.labelFecha.Font = new System.Drawing.Font("Consolas", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelFecha.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(61)))), ((int)(((byte)(98)))));
             this.labelFecha.Location = new System.Drawing.Point(12, 102);
             this.labelFecha.Name = "labelFecha";
             this.labelFecha.Size = new System.Drawing.Size(286, 24);
@@ -118,7 +120,9 @@
             // labelUbi
             // 
             this.labelUbi.AutoSize = true;
-            this.labelUbi.Font = new System.Drawing.Font("Consolas", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelUbi.BackColor = System.Drawing.Color.Transparent;
+            this.labelUbi.Font = new System.Drawing.Font("Consolas", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelUbi.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(61)))), ((int)(((byte)(98)))));
             this.labelUbi.Location = new System.Drawing.Point(12, 248);
             this.labelUbi.Name = "labelUbi";
             this.labelUbi.Size = new System.Drawing.Size(118, 24);
@@ -128,7 +132,9 @@
             // labelCom
             // 
             this.labelCom.AutoSize = true;
-            this.labelCom.Font = new System.Drawing.Font("Consolas", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelCom.BackColor = System.Drawing.Color.Transparent;
+            this.labelCom.Font = new System.Drawing.Font("Consolas", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelCom.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(61)))), ((int)(((byte)(98)))));
             this.labelCom.Location = new System.Drawing.Point(12, 637);
             this.labelCom.Name = "labelCom";
             this.labelCom.Size = new System.Drawing.Size(118, 24);
@@ -157,7 +163,9 @@
             // labelFechaLimite
             // 
             this.labelFechaLimite.AutoSize = true;
-            this.labelFechaLimite.Font = new System.Drawing.Font("Consolas", 15F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelFechaLimite.BackColor = System.Drawing.Color.Transparent;
+            this.labelFechaLimite.Font = new System.Drawing.Font("Consolas", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelFechaLimite.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(61)))), ((int)(((byte)(98)))));
             this.labelFechaLimite.Location = new System.Drawing.Point(10, 166);
             this.labelFechaLimite.Name = "labelFechaLimite";
             this.labelFechaLimite.Size = new System.Drawing.Size(406, 23);
@@ -181,26 +189,27 @@
             // 
             this.bindingSourceComunidades.DataSource = typeof(Projecte_Chrysallis.Comunidades);
             // 
-            // buttonCrearEvento
+            // buttonAccionEvento
             // 
-            this.buttonCrearEvento.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(171)))), ((int)(((byte)(0)))));
-            this.buttonCrearEvento.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.buttonCrearEvento.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonCrearEvento.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonCrearEvento.Font = new System.Drawing.Font("Consolas", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonCrearEvento.Image = global::Projecte_Chrysallis.Properties.Resources.calendar;
-            this.buttonCrearEvento.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buttonCrearEvento.Location = new System.Drawing.Point(673, 720);
-            this.buttonCrearEvento.Name = "buttonCrearEvento";
-            this.buttonCrearEvento.Size = new System.Drawing.Size(248, 72);
-            this.buttonCrearEvento.TabIndex = 10;
-            this.buttonCrearEvento.Text = "CREAR EVENTO";
-            this.buttonCrearEvento.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonCrearEvento.UseVisualStyleBackColor = false;
-            this.buttonCrearEvento.Click += new System.EventHandler(this.buttonCrearEvento_Click);
+            this.buttonAccionEvento.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(171)))), ((int)(((byte)(0)))));
+            this.buttonAccionEvento.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.buttonAccionEvento.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonAccionEvento.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonAccionEvento.Font = new System.Drawing.Font("Consolas", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonAccionEvento.Image = global::Projecte_Chrysallis.Properties.Resources.calendar;
+            this.buttonAccionEvento.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonAccionEvento.Location = new System.Drawing.Point(673, 720);
+            this.buttonAccionEvento.Name = "buttonAccionEvento";
+            this.buttonAccionEvento.Size = new System.Drawing.Size(248, 72);
+            this.buttonAccionEvento.TabIndex = 10;
+            this.buttonAccionEvento.Text = "CREAR EVENTO";
+            this.buttonAccionEvento.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonAccionEvento.UseVisualStyleBackColor = false;
+            this.buttonAccionEvento.Click += new System.EventHandler(this.buttonAccionEvento_Click);
             // 
             // pictureBoxAtras
             // 
+            this.pictureBoxAtras.BackColor = System.Drawing.Color.Transparent;
             this.pictureBoxAtras.BackgroundImage = global::Projecte_Chrysallis.Properties.Resources.atras;
             this.pictureBoxAtras.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pictureBoxAtras.Cursor = System.Windows.Forms.Cursors.Help;
@@ -214,7 +223,9 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Consolas", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Consolas", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(61)))), ((int)(((byte)(98)))));
             this.label1.Location = new System.Drawing.Point(12, 409);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(142, 24);
@@ -227,6 +238,7 @@
             this.listBoxDocumentos.DisplayMember = "url";
             this.listBoxDocumentos.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listBoxDocumentos.FormattingEnabled = true;
+            this.listBoxDocumentos.HorizontalScrollbar = true;
             this.listBoxDocumentos.ItemHeight = 18;
             this.listBoxDocumentos.Location = new System.Drawing.Point(484, 131);
             this.listBoxDocumentos.Name = "listBoxDocumentos";
@@ -234,10 +246,16 @@
             this.listBoxDocumentos.TabIndex = 21;
             this.listBoxDocumentos.ValueMember = "id";
             // 
+            // bindingSourceDocumentos
+            // 
+            this.bindingSourceDocumentos.DataSource = typeof(Projecte_Chrysallis.Documentos);
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Consolas", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("Consolas", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(61)))), ((int)(((byte)(98)))));
             this.label3.Location = new System.Drawing.Point(480, 102);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(238, 24);
@@ -247,7 +265,9 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Consolas", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label4.Font = new System.Drawing.Font("Consolas", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(61)))), ((int)(((byte)(98)))));
             this.label4.Location = new System.Drawing.Point(480, 409);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(154, 24);
@@ -289,7 +309,9 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Consolas", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.BackColor = System.Drawing.Color.Transparent;
+            this.label5.Font = new System.Drawing.Font("Consolas", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(61)))), ((int)(((byte)(98)))));
             this.label5.Location = new System.Drawing.Point(480, 488);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(286, 24);
@@ -299,7 +321,9 @@
             // label6
             // 
             this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.label6.Location = new System.Drawing.Point(24, 302);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(60, 22);
@@ -317,7 +341,9 @@
             // label7
             // 
             this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.Color.Transparent;
             this.label7.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.label7.Location = new System.Drawing.Point(24, 348);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(70, 22);
@@ -326,6 +352,10 @@
             // 
             // pictureBoxAddDocumento
             // 
+            this.pictureBoxAddDocumento.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBoxAddDocumento.BackColor = System.Drawing.Color.Transparent;
             this.pictureBoxAddDocumento.BackgroundImage = global::Projecte_Chrysallis.Properties.Resources.add;
             this.pictureBoxAddDocumento.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pictureBoxAddDocumento.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -338,8 +368,12 @@
             // 
             // pictureBoxEliminarDoc
             // 
+            this.pictureBoxEliminarDoc.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBoxEliminarDoc.BackColor = System.Drawing.Color.Transparent;
             this.pictureBoxEliminarDoc.BackgroundImage = global::Projecte_Chrysallis.Properties.Resources.delete;
-            this.pictureBoxEliminarDoc.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBoxEliminarDoc.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pictureBoxEliminarDoc.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBoxEliminarDoc.Location = new System.Drawing.Point(553, 328);
             this.pictureBoxEliminarDoc.Name = "pictureBoxEliminarDoc";
@@ -361,17 +395,25 @@
             // labelValoracion
             // 
             this.labelValoracion.AutoSize = true;
-            this.labelValoracion.Font = new System.Drawing.Font("Consolas", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelValoracion.BackColor = System.Drawing.Color.Transparent;
+            this.labelValoracion.Font = new System.Drawing.Font("Consolas", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelValoracion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(171)))), ((int)(((byte)(0)))));
             this.labelValoracion.Location = new System.Drawing.Point(12, 744);
             this.labelValoracion.Name = "labelValoracion";
-            this.labelValoracion.Size = new System.Drawing.Size(226, 24);
+            this.labelValoracion.Size = new System.Drawing.Size(246, 28);
             this.labelValoracion.TabIndex = 6;
             this.labelValoracion.Text = "Valoración media: ";
+            this.labelValoracion.Visible = false;
             // 
             // pictureBoxVerDoc
             // 
+            this.pictureBoxVerDoc.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBoxVerDoc.BackColor = System.Drawing.Color.Transparent;
             this.pictureBoxVerDoc.BackgroundImage = global::Projecte_Chrysallis.Properties.Resources.ojo;
-            this.pictureBoxVerDoc.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBoxVerDoc.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBoxVerDoc.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBoxVerDoc.Location = new System.Drawing.Point(624, 328);
             this.pictureBoxVerDoc.Name = "pictureBoxVerDoc";
             this.pictureBoxVerDoc.Size = new System.Drawing.Size(59, 59);
@@ -379,16 +421,13 @@
             this.pictureBoxVerDoc.TabStop = false;
             this.pictureBoxVerDoc.Click += new System.EventHandler(this.pictureBoxVerDoc_Click);
             // 
-            // bindingSourceDocumentos
-            // 
-            this.bindingSourceDocumentos.DataSource = typeof(Projecte_Chrysallis.Documentos);
-            // 
             // FormEvento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.BackgroundImage = global::Projecte_Chrysallis.Properties.Resources.FondoPantalla;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(951, 804);
             this.Controls.Add(this.pictureBoxVerDoc);
             this.Controls.Add(this.pictureBoxEliminarNotificacion);
@@ -399,7 +438,7 @@
             this.Controls.Add(this.listBoxDocumentos);
             this.Controls.Add(this.pictureBoxAnadirNotificacion);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.buttonCrearEvento);
+            this.Controls.Add(this.buttonAccionEvento);
             this.Controls.Add(this.comboBoxComunidades);
             this.Controls.Add(this.pictureBoxAddDocumento);
             this.Controls.Add(this.labelValoracion);
@@ -418,22 +457,25 @@
             this.Controls.Add(this.textBoxCalle);
             this.Controls.Add(this.textBoxTitulo);
             this.Controls.Add(this.pictureBoxAtras);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.DoubleBuffered = true;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FormEvento";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Crear Evento";
             this.Activated += new System.EventHandler(this.FormEvento_Activated);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormEvento_FormClosing);
             this.Load += new System.EventHandler(this.FormEvento_Load);
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceComunidades)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAtras)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceDocumentos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAnadirNotificacion)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAddDocumento)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEliminarDoc)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEliminarNotificacion)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxVerDoc)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceDocumentos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -452,7 +494,7 @@
         private System.Windows.Forms.DateTimePicker dateTimePickerLimite;
         private System.Windows.Forms.Label labelFechaLimite;
         private System.Windows.Forms.ComboBox comboBoxComunidades;
-        private System.Windows.Forms.Button buttonCrearEvento;
+        private System.Windows.Forms.Button buttonAccionEvento;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.BindingSource bindingSourceComunidades;
         private System.Windows.Forms.ListBox listBoxDocumentos;

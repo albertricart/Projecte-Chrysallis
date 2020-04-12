@@ -83,6 +83,16 @@ namespace Projecte_Chrysallis.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap atras1 {
+            get {
+                object obj = ResourceManager.GetObject("atras1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap calendar {
             get {
                 object obj = ResourceManager.GetObject("calendar", resourceCulture);
@@ -163,6 +173,16 @@ namespace Projecte_Chrysallis.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap FondoPantalla {
+            get {
+                object obj = ResourceManager.GetObject("FondoPantalla", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Gestionar_Evento {
             get {
                 object obj = ResourceManager.GetObject("Gestionar Evento", resourceCulture);
@@ -176,6 +196,16 @@ namespace Projecte_Chrysallis.Properties {
         internal static System.Drawing.Bitmap icon_wrong {
             get {
                 object obj = ResourceManager.GetObject("icon_wrong", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap LogoChrysallis {
+            get {
+                object obj = ResourceManager.GetObject("LogoChrysallis", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
