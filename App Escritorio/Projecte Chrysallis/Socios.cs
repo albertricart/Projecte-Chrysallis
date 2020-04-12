@@ -17,9 +17,9 @@ namespace Projecte_Chrysallis
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Socios()
         {
-            this.Comunidades1 = new HashSet<Comunidades>();
             this.Asistir = new HashSet<Asistir>();
             this.Comentarios = new HashSet<Comentarios>();
+            this.Comunidades1 = new HashSet<Comunidades>();
         }
     
         public int id { get; set; }
@@ -33,12 +33,12 @@ namespace Projecte_Chrysallis
         public byte idComunidad { get; set; }
         public bool activo { get; set; }
     
-        public virtual Comunidades Comunidades { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Comunidades> Comunidades1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Asistir> Asistir { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Comentarios> Comentarios { get; set; }
+        public virtual Comunidades Comunidades { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Comunidades> Comunidades1 { get; set; }
     }
 }

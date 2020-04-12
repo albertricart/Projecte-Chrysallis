@@ -18,8 +18,8 @@ namespace Projecte_Chrysallis
         public Eventos()
         {
             this.Asistir = new HashSet<Asistir>();
-            this.Documentos = new HashSet<Documentos>();
             this.Notificaciones = new HashSet<Notificaciones>();
+            this.Documentos = new HashSet<Documentos>();
             this.Comentarios = new HashSet<Comentarios>();
         }
     
@@ -33,15 +33,15 @@ namespace Projecte_Chrysallis
         public byte idAdmin { get; set; }
         public double valoracionMedia { get; set; }
     
-        public virtual Administradores Administradores { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Asistir> Asistir { get; set; }
-        public virtual Comunidades Comunidades { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Documentos> Documentos { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Notificaciones> Notificaciones { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Documentos> Documentos { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Comentarios> Comentarios { get; set; }
+        public virtual Administradores Administradores { get; set; }
+        public virtual Comunidades Comunidades { get; set; }
     }
 }

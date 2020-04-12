@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace Projecte_Chrysallis.Formularios
@@ -53,14 +52,24 @@ namespace Projecte_Chrysallis.Formularios
         {
             Administradores admin = Base_de_Datos.ORM_Admin.SelectAdminLogin(textBoxEmail.Text, textBoxContrasenya.Text);
 
-            if (admin==null)
+            if (admin == null)
             {
                 valido = false;
                 labelIncorrectos.Visible = true;
             }
             else
             {
-                adminLogeado = admin;
+                adminLogeado = new Administradores();
+                
+                adminLogeado.superadmin = admin.superadmin;
+                adminLogeado.id = admin.id;
+                adminLogeado.nombre = admin.nombre;
+                adminLogeado.apellidos = admin.apellidos;
+                adminLogeado.email = admin.email;
+                adminLogeado.contrasenya = admin.contrasenya;
+                adminLogeado.Eventos = admin.Eventos;
+                adminLogeado.Comunidades = admin.Comunidades;
+
                 valido = true;
                 Close();
             }
@@ -77,7 +86,7 @@ namespace Projecte_Chrysallis.Formularios
             textBoxContrasenya.SelectAll();
         }
 
-        
+
 
         /// <summary>
         /// Evento que se activa cuando se hace click en el ojo

@@ -1,13 +1,7 @@
 using Projecte_Chrysallis.Formularios;
 using Projecte_Chrysallis.Properties;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Projecte_Chrysallis
@@ -53,30 +47,36 @@ namespace Projecte_Chrysallis
 
         private void pictureBoxGestionarEventos_Click(object sender, EventArgs e)
         {
+            Hide();
             FormEventos formEventos = new FormEventos();
             formEventos.ShowDialog();
+            Show();
         }
 
         private void pictureBoxGestionarSocios_Click(object sender, EventArgs e)
         {
+            Hide();
             FormSocios formSocios = new FormSocios();
             formSocios.ShowDialog();
+            Show();
         }
 
         private void pictureBoxContacto_Click(object sender, EventArgs e)
         {
+            Hide();
             FormContacto f = new FormContacto();
             f.ShowDialog();
+            Show();
         }
 
         private void FormMenu_Load(object sender, EventArgs e)
         {
-
             FormLogin f = new FormLogin();
             f.ShowDialog();
 
-            try{
-            if (FormLogin.adminLogeado.superadmin == true)
+            try
+            {
+                if (FormLogin.adminLogeado.superadmin == true)
                 {
                     BackgroundImage = Resources.Fondo;
                 }
@@ -88,12 +88,13 @@ namespace Projecte_Chrysallis
                     pictureBoxGestionarSocios.Location = new Point(42, 471);
 
                 }
-            }catch (NullReferenceException) { }            
+            }
+            catch (NullReferenceException) { }
         }
 
         private void pictureBoxGestionarAdmins_Click(object sender, EventArgs e)
         {
-            
+
         }
     }
 }

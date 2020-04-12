@@ -194,6 +194,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::Projecte_Chrysallis.Properties.Resources.FondoPantalla;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(842, 293);
             this.Controls.Add(this.comboBoxComunidad);
             this.Controls.Add(this.textBoxDNI);
@@ -211,6 +213,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.DoubleBuffered = true;
             this.Name = "FormNuevoSocio";
             this.Text = "Nuevo Socio";
             this.Load += new System.EventHandler(this.FormNuevoSocio_Load);

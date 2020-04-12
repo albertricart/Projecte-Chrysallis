@@ -319,7 +319,9 @@
     <None Include="Resources\delete.png" />
     <None Include="Resources\Fondo.png" />
     <None Include="Resources\FondoNoSuper.png" />
+    <None Include="Resources\FondoPantalla.png" />
     <Content Include="Resources\icon_wrong.png" />
+    <None Include="Resources\LogoChrysallis.png" />
     <Content Include="Resources\ojo.png" />
     <Content Include="Resources\ojoActivado.png" />
     <Content Include="Resources\usuario.png" />

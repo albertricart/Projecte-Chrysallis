@@ -22,14 +22,13 @@ namespace Projecte_Chrysallis.Base_de_Datos
 
             try
             {
-                ORM.bd.SaveChanges();
+                bd.SaveChanges();
             }
             catch (DbUpdateException ex)
             {
-                ORM.RejectChanges();
-
+                RejectChanges();
                 SqlException sqlEx = (SqlException)ex.InnerException.InnerException;
-                mensaje = ORM.MensajeError(sqlEx);
+                mensaje = MensajeError(sqlEx);
             }
             catch (Exception e)
             {
