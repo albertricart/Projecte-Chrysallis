@@ -28,7 +28,7 @@ namespace Projecte_Chrysallis
         public string apellidos { get; set; }
         public string email { get; set; }
         public string contrasenya { get; set; }
-        public string telefono { get; set; }
+        public int telefono { get; set; }
         public string poblacion { get; set; }
         public byte idComunidad { get; set; }
         public bool activo { get; set; }

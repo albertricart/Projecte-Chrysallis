@@ -1,11 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Web.Security;
 using System.Windows.Forms;
 
@@ -47,7 +42,7 @@ namespace Projecte_Chrysallis.Formularios
                 {
                     textBoxContrasena.Clear();
                 }
-                
+
             }
         }
 
@@ -69,7 +64,7 @@ namespace Projecte_Chrysallis.Formularios
                 {
                     comunidadesAdmin.Add(comunidad);
                 }
-                
+
             }
 
             listBoxComunidades.ClearSelected();
@@ -100,10 +95,11 @@ namespace Projecte_Chrysallis.Formularios
             textBoxContrasena.Text = administrador.contrasenya;
             textBoxEmail.Text = administrador.email;
             textBoxNombre.Text = administrador.nombre;
-            
+            comunidadesAdminBindingSource.DataSource = administrador.Comunidades.ToList();
+
             if (administrador.superadmin)
             {
-                radioButtonSuper.Checked = true;
+                checkBoxAdminSuper.Checked = true;
             }
 
             foreach (Comunidades comunidad in administrador.Comunidades)
@@ -121,7 +117,7 @@ namespace Projecte_Chrysallis.Formularios
         {
             if (clickBotonAdmin == false)
             {
-                if (MessageBox.Show("Perderás los datos introducidos, quieres salir?", "Salir", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+                if (MessageBox.Show("Perderás los datos que hayas introducido, quieres salir?", "Salir", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
                 {
                     e.Cancel = true;
                     this.Activate();
@@ -132,6 +128,88 @@ namespace Projecte_Chrysallis.Formularios
         private void buttonAnadir_Click(object sender, EventArgs e)
         {
             clickBotonAdmin = true;
+
+            if (ComprovarCamposVacios())
+            {
+                RecogerDatos();
+                if (modificar)
+                {
+                    String mensaje = Base_de_Datos.ORM_Admin.UpdateAdmin(administrador);
+
+                    if (mensaje.Equals(""))
+                    {
+                        MessageBox.Show("Administrador modificado correctamente. ", "Administrador Modificado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se ha podido modificar el administrador: " + mensaje, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                else
+                {
+                    String mensaje = Base_de_Datos.ORM_Admin.InsertAdmin(administrador);
+
+                    if (mensaje.Equals(""))
+                    {
+                        MessageBox.Show("Administrador añadido correctamente. ", "Administrador Creado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se ha podido añadir el administrador: " + mensaje, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+
+            }
+
+
+        }
+        public void RecogerDatos()
+        {
+            administrador.nombre = textBoxNombre.Text;
+            administrador.apellidos = textBoxApellidos.Text;
+            administrador.email = textBoxEmail.Text;
+            administrador.contrasenya = textBoxContrasena.Text;
+            administrador.superadmin = checkBoxAdminSuper.Checked;
+            administrador.Comunidades = comunidadesAdmin;
+        }
+
+        public bool ComprovarCamposVacios()
+        {
+            if (this.Controls.OfType<TextBox>().Any(t => string.IsNullOrEmpty(t.Text)))
+            {
+                MessageBox.Show("Rellena los campos vacíos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                return false;
+            }
+            else
+            {
+                if (comunidadesAdmin.Count < 1)
+                {
+                    MessageBox.Show("El administrador no tiene ninguna comunidad a cargo", "Administrador sin comunidad", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                    return false;
+                }
+                else
+                    return true;
+            }
+        }
+
+        private void checkBoxAdminSuper_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBoxAdminSuper.Checked)
+            {
+                comunidadesAdminBindingSource.DataSource = Base_de_Datos.ORM_Comunidades.SelectComunidades().ToList();
+                comunidadesAdmin = Base_de_Datos.ORM_Comunidades.SelectComunidades().ToList();
+                buttonEnviarComunidades.Enabled = false;
+                buttonQuitarComunidades.Enabled = false;
+            }
+            else
+            {
+                comunidadesAdminBindingSource.DataSource = null;
+                comunidadesAdmin.Clear();
+                buttonEnviarComunidades.Enabled = true;
+                buttonQuitarComunidades.Enabled = true;
+            }
         }
     }
 }

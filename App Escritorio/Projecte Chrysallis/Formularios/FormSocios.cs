@@ -1,13 +1,7 @@
-﻿using Projecte_Chrysallis.Base_de_Datos;
-using Projecte_Chrysallis.Formularios;
+﻿using Projecte_Chrysallis.Formularios;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Projecte_Chrysallis
@@ -17,21 +11,60 @@ namespace Projecte_Chrysallis
         public FormSocios()
         {
             InitializeComponent();
+            comboBoxFiltro.SelectedIndex = 0;
         }
 
         public void ModificarSocio()
         {
-            if (SociosExistentes())
+            Socios socio = ObtenerSocioSeleccionado();
+            if (socio != null)
             {
-                FormNuevoSocio formModificarSocio = new FormNuevoSocio(ObtenerSocioSeleccionado());
+                Hide();
+                FormSocio formModificarSocio = new FormSocio(socio);
                 formModificarSocio.ShowDialog();
+                Show();
             }
+
         }
+
+        public void EliminarSocio()
+        {
+            Socios socio = ObtenerSocioSeleccionado();
+
+            if (socio != null)
+            {
+                if (MessageBox.Show("Quieres eliminar el socio seleccionado?", "Eliminar", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    String mensaje = Base_de_Datos.ORM_Socio.DeleteSocio(socio);
+
+                    if (mensaje.Equals(""))
+                    {
+                        MessageBox.Show("Socio eliminado", "Eliminar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Socio no eliminado: " + mensaje, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+
+        }
+
+
 
         public Socios ObtenerSocioSeleccionado()
         {
-            int.TryParse(dataGridViewSocios.SelectedRows[0].Cells[0].Value.ToString(), out int id);
-            Socios socio = Base_de_Datos.ORM_Socio.SelectSocioByID(id);
+            Socios socio = new Socios();
+
+            if (SociosExistentes())
+            {
+                socio = (Socios)dataGridViewSocios.SelectedRows[0].DataBoundItem;
+            }
+            else
+            {
+                socio = null;
+            }
+
             return socio;
 
         }
@@ -49,15 +82,12 @@ namespace Projecte_Chrysallis
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
         private void buttonAnadir_Click(object sender, EventArgs e)
         {
-            FormNuevoSocio formNuevoSocio = new FormNuevoSocio();
+            Hide();
+            FormSocio formNuevoSocio = new FormSocio();
             formNuevoSocio.ShowDialog();
+            Show();
         }
 
         private void buttonModificar_Click(object sender, EventArgs e)
@@ -68,28 +98,88 @@ namespace Projecte_Chrysallis
 
         private void buttonEliminar_Click(object sender, EventArgs e)
         {
-            //testeando
-            Socios socio = ORM_Socio.SelectSocioByID(1);
-            MessageBox.Show(socio.apellidos);
+            //eliminaremos el socio al que tengamos seleccionado
+            EliminarSocio();
+        }
+
+        public void MostrarSocios()
+        {
+            List<Socios> listSocios = new List<Socios>();
+
+            foreach (Comunidades comunidad in FormLogin.adminLogeado.Comunidades)
+            {
+                listSocios.AddRange(Base_de_Datos.ORM_Socio.SelectSocioByComunidad(comunidad.id).ToList());
+            }
+
+            bindingSourceSocios.DataSource = null;
+            bindingSourceSocios.DataSource = listSocios;
         }
 
         private void FormSocios_Load(object sender, EventArgs e)
         {
-            bindingSourceSocios.DataSource = null;
-            bindingSourceSocios.DataSource = Base_de_Datos.ORM_Socio.SelectSocios();
+            MostrarSocios();
         }
 
-        private void FormSocios_Activated(object sender, EventArgs e)
-        {
-            bindingSourceSocios.DataSource = null;
-            bindingSourceSocios.DataSource = Base_de_Datos.ORM_Socio.SelectSocios();
-        }
 
         private void pictureBoxAtras_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void textBoxFiltro_TextChanged(object sender, EventArgs e)
+        {
+            List<Socios> socios = null;
+
+            if (!String.IsNullOrWhiteSpace(textBoxFiltro.Text))
+            {
+                if (comboBoxFiltro.SelectedItem.ToString().Equals("ID") && textBoxFiltro.Text.All(char.IsDigit))
+                {
+                    socios = Base_de_Datos.ORM_Socio.SelectSocioByID(int.Parse(textBoxFiltro.Text));
+                }
+                else if (comboBoxFiltro.SelectedItem.ToString().Equals("DNI"))
+                {
+                    socios = Base_de_Datos.ORM_Socio.SelectSocioByDNI(textBoxFiltro.Text);
+                }
+                else if (comboBoxFiltro.SelectedItem.ToString().Equals("Nombre"))
+                {
+                    socios = Base_de_Datos.ORM_Socio.SelectSocioByNombre(textBoxFiltro.Text);
+                }
+                else if (comboBoxFiltro.SelectedItem.ToString().Equals("Apellidos"))
+                {
+                    socios = Base_de_Datos.ORM_Socio.SelectSocioByApellidos(textBoxFiltro.Text);
+                }
+                else if (comboBoxFiltro.SelectedItem.ToString().Equals("Email"))
+                {
+                    socios = Base_de_Datos.ORM_Socio.SelectSocioByEmail(textBoxFiltro.Text);
+                }
+                else if (comboBoxFiltro.SelectedItem.ToString().Equals("Teléfono"))
+                {
+                    socios = Base_de_Datos.ORM_Socio.SelectSocioByTelefono(textBoxFiltro.Text);
+                }
+                else if (comboBoxFiltro.SelectedItem.ToString().Equals("Población"))
+                {
+                    socios = Base_de_Datos.ORM_Socio.SelectSocioByPoblacion(textBoxFiltro.Text);
+                }
+
+                FiltrarSocios(socios);
+            }
+            else
+            {
+                MostrarSocios();
+                textBoxFiltro.Clear();
+            }
+        }
+
+        private void comboBoxFiltro_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            MostrarSocios();
+            textBoxFiltro.Clear();
+        }
         //========================================================================================================//
         //OTROS
         //========================================================================================================//
@@ -106,6 +196,28 @@ namespace Projecte_Chrysallis
             base.WndProc(ref m);
             if (m.Msg == WM_NCHITTEST)
                 m.Result = (IntPtr)(HT_CAPTION);
+        }
+
+        
+
+        public void FiltrarSocios(List<Socios> socios)
+        {
+            if (!FormLogin.adminLogeado.superadmin)
+            {
+                foreach (Socios s in socios.ToList())
+                {
+                    foreach (Comunidades c in FormLogin.adminLogeado.Comunidades)
+                    {
+                        if (s.idComunidad != c.id)
+                        {
+                            socios.Remove(s);
+                        }
+                    }
+                }
+            }
+
+            bindingSourceSocios.DataSource = null;
+            bindingSourceSocios.DataSource = socios;
         }
     }
 }

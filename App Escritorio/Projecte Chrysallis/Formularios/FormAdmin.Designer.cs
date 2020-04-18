@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAdmin));
             this.label1 = new System.Windows.Forms.Label();
             this.textBoxNombre = new System.Windows.Forms.TextBox();
             this.groupBoxSA = new System.Windows.Forms.GroupBox();
-            this.radioButtonNoSuper = new System.Windows.Forms.RadioButton();
-            this.radioButtonSuper = new System.Windows.Forms.RadioButton();
+            this.checkBoxAdminSuper = new System.Windows.Forms.CheckBox();
             this.textBoxApellidos = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.textBoxEmail = new System.Windows.Forms.TextBox();
@@ -83,8 +83,7 @@
             // groupBoxSA
             // 
             this.groupBoxSA.BackColor = System.Drawing.Color.Transparent;
-            this.groupBoxSA.Controls.Add(this.radioButtonNoSuper);
-            this.groupBoxSA.Controls.Add(this.radioButtonSuper);
+            this.groupBoxSA.Controls.Add(this.checkBoxAdminSuper);
             this.groupBoxSA.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBoxSA.Location = new System.Drawing.Point(17, 395);
             this.groupBoxSA.Name = "groupBoxSA";
@@ -94,27 +93,16 @@
             this.groupBoxSA.TabStop = false;
             this.groupBoxSA.Text = "Es administrador estatal?";
             // 
-            // radioButtonNoSuper
+            // checkBoxAdminSuper
             // 
-            this.radioButtonNoSuper.AutoSize = true;
-            this.radioButtonNoSuper.Checked = true;
-            this.radioButtonNoSuper.Location = new System.Drawing.Point(66, 24);
-            this.radioButtonNoSuper.Name = "radioButtonNoSuper";
-            this.radioButtonNoSuper.Size = new System.Drawing.Size(50, 25);
-            this.radioButtonNoSuper.TabIndex = 6;
-            this.radioButtonNoSuper.TabStop = true;
-            this.radioButtonNoSuper.Text = "No";
-            this.radioButtonNoSuper.UseVisualStyleBackColor = true;
-            // 
-            // radioButtonSuper
-            // 
-            this.radioButtonSuper.AutoSize = true;
-            this.radioButtonSuper.Location = new System.Drawing.Point(11, 24);
-            this.radioButtonSuper.Name = "radioButtonSuper";
-            this.radioButtonSuper.Size = new System.Drawing.Size(41, 25);
-            this.radioButtonSuper.TabIndex = 0;
-            this.radioButtonSuper.Text = "Sí";
-            this.radioButtonSuper.UseVisualStyleBackColor = true;
+            this.checkBoxAdminSuper.AutoSize = true;
+            this.checkBoxAdminSuper.Location = new System.Drawing.Point(15, 28);
+            this.checkBoxAdminSuper.Name = "checkBoxAdminSuper";
+            this.checkBoxAdminSuper.Size = new System.Drawing.Size(186, 25);
+            this.checkBoxAdminSuper.TabIndex = 7;
+            this.checkBoxAdminSuper.Text = "Administrador estatal";
+            this.checkBoxAdminSuper.UseVisualStyleBackColor = true;
+            this.checkBoxAdminSuper.CheckedChanged += new System.EventHandler(this.checkBoxAdminSuper_CheckedChanged);
             // 
             // textBoxApellidos
             // 
@@ -206,22 +194,28 @@
             // 
             // buttonQuitarComunidades
             // 
+            this.buttonQuitarComunidades.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(174)))), ((int)(((byte)(0)))));
+            this.buttonQuitarComunidades.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonQuitarComunidades.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.buttonQuitarComunidades.Location = new System.Drawing.Point(289, 211);
             this.buttonQuitarComunidades.Name = "buttonQuitarComunidades";
             this.buttonQuitarComunidades.Size = new System.Drawing.Size(100, 46);
             this.buttonQuitarComunidades.TabIndex = 2;
             this.buttonQuitarComunidades.Text = "<-- Quitar";
-            this.buttonQuitarComunidades.UseVisualStyleBackColor = true;
+            this.buttonQuitarComunidades.UseVisualStyleBackColor = false;
             this.buttonQuitarComunidades.Click += new System.EventHandler(this.buttonQuitarComunidades_Click);
             // 
             // buttonEnviarComunidades
             // 
+            this.buttonEnviarComunidades.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(174)))), ((int)(((byte)(0)))));
+            this.buttonEnviarComunidades.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonEnviarComunidades.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.buttonEnviarComunidades.Location = new System.Drawing.Point(289, 147);
             this.buttonEnviarComunidades.Name = "buttonEnviarComunidades";
             this.buttonEnviarComunidades.Size = new System.Drawing.Size(100, 46);
             this.buttonEnviarComunidades.TabIndex = 1;
             this.buttonEnviarComunidades.Text = "Añadir -->";
-            this.buttonEnviarComunidades.UseVisualStyleBackColor = true;
+            this.buttonEnviarComunidades.UseVisualStyleBackColor = false;
             this.buttonEnviarComunidades.Click += new System.EventHandler(this.buttonEnviarComunidades_Click);
             // 
             // listBoxComunidadesAdmin
@@ -336,8 +330,10 @@
             this.Controls.Add(this.textBoxNombre);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "FormAdmin";
-            this.Text = "Nuevo administrador - MeetChrysallis";
+            this.Text = "Administrador - MeetChrysallis";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormAdmin_FormClosing);
             this.Load += new System.EventHandler(this.FormNuevoAdmin_Load);
             this.groupBoxSA.ResumeLayout(false);
@@ -358,8 +354,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBoxNombre;
         private System.Windows.Forms.GroupBox groupBoxSA;
-        private System.Windows.Forms.RadioButton radioButtonNoSuper;
-        private System.Windows.Forms.RadioButton radioButtonSuper;
         private System.Windows.Forms.TextBox textBoxApellidos;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBoxEmail;
@@ -379,5 +373,6 @@
         private System.Windows.Forms.PictureBox pictureBoxChrysallis;
         private System.Windows.Forms.BindingSource comunidadesAdminBindingSource;
         private System.Windows.Forms.Button buttonQuitarComunidades;
+        private System.Windows.Forms.CheckBox checkBoxAdminSuper;
     }
 }

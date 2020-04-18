@@ -29,10 +29,12 @@ namespace Projecte_Chrysallis.Base_de_Datos
                 RejectChanges();
                 SqlException sqlEx = (SqlException)ex.InnerException.InnerException;
                 mensaje = MensajeError(sqlEx);
+
+
             }
             catch (Exception e)
             {
-                e.ToString();
+                mensaje = e.ToString();
             }
 
             return mensaje;

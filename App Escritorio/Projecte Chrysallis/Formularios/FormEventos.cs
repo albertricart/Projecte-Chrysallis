@@ -1,5 +1,6 @@
 ﻿using Projecte_Chrysallis.Formularios;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -7,7 +8,7 @@ namespace Projecte_Chrysallis
 {
     public partial class FormEventos : Form
     {
-        int ultimoEventoSeleccionado;
+        //int ultimoEventoSeleccionado;
 
         //========================================================================================================//
         //CONSTRUCTORES
@@ -33,17 +34,10 @@ namespace Projecte_Chrysallis
         {
             RefrescarGrid();
             dataGridViewEventos.ClearSelection();
+            comboBoxFiltro.SelectedIndex = 0;
+            comboBoxVer.SelectedIndex = 0;
         }
 
-        /// <summary>
-        /// Evento Activated del Form
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void FormEventos_Activated(object sender, EventArgs e)
-        {
-            RefrescarGrid();
-        }
 
         /// <summary>
         /// Evento click del botón atrás
@@ -60,12 +54,13 @@ namespace Projecte_Chrysallis
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void pictureBoxAnadir_Click(object sender, EventArgs e)
+        private void buttonAnadir_Click(object sender, EventArgs e)
         {
             Hide();
-            FormEvento formCrearEvento = new FormEvento();
-            formCrearEvento.ShowDialog();
+            FormEvento formEvento = new FormEvento();
+            formEvento.ShowDialog();
             Show();
+            RefrescarGrid();
         }
 
 
@@ -85,7 +80,7 @@ namespace Projecte_Chrysallis
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void pictureBoxModificar_Click_1(object sender, EventArgs e)
+        private void buttonModificar_Click(object sender, EventArgs e)
         {
             //modificaremos el evento al que tengamos seleccionado
             ModificarEvento();
@@ -96,10 +91,50 @@ namespace Projecte_Chrysallis
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void pictureBoxEliminar_Click(object sender, EventArgs e)
+        private void buttonEliminar_Click(object sender, EventArgs e)
         {
             //eliminamos el evento seleccionado
             EliminarEvento(ObtenerEventoSeleccionado());
+        }
+
+        /// <summary>
+        /// Se filtran los eventos segun el filtro seleccionado y el input que recibimos
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void textBoxFiltro_TextChanged(object sender, EventArgs e)
+        {
+            List<Eventos> eventos = null;
+            if (!String.IsNullOrWhiteSpace(textBoxFiltro.Text))
+            {
+                if (comboBoxFiltro.SelectedIndex == 0)
+                {
+                    eventos = Base_de_Datos.ORM_Evento.SelectEventosByNombre(textBoxFiltro.Text);    
+                }
+                if (comboBoxFiltro.SelectedIndex == 1)
+                {
+                    eventos = Base_de_Datos.ORM_Evento.SelectEventosByUbicacion(textBoxFiltro.Text);
+                }
+
+                FiltrarEventos(eventos);
+            }
+            else
+            {
+                RefrescarGrid();
+            }
+
+        }
+
+        private void comboBoxVer_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            RefrescarGrid();
+            textBoxFiltro.Clear();
+        }
+
+        private void comboBoxFiltro_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            RefrescarGrid();
+            textBoxFiltro.Clear();
         }
 
 
@@ -116,8 +151,8 @@ namespace Projecte_Chrysallis
 
             if (EventosExistentes())
             {
-                evento = (Eventos) dataGridViewEventos.SelectedRows[0].DataBoundItem;
-                ultimoEventoSeleccionado = dataGridViewEventos.SelectedRows[0].Index;
+                evento = (Eventos)dataGridViewEventos.SelectedRows[0].DataBoundItem;
+                //ultimoEventoSeleccionado = dataGridViewEventos.SelectedRows[0].Index;
             }
             return evento;
         }
@@ -178,7 +213,7 @@ namespace Projecte_Chrysallis
         public bool EventosExistentes()
         {
             if (dataGridViewEventos.SelectedRows.Count == 0)
-            { 
+            {
                 return false;
             }
             else
@@ -188,32 +223,72 @@ namespace Projecte_Chrysallis
         }
 
         /// <summary>
-        /// Metodo que refresca los datos de la gridview segun los eventos que tenga asignado el adminLogeado
+        /// Metodo que refresca los datos de la gridview
         /// </summary>
         public void RefrescarGrid()
         {
-            if (FormLogin.adminLogeado.superadmin)
+            if (comboBoxVer.SelectedIndex == 1)
             {
-                //el bindingSource obteniene los eventos de la bd
-                bindingSourceEventos.DataSource = null;
-                bindingSourceEventos.DataSource = Base_de_Datos.ORM_Evento.SelectEventos();
-            }
-            else
-            {
-                //el bindingSource obteniene los eventos de la bd
                 bindingSourceEventos.DataSource = null;
                 bindingSourceEventos.DataSource = FormLogin.adminLogeado.Eventos.ToList();
             }
-
-
-            if (EventosExistentes())
+            else
             {
-                dataGridViewEventos.Rows[ultimoEventoSeleccionado].Selected = true;
+                if (FormLogin.adminLogeado.superadmin)
+                {
+                    bindingSourceEventos.DataSource = null;
+                    bindingSourceEventos.DataSource = Base_de_Datos.ORM_Evento.SelectEventos();
+                }
+                else
+                {
+                    List<Eventos> eventos = new List<Eventos>();
+                    bindingSourceEventos.DataSource = null;
+
+                    foreach (Comunidades c in FormLogin.adminLogeado.Comunidades)
+                    {
+                        eventos.AddRange(Base_de_Datos.ORM_Evento.SelectEventosByComunidad(c.id));
+                    }
+
+                    bindingSourceEventos.DataSource = eventos;
+                }
             }
-
-
         }
 
+        
+        public void FiltrarEventos(List<Eventos> eventos)
+        {
+            //por mi
+            if (comboBoxVer.SelectedIndex == 1)
+            {
+                foreach (Eventos e in eventos.ToList())
+                {
+                    if (e.idAdmin != FormLogin.adminLogeado.id)
+                    {
+                        eventos.Remove(e);
+                    }
+                }
+            }
+            //todos
+            else if (comboBoxVer.SelectedIndex == 0)
+            {
+                if (!FormLogin.adminLogeado.superadmin)
+                {
+                    foreach (Eventos e in eventos.ToList())
+                    {
+                        foreach (Comunidades c in FormLogin.adminLogeado.Comunidades)
+                        {
+                            if (e.idComunidad != c.id)
+                            {
+                                eventos.Remove(e);
+                            }
+                        }
+                    }
+                }
+            }
+
+            bindingSourceEventos.DataSource = null;
+            bindingSourceEventos.DataSource = eventos;
+        }
 
         //========================================================================================================//
         //OTROS
@@ -234,3 +309,6 @@ namespace Projecte_Chrysallis
         }
     }
 }
+
+
+

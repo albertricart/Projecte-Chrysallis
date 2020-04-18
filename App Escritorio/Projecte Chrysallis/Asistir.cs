@@ -19,7 +19,7 @@ namespace Projecte_Chrysallis
         public Nullable<byte> valoracion { get; set; }
         public short numAsistentes { get; set; }
     
-        public virtual Socios Socios { get; set; }
         public virtual Eventos Eventos { get; set; }
+        public virtual Socios Socios { get; set; }
     }
 }

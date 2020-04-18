@@ -16,6 +16,40 @@ namespace Projecte_Chrysallis.Base_de_Datos
             return _eventos;
         }
 
+        //Select
+        public static List<Eventos> SelectEventosByNombre(String nombre)
+        {
+            List<Eventos> _eventos =
+                (from e in ORM.bd.Eventos
+                 where e.titulo.Contains(nombre) 
+                 select e).ToList();
+
+            return _eventos;
+        }
+
+        //Select
+        public static List<Eventos> SelectEventosByUbicacion(String ubicacion)
+        {
+            List<Eventos> _eventos =
+                (from e in ORM.bd.Eventos
+                 where e.ubicacion.Contains(ubicacion)
+                 select e).ToList();
+
+            return _eventos;
+        }
+
+        //Select
+        public static List<Eventos> SelectEventosByComunidad(int id)
+        {
+            List<Eventos> _eventos =
+                (from e in ORM.bd.Eventos
+                 where e.idComunidad==id
+                 select e).ToList();
+
+            return _eventos;
+        }
+
+
         //Insert
         public static String InsertEvento(Eventos evento)
         {
@@ -34,12 +68,20 @@ namespace Projecte_Chrysallis.Base_de_Datos
 
             Eventos evento = (Eventos) ORM.bd.Eventos.Find(_evento.id);
 
-            //no actualiza/funciona
-            evento = _evento;
-
-            //funciona y actualiza correctamente
+            evento.titulo = _evento.titulo;
+            evento.ubicacion = _evento.ubicacion;
+            evento.fecha_limite = _evento.fecha_limite;
             evento.fecha = _evento.fecha;
             evento.descripcion = _evento.descripcion;
+            evento.Documentos = _evento.Documentos;
+            evento.Notificaciones = _evento.Notificaciones;
+            evento.idComunidad = _evento.idComunidad;
+            evento.descripcion = _evento.descripcion;
+
+            if (!Formularios.FormLogin.adminLogeado.superadmin)
+            {
+                evento.idAdmin = _evento.idAdmin;
+            }
 
 
 
