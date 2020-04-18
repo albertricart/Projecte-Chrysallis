@@ -48,26 +48,28 @@ namespace Projecte_Chrysallis.Base_de_Datos
             return admins;
         }
 
-        public static List<Administradores> SelectAdminsByComunidad(String comunidad)
+        public static List<Administradores> SelectAdminsByComunidad(String nomComunidad)
         {
-            Comunidades _comunidad = new Comunidades();
-            _comunidad.nombre = comunidad;
+            Comunidades comunidad = (from c in ORM.bd.Comunidades
+                                     where c.nombre.Contains(nomComunidad)
+                                     select c).First();
 
-            List<Administradores> admins =
-                (from a in ORM.bd.Administradores
-                 where a.Comunidades.Contains(_comunidad)
-                 select a).ToList();
+            List<Administradores> administradores = (from a in ORM.bd.Administradores
+                                                     where a.Comunidades.Contains(comunidad)
+                                                     select a).ToList();
+            
 
-            return admins;
+            return administradores;
         }
 
         public static Administradores SelectAdminLogin(String email, String pw)
         {
             Administradores admin = null;
+            String password = encriptarContrasenya(pw);
             try
             {
                 admin = (from a in ORM.bd.Administradores
-                 where a.email.Equals(email) && a.contrasenya.Equals(pw)
+                 where a.email.Equals(email) && a.contrasenya.Equals(password)
                  select a).First();
             }
             catch(InvalidOperationException){}
@@ -76,14 +78,17 @@ namespace Projecte_Chrysallis.Base_de_Datos
         }
 
         //insert
-        public static String InsertAdmin(string email, string contrasenya, bool superadmin)
+        public static String InsertAdmin(Administradores _admin)
         {
             String result = "";
 
             Administradores admin = new Administradores();
-            admin.email = email;
-            admin.contrasenya = encriptarContrasenya(contrasenya);
-            admin.superadmin = superadmin;
+            admin.nombre = _admin.nombre;
+            admin.apellidos = _admin.apellidos;
+            admin.email = _admin.email;
+            admin.contrasenya = encriptarContrasenya(_admin.contrasenya);
+            admin.superadmin = _admin.superadmin;
+            admin.Comunidades = _admin.Comunidades;
 
             //Añadimos el admin a la base de datos
             ORM.bd.Administradores.Add(admin);
@@ -95,13 +100,18 @@ namespace Projecte_Chrysallis.Base_de_Datos
         }
 
         //update
-        public static String UpdateAdmin(int id, string email, string contrasenya, bool superadmin)
+        public static String UpdateAdmin(Administradores _admin)
         {
             String result = "";
-            Administradores admin = ORM.bd.Administradores.Find(id);
-            admin.email = email;
-            admin.contrasenya = encriptarContrasenya(contrasenya);
-            admin.superadmin = superadmin;
+            Administradores admin = ORM.bd.Administradores.Find(_admin.id);
+            
+            admin.nombre = _admin.nombre;
+            admin.apellidos = _admin.apellidos;
+            admin.email = _admin.email;
+            admin.contrasenya = encriptarContrasenya(_admin.contrasenya);
+            admin.superadmin = _admin.superadmin;
+            admin.Comunidades = _admin.Comunidades;
+            
 
             result = ORM.SaveChanges();
 

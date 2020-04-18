@@ -139,11 +139,11 @@
     <Compile Include="Formularios\FormAdmin.Designer.cs">
       <DependentUpon>FormAdmin.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\FormNuevoSocio.cs">
+    <Compile Include="Formularios\FormSocio.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\FormNuevoSocio.Designer.cs">
-      <DependentUpon>FormNuevoSocio.cs</DependentUpon>
+    <Compile Include="Formularios\FormSocio.Designer.cs">
+      <DependentUpon>FormSocio.cs</DependentUpon>
     </Compile>
     <Compile Include="Formularios\FormPerfil.cs">
       <SubType>Form</SubType>
@@ -209,8 +209,8 @@
     <EmbeddedResource Include="Formularios\FormAdmin.resx">
       <DependentUpon>FormAdmin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\FormNuevoSocio.resx">
-      <DependentUpon>FormNuevoSocio.cs</DependentUpon>
+    <EmbeddedResource Include="Formularios\FormSocio.resx">
+      <DependentUpon>FormSocio.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\FormPerfil.resx">
       <DependentUpon>FormPerfil.cs</DependentUpon>
@@ -316,6 +316,9 @@
     </Content>
     <None Include="Resources\atras.png" />
     <None Include="Resources\calendar.png" />
+    <None Include="Resources\botonModificar.png" />
+    <None Include="Resources\botonAnadir.png" />
+    <None Include="Resources\botonEliminar.png" />
     <Content Include="Resources\candado.png" />
     <None Include="Resources\delete.png" />
     <None Include="Resources\Fondo.png" />

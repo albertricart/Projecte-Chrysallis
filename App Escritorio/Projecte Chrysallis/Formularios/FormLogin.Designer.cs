@@ -31,7 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormLogin));
             this.labelIncorrectos = new System.Windows.Forms.Label();
             this.textBoxEmail = new System.Windows.Forms.TextBox();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.buttonAcceder = new System.Windows.Forms.Button();
             this.textBoxContrasenya = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -67,35 +66,24 @@
             this.textBoxEmail.TabIndex = 1;
             this.textBoxEmail.Enter += new System.EventHandler(this.textBoxEmail_Enter);
             // 
-            // linkLabel1
-            // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.BackColor = System.Drawing.Color.Transparent;
-            this.linkLabel1.Font = new System.Drawing.Font("Yu Gothic UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLabel1.LinkColor = System.Drawing.Color.Blue;
-            this.linkLabel1.Location = new System.Drawing.Point(124, 398);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(144, 13);
-            this.linkLabel1.TabIndex = 4;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "Me olvidé de la contraseña\r\n";
-            // 
             // buttonAcceder
             // 
-            this.buttonAcceder.Font = new System.Drawing.Font("Yu Gothic UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonAcceder.Location = new System.Drawing.Point(146, 340);
+            this.buttonAcceder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(171)))), ((int)(((byte)(0)))));
+            this.buttonAcceder.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.buttonAcceder.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonAcceder.Location = new System.Drawing.Point(134, 350);
             this.buttonAcceder.Name = "buttonAcceder";
-            this.buttonAcceder.Size = new System.Drawing.Size(108, 40);
+            this.buttonAcceder.Size = new System.Drawing.Size(130, 46);
             this.buttonAcceder.TabIndex = 3;
             this.buttonAcceder.Text = "Acceder";
-            this.buttonAcceder.UseVisualStyleBackColor = true;
+            this.buttonAcceder.UseVisualStyleBackColor = false;
             this.buttonAcceder.Click += new System.EventHandler(this.buttonAcceder_Click);
             // 
             // textBoxContrasenya
             // 
             this.textBoxContrasenya.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxContrasenya.Location = new System.Drawing.Point(72, 270);
-            this.textBoxContrasenya.MaxLength = 16;
+            this.textBoxContrasenya.MaxLength = 200;
             this.textBoxContrasenya.Name = "textBoxContrasenya";
             this.textBoxContrasenya.PasswordChar = '•';
             this.textBoxContrasenya.Size = new System.Drawing.Size(252, 29);
@@ -175,7 +163,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Projecte_Chrysallis.Properties.Resources.FondoPantalla;
-            this.ClientSize = new System.Drawing.Size(391, 432);
+            this.ClientSize = new System.Drawing.Size(391, 422);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.pictureBoxOjo);
             this.Controls.Add(this.label2);
@@ -184,7 +172,6 @@
             this.Controls.Add(this.textBoxContrasenya);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.buttonAcceder);
-            this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.textBoxEmail);
             this.Controls.Add(this.labelIncorrectos);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -208,7 +195,6 @@
 
         private System.Windows.Forms.Label labelIncorrectos;
         private System.Windows.Forms.TextBox textBoxEmail;
-        private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.Button buttonAcceder;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.TextBox textBoxContrasenya;

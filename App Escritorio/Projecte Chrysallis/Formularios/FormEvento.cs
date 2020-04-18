@@ -116,27 +116,40 @@ namespace Projecte_Chrysallis
         private void buttonAccionEvento_Click(object sender, EventArgs e)
         {
             clickBotonEvento = true;
+            String mensaje;
 
-            if (CamposCorrectos())
+            Eventos evento = RecogerDatos();
+            if (evento != null)
             {
-                String mensaje;
-                Eventos evento;
-
-                evento = RecogerDatos();
-
                 if (modificar)
                 {
                     evento.id = _evento.id;
                     mensaje = Base_de_Datos.ORM_Evento.UpdateEvento(evento);
-                    MessageBox.Show("Evento modificado correctamente. " + mensaje, "Evento Modificado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    if (mensaje.Equals(""))
+                    {
+                        MessageBox.Show("Evento modificado correctamente. ", "Evento Modificado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se ha podido modificar el evento: " + mensaje, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+
                 }
                 else
                 {
                     mensaje = Base_de_Datos.ORM_Evento.InsertEvento(evento);
-                    MessageBox.Show("Evento añadido correctamente. " + mensaje, "Evento Creado", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
+                    if (mensaje.Equals(""))
+                    {
+                        MessageBox.Show("Evento añadido correctamente. " + mensaje, "Evento Creado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se ha podido modificar el evento: " + mensaje, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
 
-                Close();
+                }
             }
         }
 
@@ -252,7 +265,7 @@ namespace Projecte_Chrysallis
 
         private void textBoxTitulo_Enter(object sender, EventArgs e)
         {
-            if (textBoxTitulo.Text.Equals("Evento..."))
+            if (!textBoxTitulo.Text.Equals("Evento..."))
             {
                 textBoxTitulo.Text = "";
                 textBoxTitulo.ForeColor = Color.Black;
@@ -278,18 +291,25 @@ namespace Projecte_Chrysallis
         /// <returns></returns>
         public Eventos RecogerDatos()
         {
-            Eventos evento = new Eventos();
-            evento.titulo = textBoxTitulo.Text;
-            evento.fecha = dateTimePickerEvento.Value.Date.Add(dateTimePickerEvento.Value.TimeOfDay);
-            evento.ubicacion = textBoxCalle.Text + ", " + textBoxCiudad.Text;
-            evento.descripcion = textBoxDescripcion.Text;
-            evento.fecha_limite = dateTimePickerLimite.Value.Date.Add(dateTimePickerLimite.Value.TimeOfDay);
-            evento.idComunidad = (byte)comboBoxComunidades.SelectedValue;
-            evento.idAdmin = FormLogin.adminLogeado.id;
-            evento.Documentos = _documentos;
-            evento.Notificaciones = notificaciones;
+            if (CamposCorrectos())
+            {
+                Eventos evento = new Eventos();
+                evento.titulo = textBoxTitulo.Text;
+                evento.fecha = dateTimePickerEvento.Value.Date.Add(dateTimePickerEvento.Value.TimeOfDay);
+                evento.ubicacion = textBoxUbi.Text;
+                evento.descripcion = textBoxDescripcion.Text;
+                evento.fecha_limite = dateTimePickerLimite.Value.Date.Add(dateTimePickerLimite.Value.TimeOfDay);
+                evento.idComunidad = (byte)comboBoxComunidades.SelectedValue;
+                evento.idAdmin = FormLogin.adminLogeado.id;
+                evento.Documentos = _documentos;
+                evento.Notificaciones = notificaciones;
+                return evento;
+            }
+            else
+            {
+                return null;
+            }
 
-            return evento;
         }
 
         /// <summary>
@@ -298,7 +318,7 @@ namespace Projecte_Chrysallis
         public void RellenarCamposModificar()
         {
             textBoxTitulo.Text = _evento.titulo;
-            textBoxCalle.Text = _evento.ubicacion;
+            textBoxUbi.Text = _evento.ubicacion;
             textBoxDescripcion.Text = _evento.descripcion;
             comboBoxComunidades.SelectedValue = _evento.idComunidad;
             dateTimePickerEvento.Value = _evento.fecha;
@@ -380,15 +400,9 @@ namespace Projecte_Chrysallis
             //si es administrador de una comunidad (no es super)
             if (!FormLogin.adminLogeado.superadmin)
             {
-                try
-                {
-                    comboBoxComunidades.SelectedValue = FormLogin.adminLogeado.Comunidades.First().id;
-                }
-                catch (InvalidOperationException)
-                {
-                    MessageBox.Show("No tienes ninguna comunidad asociada", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    Close();
-                }
+                bindingSourceComunidades.DataSource = null;
+                bindingSourceComunidades.DataSource = FormLogin.adminLogeado.Comunidades.ToList();
+
             }
         }
 
@@ -423,7 +437,7 @@ namespace Projecte_Chrysallis
             }
             else
             {
-                if (string.IsNullOrWhiteSpace(textBoxCalle.Text))
+                if (string.IsNullOrWhiteSpace(textBoxUbi.Text))
                 {
                     MessageBox.Show("Introduce la ubicación del evento", "Evento sin ubicación", MessageBoxButtons.OK, MessageBoxIcon.Hand);
                 }
@@ -435,7 +449,14 @@ namespace Projecte_Chrysallis
                     }
                     else
                     {
-                        correcto = true;
+                        if (comboBoxComunidades.SelectedValue == null)
+                        {
+                            MessageBox.Show("Introduce la comunidad del evento", "Evento sin comunidad ", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                        }else
+                        {
+                            correcto = true;
+                        }
+                        
                     }
                 }
             }
@@ -461,5 +482,6 @@ namespace Projecte_Chrysallis
                 m.Result = (IntPtr)(HT_CAPTION);
         }
 
+        
     }
 }

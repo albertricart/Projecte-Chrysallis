@@ -4,11 +4,9 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="996fcd52dc8146c4954b8f3db74f4da0" Name="Diagram1" ZoomLevel="63">
+      <Diagram DiagramId="996fcd52dc8146c4954b8f3db74f4da0" Name="Diagram1" ZoomLevel="139">
         <EntityTypeShape EntityType="ChrysallisModel.Notificaciones" Width="1.5" PointX="10.875" PointY="9.375" />
-        <EntityTypeShape EntityType="ChrysallisModel.Socios" Width="1.5" PointX="5.25" PointY="5.5" />
         <EntityTypeShape EntityType="ChrysallisModel.Asistir" Width="1.5" PointX="13" PointY="6.125" />
-        <AssociationConnector Association="ChrysallisModel.FK_Asistir_Socios" />
         <EntityTypeShape EntityType="ChrysallisModel.Eventos" Width="1.5" PointX="8.125" PointY="6" />
         <AssociationConnector Association="ChrysallisModel.FK_Asistir_Eventos" />
         <AssociationConnector Association="ChrysallisModel.FK_Notificaciones_Eventos" />
@@ -16,13 +14,15 @@
         <AssociationConnector Association="ChrysallisModel.FK_Documentos_Eventos" />
         <EntityTypeShape EntityType="ChrysallisModel.Comentarios" Width="1.5" PointX="6.875" PointY="1.5" />
         <AssociationConnector Association="ChrysallisModel.FK_Comentario_Eventos" />
-        <AssociationConnector Association="ChrysallisModel.FK_Comentario_Socios" />
         <EntityTypeShape EntityType="ChrysallisModel.Administradores" Width="1.5" PointX="0.75" PointY="6.625" />
         <EntityTypeShape EntityType="ChrysallisModel.Comunidades" Width="1.5" PointX="3" PointY="6.625" />
         <AssociationConnector Association="ChrysallisModel.FK_Eventos_Administradores" />
         <AssociationConnector Association="ChrysallisModel.FK_Eventos_Comunidad" />
-        <AssociationConnector Association="ChrysallisModel.FK_Socios_Comunidad" />
         <AssociationConnector Association="ChrysallisModel.AdministrarComunidad" />
+        <EntityTypeShape EntityType="ChrysallisModel.Socios" Width="1.5" PointX="5.25" PointY="5.875" />
+        <AssociationConnector Association="ChrysallisModel.FK_Asistir_Socios" />
+        <AssociationConnector Association="ChrysallisModel.FK_Comentario_Socios" />
+        <AssociationConnector Association="ChrysallisModel.FK_Socios_Comunidad" />
         <AssociationConnector Association="ChrysallisModel.ComunidadesInteresadas" />
       </Diagram>
     </edmx:Diagrams>

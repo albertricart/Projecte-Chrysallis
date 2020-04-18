@@ -31,7 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormEvento));
             this.textBoxTitulo = new System.Windows.Forms.TextBox();
-            this.textBoxCalle = new System.Windows.Forms.TextBox();
+            this.textBoxUbi = new System.Windows.Forms.TextBox();
             this.dateTimePickerEvento = new System.Windows.Forms.DateTimePicker();
             this.labelFecha = new System.Windows.Forms.Label();
             this.labelUbi = new System.Windows.Forms.Label();
@@ -52,9 +52,6 @@
             this.pictureBoxAnadirNotificacion = new System.Windows.Forms.PictureBox();
             this.listBoxNotificaciones = new System.Windows.Forms.ListBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.textBoxCiudad = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
             this.pictureBoxAddDocumento = new System.Windows.Forms.PictureBox();
             this.pictureBoxEliminarDoc = new System.Windows.Forms.PictureBox();
             this.pictureBoxEliminarNotificacion = new System.Windows.Forms.PictureBox();
@@ -74,46 +71,47 @@
             // 
             this.textBoxTitulo.BackColor = System.Drawing.Color.White;
             this.textBoxTitulo.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxTitulo.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxTitulo.Font = new System.Drawing.Font("Yu Gothic UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxTitulo.ForeColor = System.Drawing.Color.DimGray;
             this.textBoxTitulo.Location = new System.Drawing.Point(144, 24);
             this.textBoxTitulo.Margin = new System.Windows.Forms.Padding(5);
             this.textBoxTitulo.Multiline = true;
             this.textBoxTitulo.Name = "textBoxTitulo";
-            this.textBoxTitulo.Size = new System.Drawing.Size(777, 35);
+            this.textBoxTitulo.Size = new System.Drawing.Size(777, 44);
             this.textBoxTitulo.TabIndex = 1;
             this.textBoxTitulo.Text = "Evento...";
             this.textBoxTitulo.UseSystemPasswordChar = true;
             this.textBoxTitulo.Enter += new System.EventHandler(this.textBoxTitulo_Enter);
             this.textBoxTitulo.Leave += new System.EventHandler(this.textBoxTitulo_Leave);
             // 
-            // textBoxCalle
+            // textBoxUbi
             // 
-            this.textBoxCalle.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxCalle.Location = new System.Drawing.Point(100, 302);
-            this.textBoxCalle.Name = "textBoxCalle";
-            this.textBoxCalle.Size = new System.Drawing.Size(320, 27);
-            this.textBoxCalle.TabIndex = 3;
+            this.textBoxUbi.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxUbi.Location = new System.Drawing.Point(17, 281);
+            this.textBoxUbi.Multiline = true;
+            this.textBoxUbi.Name = "textBoxUbi";
+            this.textBoxUbi.Size = new System.Drawing.Size(403, 67);
+            this.textBoxUbi.TabIndex = 3;
             // 
             // dateTimePickerEvento
             // 
-            this.dateTimePickerEvento.CustomFormat = "dd/MM/yyyy hh:mm";
-            this.dateTimePickerEvento.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
+            this.dateTimePickerEvento.CustomFormat = "dd/MM/yyyy HH:mm";
+            this.dateTimePickerEvento.Font = new System.Drawing.Font("Yu Gothic UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePickerEvento.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTimePickerEvento.Location = new System.Drawing.Point(14, 131);
             this.dateTimePickerEvento.Name = "dateTimePickerEvento";
-            this.dateTimePickerEvento.Size = new System.Drawing.Size(406, 23);
+            this.dateTimePickerEvento.Size = new System.Drawing.Size(406, 27);
             this.dateTimePickerEvento.TabIndex = 5;
             // 
             // labelFecha
             // 
             this.labelFecha.AutoSize = true;
             this.labelFecha.BackColor = System.Drawing.Color.Transparent;
-            this.labelFecha.Font = new System.Drawing.Font("Consolas", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelFecha.Font = new System.Drawing.Font("Yu Gothic UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelFecha.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(61)))), ((int)(((byte)(98)))));
-            this.labelFecha.Location = new System.Drawing.Point(12, 102);
+            this.labelFecha.Location = new System.Drawing.Point(9, 98);
             this.labelFecha.Name = "labelFecha";
-            this.labelFecha.Size = new System.Drawing.Size(286, 24);
+            this.labelFecha.Size = new System.Drawing.Size(241, 30);
             this.labelFecha.TabIndex = 6;
             this.labelFecha.Text = "Fecha y hora del evento";
             // 
@@ -121,11 +119,11 @@
             // 
             this.labelUbi.AutoSize = true;
             this.labelUbi.BackColor = System.Drawing.Color.Transparent;
-            this.labelUbi.Font = new System.Drawing.Font("Consolas", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelUbi.Font = new System.Drawing.Font("Yu Gothic UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelUbi.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(61)))), ((int)(((byte)(98)))));
             this.labelUbi.Location = new System.Drawing.Point(12, 248);
             this.labelUbi.Name = "labelUbi";
-            this.labelUbi.Size = new System.Drawing.Size(118, 24);
+            this.labelUbi.Size = new System.Drawing.Size(107, 30);
             this.labelUbi.TabIndex = 6;
             this.labelUbi.Text = "Ubicación";
             // 
@@ -133,42 +131,42 @@
             // 
             this.labelCom.AutoSize = true;
             this.labelCom.BackColor = System.Drawing.Color.Transparent;
-            this.labelCom.Font = new System.Drawing.Font("Consolas", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelCom.Font = new System.Drawing.Font("Yu Gothic UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelCom.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(61)))), ((int)(((byte)(98)))));
-            this.labelCom.Location = new System.Drawing.Point(12, 637);
+            this.labelCom.Location = new System.Drawing.Point(10, 632);
             this.labelCom.Name = "labelCom";
-            this.labelCom.Size = new System.Drawing.Size(118, 24);
+            this.labelCom.Size = new System.Drawing.Size(124, 30);
             this.labelCom.TabIndex = 6;
             this.labelCom.Text = "Comunidad";
             // 
             // textBoxDescripcion
             // 
-            this.textBoxDescripcion.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxDescripcion.Location = new System.Drawing.Point(12, 436);
+            this.textBoxDescripcion.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxDescripcion.Location = new System.Drawing.Point(12, 403);
             this.textBoxDescripcion.Multiline = true;
             this.textBoxDescripcion.Name = "textBoxDescripcion";
-            this.textBoxDescripcion.Size = new System.Drawing.Size(408, 180);
+            this.textBoxDescripcion.Size = new System.Drawing.Size(408, 213);
             this.textBoxDescripcion.TabIndex = 4;
             // 
             // dateTimePickerLimite
             // 
-            this.dateTimePickerLimite.CustomFormat = "dd/MM/yyyy hh:mm";
-            this.dateTimePickerLimite.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
+            this.dateTimePickerLimite.CustomFormat = "dd/MM/yyyy HH:mm";
+            this.dateTimePickerLimite.Font = new System.Drawing.Font("Yu Gothic UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePickerLimite.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTimePickerLimite.Location = new System.Drawing.Point(12, 195);
             this.dateTimePickerLimite.Name = "dateTimePickerLimite";
-            this.dateTimePickerLimite.Size = new System.Drawing.Size(408, 23);
+            this.dateTimePickerLimite.Size = new System.Drawing.Size(408, 27);
             this.dateTimePickerLimite.TabIndex = 5;
             // 
             // labelFechaLimite
             // 
             this.labelFechaLimite.AutoSize = true;
             this.labelFechaLimite.BackColor = System.Drawing.Color.Transparent;
-            this.labelFechaLimite.Font = new System.Drawing.Font("Consolas", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelFechaLimite.Font = new System.Drawing.Font("Yu Gothic UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelFechaLimite.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(61)))), ((int)(((byte)(98)))));
-            this.labelFechaLimite.Location = new System.Drawing.Point(10, 166);
+            this.labelFechaLimite.Location = new System.Drawing.Point(7, 164);
             this.labelFechaLimite.Name = "labelFechaLimite";
-            this.labelFechaLimite.Size = new System.Drawing.Size(406, 23);
+            this.labelFechaLimite.Size = new System.Drawing.Size(325, 28);
             this.labelFechaLimite.TabIndex = 6;
             this.labelFechaLimite.Text = "Fecha y hora límite para inscribirse";
             // 
@@ -177,11 +175,11 @@
             this.comboBoxComunidades.DataSource = this.bindingSourceComunidades;
             this.comboBoxComunidades.DisplayMember = "nombre";
             this.comboBoxComunidades.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxComunidades.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxComunidades.Font = new System.Drawing.Font("Yu Gothic UI", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxComunidades.FormattingEnabled = true;
             this.comboBoxComunidades.Location = new System.Drawing.Point(16, 665);
             this.comboBoxComunidades.Name = "comboBoxComunidades";
-            this.comboBoxComunidades.Size = new System.Drawing.Size(408, 29);
+            this.comboBoxComunidades.Size = new System.Drawing.Size(408, 31);
             this.comboBoxComunidades.TabIndex = 8;
             this.comboBoxComunidades.ValueMember = "id";
             // 
@@ -224,11 +222,11 @@
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Consolas", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Yu Gothic UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(61)))), ((int)(((byte)(98)))));
-            this.label1.Location = new System.Drawing.Point(12, 409);
+            this.label1.Location = new System.Drawing.Point(12, 370);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(142, 24);
+            this.label1.Size = new System.Drawing.Size(124, 30);
             this.label1.TabIndex = 19;
             this.label1.Text = "Descripción";
             // 
@@ -236,7 +234,7 @@
             // 
             this.listBoxDocumentos.DataSource = this.bindingSourceDocumentos;
             this.listBoxDocumentos.DisplayMember = "url";
-            this.listBoxDocumentos.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listBoxDocumentos.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listBoxDocumentos.FormattingEnabled = true;
             this.listBoxDocumentos.HorizontalScrollbar = true;
             this.listBoxDocumentos.ItemHeight = 18;
@@ -254,11 +252,11 @@
             // 
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Consolas", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Yu Gothic UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(61)))), ((int)(((byte)(98)))));
-            this.label3.Location = new System.Drawing.Point(480, 102);
+            this.label3.Location = new System.Drawing.Point(480, 98);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(238, 24);
+            this.label3.Size = new System.Drawing.Size(212, 30);
             this.label3.TabIndex = 6;
             this.label3.Text = "Lista de documentos";
             // 
@@ -266,30 +264,34 @@
             // 
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Font = new System.Drawing.Font("Consolas", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Font = new System.Drawing.Font("Yu Gothic UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(61)))), ((int)(((byte)(98)))));
-            this.label4.Location = new System.Drawing.Point(480, 409);
+            this.label4.Location = new System.Drawing.Point(480, 403);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(154, 24);
+            this.label4.Size = new System.Drawing.Size(130, 30);
             this.label4.TabIndex = 6;
             this.label4.Text = "Notificación";
             // 
             // dateTimePickerNotificacion
             // 
-            this.dateTimePickerNotificacion.CustomFormat = "dd/MM/yyyy hh:mm";
+            this.dateTimePickerNotificacion.CustomFormat = "dd/MM/yyyy HH:mm";
             this.dateTimePickerNotificacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
             this.dateTimePickerNotificacion.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTimePickerNotificacion.Location = new System.Drawing.Point(484, 440);
             this.dateTimePickerNotificacion.Name = "dateTimePickerNotificacion";
-            this.dateTimePickerNotificacion.Size = new System.Drawing.Size(363, 23);
+            this.dateTimePickerNotificacion.Size = new System.Drawing.Size(348, 23);
             this.dateTimePickerNotificacion.TabIndex = 22;
             // 
             // pictureBoxAnadirNotificacion
             // 
             this.pictureBoxAnadirNotificacion.BackColor = System.Drawing.Color.Lime;
-            this.pictureBoxAnadirNotificacion.Location = new System.Drawing.Point(854, 440);
+            this.pictureBoxAnadirNotificacion.BackgroundImage = global::Projecte_Chrysallis.Properties.Resources.botonAnadir;
+            this.pictureBoxAnadirNotificacion.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBoxAnadirNotificacion.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBoxAnadirNotificacion.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBoxAnadirNotificacion.Location = new System.Drawing.Point(837, 434);
             this.pictureBoxAnadirNotificacion.Name = "pictureBoxAnadirNotificacion";
-            this.pictureBoxAnadirNotificacion.Size = new System.Drawing.Size(67, 27);
+            this.pictureBoxAnadirNotificacion.Size = new System.Drawing.Size(83, 37);
             this.pictureBoxAnadirNotificacion.TabIndex = 20;
             this.pictureBoxAnadirNotificacion.TabStop = false;
             this.pictureBoxAnadirNotificacion.Click += new System.EventHandler(this.pictureBoxAnadirNotificacion_Click);
@@ -297,12 +299,12 @@
             // listBoxNotificaciones
             // 
             this.listBoxNotificaciones.DisplayMember = "antelacion";
-            this.listBoxNotificaciones.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listBoxNotificaciones.Font = new System.Drawing.Font("Yu Gothic UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listBoxNotificaciones.FormattingEnabled = true;
-            this.listBoxNotificaciones.ItemHeight = 18;
+            this.listBoxNotificaciones.ItemHeight = 20;
             this.listBoxNotificaciones.Location = new System.Drawing.Point(484, 516);
             this.listBoxNotificaciones.Name = "listBoxNotificaciones";
-            this.listBoxNotificaciones.Size = new System.Drawing.Size(437, 130);
+            this.listBoxNotificaciones.Size = new System.Drawing.Size(437, 124);
             this.listBoxNotificaciones.TabIndex = 24;
             this.listBoxNotificaciones.ValueMember = "id";
             // 
@@ -310,45 +312,13 @@
             // 
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.Font = new System.Drawing.Font("Consolas", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Font = new System.Drawing.Font("Yu Gothic UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(61)))), ((int)(((byte)(98)))));
-            this.label5.Location = new System.Drawing.Point(480, 488);
+            this.label5.Location = new System.Drawing.Point(480, 483);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(286, 24);
+            this.label5.Size = new System.Drawing.Size(225, 30);
             this.label5.TabIndex = 23;
             this.label5.Text = "Lista de notificaciones";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.Transparent;
-            this.label6.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label6.Location = new System.Drawing.Point(24, 302);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(60, 22);
-            this.label6.TabIndex = 6;
-            this.label6.Text = "Calle";
-            // 
-            // textBoxCiudad
-            // 
-            this.textBoxCiudad.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxCiudad.Location = new System.Drawing.Point(100, 348);
-            this.textBoxCiudad.Name = "textBoxCiudad";
-            this.textBoxCiudad.Size = new System.Drawing.Size(320, 27);
-            this.textBoxCiudad.TabIndex = 3;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.BackColor = System.Drawing.Color.Transparent;
-            this.label7.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label7.Location = new System.Drawing.Point(24, 348);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(70, 22);
-            this.label7.TabIndex = 6;
-            this.label7.Text = "Ciudad";
             // 
             // pictureBoxAddDocumento
             // 
@@ -385,9 +355,13 @@
             // pictureBoxEliminarNotificacion
             // 
             this.pictureBoxEliminarNotificacion.BackColor = System.Drawing.Color.Red;
-            this.pictureBoxEliminarNotificacion.Location = new System.Drawing.Point(484, 664);
+            this.pictureBoxEliminarNotificacion.BackgroundImage = global::Projecte_Chrysallis.Properties.Resources.botonEliminar;
+            this.pictureBoxEliminarNotificacion.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBoxEliminarNotificacion.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBoxEliminarNotificacion.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBoxEliminarNotificacion.Location = new System.Drawing.Point(484, 652);
             this.pictureBoxEliminarNotificacion.Name = "pictureBoxEliminarNotificacion";
-            this.pictureBoxEliminarNotificacion.Size = new System.Drawing.Size(100, 30);
+            this.pictureBoxEliminarNotificacion.Size = new System.Drawing.Size(100, 42);
             this.pictureBoxEliminarNotificacion.TabIndex = 26;
             this.pictureBoxEliminarNotificacion.TabStop = false;
             this.pictureBoxEliminarNotificacion.Click += new System.EventHandler(this.pictureBoxEliminarNotificacion_Click);
@@ -396,11 +370,11 @@
             // 
             this.labelValoracion.AutoSize = true;
             this.labelValoracion.BackColor = System.Drawing.Color.Transparent;
-            this.labelValoracion.Font = new System.Drawing.Font("Consolas", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelValoracion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(171)))), ((int)(((byte)(0)))));
+            this.labelValoracion.Font = new System.Drawing.Font("Yu Gothic UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelValoracion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(174)))), ((int)(((byte)(0)))));
             this.labelValoracion.Location = new System.Drawing.Point(12, 744);
             this.labelValoracion.Name = "labelValoracion";
-            this.labelValoracion.Size = new System.Drawing.Size(246, 28);
+            this.labelValoracion.Size = new System.Drawing.Size(216, 32);
             this.labelValoracion.TabIndex = 6;
             this.labelValoracion.Text = "Valoración media: ";
             this.labelValoracion.Visible = false;
@@ -445,23 +419,19 @@
             this.Controls.Add(this.labelCom);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.label6);
             this.Controls.Add(this.labelUbi);
             this.Controls.Add(this.labelFechaLimite);
             this.Controls.Add(this.labelFecha);
             this.Controls.Add(this.dateTimePickerLimite);
             this.Controls.Add(this.dateTimePickerEvento);
             this.Controls.Add(this.textBoxDescripcion);
-            this.Controls.Add(this.textBoxCiudad);
-            this.Controls.Add(this.textBoxCalle);
+            this.Controls.Add(this.textBoxUbi);
             this.Controls.Add(this.textBoxTitulo);
             this.Controls.Add(this.pictureBoxAtras);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.MinimizeBox = false;
             this.Name = "FormEvento";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Crear Evento";
@@ -485,7 +455,7 @@
 
         private System.Windows.Forms.PictureBox pictureBoxAtras;
         private System.Windows.Forms.TextBox textBoxTitulo;
-        private System.Windows.Forms.TextBox textBoxCalle;
+        private System.Windows.Forms.TextBox textBoxUbi;
         private System.Windows.Forms.DateTimePicker dateTimePickerEvento;
         private System.Windows.Forms.Label labelFecha;
         private System.Windows.Forms.Label labelUbi;
@@ -504,9 +474,6 @@
         private System.Windows.Forms.PictureBox pictureBoxAnadirNotificacion;
         private System.Windows.Forms.ListBox listBoxNotificaciones;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBoxCiudad;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.PictureBox pictureBoxAddDocumento;
         private System.Windows.Forms.PictureBox pictureBoxEliminarDoc;
         private System.Windows.Forms.PictureBox pictureBoxEliminarNotificacion;

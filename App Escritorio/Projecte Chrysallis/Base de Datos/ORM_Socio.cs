@@ -20,33 +20,124 @@ namespace Projecte_Chrysallis.Base_de_Datos
             return socios;
         }
 
-        public static Socios SelectSocioByID(int id)
+        public static List<Socios> SelectSocioByComunidad(int idComunidad)
+        {
+            List<Socios> socios =
+                (from s in ORM.bd.Socios
+                 where s.idComunidad == idComunidad
+                 select s).ToList();
+
+            return socios;
+        }
+
+        public static List<Socios> SelectSocioByID(int id)
         {
             List<Socios> socios = 
                 (from s in ORM.bd.Socios
-                 where s.id == id
+                 where s.id.ToString().Contains(id.ToString())
                  select s).ToList();
 
-            Socios socio = socios[0];
-            return socio;
+            return socios;
         }
+
+        public static List<Socios> SelectSocioByDNI(String DNI)
+        {
+            List<Socios> socios =
+                (from s in ORM.bd.Socios
+                 where s.dni.Contains(DNI)
+                 select s).ToList();
+
+            return socios;
+        }
+
+        public static List<Socios> SelectSocioByNombre(String nombre)
+        {
+            List<Socios> socios =
+                (from s in ORM.bd.Socios
+                 where s.nombre.Contains(nombre)
+                 select s).ToList();
+
+            return socios;
+        }
+
+        public static List<Socios> SelectSocioByApellidos(String apellidos)
+        {
+            List<Socios> socios =
+                (from s in ORM.bd.Socios
+                 where s.apellidos.Contains(apellidos)
+                 select s).ToList();
+
+            return socios;
+        }
+
+        public static List<Socios> SelectSocioByEmail(String email)
+        {
+            List<Socios> socios =
+                (from s in ORM.bd.Socios
+                 where s.email.Contains(email)
+                 select s).ToList();
+
+            return socios;
+        }
+
+        public static List<Socios> SelectSocioByTelefono(String telefono)
+        {
+            List<Socios> socios =
+                (from s in ORM.bd.Socios
+                 where s.telefono.ToString().Contains(telefono.ToString())
+                 select s).ToList();
+
+            return socios;
+        }
+
+        public static List<Socios> SelectSocioByPoblacion(String poblacion)
+        {
+            List<Socios> socios =
+                (from s in ORM.bd.Socios
+                 where s.poblacion.Contains(poblacion)
+                 select s).ToList();
+
+            return socios;
+        }
+
+        public static List<Socios> SelectSocioByActivos()
+        {
+            List<Socios> socios =
+                (from s in ORM.bd.Socios
+                 where s.activo==true
+                 select s).ToList();
+
+            return socios;
+        }
+
+        public static List<Socios> SelectSocioByNoActivos()
+        {
+            List<Socios> socios =
+                (from s in ORM.bd.Socios
+                 where s.activo == false
+                 select s).ToList();
+
+            return socios;
+        }
+
+
         //------------------------------------------------
         //Insert
-        public static String InsertSocio(string dni, string nombre, string apellidos, string email, string telefono, string poblacion, byte idComunidad, bool activo)
+        public static String InsertSocio(Socios _socio)
         {
             String result = "";
 
             Socios socio = new Socios();
-            socio.dni = dni;
-            socio.nombre = nombre;
-            socio.apellidos = apellidos;
-            socio.email = email;
-            String contrasenya = "aaa";
-            socio.contrasenya = encriptarContrasesenya(contrasenya);
-            socio.telefono = telefono;
-            socio.poblacion = poblacion;
-            socio.idComunidad = idComunidad;
-            socio.activo = activo;
+            socio.dni = _socio.dni;
+            socio.nombre = _socio.nombre;
+            socio.apellidos = _socio.apellidos;
+            socio.email = _socio.email;
+            socio.contrasenya = encriptarContrasesenya(_socio.contrasenya);
+            socio.telefono = _socio.telefono;
+            socio.poblacion = _socio.poblacion;
+            socio.idComunidad = _socio.idComunidad;
+            socio.Comunidades1 = _socio.Comunidades1;
+            socio.activo = _socio.activo;
 
             ORM.bd.Socios.Add(socio);
             result = ORM.SaveChanges();
@@ -55,20 +146,22 @@ namespace Projecte_Chrysallis.Base_de_Datos
         }
         //------------------------------------------------
         //Update
-        public static String UpdateSocio(int id, string dni, string nombre, string apellidos, string email, string telefono, string poblacion, byte idComunidad, bool activo)
+        public static String UpdateSocio(Socios _socio)
         {
             String result = "";
 
-            Socios socio = ORM.bd.Socios.Find(id);
+            Socios socio =  (Socios) ORM.bd.Socios.Find(_socio.id);
 
-            socio.dni = dni;
-            socio.nombre = nombre;
-            socio.apellidos = apellidos;
-            socio.email = email;
-            socio.telefono = telefono;
-            socio.poblacion = poblacion;
-            socio.idComunidad = idComunidad;
-            socio.activo = activo;
+            socio.nombre = _socio.nombre;
+            socio.apellidos = _socio.apellidos;
+            socio.dni = _socio.dni;
+            socio.email = _socio.email;
+            socio.contrasenya = encriptarContrasesenya(_socio.contrasenya);
+            socio.telefono = _socio.telefono;
+            socio.poblacion = _socio.poblacion;
+            socio.idComunidad = _socio.idComunidad;
+            socio.Comunidades1 = _socio.Comunidades1;
+            socio.activo = _socio.activo;
 
             result = ORM.SaveChanges();
 
