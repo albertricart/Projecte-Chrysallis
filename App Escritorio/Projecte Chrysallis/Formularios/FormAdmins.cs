@@ -6,15 +6,48 @@ namespace Projecte_Chrysallis.Formularios
 {
     public partial class FormAdmins : Form
     {
+        //========================================================================================================//
+        //                                                VARIABLES
+        //========================================================================================================//
         public int ultimoFiltroSeleccionado = 0;
         public int ultimoAdminSeleccionado = 0;
 
+        //========================================================================================================//
+        //                                              CONSTRUCTORES
+        //========================================================================================================//
         public FormAdmins()
         {
             InitializeComponent();
         }
+
+
+        //========================================================================================================//
+        //========================================================================================================//
+        //========================================================================================================//
+        //                                          EVENTOS
+        //========================================================================================================//
+        //========================================================================================================//
+        //========================================================================================================//
+
+        /// <summary>
+        /// evento load que mostrara los admins en la grid
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void FormAdmins_Load(object sender, EventArgs e)
+        {
+            MostrarAdmins();
+        }
+
+
+        /// <summary>
+        /// evento click del boton para añadir un nuevo admin
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonAnadir_Click(object sender, EventArgs e)
         {
+            //ocultaremos este form y abriremos el FormAdmin
             Hide();
             FormAdmin formNuevoAdmin = new FormAdmin();
             formNuevoAdmin.ShowDialog();
@@ -22,21 +55,36 @@ namespace Projecte_Chrysallis.Formularios
             Show();
         }
 
+        /// <summary>
+        /// evento click del boton para modificar un admin
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonModificar_Click(object sender, EventArgs e)
         {
             ModificarAdmin();
         }
 
+        /// <summary>
+        /// evento click del boton para modificar un admin
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonEliminar_Click(object sender, EventArgs e)
         {
             EliminarAdmin();
         }
 
-
+        /// <summary>
+        /// evento text changed de el textbox del filtro
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void textBoxFiltro_TextChanged(object sender, EventArgs e)
         {
             administradoresBindingSource.DataSource = null;
 
+            //segun el filtro seleccionado y el texto introducido mostraremos unos administradores o otros
             if (comboBoxFiltro.SelectedItem.ToString().Equals("Nombre"))
             {
                 administradoresBindingSource.DataSource = Base_de_Datos.ORM_Admin.SelectAdminsByNombre(textBoxFiltro.Text);
@@ -60,50 +108,78 @@ namespace Projecte_Chrysallis.Formularios
 
         }
 
-        private void FormAdmins_Load(object sender, EventArgs e)
+       /// <summary>
+       /// 
+       /// </summary>
+       /// <param name="sender"></param>
+       /// <param name="e"></param>
+        private void dataGridViewAdmins_SelectionChanged(object sender, EventArgs e)
         {
-            MostrarAdmins();
+            if (AdministradoresExistentes())
+            {
+                bindingSourceComunidades.DataSource = null;
+                bindingSourceComunidades.DataSource = ObtenerAdministradorSeleccionado().Comunidades.ToList();
+            }
         }
 
+        /// <summary>
+        /// Metodo click sobre un admin para modificarlo
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void dataGridViewAdmins_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            ModificarAdmin();
+        }
+
+
+        /// <summary>
+        /// Limpiaremos el textboxfiltro al cambiar el filtro
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void comboBoxFiltro_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            textBoxFiltro.Clear();
+        }
+
+        /// <summary>
+        /// Metodo click al pictureboxatras
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void pictureBoxAtras_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+
+        private void FormAdmins_Activated(object sender, EventArgs e)
+        {
+            comboBoxFiltro.SelectedIndex = ultimoFiltroSeleccionado;
+        }
+        //========================================================================================================//
+        //========================================================================================================//
+        //========================================================================================================//
+        //                                          METODOS
+        //========================================================================================================//
+        //========================================================================================================//
+        //========================================================================================================//
+
+        /// <summary>
+        /// metodo que muestra todos los administradores
+        /// </summary>
         public void MostrarAdmins()
         {
             administradoresBindingSource.DataSource = null;
             administradoresBindingSource.DataSource = Base_de_Datos.ORM_Admin.SelectAdmins();
         }
 
-        private void FormAdmins_Activated(object sender, EventArgs e)
-        {
-            comboBoxFiltro.SelectedIndex = ultimoFiltroSeleccionado;
-        }
 
-        //========================================================================================================//
-        //OTROS
-        //========================================================================================================//
-
-        //Constantes necesarias para mover form
-        private const int WM_NCHITTEST = 0x84;
-        private const int HT_CLIENT = 0x1;
-        private const int HT_CAPTION = 0x2;
-
-
-        // Permite mover la ventana
-        protected override void WndProc(ref Message m)
-        {
-            base.WndProc(ref m);
-            if (m.Msg == WM_NCHITTEST)
-                m.Result = (IntPtr)(HT_CAPTION);
-        }
-
-        private void comboBoxFiltro_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            textBoxFiltro.Clear();
-        }
-
-        private void pictureBoxAtras_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
-
+        /// <summary>
+        /// Metodo que devuelve el admin que hayamos seleccionado
+        /// </summary>
+        /// <returns></returns>
         public Administradores ObtenerAdministradorSeleccionado()
         {
             Administradores administrador = null;
@@ -119,6 +195,10 @@ namespace Projecte_Chrysallis.Formularios
             return administrador;
         }
 
+        /// <summary>
+        /// Metodo que devuelve si hay admins
+        /// </summary>
+        /// <returns></returns>
         public bool AdministradoresExistentes()
         {
             if (dataGridViewAdmins.SelectedRows.Count < 1)
@@ -131,20 +211,9 @@ namespace Projecte_Chrysallis.Formularios
             }
         }
 
-        private void dataGridViewAdmins_SelectionChanged(object sender, EventArgs e)
-        {
-            if (AdministradoresExistentes())
-            {
-                bindingSourceComunidades.DataSource = null;
-                bindingSourceComunidades.DataSource = ObtenerAdministradorSeleccionado().Comunidades.ToList();
-            }
-        }
-
-        private void dataGridViewAdmins_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            ModificarAdmin();
-        }
-
+        /// <summary>
+        /// Metodo para modificar un admin
+        /// </summary>
         public void ModificarAdmin()
         {
             int ultimoIndexSelec;
@@ -158,7 +227,11 @@ namespace Projecte_Chrysallis.Formularios
             Show();
         }
 
-       public void EliminarAdmin()
+
+        /// <summary>
+        /// Metodo para eliminar un admin
+        /// </summary>
+        public void EliminarAdmin()
         {
             Administradores admin = ObtenerAdministradorSeleccionado();
 
@@ -181,7 +254,7 @@ namespace Projecte_Chrysallis.Formularios
                         }
                         else
                         {
-                            MessageBox.Show("Administrador no eliminado: " + mensaje, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show("No se ha podido eliminar el administrador: " + mensaje, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
 
                         MostrarAdmins();
@@ -190,5 +263,26 @@ namespace Projecte_Chrysallis.Formularios
 
             }
         }
+
+
+        //========================================================================================================//
+        //OTROS
+        //========================================================================================================//
+
+        //Constantes necesarias para mover form
+        private const int WM_NCHITTEST = 0x84;
+        private const int HT_CLIENT = 0x1;
+        private const int HT_CAPTION = 0x2;
+
+
+        // Permite mover la ventana
+        protected override void WndProc(ref Message m)
+        {
+            base.WndProc(ref m);
+            if (m.Msg == WM_NCHITTEST)
+                m.Result = (IntPtr)(HT_CAPTION);
+        }
+
+       
     }
 }

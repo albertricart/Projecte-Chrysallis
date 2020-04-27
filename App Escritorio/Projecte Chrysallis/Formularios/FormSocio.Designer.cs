@@ -51,6 +51,7 @@
             this.bindingSourceComunidades = new System.Windows.Forms.BindingSource(this.components);
             this.comboBoxComunidadSocio = new System.Windows.Forms.ComboBox();
             this.groupBoxDatos = new System.Windows.Forms.GroupBox();
+            this.checkBoxModificarContra = new System.Windows.Forms.CheckBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.buttonQuitarComunidades = new System.Windows.Forms.Button();
@@ -286,6 +287,7 @@
             // groupBoxDatos
             // 
             this.groupBoxDatos.BackColor = System.Drawing.Color.Transparent;
+            this.groupBoxDatos.Controls.Add(this.checkBoxModificarContra);
             this.groupBoxDatos.Controls.Add(this.label11);
             this.groupBoxDatos.Controls.Add(this.textBoxNombre);
             this.groupBoxDatos.Controls.Add(this.label2);
@@ -309,6 +311,19 @@
             this.groupBoxDatos.TabIndex = 38;
             this.groupBoxDatos.TabStop = false;
             this.groupBoxDatos.Text = "Datos del Socio";
+            // 
+            // checkBoxModificarContra
+            // 
+            this.checkBoxModificarContra.AutoSize = true;
+            this.checkBoxModificarContra.Font = new System.Drawing.Font("Yu Gothic UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBoxModificarContra.Location = new System.Drawing.Point(261, 269);
+            this.checkBoxModificarContra.Name = "checkBoxModificarContra";
+            this.checkBoxModificarContra.Size = new System.Drawing.Size(95, 24);
+            this.checkBoxModificarContra.TabIndex = 31;
+            this.checkBoxModificarContra.Text = "Modificar";
+            this.checkBoxModificarContra.UseVisualStyleBackColor = true;
+            this.checkBoxModificarContra.Visible = false;
+            this.checkBoxModificarContra.CheckedChanged += new System.EventHandler(this.checkBoxModificarContra_CheckedChanged);
             // 
             // groupBox1
             // 
@@ -421,14 +436,14 @@
             // 
             // buttonAnadir
             // 
-            this.buttonAnadir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.buttonAnadir.BackgroundImage = global::Projecte_Chrysallis.Properties.Resources.guardarBtn;
+            this.buttonAnadir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.buttonAnadir.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonAnadir.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.buttonAnadir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonAnadir.Image = global::Projecte_Chrysallis.Properties.Resources.botonAnadir;
-            this.buttonAnadir.Location = new System.Drawing.Point(1176, 484);
+            this.buttonAnadir.Location = new System.Drawing.Point(1166, 483);
             this.buttonAnadir.Name = "buttonAnadir";
-            this.buttonAnadir.Size = new System.Drawing.Size(123, 53);
+            this.buttonAnadir.Size = new System.Drawing.Size(133, 54);
             this.buttonAnadir.TabIndex = 18;
             this.buttonAnadir.TabStop = false;
             this.buttonAnadir.UseVisualStyleBackColor = true;
@@ -502,5 +517,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.BindingSource bindingSourceComInteres;
         private System.Windows.Forms.Button buttonAnadir;
+        private System.Windows.Forms.CheckBox checkBoxModificarContra;
     }
 }

@@ -8,10 +8,8 @@ namespace Projecte_Chrysallis
 {
     public partial class FormEventos : Form
     {
-        //int ultimoEventoSeleccionado;
-
         //========================================================================================================//
-        //CONSTRUCTORES
+        //                                          CONSTRUCTORES
         //========================================================================================================//
         /// <summary>
         /// Constructor vacío por defecto
@@ -23,8 +21,14 @@ namespace Projecte_Chrysallis
 
 
         //========================================================================================================//
-        //EVENTOS
         //========================================================================================================//
+        //========================================================================================================//
+        //                                          EVENTOS
+        //========================================================================================================//
+        //========================================================================================================//
+        //========================================================================================================//
+
+
         /// <summary>
         /// Evento Load del Form 
         /// </summary>
@@ -38,6 +42,15 @@ namespace Projecte_Chrysallis
             comboBoxVer.SelectedIndex = 0;
         }
 
+        /// <summary>
+        /// Evento activated del form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void FormEventos_Activated(object sender, EventArgs e)
+        {
+            RefrescarGrid();
+        }
 
         /// <summary>
         /// Evento click del botón atrás
@@ -109,7 +122,7 @@ namespace Projecte_Chrysallis
             {
                 if (comboBoxFiltro.SelectedIndex == 0)
                 {
-                    eventos = Base_de_Datos.ORM_Evento.SelectEventosByNombre(textBoxFiltro.Text);    
+                    eventos = Base_de_Datos.ORM_Evento.SelectEventosByNombre(textBoxFiltro.Text);
                 }
                 if (comboBoxFiltro.SelectedIndex == 1)
                 {
@@ -125,12 +138,44 @@ namespace Projecte_Chrysallis
 
         }
 
+        /// <summary>
+        /// Evento cellformatting de la grid para mostrar el nombre del admin en lugar del numero
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void dataGridViewEventos_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (e.ColumnIndex == 6 && dataGridViewEventos.Rows.Count > 0)
+            {
+                Eventos evento = (Eventos)dataGridViewEventos.Rows[e.RowIndex].DataBoundItem;
+                if (evento != null || evento.Administradores != null)
+                {
+                    e.Value = evento.Administradores.nombre;
+                }
+                else
+                {
+                    MessageBox.Show("El evento es nulo o no tiene administrador", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+            }
+        }
+
+        /// <summary>
+        /// Refrescamos la grid y limpiamos el textbox del filtro al cambiar el indice del combobox ver 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void comboBoxVer_SelectedIndexChanged(object sender, EventArgs e)
         {
             RefrescarGrid();
             textBoxFiltro.Clear();
         }
 
+        /// <summary>
+        /// Refrescamos la grid y limpiamos el textbox del filtro al cambiar el indice del combobox filtro 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void comboBoxFiltro_SelectedIndexChanged(object sender, EventArgs e)
         {
             RefrescarGrid();
@@ -139,8 +184,14 @@ namespace Projecte_Chrysallis
 
 
         //========================================================================================================//
-        //METODOS
         //========================================================================================================//
+        //========================================================================================================//
+        //                                          METODOS
+        //========================================================================================================//
+        //========================================================================================================//
+        //========================================================================================================//
+
+
         /// <summary>
         /// Método para obtener el evento que hayamos seleccionado
         /// </summary>
@@ -238,6 +289,7 @@ namespace Projecte_Chrysallis
                 {
                     bindingSourceEventos.DataSource = null;
                     bindingSourceEventos.DataSource = Base_de_Datos.ORM_Evento.SelectEventos();
+
                 }
                 else
                 {
@@ -254,7 +306,10 @@ namespace Projecte_Chrysallis
             }
         }
 
-        
+        /// <summary>
+        /// Metodo para filtrar los eventos de una lista que recibimos por parametro
+        /// </summary>
+        /// <param name="eventos"></param>
         public void FiltrarEventos(List<Eventos> eventos)
         {
             //por mi
@@ -307,6 +362,8 @@ namespace Projecte_Chrysallis
             if (m.Msg == WM_NCHITTEST)
                 m.Result = (IntPtr)(HT_CAPTION);
         }
+
+        
     }
 }
 

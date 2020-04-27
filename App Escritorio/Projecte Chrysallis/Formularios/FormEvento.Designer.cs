@@ -57,6 +57,7 @@
             this.pictureBoxEliminarNotificacion = new System.Windows.Forms.PictureBox();
             this.labelValoracion = new System.Windows.Forms.Label();
             this.pictureBoxVerDoc = new System.Windows.Forms.PictureBox();
+            this.notificacionesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceComunidades)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAtras)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceDocumentos)).BeginInit();
@@ -65,6 +66,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEliminarDoc)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEliminarNotificacion)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxVerDoc)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.notificacionesBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // textBoxTitulo
@@ -298,7 +300,8 @@
             // 
             // listBoxNotificaciones
             // 
-            this.listBoxNotificaciones.DisplayMember = "antelacion";
+            this.listBoxNotificaciones.DataSource = this.notificacionesBindingSource;
+            this.listBoxNotificaciones.DisplayMember = "fechaHora";
             this.listBoxNotificaciones.Font = new System.Drawing.Font("Yu Gothic UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listBoxNotificaciones.FormattingEnabled = true;
             this.listBoxNotificaciones.ItemHeight = 20;
@@ -395,6 +398,10 @@
             this.pictureBoxVerDoc.TabStop = false;
             this.pictureBoxVerDoc.Click += new System.EventHandler(this.pictureBoxVerDoc_Click);
             // 
+            // notificacionesBindingSource
+            // 
+            this.notificacionesBindingSource.DataSource = typeof(Projecte_Chrysallis.Notificaciones);
+            // 
             // FormEvento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -446,6 +453,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEliminarDoc)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEliminarNotificacion)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxVerDoc)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.notificacionesBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -480,5 +488,6 @@
         private System.Windows.Forms.Label labelValoracion;
         private System.Windows.Forms.PictureBox pictureBoxVerDoc;
         private System.Windows.Forms.BindingSource bindingSourceDocumentos;
+        private System.Windows.Forms.BindingSource notificacionesBindingSource;
     }
 }

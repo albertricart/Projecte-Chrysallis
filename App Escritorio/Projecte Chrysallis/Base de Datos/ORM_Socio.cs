@@ -182,7 +182,7 @@ namespace Projecte_Chrysallis.Base_de_Datos
 
         private static string encriptarContrasesenya(string contrasenya)
         {
-            String contrasenyaFinal = "";
+            string contrasenyaFinal = "";
 
             OC.Core.Crypto.Hash hash = new OC.Core.Crypto.Hash();
             contrasenyaFinal = hash.Sha512(contrasenya);

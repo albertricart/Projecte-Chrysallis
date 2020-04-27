@@ -34,6 +34,7 @@ namespace Projecte_Chrysallis.Base_de_Datos
             }
             catch (Exception e)
             {
+                //para saber mas detalles sobre el error
                 mensaje = e.ToString();
             }
 

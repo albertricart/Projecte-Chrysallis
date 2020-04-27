@@ -53,6 +53,7 @@
             this.buttonAnadir = new System.Windows.Forms.Button();
             this.pictureBoxAtras = new System.Windows.Forms.PictureBox();
             this.pictureBoxChrysallis = new System.Windows.Forms.PictureBox();
+            this.checkBoxModificarContra = new System.Windows.Forms.CheckBox();
             this.groupBoxSA.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.comunidadesAdminBindingSource)).BeginInit();
@@ -184,7 +185,7 @@
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(299, 114);
+            this.groupBox2.Location = new System.Drawing.Point(383, 114);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(8);
             this.groupBox2.Size = new System.Drawing.Size(676, 345);
@@ -276,13 +277,16 @@
             // 
             // buttonAnadir
             // 
+            this.buttonAnadir.BackColor = System.Drawing.Color.Transparent;
+            this.buttonAnadir.BackgroundImage = global::Projecte_Chrysallis.Properties.Resources.guardarBtn;
+            this.buttonAnadir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonAnadir.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.buttonAnadir.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonAnadir.Location = new System.Drawing.Point(833, 480);
+            this.buttonAnadir.Location = new System.Drawing.Point(924, 485);
             this.buttonAnadir.Name = "buttonAnadir";
-            this.buttonAnadir.Size = new System.Drawing.Size(142, 54);
+            this.buttonAnadir.Size = new System.Drawing.Size(133, 54);
             this.buttonAnadir.TabIndex = 8;
-            this.buttonAnadir.Text = "Añadir";
-            this.buttonAnadir.UseVisualStyleBackColor = true;
+            this.buttonAnadir.UseVisualStyleBackColor = false;
             this.buttonAnadir.Click += new System.EventHandler(this.buttonAnadir_Click);
             // 
             // pictureBoxAtras
@@ -303,18 +307,34 @@
             this.pictureBoxChrysallis.BackColor = System.Drawing.Color.Transparent;
             this.pictureBoxChrysallis.BackgroundImage = global::Projecte_Chrysallis.Properties.Resources.LogoChrysallis;
             this.pictureBoxChrysallis.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBoxChrysallis.Location = new System.Drawing.Point(885, 12);
+            this.pictureBoxChrysallis.Location = new System.Drawing.Point(980, 12);
             this.pictureBoxChrysallis.Name = "pictureBoxChrysallis";
             this.pictureBoxChrysallis.Size = new System.Drawing.Size(79, 86);
             this.pictureBoxChrysallis.TabIndex = 14;
             this.pictureBoxChrysallis.TabStop = false;
+            // 
+            // checkBoxModificarContra
+            // 
+            this.checkBoxModificarContra.AutoSize = true;
+            this.checkBoxModificarContra.BackColor = System.Drawing.Color.Transparent;
+            this.checkBoxModificarContra.Font = new System.Drawing.Font("Yu Gothic UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBoxModificarContra.Location = new System.Drawing.Point(266, 354);
+            this.checkBoxModificarContra.Name = "checkBoxModificarContra";
+            this.checkBoxModificarContra.Size = new System.Drawing.Size(95, 24);
+            this.checkBoxModificarContra.TabIndex = 32;
+            this.checkBoxModificarContra.Text = "Modificar";
+            this.checkBoxModificarContra.UseVisualStyleBackColor = false;
+            this.checkBoxModificarContra.Visible = false;
+            this.checkBoxModificarContra.CheckedChanged += new System.EventHandler(this.checkBoxModificarContra_CheckedChanged);
             // 
             // FormAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Projecte_Chrysallis.Properties.Resources.FondoPantalla;
-            this.ClientSize = new System.Drawing.Size(987, 554);
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(1082, 554);
+            this.Controls.Add(this.checkBoxModificarContra);
             this.Controls.Add(this.pictureBoxChrysallis);
             this.Controls.Add(this.pictureBoxAtras);
             this.Controls.Add(this.buttonAnadir);
@@ -329,6 +349,7 @@
             this.Controls.Add(this.groupBoxSA);
             this.Controls.Add(this.textBoxNombre);
             this.Controls.Add(this.label1);
+            this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -374,5 +395,6 @@
         private System.Windows.Forms.BindingSource comunidadesAdminBindingSource;
         private System.Windows.Forms.Button buttonQuitarComunidades;
         private System.Windows.Forms.CheckBox checkBoxAdminSuper;
+        private System.Windows.Forms.CheckBox checkBoxModificarContra;
     }
 }
