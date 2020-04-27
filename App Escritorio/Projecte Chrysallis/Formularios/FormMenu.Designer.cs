@@ -35,12 +35,15 @@
             this.pictureBoxGestionarSocios = new System.Windows.Forms.PictureBox();
             this.pictureBoxGestionarAdmins = new System.Windows.Forms.PictureBox();
             this.pictureBoxContacto = new System.Windows.Forms.PictureBox();
+            this.pictureBoxPerfil = new System.Windows.Forms.PictureBox();
+            this.labelPerfil = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSalir)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMinimizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxGestionarEventos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxGestionarSocios)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxGestionarAdmins)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxContacto)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPerfil)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBoxSalir
@@ -69,7 +72,7 @@
             // 
             this.pictureBoxGestionarEventos.BackColor = System.Drawing.Color.Transparent;
             this.pictureBoxGestionarEventos.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBoxGestionarEventos.Location = new System.Drawing.Point(42, 333);
+            this.pictureBoxGestionarEventos.Location = new System.Drawing.Point(41, 325);
             this.pictureBoxGestionarEventos.Name = "pictureBoxGestionarEventos";
             this.pictureBoxGestionarEventos.Size = new System.Drawing.Size(347, 51);
             this.pictureBoxGestionarEventos.TabIndex = 2;
@@ -80,7 +83,7 @@
             // 
             this.pictureBoxGestionarSocios.BackColor = System.Drawing.Color.Transparent;
             this.pictureBoxGestionarSocios.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBoxGestionarSocios.Location = new System.Drawing.Point(41, 411);
+            this.pictureBoxGestionarSocios.Location = new System.Drawing.Point(42, 401);
             this.pictureBoxGestionarSocios.Name = "pictureBoxGestionarSocios";
             this.pictureBoxGestionarSocios.Size = new System.Drawing.Size(351, 51);
             this.pictureBoxGestionarSocios.TabIndex = 3;
@@ -91,9 +94,9 @@
             // 
             this.pictureBoxGestionarAdmins.BackColor = System.Drawing.Color.Transparent;
             this.pictureBoxGestionarAdmins.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBoxGestionarAdmins.Location = new System.Drawing.Point(41, 484);
+            this.pictureBoxGestionarAdmins.Location = new System.Drawing.Point(40, 475);
             this.pictureBoxGestionarAdmins.Name = "pictureBoxGestionarAdmins";
-            this.pictureBoxGestionarAdmins.Size = new System.Drawing.Size(350, 55);
+            this.pictureBoxGestionarAdmins.Size = new System.Drawing.Size(350, 50);
             this.pictureBoxGestionarAdmins.TabIndex = 4;
             this.pictureBoxGestionarAdmins.TabStop = false;
             this.pictureBoxGestionarAdmins.Click += new System.EventHandler(this.pictureBoxGestionarAdmins_Click);
@@ -109,6 +112,29 @@
             this.pictureBoxContacto.TabStop = false;
             this.pictureBoxContacto.Click += new System.EventHandler(this.pictureBoxContacto_Click);
             // 
+            // pictureBoxPerfil
+            // 
+            this.pictureBoxPerfil.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBoxPerfil.BackgroundImage = global::Projecte_Chrysallis.Properties.Resources.usuario;
+            this.pictureBoxPerfil.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBoxPerfil.Location = new System.Drawing.Point(12, 19);
+            this.pictureBoxPerfil.Name = "pictureBoxPerfil";
+            this.pictureBoxPerfil.Size = new System.Drawing.Size(29, 32);
+            this.pictureBoxPerfil.TabIndex = 6;
+            this.pictureBoxPerfil.TabStop = false;
+            // 
+            // labelPerfil
+            // 
+            this.labelPerfil.AutoSize = true;
+            this.labelPerfil.BackColor = System.Drawing.Color.Transparent;
+            this.labelPerfil.Font = new System.Drawing.Font("Yu Gothic UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelPerfil.ForeColor = System.Drawing.Color.Black;
+            this.labelPerfil.Location = new System.Drawing.Point(41, 17);
+            this.labelPerfil.Name = "labelPerfil";
+            this.labelPerfil.Size = new System.Drawing.Size(79, 17);
+            this.labelPerfil.TabIndex = 7;
+            this.labelPerfil.Text = "Bienvenido ";
+            // 
             // FormMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -118,6 +144,8 @@
             this.BackgroundImage = global::Projecte_Chrysallis.Properties.Resources.Fondo;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(432, 660);
+            this.Controls.Add(this.labelPerfil);
+            this.Controls.Add(this.pictureBoxPerfil);
             this.Controls.Add(this.pictureBoxContacto);
             this.Controls.Add(this.pictureBoxGestionarAdmins);
             this.Controls.Add(this.pictureBoxGestionarSocios);
@@ -142,7 +170,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxGestionarSocios)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxGestionarAdmins)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxContacto)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPerfil)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -154,6 +184,8 @@
         private System.Windows.Forms.PictureBox pictureBoxGestionarSocios;
         private System.Windows.Forms.PictureBox pictureBoxGestionarAdmins;
         private System.Windows.Forms.PictureBox pictureBoxContacto;
+        private System.Windows.Forms.PictureBox pictureBoxPerfil;
+        private System.Windows.Forms.Label labelPerfil;
     }
 }
 

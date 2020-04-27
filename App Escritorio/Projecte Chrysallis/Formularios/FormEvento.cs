@@ -12,7 +12,7 @@ namespace Projecte_Chrysallis
     public partial class FormEvento : Form
     {
         //========================================================================================================//
-        //VARIABLES
+        //                                                VARIABLES
         //========================================================================================================//
         //Evento seleccionado en el formEventos
         private Eventos _evento;
@@ -21,13 +21,12 @@ namespace Projecte_Chrysallis
         //lista de los documentos del nuevo evento
         private List<Documentos> _documentos = new List<Documentos>();
         //lista de las notificaciones del nuevo evento
-        private List<Notificaciones> notificaciones = new List<Notificaciones>();
+        private List<Notificaciones> _notificaciones = new List<Notificaciones>();
         //click para saber si el usuario ha modificado o añadido un evento
         private bool clickBotonEvento = false;
 
-
         //========================================================================================================//
-        //CONSTRUCTORES
+        //                                              CONSTRUCTORES
         //========================================================================================================//
         /// <summary>
         /// Constructor vacio por defecto que se usa para añadir un nuevo evento
@@ -41,7 +40,7 @@ namespace Projecte_Chrysallis
         /// <summary>
         /// Constructor parametrizado para modificar un evento
         /// </summary>
-        /// <param name="id"></param>
+        /// <param name="evento"></param>
         public FormEvento(Eventos evento)
         {
             InitializeComponent();
@@ -53,13 +52,21 @@ namespace Projecte_Chrysallis
                 _documentos.Add(documento);
             }
 
+            foreach (Notificaciones notificacion in evento.Notificaciones)
+            {
+                _notificaciones.Add(notificacion);
+            }
+
         }
 
-
-
         //========================================================================================================//
-        //EVENTOS
         //========================================================================================================//
+        //========================================================================================================//
+        //                                          EVENTOS
+        //========================================================================================================//
+        //========================================================================================================//
+        //========================================================================================================//
+
 
         /// <summary>
         /// ==EVENTO LOAD==
@@ -146,7 +153,7 @@ namespace Projecte_Chrysallis
                     }
                     else
                     {
-                        MessageBox.Show("No se ha podido modificar el evento: " + mensaje, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("No se ha podido añadir el evento: " + mensaje, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
 
                 }
@@ -226,9 +233,8 @@ namespace Projecte_Chrysallis
         private void pictureBoxAnadirNotificacion_Click(object sender, EventArgs e)
         {
             Notificaciones notificacion = new Notificaciones();
-            int.TryParse(dateTimePickerNotificacion.Value.ToString(), out int antelacion);
-            notificacion.antelacion = antelacion;
-            notificaciones.Add(notificacion);
+            notificacion.fechaHora = dateTimePickerNotificacion.Value;
+            _notificaciones.Add(notificacion);
             RefrescarListNotificaciones();
         }
 
@@ -240,7 +246,7 @@ namespace Projecte_Chrysallis
         /// <param name="e"></param>
         private void pictureBoxEliminarNotificacion_Click(object sender, EventArgs e)
         {
-            notificaciones.Remove((Notificaciones)listBoxNotificaciones.SelectedItem);
+            _notificaciones.Remove((Notificaciones)listBoxNotificaciones.SelectedItem);
             RefrescarListNotificaciones();
         }
 
@@ -282,7 +288,11 @@ namespace Projecte_Chrysallis
         }
 
         //========================================================================================================//
-        //METODOS
+        //========================================================================================================//
+        //========================================================================================================//
+        //                                          METODOS
+        //========================================================================================================//
+        //========================================================================================================//
         //========================================================================================================//
 
         /// <summary>
@@ -302,7 +312,7 @@ namespace Projecte_Chrysallis
                 evento.idComunidad = (byte)comboBoxComunidades.SelectedValue;
                 evento.idAdmin = FormLogin.adminLogeado.id;
                 evento.Documentos = _documentos;
-                evento.Notificaciones = notificaciones;
+                evento.Notificaciones = _notificaciones;
                 return evento;
             }
             else
@@ -323,8 +333,10 @@ namespace Projecte_Chrysallis
             comboBoxComunidades.SelectedValue = _evento.idComunidad;
             dateTimePickerEvento.Value = _evento.fecha;
             dateTimePickerLimite.Value = (DateTime)_evento.fecha_limite;
+            bindingSourceDocumentos.DataSource = null;
             bindingSourceDocumentos.DataSource = _documentos;
-            //listBoxNotificaciones.DataSource = _evento.Notificaciones.ToList();
+            notificacionesBindingSource.DataSource = null;
+            notificacionesBindingSource.DataSource = _notificaciones;
 
             if (EventoFinalizado(_evento))
             {
@@ -384,8 +396,8 @@ namespace Projecte_Chrysallis
         /// </summary>
         public void RefrescarListNotificaciones()
         {
-            listBoxNotificaciones.DataSource = null;
-            listBoxNotificaciones.DataSource = notificaciones;
+            notificacionesBindingSource.DataSource = null;
+            notificacionesBindingSource.DataSource = _notificaciones;
         }
 
         /// <summary>
@@ -465,9 +477,8 @@ namespace Projecte_Chrysallis
 
 
         //========================================================================================================//
-        //OTROS
+        //                                          OTROS
         //========================================================================================================//
-
         //Constantes necesarias para mover form
         private const int WM_NCHITTEST = 0x84;
         private const int HT_CLIENT = 0x1;

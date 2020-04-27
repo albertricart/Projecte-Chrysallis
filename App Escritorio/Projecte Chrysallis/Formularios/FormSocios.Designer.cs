@@ -45,6 +45,7 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.textBoxFiltro = new System.Windows.Forms.TextBox();
             this.comboBoxFiltro = new System.Windows.Forms.ComboBox();
+            this.bindingSourceSocios = new System.Windows.Forms.BindingSource(this.components);
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dniDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -54,11 +55,11 @@
             this.telefonoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.poblacionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idComunidadDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.comunidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.activoDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.asistirDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.comunidadesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.comunidades1DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bindingSourceSocios = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSocios)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAtras)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -91,7 +92,7 @@
             this.buttonEliminar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.buttonEliminar.Image = global::Projecte_Chrysallis.Properties.Resources.botonEliminar;
-            this.buttonEliminar.Location = new System.Drawing.Point(450, 18);
+            this.buttonEliminar.Location = new System.Drawing.Point(346, 147);
             this.buttonEliminar.Name = "buttonEliminar";
             this.buttonEliminar.Size = new System.Drawing.Size(120, 50);
             this.buttonEliminar.TabIndex = 11;
@@ -103,7 +104,7 @@
             this.buttonModificar.BackgroundImage = global::Projecte_Chrysallis.Properties.Resources.botonModificar;
             this.buttonModificar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonModificar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.buttonModificar.Location = new System.Drawing.Point(289, 18);
+            this.buttonModificar.Location = new System.Drawing.Point(176, 148);
             this.buttonModificar.Name = "buttonModificar";
             this.buttonModificar.Size = new System.Drawing.Size(126, 50);
             this.buttonModificar.TabIndex = 10;
@@ -115,7 +116,7 @@
             this.buttonAnadir.BackgroundImage = global::Projecte_Chrysallis.Properties.Resources.botonAnadir;
             this.buttonAnadir.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonAnadir.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.buttonAnadir.Location = new System.Drawing.Point(136, 18);
+            this.buttonAnadir.Location = new System.Drawing.Point(12, 148);
             this.buttonAnadir.Name = "buttonAnadir";
             this.buttonAnadir.Size = new System.Drawing.Size(120, 50);
             this.buttonAnadir.TabIndex = 9;
@@ -151,6 +152,7 @@
             this.telefonoDataGridViewTextBoxColumn,
             this.poblacionDataGridViewTextBoxColumn,
             this.idComunidadDataGridViewTextBoxColumn,
+            this.comunidad,
             this.activoDataGridViewCheckBoxColumn,
             this.asistirDataGridViewTextBoxColumn,
             this.comunidadesDataGridViewTextBoxColumn,
@@ -165,7 +167,7 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridViewSocios.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewSocios.EnableHeadersVisualStyles = false;
-            this.dataGridViewSocios.Location = new System.Drawing.Point(12, 183);
+            this.dataGridViewSocios.Location = new System.Drawing.Point(12, 217);
             this.dataGridViewSocios.MultiSelect = false;
             this.dataGridViewSocios.Name = "dataGridViewSocios";
             this.dataGridViewSocios.ReadOnly = true;
@@ -187,8 +189,10 @@
             this.dataGridViewSocios.RowTemplate.Height = 35;
             this.dataGridViewSocios.RowTemplate.ReadOnly = true;
             this.dataGridViewSocios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewSocios.Size = new System.Drawing.Size(1240, 468);
+            this.dataGridViewSocios.Size = new System.Drawing.Size(1240, 436);
             this.dataGridViewSocios.TabIndex = 7;
+            this.dataGridViewSocios.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewSocios_CellDoubleClick);
+            this.dataGridViewSocios.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridViewSocios_CellFormatting);
             // 
             // pictureBoxAtras
             // 
@@ -208,9 +212,9 @@
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.BackgroundImage = global::Projecte_Chrysallis.Properties.Resources.LogoChrysallis;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox1.Location = new System.Drawing.Point(1105, 12);
+            this.pictureBox1.Location = new System.Drawing.Point(1116, 12);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(147, 151);
+            this.pictureBox1.Size = new System.Drawing.Size(136, 128);
             this.pictureBox1.TabIndex = 14;
             this.pictureBox1.TabStop = false;
             // 
@@ -220,7 +224,7 @@
             this.groupBox3.Controls.Add(this.textBoxFiltro);
             this.groupBox3.Controls.Add(this.comboBoxFiltro);
             this.groupBox3.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.Location = new System.Drawing.Point(12, 109);
+            this.groupBox3.Location = new System.Drawing.Point(830, 143);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(422, 68);
             this.groupBox3.TabIndex = 15;
@@ -237,6 +241,7 @@
             // 
             // comboBoxFiltro
             // 
+            this.comboBoxFiltro.BackColor = System.Drawing.SystemColors.Window;
             this.comboBoxFiltro.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxFiltro.FormattingEnabled = true;
             this.comboBoxFiltro.Items.AddRange(new object[] {
@@ -254,6 +259,10 @@
             this.comboBoxFiltro.Size = new System.Drawing.Size(181, 29);
             this.comboBoxFiltro.TabIndex = 2;
             this.comboBoxFiltro.SelectedIndexChanged += new System.EventHandler(this.comboBoxFiltro_SelectedIndexChanged);
+            // 
+            // bindingSourceSocios
+            // 
+            this.bindingSourceSocios.DataSource = typeof(Projecte_Chrysallis.Socios);
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -324,9 +333,18 @@
             // 
             this.idComunidadDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.idComunidadDataGridViewTextBoxColumn.DataPropertyName = "idComunidad";
-            this.idComunidadDataGridViewTextBoxColumn.HeaderText = "Comunidad";
+            this.idComunidadDataGridViewTextBoxColumn.HeaderText = "idComunidad";
             this.idComunidadDataGridViewTextBoxColumn.Name = "idComunidadDataGridViewTextBoxColumn";
             this.idComunidadDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idComunidadDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // comunidad
+            // 
+            this.comunidad.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.comunidad.HeaderText = "Comunidad";
+            this.comunidad.Name = "comunidad";
+            this.comunidad.ReadOnly = true;
+            this.comunidad.Width = 134;
             // 
             // activoDataGridViewCheckBoxColumn
             // 
@@ -349,7 +367,7 @@
             // 
             this.comunidadesDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.comunidadesDataGridViewTextBoxColumn.DataPropertyName = "Comunidades";
-            this.comunidadesDataGridViewTextBoxColumn.HeaderText = "Comunidades";
+            this.comunidadesDataGridViewTextBoxColumn.HeaderText = "Comunidad";
             this.comunidadesDataGridViewTextBoxColumn.Name = "comunidadesDataGridViewTextBoxColumn";
             this.comunidadesDataGridViewTextBoxColumn.ReadOnly = true;
             this.comunidadesDataGridViewTextBoxColumn.Visible = false;
@@ -362,10 +380,6 @@
             this.comunidades1DataGridViewTextBoxColumn.Name = "comunidades1DataGridViewTextBoxColumn";
             this.comunidades1DataGridViewTextBoxColumn.ReadOnly = true;
             this.comunidades1DataGridViewTextBoxColumn.Visible = false;
-            // 
-            // bindingSourceSocios
-            // 
-            this.bindingSourceSocios.DataSource = typeof(Projecte_Chrysallis.Socios);
             // 
             // FormSocios
             // 
@@ -422,6 +436,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn telefonoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn poblacionDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn idComunidadDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn comunidad;
         private System.Windows.Forms.DataGridViewCheckBoxColumn activoDataGridViewCheckBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn asistirDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn comunidadesDataGridViewTextBoxColumn;

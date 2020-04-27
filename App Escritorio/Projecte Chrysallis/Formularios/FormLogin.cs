@@ -5,16 +5,30 @@ namespace Projecte_Chrysallis.Formularios
 {
     public partial class FormLogin : Form
     {
+        //========================================================================================================//
+        //                                                VARIABLES
+        //========================================================================================================//
         //administrador con el que se haya entrado en la aplicación
         public static Administradores adminLogeado;
         bool valido = false, //para comprobar si el login es correcto o no
             pwVisible = false; //para comprobar si la contraseña es visible o no (con '•')
 
+        //========================================================================================================//
+        //                                              CONSTRUCTORES
+        //========================================================================================================//
         public FormLogin()
         {
             InitializeComponent();
         }
 
+
+        //========================================================================================================//
+        //========================================================================================================//
+        //========================================================================================================//
+        //                                          EVENTOS
+        //========================================================================================================//
+        //========================================================================================================//
+        //========================================================================================================//
         /// <summary>
         /// Evento que se activa al cargar el formulario
         /// </summary>
@@ -23,6 +37,11 @@ namespace Projecte_Chrysallis.Formularios
             labelIncorrectos.Visible = false;
         }
 
+        /// <summary>
+        /// evento formclosing que cierra la app
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void FormLogin_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (!valido)
@@ -31,6 +50,11 @@ namespace Projecte_Chrysallis.Formularios
             }
         }
 
+        /// <summary>
+        /// evento click al boton para intentar logearse
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonAcceder_Click(object sender, EventArgs e)
         {
             intentarLogin();
@@ -60,7 +84,7 @@ namespace Projecte_Chrysallis.Formularios
             else
             {
                 adminLogeado = new Administradores();
-                
+
                 adminLogeado.superadmin = admin.superadmin;
                 adminLogeado.id = admin.id;
                 adminLogeado.nombre = admin.nombre;
@@ -71,7 +95,7 @@ namespace Projecte_Chrysallis.Formularios
                 adminLogeado.Comunidades = admin.Comunidades;
 
                 valido = true;
-                
+
                 Hide();
                 FormMenu formMenu = new FormMenu();
                 labelIncorrectos.Visible = false;
@@ -117,36 +141,5 @@ namespace Projecte_Chrysallis.Formularios
                 pictureBoxOjo.Image = Properties.Resources.ojoActivado;
             }
         }
-
-
-        /*
-        //------------ PRUEBAS ------------
-        private void formatearHintEmail()
-        {
-            textBoxEmail.ForeColor = Color.DarkGray;
-            textBoxEmail.Font = new Font(textBoxEmail.Font, FontStyle.Italic);
-        }
-
-        private void formatearNormalEmail()
-        {
-            textBoxEmail.ForeColor = Color.Black;
-            textBoxEmail.Font = new Font(textBoxEmail.Font, FontStyle.Regular);
-        }
-
-        private void formatearNormalPW()
-        {
-            textBoxContrasenya.ForeColor = Color.Black;
-            textBoxContrasenya.Font = new Font(textBoxEmail.Font, FontStyle.Regular);
-            textBoxContrasenya.PasswordChar = '•';
-        }
-
-        private void formatearHintPW()
-        {
-            textBoxContrasenya.ForeColor = Color.DarkGray;
-            textBoxContrasenya.Font = new Font(textBoxEmail.Font, FontStyle.Italic);
-            textBoxContrasenya.Text = "Contraseña";
-        }
-        //------------------------------------------
-        */
     }
 }

@@ -203,6 +203,16 @@ namespace Projecte_Chrysallis.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap FondoNoSuperFinal {
+            get {
+                object obj = ResourceManager.GetObject("FondoNoSuperFinal", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap FondoPantalla {
             get {
                 object obj = ResourceManager.GetObject("FondoPantalla", resourceCulture);
@@ -216,6 +226,16 @@ namespace Projecte_Chrysallis.Properties {
         internal static System.Drawing.Bitmap Gestionar_Evento {
             get {
                 object obj = ResourceManager.GetObject("Gestionar Evento", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap guardarBtn {
+            get {
+                object obj = ResourceManager.GetObject("guardarBtn", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

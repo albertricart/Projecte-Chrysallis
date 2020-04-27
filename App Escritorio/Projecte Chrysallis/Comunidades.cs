@@ -18,8 +18,8 @@ namespace Projecte_Chrysallis
         public Comunidades()
         {
             this.Eventos = new HashSet<Eventos>();
-            this.Administradores = new HashSet<Administradores>();
             this.Socios = new HashSet<Socios>();
+            this.Administradores = new HashSet<Administradores>();
             this.Socios1 = new HashSet<Socios>();
         }
     
@@ -29,9 +29,9 @@ namespace Projecte_Chrysallis
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Eventos> Eventos { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Administradores> Administradores { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Socios> Socios { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Administradores> Administradores { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Socios> Socios1 { get; set; }
     }

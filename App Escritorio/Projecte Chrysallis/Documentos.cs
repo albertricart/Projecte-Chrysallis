@@ -17,7 +17,7 @@ namespace Projecte_Chrysallis
         public int id { get; set; }
         public string url { get; set; }
         public byte[] datos { get; set; }
-        public short idEvento { get; set; }
+        public Nullable<short> idEvento { get; set; }
     
         public virtual Eventos Eventos { get; set; }
     }

@@ -106,7 +106,7 @@
             this.dataGridViewAdmins.DefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridViewAdmins.EnableHeadersVisualStyles = false;
             this.dataGridViewAdmins.GridColor = System.Drawing.SystemColors.ActiveBorder;
-            this.dataGridViewAdmins.Location = new System.Drawing.Point(12, 228);
+            this.dataGridViewAdmins.Location = new System.Drawing.Point(12, 176);
             this.dataGridViewAdmins.MultiSelect = false;
             this.dataGridViewAdmins.Name = "dataGridViewAdmins";
             this.dataGridViewAdmins.ReadOnly = true;
@@ -118,7 +118,7 @@
             this.dataGridViewAdmins.RowTemplate.Height = 35;
             this.dataGridViewAdmins.RowTemplate.ReadOnly = true;
             this.dataGridViewAdmins.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewAdmins.Size = new System.Drawing.Size(861, 338);
+            this.dataGridViewAdmins.Size = new System.Drawing.Size(965, 400);
             this.dataGridViewAdmins.TabIndex = 1;
             this.dataGridViewAdmins.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewAdmins_CellDoubleClick);
             this.dataGridViewAdmins.SelectionChanged += new System.EventHandler(this.dataGridViewAdmins_SelectionChanged);
@@ -226,7 +226,7 @@
             this.listBoxComunidades.Location = new System.Drawing.Point(8, 30);
             this.listBoxComunidades.Name = "listBoxComunidades";
             this.listBoxComunidades.SelectionMode = System.Windows.Forms.SelectionMode.None;
-            this.listBoxComunidades.Size = new System.Drawing.Size(272, 300);
+            this.listBoxComunidades.Size = new System.Drawing.Size(272, 362);
             this.listBoxComunidades.TabIndex = 3;
             this.listBoxComunidades.ValueMember = "id";
             // 
@@ -239,10 +239,10 @@
             this.groupBoxComunidades.BackColor = System.Drawing.Color.Transparent;
             this.groupBoxComunidades.Controls.Add(this.listBoxComunidades);
             this.groupBoxComunidades.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBoxComunidades.Location = new System.Drawing.Point(896, 238);
+            this.groupBoxComunidades.Location = new System.Drawing.Point(996, 176);
             this.groupBoxComunidades.Name = "groupBoxComunidades";
             this.groupBoxComunidades.Padding = new System.Windows.Forms.Padding(8);
-            this.groupBoxComunidades.Size = new System.Drawing.Size(288, 338);
+            this.groupBoxComunidades.Size = new System.Drawing.Size(288, 400);
             this.groupBoxComunidades.TabIndex = 5;
             this.groupBoxComunidades.TabStop = false;
             this.groupBoxComunidades.Text = "Comunidades que administra";
@@ -261,7 +261,7 @@
             this.groupBox3.Controls.Add(this.textBoxFiltro);
             this.groupBox3.Controls.Add(this.comboBoxFiltro);
             this.groupBox3.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.Location = new System.Drawing.Point(730, 154);
+            this.groupBox3.Location = new System.Drawing.Point(523, 100);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(454, 68);
             this.groupBox3.TabIndex = 9;
@@ -285,9 +285,9 @@
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.BackgroundImage = global::Projecte_Chrysallis.Properties.Resources.LogoChrysallis;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox1.Location = new System.Drawing.Point(1016, 12);
+            this.pictureBox1.Location = new System.Drawing.Point(1127, 12);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(168, 141);
+            this.pictureBox1.Size = new System.Drawing.Size(149, 144);
             this.pictureBox1.TabIndex = 14;
             this.pictureBox1.TabStop = false;
             // 
@@ -296,7 +296,7 @@
             this.buttonEliminar.BackgroundImage = global::Projecte_Chrysallis.Properties.Resources.botonEliminar;
             this.buttonEliminar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonEliminar.Location = new System.Drawing.Point(322, 164);
+            this.buttonEliminar.Location = new System.Drawing.Point(329, 106);
             this.buttonEliminar.Name = "buttonEliminar";
             this.buttonEliminar.Size = new System.Drawing.Size(120, 50);
             this.buttonEliminar.TabIndex = 17;
@@ -308,7 +308,7 @@
             this.buttonModificar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonModificar.Image = global::Projecte_Chrysallis.Properties.Resources.botonModificar;
-            this.buttonModificar.Location = new System.Drawing.Point(166, 164);
+            this.buttonModificar.Location = new System.Drawing.Point(171, 106);
             this.buttonModificar.Name = "buttonModificar";
             this.buttonModificar.Size = new System.Drawing.Size(119, 50);
             this.buttonModificar.TabIndex = 16;
@@ -320,7 +320,7 @@
             this.buttonAnadir.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonAnadir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonAnadir.Image = global::Projecte_Chrysallis.Properties.Resources.botonAnadir;
-            this.buttonAnadir.Location = new System.Drawing.Point(12, 164);
+            this.buttonAnadir.Location = new System.Drawing.Point(12, 106);
             this.buttonAnadir.Name = "buttonAnadir";
             this.buttonAnadir.Size = new System.Drawing.Size(120, 50);
             this.buttonAnadir.TabIndex = 15;
@@ -333,7 +333,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Projecte_Chrysallis.Properties.Resources.FondoPantalla;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1196, 588);
+            this.ClientSize = new System.Drawing.Size(1296, 588);
             this.Controls.Add(this.buttonEliminar);
             this.Controls.Add(this.buttonModificar);
             this.Controls.Add(this.buttonAnadir);
@@ -346,8 +346,8 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(1212, 627);
-            this.MinimumSize = new System.Drawing.Size(1212, 627);
+            this.MaximumSize = new System.Drawing.Size(1312, 627);
+            this.MinimumSize = new System.Drawing.Size(1312, 627);
             this.Name = "FormAdmins";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Gestión de Administradores - MeetChrysallis";
