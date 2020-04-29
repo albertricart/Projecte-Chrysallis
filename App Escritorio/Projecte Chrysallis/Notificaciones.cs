@@ -15,7 +15,7 @@ namespace Projecte_Chrysallis
     public partial class Notificaciones
     {
         public int id { get; set; }
-        public Nullable<System.DateTime> fechaHora { get; set; }
+        public System.DateTime fechaHora { get; set; }
         public Nullable<short> idEvento { get; set; }
     
         public virtual Eventos Eventos { get; set; }

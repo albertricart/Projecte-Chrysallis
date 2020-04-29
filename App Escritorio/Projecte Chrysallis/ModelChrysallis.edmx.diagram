@@ -9,22 +9,22 @@
         <EntityTypeShape EntityType="ChrysallisModel.Comentarios" Width="1.5" PointX="6.875" PointY="1.5" />
         <EntityTypeShape EntityType="ChrysallisModel.Administradores" Width="1.5" PointX="0.75" PointY="6.625" />
         <EntityTypeShape EntityType="ChrysallisModel.Comunidades" Width="1.5" PointX="3" PointY="12.125" />
-        <EntityTypeShape EntityType="ChrysallisModel.Eventos" Width="1.5" PointX="5.25" PointY="6.5" />
         <EntityTypeShape EntityType="ChrysallisModel.Socios" Width="1.5" PointX="5.25" PointY="11.375" />
-        <AssociationConnector Association="ChrysallisModel.FK_Eventos_Administradores" />
-        <AssociationConnector Association="ChrysallisModel.FK_Asistir_Eventos" />
         <AssociationConnector Association="ChrysallisModel.FK_Asistir_Socios" />
-        <AssociationConnector Association="ChrysallisModel.FK_Comentario_Eventos" />
         <AssociationConnector Association="ChrysallisModel.FK_Comentario_Socios" />
-        <AssociationConnector Association="ChrysallisModel.FK_Eventos_Comunidad" />
         <AssociationConnector Association="ChrysallisModel.FK_Socios_Comunidad" />
         <AssociationConnector Association="ChrysallisModel.AdministrarComunidad" />
         <AssociationConnector Association="ChrysallisModel.ComunidadesInteresadas" />
-        <EntityTypeShape EntityType="ChrysallisModel.Documentos" Width="1.5" PointX="7.5" PointY="6.25" />
-        <EntityTypeShape EntityType="ChrysallisModel.Notificaciones" Width="1.5" PointX="7.5" PointY="8.875" />
+        <EntityTypeShape EntityType="ChrysallisModel.Documentos" Width="1.5" PointX="7.5" PointY="8.75" />
+        <EntityTypeShape EntityType="ChrysallisModel.Eventos" Width="1.5" PointX="5.25" PointY="6.5" />
+        <EntityTypeShape EntityType="ChrysallisModel.Notificaciones" Width="1.5" PointX="7.5" PointY="6.25" />
+        <AssociationConnector Association="ChrysallisModel.FK_Eventos_Administradores" />
+        <AssociationConnector Association="ChrysallisModel.FK_Asistir_Eventos" />
+        <AssociationConnector Association="ChrysallisModel.FK_Comentario_Eventos" />
+        <AssociationConnector Association="ChrysallisModel.FK_Eventos_Comunidad" />
         <AssociationConnector Association="ChrysallisModel.FK_Documentos_Eventos" />
         <AssociationConnector Association="ChrysallisModel.FK_Notificaciones_Eventos" />
-      </Diagram>
+        </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
 </edmx:Edmx>

@@ -28,10 +28,10 @@ namespace Projecte_Chrysallis
         public System.DateTime fecha { get; set; }
         public string ubicacion { get; set; }
         public string descripcion { get; set; }
-        public Nullable<System.DateTime> fecha_limite { get; set; }
-        public byte idComunidad { get; set; }
-        public byte idAdmin { get; set; }
+        public System.DateTime fecha_limite { get; set; }
         public double valoracionMedia { get; set; }
+        public byte idComunidad { get; set; }
+        public Nullable<byte> idAdmin { get; set; }
     
         public virtual Administradores Administradores { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

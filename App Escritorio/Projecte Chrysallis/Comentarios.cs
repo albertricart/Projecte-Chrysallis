@@ -22,7 +22,7 @@ namespace Projecte_Chrysallis
         public bool activo { get; set; }
         public string body { get; set; }
     
-        public virtual Eventos Eventos { get; set; }
         public virtual Socios Socios { get; set; }
+        public virtual Eventos Eventos { get; set; }
     }
 }

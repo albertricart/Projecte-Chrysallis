@@ -83,8 +83,6 @@
             this.textBoxTitulo.TabIndex = 1;
             this.textBoxTitulo.Text = "Evento...";
             this.textBoxTitulo.UseSystemPasswordChar = true;
-            this.textBoxTitulo.Enter += new System.EventHandler(this.textBoxTitulo_Enter);
-            this.textBoxTitulo.Leave += new System.EventHandler(this.textBoxTitulo_Leave);
             // 
             // textBoxUbi
             // 

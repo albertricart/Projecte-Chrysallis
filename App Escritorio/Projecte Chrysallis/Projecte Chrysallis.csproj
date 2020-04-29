@@ -97,12 +97,6 @@
     <Compile Include="Formularios\FormAdmins.Designer.cs">
       <DependentUpon>FormAdmins.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\FormCambiarPW_email.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Formularios\FormCambiarPW_email.Designer.cs">
-      <DependentUpon>FormCambiarPW_email.cs</DependentUpon>
-    </Compile>
     <Compile Include="Formularios\FormContacto.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -187,9 +181,6 @@
     </Compile>
     <EmbeddedResource Include="Formularios\FormAdmins.resx">
       <DependentUpon>FormAdmins.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\FormCambiarPW_email.resx">
-      <DependentUpon>FormCambiarPW_email.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\FormContacto.resx">
       <DependentUpon>FormContacto.cs</DependentUpon>
@@ -335,8 +326,6 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Resources\Documentos\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
