@@ -158,6 +158,21 @@ namespace Projecte_Chrysallis
                 }
 
             }
+
+            if (e.ColumnIndex == 7 && dataGridViewEventos.Rows.Count > 0)
+            {
+                Eventos evento = (Eventos)dataGridViewEventos.Rows[e.RowIndex].DataBoundItem;
+                if (evento != null || evento.Administradores != null)
+                {
+                    e.Value = evento.Comunidades.nombre;
+                }
+                else
+                {
+                    MessageBox.Show("El evento es nulo o no tiene administrador", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+            }
+
         }
 
         /// <summary>

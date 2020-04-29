@@ -15,7 +15,7 @@ namespace Projecte_Chrysallis
         //                                                VARIABLES
         //========================================================================================================//
         //Evento seleccionado en el formEventos
-        private Eventos _evento;
+        private Eventos _evento = new Eventos();
         //Variable para indicar si queremos añadir o modificar un evento
         private bool modificar;
         //lista de los documentos del nuevo evento
@@ -234,6 +234,7 @@ namespace Projecte_Chrysallis
         {
             Notificaciones notificacion = new Notificaciones();
             notificacion.fechaHora = dateTimePickerNotificacion.Value;
+            //notificacion.idEvento = _evento.id;
             _notificaciones.Add(notificacion);
             RefrescarListNotificaciones();
         }
@@ -267,25 +268,6 @@ namespace Projecte_Chrysallis
             }
         }
 
-
-
-        private void textBoxTitulo_Enter(object sender, EventArgs e)
-        {
-            if (!textBoxTitulo.Text.Equals("Evento..."))
-            {
-                textBoxTitulo.Text = "";
-                textBoxTitulo.ForeColor = Color.Black;
-            }
-        }
-
-        private void textBoxTitulo_Leave(object sender, EventArgs e)
-        {
-            if (textBoxTitulo.Text.Equals(""))
-            {
-                textBoxTitulo.Text = "Evento...";
-                textBoxTitulo.ForeColor = Color.DimGray;
-            }
-        }
 
         //========================================================================================================//
         //========================================================================================================//
@@ -364,6 +346,7 @@ namespace Projecte_Chrysallis
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
                 documento.url = openFileDialog.FileName;
+                //documento.idEvento = _evento.id;
                 try
                 {
                     documento.datos = File.ReadAllBytes(documento.url);
