@@ -139,12 +139,6 @@
     <Compile Include="Formularios\FormSocio.Designer.cs">
       <DependentUpon>FormSocio.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\FormPerfil.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Formularios\FormPerfil.Designer.cs">
-      <DependentUpon>FormPerfil.cs</DependentUpon>
-    </Compile>
     <Compile Include="Formularios\FormSocios.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -202,9 +196,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\FormSocio.resx">
       <DependentUpon>FormSocio.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\FormPerfil.resx">
-      <DependentUpon>FormPerfil.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\FormSocios.resx">
       <DependentUpon>FormSocios.cs</DependentUpon>
